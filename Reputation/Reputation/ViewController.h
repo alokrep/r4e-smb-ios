@@ -2,7 +2,7 @@
 //  ViewController.h
 //  Reputation
 //
-//  Created by Jai.Sharma on 1/31/14.
+//  Created by Jai.Sharma  on 1/31/14.
 //  Copyright (c) 2014 www. All rights reserved.
 //
 
@@ -11,5 +11,6 @@
 @interface ViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIImageView *imgVw_BackGround;
 @property (weak, nonatomic) IBOutlet UIButton *signInBtn;
+- (IBAction)signInBtnAction:(id)sender;
 
 @end
