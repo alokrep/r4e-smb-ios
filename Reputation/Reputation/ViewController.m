@@ -17,7 +17,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	self.imgVw_BackGround.backgroundColor = [UIColor colorWithRed:34.0f/255.0f green:71.0f/255.0f blue:108.0f/255.0f alpha:1.0f];
+	
     
 }
 

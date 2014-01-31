@@ -22,6 +22,12 @@
 		74C72600189AE8E5008CD4AF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74C725DF189AE8E4008CD4AF /* UIKit.framework */; };
 		74C72608189AE8E5008CD4AF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 74C72606189AE8E5008CD4AF /* InfoPlist.strings */; };
 		74C7260A189AE8E5008CD4AF /* ReputationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C72609189AE8E5008CD4AF /* ReputationTests.m */; };
+		74C7261D189B083F008CD4AF /* TabBarControllerClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C7261C189B083F008CD4AF /* TabBarControllerClass.m */; };
+		74C72620189B0936008CD4AF /* DashBoardController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C7261F189B0936008CD4AF /* DashBoardController.m */; };
+		74C72623189B0968008CD4AF /* ReviewsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C72622189B0968008CD4AF /* ReviewsController.m */; };
+		74C72626189B0C58008CD4AF /* SocialController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C72625189B0C58008CD4AF /* SocialController.m */; };
+		74C72629189B0C6A008CD4AF /* ScoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C72628189B0C6A008CD4AF /* ScoreController.m */; };
+		74C7262C189B11EE008CD4AF /* CustomNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C7262B189B11EE008CD4AF /* CustomNavigation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +61,18 @@
 		74C72605189AE8E5008CD4AF /* ReputationTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ReputationTests-Info.plist"; sourceTree = "<group>"; };
 		74C72607189AE8E5008CD4AF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		74C72609189AE8E5008CD4AF /* ReputationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReputationTests.m; sourceTree = "<group>"; };
+		74C7261B189B083F008CD4AF /* TabBarControllerClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarControllerClass.h; sourceTree = "<group>"; };
+		74C7261C189B083F008CD4AF /* TabBarControllerClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarControllerClass.m; sourceTree = "<group>"; };
+		74C7261E189B0936008CD4AF /* DashBoardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashBoardController.h; sourceTree = "<group>"; };
+		74C7261F189B0936008CD4AF /* DashBoardController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashBoardController.m; sourceTree = "<group>"; };
+		74C72621189B0968008CD4AF /* ReviewsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewsController.h; sourceTree = "<group>"; };
+		74C72622189B0968008CD4AF /* ReviewsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewsController.m; sourceTree = "<group>"; };
+		74C72624189B0C58008CD4AF /* SocialController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialController.h; sourceTree = "<group>"; };
+		74C72625189B0C58008CD4AF /* SocialController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialController.m; sourceTree = "<group>"; };
+		74C72627189B0C6A008CD4AF /* ScoreController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreController.h; sourceTree = "<group>"; };
+		74C72628189B0C6A008CD4AF /* ScoreController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreController.m; sourceTree = "<group>"; };
+		74C7262A189B11EE008CD4AF /* CustomNavigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNavigation.h; sourceTree = "<group>"; };
+		74C7262B189B11EE008CD4AF /* CustomNavigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNavigation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +138,7 @@
 				74C725F0189AE8E4008CD4AF /* Main_iPad.storyboard */,
 				74C725F3189AE8E4008CD4AF /* ViewController.h */,
 				74C725F4189AE8E4008CD4AF /* ViewController.m */,
+				74C7261A189B07D9008CD4AF /* ViewControllerClasses */,
 				74C725F6189AE8E4008CD4AF /* Images.xcassets */,
 				74C725E2189AE8E4008CD4AF /* Supporting Files */,
 			);
@@ -153,6 +172,25 @@
 				74C72606189AE8E5008CD4AF /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		74C7261A189B07D9008CD4AF /* ViewControllerClasses */ = {
+			isa = PBXGroup;
+			children = (
+				74C7261B189B083F008CD4AF /* TabBarControllerClass.h */,
+				74C7261C189B083F008CD4AF /* TabBarControllerClass.m */,
+				74C7261E189B0936008CD4AF /* DashBoardController.h */,
+				74C7261F189B0936008CD4AF /* DashBoardController.m */,
+				74C72621189B0968008CD4AF /* ReviewsController.h */,
+				74C72622189B0968008CD4AF /* ReviewsController.m */,
+				74C72624189B0C58008CD4AF /* SocialController.h */,
+				74C72625189B0C58008CD4AF /* SocialController.m */,
+				74C72627189B0C6A008CD4AF /* ScoreController.h */,
+				74C72628189B0C6A008CD4AF /* ScoreController.m */,
+				74C7262A189B11EE008CD4AF /* CustomNavigation.h */,
+				74C7262B189B11EE008CD4AF /* CustomNavigation.m */,
+			);
+			path = ViewControllerClasses;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,7 +291,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74C72620189B0936008CD4AF /* DashBoardController.m in Sources */,
+				74C7261D189B083F008CD4AF /* TabBarControllerClass.m in Sources */,
+				74C72626189B0C58008CD4AF /* SocialController.m in Sources */,
 				74C725F5189AE8E4008CD4AF /* ViewController.m in Sources */,
+				74C72629189B0C6A008CD4AF /* ScoreController.m in Sources */,
+				74C7262C189B11EE008CD4AF /* CustomNavigation.m in Sources */,
+				74C72623189B0968008CD4AF /* ReviewsController.m in Sources */,
 				74C725EC189AE8E4008CD4AF /* AppDelegate.m in Sources */,
 				74C725E8189AE8E4008CD4AF /* main.m in Sources */,
 			);
