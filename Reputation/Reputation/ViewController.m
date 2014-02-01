@@ -27,6 +27,17 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)signInBtnAction:(id)sender {
+- (IBAction)signInBtnAction:(id)sender
+{
+    [self performSegueWithIdentifier:@"GoToSlider" sender:nil];
+
+}
+
+#pragma mark TextField Delegates
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+    
 }
 @end

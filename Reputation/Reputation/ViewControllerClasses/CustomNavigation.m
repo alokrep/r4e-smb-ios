@@ -7,6 +7,8 @@
 //
 
 #import "CustomNavigation.h"
+#import "AppDelegate.h"
+#import "TabBarControllerClass.h"
 
 @interface CustomNavigation ()
 
@@ -34,8 +36,9 @@
     
     dashBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     
+    [dashBtn setImage:[UIImage imageNamed:@"list.png"] forState:UIControlStateNormal];
     [dashBtn setFrame:CGRectMake(15,25, 30, 30)];
-    dashBtn.backgroundColor = [UIColor whiteColor];
+    dashBtn.backgroundColor = [UIColor clearColor];
     [dashBtn addTarget:self action:@selector(dashBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:dashBtn];
     
@@ -43,9 +46,55 @@
 
 -(void)dashBtnClicked:(id) sender
 {
-   
+    [self slideLeft];
+}
+-(void)slideLeft
+{
+    [self.slidingViewController anchorTopViewTo:ECRight];
     
 }
+/*
+{
+    CGRect frameTemp = self.view.frame;
+    
+    
+    
+    if (dashBtn.tag==0) {
+        frameTemp.origin.x +=250;
+        [UIView animateWithDuration:0.5
+                              delay:0.0
+                            options:UIViewAnimationOptionCurveEaseInOut
+                         animations:^{
+                             
+                             self.view.frame = frameTemp;
+                             
+                         }
+                         completion:^(BOOL finished){
+                             dashBtn.tag = 1;
+                             
+                             
+                         }];
+    }
+    else
+    {
+        
+        
+        
+    frameTemp.origin.x -=250;
+    [UIView animateWithDuration:0.5
+                          delay:0.0
+                        options:UIViewAnimationOptionCurveEaseInOut
+                     animations:^{
+                         self.view.frame = frameTemp;
+                         
+                     }
+                     completion:^(BOOL finished){
+                         dashBtn.tag = 0;
+                     }];
+    
+    }
+}
+ */
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

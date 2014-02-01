@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+@class TabBarControllerClass;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property(strong,nonatomic) TabBarControllerClass * tabBarControllerObj;
 
+
++(AppDelegate *)sharedDelegate;
 @end

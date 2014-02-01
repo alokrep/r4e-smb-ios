@@ -7,9 +7,14 @@
 //
 
 #import "AppDelegate.h"
-
+#import "TabBarControllerClass.h"
 @implementation AppDelegate
-
+@synthesize tabBarControllerObj;
++(AppDelegate *)sharedDelegate
+{
+    return (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+}
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
