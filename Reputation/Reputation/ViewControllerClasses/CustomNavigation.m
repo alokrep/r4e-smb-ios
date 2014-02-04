@@ -16,6 +16,7 @@
 
 @implementation CustomNavigation
 @synthesize lbl_title;
+@synthesize dashBtn;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -42,13 +43,13 @@
     self.lbl_title.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:self.lbl_title];
     
-    dashBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.dashBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    [dashBtn setImage:[UIImage imageNamed:@"list.png"] forState:UIControlStateNormal];
-    [dashBtn setFrame:CGRectMake(15,25, 30, 30)];
-    dashBtn.backgroundColor = [UIColor clearColor];
-    [dashBtn addTarget:self action:@selector(dashBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:dashBtn];
+    [self.dashBtn setImage:[UIImage imageNamed:@"list.png"] forState:UIControlStateNormal];
+    [self.dashBtn setFrame:CGRectMake(15,25, 30, 30)];
+    self.dashBtn.backgroundColor = [UIColor clearColor];
+    [self.dashBtn addTarget:self action:@selector(dashBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.dashBtn];
     
 }
 

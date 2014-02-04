@@ -13,5 +13,6 @@
 {
     UIButton * dashBtn;
 }
+@property (nonatomic,strong) UIButton * dashBtn;
 @property (nonatomic,strong)UILabel * lbl_title;
 @end

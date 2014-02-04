@@ -43,21 +43,27 @@ self.view.backgroundColor = [UIColor colorWithRed:234.0f/255.0f green:234.0f/255
     
     switch ([sender tag]) {
         case 0:
+            [self.imgVw_varientArrow setImage:[UIImage imageNamed:@"scoreUpArrow.png"]];
             [self.imgVw_varientArrow setFrame:CGRectMake(42, 238, self.imgVw_varientArrow.frame.size.width,  self.imgVw_varientArrow.frame.size.height)];
             break;
         case 1:
+            [self.imgVw_varientArrow setImage:[UIImage imageNamed:@"scoreUpArrow.png"]];
             [self.imgVw_varientArrow setFrame:CGRectMake(153, 238, self.imgVw_varientArrow.frame.size.width,  self.imgVw_varientArrow.frame.size.height)];
             break;
         case 2:
+            [self.imgVw_varientArrow setImage:[UIImage imageNamed:@"scoreUpArrow.png"]];
            [self.imgVw_varientArrow setFrame:CGRectMake(250, 238, self.imgVw_varientArrow.frame.size.width,  self.imgVw_varientArrow.frame.size.height)];
             break;
         case 3:
+            [self.imgVw_varientArrow setImage:[UIImage imageNamed:@"scoreDownArrow.png"]];
             [self.imgVw_varientArrow setFrame:CGRectMake(42, 328, self.imgVw_varientArrow.frame.size.width,  self.imgVw_varientArrow.frame.size.height)];
             break;
         case 4:
+            [self.imgVw_varientArrow setImage:[UIImage imageNamed:@"scoreDownArrow.png"]];
             [self.imgVw_varientArrow setFrame:CGRectMake(153,328, self.imgVw_varientArrow.frame.size.width,  self.imgVw_varientArrow.frame.size.height)];
             break;
         case 5:
+            [self.imgVw_varientArrow setImage:[UIImage imageNamed:@"scoreDownArrow.png"]];
             [self.imgVw_varientArrow setFrame:CGRectMake(250, 328, self.imgVw_varientArrow.frame.size.width,  self.imgVw_varientArrow.frame.size.height)];
             break;
             

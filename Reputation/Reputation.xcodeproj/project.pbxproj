@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D061AED18A0A9E800A7F020 /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D061AE718A0A9E800A7F020 /* arrow@2x.png */; };
+		0D061AEE18A0A9E800A7F020 /* dot_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D061AE818A0A9E800A7F020 /* dot_blue@2x.png */; };
+		0D061AEF18A0A9E800A7F020 /* dot_grey@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D061AE918A0A9E800A7F020 /* dot_grey@2x.png */; };
+		0D061AF018A0A9E800A7F020 /* list@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D061AEA18A0A9E800A7F020 /* list@2x.png */; };
+		0D061AF118A0A9E800A7F020 /* star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D061AEB18A0A9E800A7F020 /* star@2x.png */; };
+		0D061AF218A0A9E800A7F020 /* Yahoo-logo@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0D061AEC18A0A9E800A7F020 /* Yahoo-logo@2x.jpg */; };
+		0D061AFB18A0AA7800A7F020 /* filterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D061AF418A0AA7800A7F020 /* filterTableViewController.m */; };
+		0D061AFC18A0AA7800A7F020 /* filterTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D061AF618A0AA7800A7F020 /* filterTimeViewController.m */; };
+		0D061AFD18A0AA7800A7F020 /* reviewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D061AF818A0AA7800A7F020 /* reviewsTableViewCell.m */; };
+		0D061AFE18A0AA7800A7F020 /* reviewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D061AFA18A0AA7800A7F020 /* reviewsViewController.m */; };
+		0D061B0018A0AF9700A7F020 /* arrow_reviews@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D061AFF18A0AF9700A7F020 /* arrow_reviews@2x.png */; };
+		0D061B0218A0B5BF00A7F020 /* scoreDownArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D061B0118A0B5BF00A7F020 /* scoreDownArrow@2x.png */; };
 		0D37E8CD18A0048E0052346C /* ReviewCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D37E8CC18A0048E0052346C /* ReviewCustomCell.m */; };
 		0D37E8CF18A004A90052346C /* ReviewCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D37E8CE18A004A90052346C /* ReviewCustomCell.xib */; };
 		0D37E8D218A004D50052346C /* SocialCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D37E8D118A004D50052346C /* SocialCustomCell.m */; };
@@ -25,7 +37,6 @@
 		0D37E8ED18A034D80052346C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D37E8EC18A034D80052346C /* QuartzCore.framework */; };
 		0D37E8F118A043990052346C /* CustomTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D37E8EF18A043990052346C /* CustomTabBarView.m */; };
 		0D37E8F218A043990052346C /* CustomTabBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D37E8F018A043990052346C /* CustomTabBarView.xib */; };
-		0D37E8F418A044C40052346C /* social_sel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D37E8F318A044C40052346C /* social_sel@2x.png */; };
 		0D37E8F818A051060052346C /* arrow_big@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D37E8F518A051060052346C /* arrow_big@2x.png */; };
 		0D37E8F918A051060052346C /* slider_bg_score@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D37E8F618A051060052346C /* slider_bg_score@2x.png */; };
 		0D37E8FA18A051060052346C /* slider_score@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D37E8F718A051060052346C /* slider_score@2x.png */; };
@@ -109,6 +120,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D061AE718A0A9E800A7F020 /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow@2x.png"; sourceTree = "<group>"; };
+		0D061AE818A0A9E800A7F020 /* dot_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dot_blue@2x.png"; sourceTree = "<group>"; };
+		0D061AE918A0A9E800A7F020 /* dot_grey@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dot_grey@2x.png"; sourceTree = "<group>"; };
+		0D061AEA18A0A9E800A7F020 /* list@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list@2x.png"; sourceTree = "<group>"; };
+		0D061AEB18A0A9E800A7F020 /* star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star@2x.png"; sourceTree = "<group>"; };
+		0D061AEC18A0A9E800A7F020 /* Yahoo-logo@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Yahoo-logo@2x.jpg"; sourceTree = "<group>"; };
+		0D061AF318A0AA7800A7F020 /* filterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = filterTableViewController.h; sourceTree = "<group>"; };
+		0D061AF418A0AA7800A7F020 /* filterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = filterTableViewController.m; sourceTree = "<group>"; };
+		0D061AF518A0AA7800A7F020 /* filterTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = filterTimeViewController.h; sourceTree = "<group>"; };
+		0D061AF618A0AA7800A7F020 /* filterTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = filterTimeViewController.m; sourceTree = "<group>"; };
+		0D061AF718A0AA7800A7F020 /* reviewsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reviewsTableViewCell.h; sourceTree = "<group>"; };
+		0D061AF818A0AA7800A7F020 /* reviewsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = reviewsTableViewCell.m; sourceTree = "<group>"; };
+		0D061AF918A0AA7800A7F020 /* reviewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reviewsViewController.h; sourceTree = "<group>"; };
+		0D061AFA18A0AA7800A7F020 /* reviewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = reviewsViewController.m; sourceTree = "<group>"; };
+		0D061AFF18A0AF9700A7F020 /* arrow_reviews@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow_reviews@2x.png"; sourceTree = "<group>"; };
+		0D061B0118A0B5BF00A7F020 /* scoreDownArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scoreDownArrow@2x.png"; sourceTree = "<group>"; };
 		0D37E8CB18A0048E0052346C /* ReviewCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewCustomCell.h; sourceTree = "<group>"; };
 		0D37E8CC18A0048E0052346C /* ReviewCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewCustomCell.m; sourceTree = "<group>"; };
 		0D37E8CE18A004A90052346C /* ReviewCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewCustomCell.xib; sourceTree = "<group>"; };
@@ -130,7 +157,6 @@
 		0D37E8EE18A043990052346C /* CustomTabBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTabBarView.h; sourceTree = "<group>"; };
 		0D37E8EF18A043990052346C /* CustomTabBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabBarView.m; sourceTree = "<group>"; };
 		0D37E8F018A043990052346C /* CustomTabBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTabBarView.xib; sourceTree = "<group>"; };
-		0D37E8F318A044C40052346C /* social_sel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "social_sel@2x.png"; sourceTree = "<group>"; };
 		0D37E8F518A051060052346C /* arrow_big@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow_big@2x.png"; sourceTree = "<group>"; };
 		0D37E8F618A051060052346C /* slider_bg_score@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slider_bg_score@2x.png"; sourceTree = "<group>"; };
 		0D37E8F718A051060052346C /* slider_score@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slider_score@2x.png"; sourceTree = "<group>"; };
@@ -282,6 +308,7 @@
 				0D37E8F518A051060052346C /* arrow_big@2x.png */,
 				0D37E8F618A051060052346C /* slider_bg_score@2x.png */,
 				0D37E8F718A051060052346C /* slider_score@2x.png */,
+				0D061B0118A0B5BF00A7F020 /* scoreDownArrow@2x.png */,
 				0D37E8FB18A054090052346C /* left_arrow@2x.png */,
 				0D37E90A18A05AAB0052346C /* score_black@2x.png */,
 				0D37E90B18A05AAB0052346C /* scoreUpArrow@2x.png */,
@@ -333,6 +360,12 @@
 				0D37E93418A0912D0052346C /* help2@2x.png */,
 				0D37E93518A0912D0052346C /* help3@2x.png */,
 				0D37E93618A0912D0052346C /* help4@2x.png */,
+				0D061AE718A0A9E800A7F020 /* arrow@2x.png */,
+				0D061AE818A0A9E800A7F020 /* dot_blue@2x.png */,
+				0D061AE918A0A9E800A7F020 /* dot_grey@2x.png */,
+				0D061AEA18A0A9E800A7F020 /* list@2x.png */,
+				0D061AEB18A0A9E800A7F020 /* star@2x.png */,
+				0D061AEC18A0A9E800A7F020 /* Yahoo-logo@2x.jpg */,
 			);
 			path = Intro;
 			sourceTree = "<group>";
@@ -352,7 +385,6 @@
 			isa = PBXGroup;
 			children = (
 				0DA1DBD9189C77880074A5F0 /* home@2x.png */,
-				0D37E8F318A044C40052346C /* social_sel@2x.png */,
 				0DA1DBDA189C77880074A5F0 /* list@2x.png */,
 				0DA1DBDD189C7A090074A5F0 /* icn_tab_dashboard.png */,
 				0DA1DBDE189C7A090074A5F0 /* icn_tab_dashboard@2x.png */,
@@ -363,6 +395,7 @@
 				0DA1DBE3189C7A090074A5F0 /* icn_tab_social.png */,
 				0DA1DBE4189C7A090074A5F0 /* icn_tab_social@2x.png */,
 				0DA1DBED189C7EC90074A5F0 /* logo_reputation_iPhone@2x.png */,
+				0D061AFF18A0AF9700A7F020 /* arrow_reviews@2x.png */,
 				0D37E91C18A07F4F0052346C /* Bottom Bar */,
 				0D37E8D518A0325A0052346C /* IconImages */,
 			);
@@ -474,6 +507,14 @@
 				0D37E92D18A090940052346C /* TourViewController.h */,
 				0D37E92E18A090940052346C /* TourViewController.m */,
 				0D37E92F18A090940052346C /* TourViewController.xib */,
+				0D061AF318A0AA7800A7F020 /* filterTableViewController.h */,
+				0D061AF418A0AA7800A7F020 /* filterTableViewController.m */,
+				0D061AF518A0AA7800A7F020 /* filterTimeViewController.h */,
+				0D061AF618A0AA7800A7F020 /* filterTimeViewController.m */,
+				0D061AF718A0AA7800A7F020 /* reviewsTableViewCell.h */,
+				0D061AF818A0AA7800A7F020 /* reviewsTableViewCell.m */,
+				0D061AF918A0AA7800A7F020 /* reviewsViewController.h */,
+				0D061AFA18A0AA7800A7F020 /* reviewsViewController.m */,
 			);
 			path = ViewControllerClasses;
 			sourceTree = "<group>";
@@ -558,7 +599,7 @@
 				0D37E90418A058AD0052346C /* length@2x.png in Resources */,
 				0D37E8FC18A054090052346C /* left_arrow@2x.png in Resources */,
 				0DA1DBE7189C7A090074A5F0 /* icn_tab_reviews.png in Resources */,
-				0D37E8F418A044C40052346C /* social_sel@2x.png in Resources */,
+				0D061AEE18A0A9E800A7F020 /* dot_blue@2x.png in Resources */,
 				0DA1DBEB189C7A090074A5F0 /* icn_tab_social.png in Resources */,
 				0D37E93818A0912D0052346C /* help2@2x.png in Resources */,
 				0D37E90918A058AD0052346C /* weight@2x.png in Resources */,
@@ -567,6 +608,7 @@
 				0D37E8EB18A0325A0052346C /* yelp_icon@2x.png in Resources */,
 				0D37E93A18A0912D0052346C /* help4@2x.png in Resources */,
 				74C725F2189AE8E4008CD4AF /* Main_iPad.storyboard in Resources */,
+				0D061AF118A0A9E800A7F020 /* star@2x.png in Resources */,
 				0DA1DBEA189C7A090074A5F0 /* icn_tab_score@2x.png in Resources */,
 				0D37E92A18A07F500052346C /* score_sel@2x.png in Resources */,
 				0D37E8E718A0325A0052346C /* slider_pt@2x.png in Resources */,
@@ -574,11 +616,13 @@
 				0DA1DBE9189C7A090074A5F0 /* icn_tab_score.png in Resources */,
 				0D37E8F818A051060052346C /* arrow_big@2x.png in Resources */,
 				0D37E8E218A0325A0052346C /* divider@2x.png in Resources */,
+				0D061AED18A0A9E800A7F020 /* arrow@2x.png in Resources */,
 				0D37E8EA18A0325A0052346C /* yello_pages_icon@2x.png in Resources */,
 				0D37E8FA18A051060052346C /* slider_score@2x.png in Resources */,
 				74C725F7189AE8E4008CD4AF /* Images.xcassets in Resources */,
 				0D37E91918A06FA40052346C /* Separator@2x copy.png in Resources */,
 				0D37E92618A07F500052346C /* dashboard_sel@2x.png in Resources */,
+				0D061AEF18A0A9E800A7F020 /* dot_grey@2x.png in Resources */,
 				0D37E8E618A0325A0052346C /* slider_bg@2x.png in Resources */,
 				0D37E91718A0647C0052346C /* Slide_viewBg@2x.png in Resources */,
 				0D37E90F18A0625F0052346C /* NavBar@2x.png in Resources */,
@@ -590,6 +634,8 @@
 				0D37E90518A058AD0052346C /* recent@2x.png in Resources */,
 				0D37E93118A090940052346C /* TourViewController.xib in Resources */,
 				0D37E8D418A0050A0052346C /* SocialCustomCell.xib in Resources */,
+				0D061B0218A0B5BF00A7F020 /* scoreDownArrow@2x.png in Resources */,
+				0D061AF218A0A9E800A7F020 /* Yahoo-logo@2x.jpg in Resources */,
 				0DA1DBEE189C7EC90074A5F0 /* logo_reputation_iPhone@2x.png in Resources */,
 				0D37E93718A0912D0052346C /* help1@2x.png in Resources */,
 				0D37E8E518A0325A0052346C /* heading_bg@2x.png in Resources */,
@@ -612,9 +658,11 @@
 				0D37E91518A0647C0052346C /* rate@2x.png in Resources */,
 				0D37E93918A0912D0052346C /* help3@2x.png in Resources */,
 				0DA1DBE5189C7A090074A5F0 /* icn_tab_dashboard.png in Resources */,
+				0D061AF018A0A9E800A7F020 /* list@2x.png in Resources */,
 				0D37E92B18A07F500052346C /* social@2x.png in Resources */,
 				0D37E90618A058AD0052346C /* speed@2x.png in Resources */,
 				0DA1DBE8189C7A090074A5F0 /* icn_tab_reviews@2x.png in Resources */,
+				0D061B0018A0AF9700A7F020 /* arrow_reviews@2x.png in Resources */,
 				0D37E8E918A0325A0052346C /* yahoo_icon@2x.png in Resources */,
 				0D37E8F218A043990052346C /* CustomTabBarView.xib in Resources */,
 			);
@@ -636,16 +684,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				74C72620189B0936008CD4AF /* DashBoardController.m in Sources */,
+				0D061AFD18A0AA7800A7F020 /* reviewsTableViewCell.m in Sources */,
 				74C7261D189B083F008CD4AF /* TabBarControllerClass.m in Sources */,
 				0D37E93018A090940052346C /* TourViewController.m in Sources */,
 				0DA1DBC4189C2DE60074A5F0 /* SlideViewController.m in Sources */,
+				0D061AFC18A0AA7800A7F020 /* filterTimeViewController.m in Sources */,
 				74C72626189B0C58008CD4AF /* SocialController.m in Sources */,
 				0DA1DBD7189C66340074A5F0 /* InitialSlidingViewController.m in Sources */,
 				74C725F5189AE8E4008CD4AF /* ViewController.m in Sources */,
 				0D37E8D218A004D50052346C /* SocialCustomCell.m in Sources */,
 				0DA1DBD6189C66340074A5F0 /* ECSlidingViewController.m in Sources */,
 				74C72629189B0C6A008CD4AF /* ScoreController.m in Sources */,
+				0D061AFE18A0AA7800A7F020 /* reviewsViewController.m in Sources */,
 				74C7262C189B11EE008CD4AF /* CustomNavigation.m in Sources */,
+				0D061AFB18A0AA7800A7F020 /* filterTableViewController.m in Sources */,
 				74C72623189B0968008CD4AF /* ReviewsController.m in Sources */,
 				0DA1DBC9189C49AA0074A5F0 /* SettingsViewController.m in Sources */,
 				74C725EC189AE8E4008CD4AF /* AppDelegate.m in Sources */,

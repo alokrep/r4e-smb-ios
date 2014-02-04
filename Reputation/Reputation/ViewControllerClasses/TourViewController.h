@@ -12,8 +12,18 @@
 {
     
 }
-@property (weak, nonatomic) IBOutlet UILabel *lbl_tourTitle;
 
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollVw;
+// Outlets
+@property (weak, nonatomic) IBOutlet UILabel *lbl_tourTitle;
+@property (weak , nonatomic) IBOutlet UIPageControl   *pageControl_obj;
+
+@property (strong, nonatomic) UIScrollView *scrollVw;
+
+// Data Structure
+@property (strong , nonatomic) NSMutableArray    *arr_imageContent;
+@property (strong , nonatomic) NSMutableArray    *arr_imageTitleLabel;
+
+
+- (IBAction)PageControlValueChanged;
 
 @end

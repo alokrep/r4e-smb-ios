@@ -10,4 +10,8 @@
 
 @interface ReviewsController : UIViewController
 
+{
+    IBOutlet UITableView *tbl_View;
+}
+-(IBAction)btn_arrow:(id)sender;
 @end
