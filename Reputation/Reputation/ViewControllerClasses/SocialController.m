@@ -28,6 +28,7 @@
     [super viewDidLoad];
     CustomNavigation * navigationObj = (CustomNavigation *)self.navigationController;
     navigationObj.lbl_title.text = @"Social";
+    self.view.backgroundColor = [UIColor colorWithRed:234.0f/255.0f green:234.0f/255.0f blue:234.0f/255.0f alpha:1.0];
 }
 
 - (void)didReceiveMemoryWarning

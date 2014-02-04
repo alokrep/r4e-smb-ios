@@ -9,11 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "SlideViewController.h"
 #import "AppDelegate.h"
+#import "CustomTabBarView.h"
 
 @interface TabBarControllerClass : UITabBarController
 {
-    
+    CustomTabBarView * customTabViewObj;
     
 }
+-(void)customTabDidSelect:(int )tag;
 @property(nonatomic,strong) SlideViewController * slideObj;
 @end

@@ -30,6 +30,8 @@
     [super viewDidLoad];
     [self.slidingViewController setAnchorRightRevealAmount:244.0f];
     self.slidingViewController.underLeftWidthLayout = ECFullWidth;
+    tourObj = [[TourViewController alloc]initWithNibName:@"TourViewController" bundle:Nil];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -55,6 +57,15 @@
     
     [[NSNotificationCenter defaultCenter]postNotificationName:@"OpenTabs" object:nil];
     
+    
+}
+-(IBAction)helpBtnClicked:(id)sender
+{
+    tourObj.view.frame = CGRectMake(0, 0, 320,568);
+    
+    
+    [[AppDelegate sharedDelegate].window addSubview:tourObj.view];
+    [[AppDelegate sharedDelegate].window bringSubviewToFront:tourObj.view];
     
 }
 @end

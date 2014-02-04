@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ReviewCustomCell.h"
+#import "SocialCustomCell.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface DashBoardController : UIViewController
+
+@property (strong,nonatomic) NSMutableArray * arr_reviewsData;
+@property (strong,nonatomic) NSMutableArray * arr_SocialData;
+@property (weak, nonatomic) IBOutlet UITableView *tblVw_review;
+@property (weak, nonatomic) IBOutlet UITableView *tblVwSocial;
 
 @end

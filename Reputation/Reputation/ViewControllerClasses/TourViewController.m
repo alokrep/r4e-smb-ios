@@ -1,18 +1,18 @@
 //
-//  SettingsViewController.m
+//  TourViewController.m
 //  Reputation
 //
-//  Created by jai sharma on 2/1/14.
+//  Created by jai sharma on 2/4/14.
 //  Copyright (c) 2014 www. All rights reserved.
 //
 
-#import "SettingsViewController.h"
+#import "TourViewController.h"
 
-@interface SettingsViewController ()
+@interface TourViewController ()
 
 @end
 
-@implementation SettingsViewController
+@implementation TourViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -25,13 +25,17 @@
 
 - (void)viewDidLoad
 {
+   
     [super viewDidLoad];
-	CustomNavigation * navigationObj = (CustomNavigation *)self.navigationController;
-    navigationObj.lbl_title.text = @"Settings";
-    self.view.backgroundColor = [UIColor colorWithRed:235.0f/255.0f green:235.0f/255.0f blue:242.0f/255.0f alpha:1.0];
+    self.scrollVw.contentSize = CGSizeMake(1280,323);
     
 }
-
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    
+    
+    
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

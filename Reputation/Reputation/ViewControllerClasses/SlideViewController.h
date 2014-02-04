@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "SettingsViewController.h"
+#import "TourViewController.h"
 
 
 @interface SlideViewController : UIViewController
 {
-    
+    TourViewController * tourObj;
 }
 - (IBAction)settingBtnClicked:(id)sender;
 - (IBAction)HomeBtnClicked:(id)sender;

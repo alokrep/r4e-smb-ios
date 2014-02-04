@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ScoreController : UIViewController
+@property (weak, nonatomic) IBOutlet UIImageView *imgVw_varientArrow;
+- (IBAction)factorsBtnClicked:(id)sender;
 
 @end

@@ -28,10 +28,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.navigationBar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"NavBar.png"]];
 	
-    self.lbl_title = [[UILabel alloc]initWithFrame:CGRectMake(135, 30, 90, 30)];
+    UIImageView * imageTopBar = [[UIImageView alloc]initWithFrame:CGRectMake(0, -20, 320, 64)];
+    imageTopBar.image = [UIImage imageNamed:@"NavBar.png"];
+    
+    [self.navigationBar addSubview:imageTopBar];
+    
+    self.lbl_title = [[UILabel alloc]initWithFrame:CGRectMake(100, 30,120, 30)];
     self.lbl_title.backgroundColor = [UIColor clearColor];
     self.lbl_title.textColor = [UIColor whiteColor];
+    self.lbl_title.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:self.lbl_title];
     
     dashBtn = [UIButton buttonWithType:UIButtonTypeCustom];
