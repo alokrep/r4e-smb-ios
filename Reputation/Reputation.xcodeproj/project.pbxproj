@@ -86,7 +86,6 @@
 		0DA1DBEB189C7A090074A5F0 /* icn_tab_social.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA1DBE3189C7A090074A5F0 /* icn_tab_social.png */; };
 		0DA1DBEC189C7A090074A5F0 /* icn_tab_social@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA1DBE4189C7A090074A5F0 /* icn_tab_social@2x.png */; };
 		0DA1DBEE189C7EC90074A5F0 /* logo_reputation_iPhone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA1DBED189C7EC90074A5F0 /* logo_reputation_iPhone@2x.png */; };
-		74C725DC189AE8E4008CD4AF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74C725DB189AE8E4008CD4AF /* Foundation.framework */; };
 		74C725DE189AE8E4008CD4AF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74C725DD189AE8E4008CD4AF /* CoreGraphics.framework */; };
 		74C725E0189AE8E4008CD4AF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74C725DF189AE8E4008CD4AF /* UIKit.framework */; };
 		74C725E6189AE8E4008CD4AF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 74C725E4189AE8E4008CD4AF /* InfoPlist.strings */; };
@@ -107,6 +106,11 @@
 		74C72626189B0C58008CD4AF /* SocialController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C72625189B0C58008CD4AF /* SocialController.m */; };
 		74C72629189B0C6A008CD4AF /* ScoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C72628189B0C6A008CD4AF /* ScoreController.m */; };
 		74C7262C189B11EE008CD4AF /* CustomNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C7262B189B11EE008CD4AF /* CustomNavigation.m */; };
+		DD7DB15C18A1BD4E00BED62D /* Mobile.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7DB15718A1BD4E00BED62D /* Mobile.m */; };
+		DD7DB15D18A1BD4E00BED62D /* MobileAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7DB15918A1BD4E00BED62D /* MobileAuth.m */; };
+		DD7DB15E18A1BD4E00BED62D /* MobileCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7DB15B18A1BD4E00BED62D /* MobileCommon.m */; };
+		DD7DB15F18A1D0BD00BED62D /* libthrift09Hmac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD7DB11818A18C0600BED62D /* libthrift09Hmac.a */; };
+		DD7DB16018A1D51900BED62D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74C725DB189AE8E4008CD4AF /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -243,6 +247,13 @@
 		74C72628189B0C6A008CD4AF /* ScoreController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreController.m; sourceTree = "<group>"; };
 		74C7262A189B11EE008CD4AF /* CustomNavigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNavigation.h; sourceTree = "<group>"; };
 		74C7262B189B11EE008CD4AF /* CustomNavigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNavigation.m; sourceTree = "<group>"; };
+		DD7DB11818A18C0600BED62D /* libthrift09Hmac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libthrift09Hmac.a; path = "../../../Library/Developer/Xcode/DerivedData/thrift09Hmac-etcftrhdwnwnfmbpgqjaqtyfffbr/Build/Products/Debug-iphoneos/libthrift09Hmac.a"; sourceTree = "<group>"; };
+		DD7DB15618A1BD4E00BED62D /* Mobile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mobile.h; sourceTree = "<group>"; };
+		DD7DB15718A1BD4E00BED62D /* Mobile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mobile.m; sourceTree = "<group>"; };
+		DD7DB15818A1BD4E00BED62D /* MobileAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileAuth.h; sourceTree = "<group>"; };
+		DD7DB15918A1BD4E00BED62D /* MobileAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobileAuth.m; sourceTree = "<group>"; };
+		DD7DB15A18A1BD4E00BED62D /* MobileCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileCommon.h; sourceTree = "<group>"; };
+		DD7DB15B18A1BD4E00BED62D /* MobileCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobileCommon.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -250,10 +261,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD7DB16018A1D51900BED62D /* Foundation.framework in Frameworks */,
 				0D37E8ED18A034D80052346C /* QuartzCore.framework in Frameworks */,
 				74C725DE189AE8E4008CD4AF /* CoreGraphics.framework in Frameworks */,
 				74C725E0189AE8E4008CD4AF /* UIKit.framework in Frameworks */,
-				74C725DC189AE8E4008CD4AF /* Foundation.framework in Frameworks */,
+				DD7DB15F18A1D0BD00BED62D /* libthrift09Hmac.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,6 +436,7 @@
 		74C725DA189AE8E4008CD4AF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DD7DB11818A18C0600BED62D /* libthrift09Hmac.a */,
 				0D37E8EC18A034D80052346C /* QuartzCore.framework */,
 				74C725DB189AE8E4008CD4AF /* Foundation.framework */,
 				74C725DD189AE8E4008CD4AF /* CoreGraphics.framework */,
@@ -436,6 +449,7 @@
 		74C725E1189AE8E4008CD4AF /* Reputation */ = {
 			isa = PBXGroup;
 			children = (
+				DD7DB15518A1BD4E00BED62D /* gen-cocoa */,
 				0D37E8CA18A003DB0052346C /* CustomCell */,
 				74C725EA189AE8E4008CD4AF /* AppDelegate.h */,
 				74C725EB189AE8E4008CD4AF /* AppDelegate.m */,
@@ -519,6 +533,19 @@
 			path = ViewControllerClasses;
 			sourceTree = "<group>";
 		};
+		DD7DB15518A1BD4E00BED62D /* gen-cocoa */ = {
+			isa = PBXGroup;
+			children = (
+				DD7DB15618A1BD4E00BED62D /* Mobile.h */,
+				DD7DB15718A1BD4E00BED62D /* Mobile.m */,
+				DD7DB15818A1BD4E00BED62D /* MobileAuth.h */,
+				DD7DB15918A1BD4E00BED62D /* MobileAuth.m */,
+				DD7DB15A18A1BD4E00BED62D /* MobileCommon.h */,
+				DD7DB15B18A1BD4E00BED62D /* MobileCommon.m */,
+			);
+			path = "gen-cocoa";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -566,6 +593,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = www;
 				TargetAttributes = {
+					74C725D7189AE8E4008CD4AF = {
+						DevelopmentTeam = EE57RVF7T8;
+					};
 					74C725FB189AE8E5008CD4AF = {
 						TestTargetID = 74C725D7189AE8E4008CD4AF;
 					};
@@ -693,6 +723,7 @@
 				0DA1DBD7189C66340074A5F0 /* InitialSlidingViewController.m in Sources */,
 				74C725F5189AE8E4008CD4AF /* ViewController.m in Sources */,
 				0D37E8D218A004D50052346C /* SocialCustomCell.m in Sources */,
+				DD7DB15E18A1BD4E00BED62D /* MobileCommon.m in Sources */,
 				0DA1DBD6189C66340074A5F0 /* ECSlidingViewController.m in Sources */,
 				74C72629189B0C6A008CD4AF /* ScoreController.m in Sources */,
 				0D061AFE18A0AA7800A7F020 /* reviewsViewController.m in Sources */,
@@ -700,10 +731,12 @@
 				0D061AFB18A0AA7800A7F020 /* filterTableViewController.m in Sources */,
 				74C72623189B0968008CD4AF /* ReviewsController.m in Sources */,
 				0DA1DBC9189C49AA0074A5F0 /* SettingsViewController.m in Sources */,
+				DD7DB15C18A1BD4E00BED62D /* Mobile.m in Sources */,
 				74C725EC189AE8E4008CD4AF /* AppDelegate.m in Sources */,
 				0D37E8CD18A0048E0052346C /* ReviewCustomCell.m in Sources */,
 				74C725E8189AE8E4008CD4AF /* main.m in Sources */,
 				0D37E8F118A043990052346C /* CustomTabBarView.m in Sources */,
+				DD7DB15D18A1BD4E00BED62D /* MobileAuth.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -794,6 +827,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				"HEADER_SEARCH_PATHS[arch=*]" = "/Users/adamireddy/Library/Developer/Xcode/DerivedData/thrift09Hmac-etcftrhdwnwnfmbpgqjaqtyfffbr/Build/Products/Debug-iphoneos/include/";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -840,10 +874,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Reputation/Reputation-Prefix.pch";
+				"HEADER_SEARCH_PATHS[arch=*]" = "/Users/adamireddy/Library/Developer/Xcode/DerivedData/thrift09Hmac-etcftrhdwnwnfmbpgqjaqtyfffbr/Build/Products/Debug-iphoneos/include/";
 				INFOPLIST_FILE = "Reputation/Reputation-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/thrift09Hmac-etcftrhdwnwnfmbpgqjaqtyfffbr/Build/Products/Debug-iphoneos",
+				);
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -853,10 +896,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Reputation/Reputation-Prefix.pch";
 				INFOPLIST_FILE = "Reputation/Reputation-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/thrift09Hmac-etcftrhdwnwnfmbpgqjaqtyfffbr/Build/Products/Debug-iphoneos",
+				);
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
