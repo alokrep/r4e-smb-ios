@@ -106,10 +106,10 @@
 		74C72626189B0C58008CD4AF /* SocialController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C72625189B0C58008CD4AF /* SocialController.m */; };
 		74C72629189B0C6A008CD4AF /* ScoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C72628189B0C6A008CD4AF /* ScoreController.m */; };
 		74C7262C189B11EE008CD4AF /* CustomNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C7262B189B11EE008CD4AF /* CustomNavigation.m */; };
+		DD30CAA618A2C8FB0015028F /* libthrift09Hmac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD30CAA518A2C8FB0015028F /* libthrift09Hmac.a */; };
 		DD7DB15C18A1BD4E00BED62D /* Mobile.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7DB15718A1BD4E00BED62D /* Mobile.m */; };
 		DD7DB15D18A1BD4E00BED62D /* MobileAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7DB15918A1BD4E00BED62D /* MobileAuth.m */; };
 		DD7DB15E18A1BD4E00BED62D /* MobileCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7DB15B18A1BD4E00BED62D /* MobileCommon.m */; };
-		DD7DB15F18A1D0BD00BED62D /* libthrift09Hmac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD7DB11818A18C0600BED62D /* libthrift09Hmac.a */; };
 		DD7DB16018A1D51900BED62D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74C725DB189AE8E4008CD4AF /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -247,6 +247,9 @@
 		74C72628189B0C6A008CD4AF /* ScoreController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreController.m; sourceTree = "<group>"; };
 		74C7262A189B11EE008CD4AF /* CustomNavigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNavigation.h; sourceTree = "<group>"; };
 		74C7262B189B11EE008CD4AF /* CustomNavigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNavigation.m; sourceTree = "<group>"; };
+		DD30CA9F18A20CE40015028F /* thrift09HMACiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = thrift09HMACiOS.framework; path = "../../../Library/Developer/Xcode/DerivedData/thrift09HMACiOS-dcmxonlzsjtnrbevjqkfbtseoxfb/Build/Products/Debug-iphoneos/thrift09HMACiOS.framework"; sourceTree = "<group>"; };
+		DD30CAA218A20E8F0015028F /* thrift09HMACiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = thrift09HMACiOS.framework; path = "../../../Library/Developer/Xcode/DerivedData/thrift09HMACiOS-dcmxonlzsjtnrbevjqkfbtseoxfb/Build/Intermediates/ArchiveIntermediates/thrift09HMACiOS/IntermediateBuildFilesPath/UninstalledProducts/thrift09HMACiOS.framework"; sourceTree = "<group>"; };
+		DD30CAA518A2C8FB0015028F /* libthrift09Hmac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libthrift09Hmac.a; path = "../../../Library/Developer/Xcode/DerivedData/thrift09Hmac-ehhvmolrjqunbgasrnnitnzuioge/Build/Products/Debug-iphoneos/libthrift09Hmac.a"; sourceTree = "<group>"; };
 		DD7DB11818A18C0600BED62D /* libthrift09Hmac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libthrift09Hmac.a; path = "../../../Library/Developer/Xcode/DerivedData/thrift09Hmac-etcftrhdwnwnfmbpgqjaqtyfffbr/Build/Products/Debug-iphoneos/libthrift09Hmac.a"; sourceTree = "<group>"; };
 		DD7DB15618A1BD4E00BED62D /* Mobile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mobile.h; sourceTree = "<group>"; };
 		DD7DB15718A1BD4E00BED62D /* Mobile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mobile.m; sourceTree = "<group>"; };
@@ -264,8 +267,8 @@
 				DD7DB16018A1D51900BED62D /* Foundation.framework in Frameworks */,
 				0D37E8ED18A034D80052346C /* QuartzCore.framework in Frameworks */,
 				74C725DE189AE8E4008CD4AF /* CoreGraphics.framework in Frameworks */,
+				DD30CAA618A2C8FB0015028F /* libthrift09Hmac.a in Frameworks */,
 				74C725E0189AE8E4008CD4AF /* UIKit.framework in Frameworks */,
-				DD7DB15F18A1D0BD00BED62D /* libthrift09Hmac.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,6 +439,9 @@
 		74C725DA189AE8E4008CD4AF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DD30CAA518A2C8FB0015028F /* libthrift09Hmac.a */,
+				DD30CAA218A20E8F0015028F /* thrift09HMACiOS.framework */,
+				DD30CA9F18A20CE40015028F /* thrift09HMACiOS.framework */,
 				DD7DB11818A18C0600BED62D /* libthrift09Hmac.a */,
 				0D37E8EC18A034D80052346C /* QuartzCore.framework */,
 				74C725DB189AE8E4008CD4AF /* Foundation.framework */,
@@ -827,7 +833,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				"HEADER_SEARCH_PATHS[arch=*]" = "/Users/adamireddy/Library/Developer/Xcode/DerivedData/thrift09Hmac-etcftrhdwnwnfmbpgqjaqtyfffbr/Build/Products/Debug-iphoneos/include/";
+				"HEADER_SEARCH_PATHS[arch=*]" = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/thrift09Hmac-etcftrhdwnwnfmbpgqjaqtyfffbr/Build/Products/Debug-iphoneos/include/",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -876,13 +885,22 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/thrift09HMACiOS-dcmxonlzsjtnrbevjqkfbtseoxfb/Build/Products/Debug-iphoneos",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/thrift09HMACiOS-dcmxonlzsjtnrbevjqkfbtseoxfb/Build/Intermediates/ArchiveIntermediates/thrift09HMACiOS/IntermediateBuildFilesPath/UninstalledProducts",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Reputation/Reputation-Prefix.pch";
-				"HEADER_SEARCH_PATHS[arch=*]" = "/Users/adamireddy/Library/Developer/Xcode/DerivedData/thrift09Hmac-etcftrhdwnwnfmbpgqjaqtyfffbr/Build/Products/Debug-iphoneos/include/";
+				"HEADER_SEARCH_PATHS[arch=*]" = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/thrift09Hmac-etcftrhdwnwnfmbpgqjaqtyfffbr/Build/Products/Debug-iphoneos/include/",
+				);
 				INFOPLIST_FILE = "Reputation/Reputation-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/thrift09Hmac-etcftrhdwnwnfmbpgqjaqtyfffbr/Build/Products/Debug-iphoneos",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/thrift09Hmac-ehhvmolrjqunbgasrnnitnzuioge/Build/Products/Debug-iphoneos",
 				);
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -898,12 +916,18 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/thrift09HMACiOS-dcmxonlzsjtnrbevjqkfbtseoxfb/Build/Products/Debug-iphoneos",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/thrift09HMACiOS-dcmxonlzsjtnrbevjqkfbtseoxfb/Build/Intermediates/ArchiveIntermediates/thrift09HMACiOS/IntermediateBuildFilesPath/UninstalledProducts",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Reputation/Reputation-Prefix.pch";
 				INFOPLIST_FILE = "Reputation/Reputation-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/thrift09Hmac-etcftrhdwnwnfmbpgqjaqtyfffbr/Build/Products/Debug-iphoneos",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/thrift09Hmac-ehhvmolrjqunbgasrnnitnzuioge/Build/Products/Debug-iphoneos",
 				);
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
