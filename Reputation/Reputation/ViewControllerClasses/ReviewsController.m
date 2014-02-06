@@ -10,12 +10,16 @@
 #import "CustomNavigation.h"
 #import "reviewsTableViewCell.h"
 #import "filterTableViewController.h"
-@interface ReviewsController ()
+
+#import "FullReviewViewController.h"
+
+
+@interface ReviewsController ()<UIActionSheetDelegate>
 
 @end
 
 @implementation ReviewsController
-
+#pragma mark View LifeCycle
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -30,19 +34,57 @@
     [super viewDidLoad];
     CustomNavigation * navigationObj = (CustomNavigation *)self.navigationController;
     navigationObj.lbl_title.text = @"Reviews";
+    objFullViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"FullReview"];
 }
 - (void)viewWillAppear:(BOOL)animated
 {
+    
     CustomNavigation * navigationObj = (CustomNavigation *)self.navigationController;
-    navigationObj.lbl_title.text = @"Reviews";
+    navigationObj.navigationBarHidden = NO;
     
     navigationObj.dashBtn.hidden = NO;
+    navigationObj.lbl_title.hidden =  NO;
+    navigationObj.reviewsBtn.hidden = NO;
+    navigationObj.backBtn.hidden = YES;
+    self.tabBarController.tabBar.hidden = NO;
+    
+    
+    
+    navigationObj.lbl_title.text = @"Reviews";
+    
+    // navigationObj.dashBtn.hidden = NO;
+    
+    btn_getReviews = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn_getReviews.frame = CGRectMake(0, 0, 100, 25);
+    // btn_getReviews.backgroundColor = [UIColor greenColor];
+    [btn_getReviews setImage:[UIImage imageNamed:@"get_reviews.png"] forState:UIControlStateNormal];
+    
+    [btn_getReviews addTarget:self action:@selector(moveTORateView) forControlEvents:UIControlEventTouchUpInside];
+    
+    barBtn = [[UIBarButtonItem alloc] initWithCustomView:btn_getReviews];
+    
+    self.navigationItem.rightBarButtonItem = barBtn;
     
 }
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+-(void) moveTORateView
+{
+    //[self performSegueWithIdentifier:@"CustomSegue" sender:self];
+    
+    
+    
+    
+    
+    [self performSegueWithIdentifier:@"ratingView" sender:self];
+    
+    //[self performSegueWithIdentifier:@"presentSegue" sender:self];
+    
 }
 
 
@@ -111,14 +153,8 @@
     }
     else
     {
-        NSString *other1 = @"Reply";
-        NSString *other2 = @"Full View";
-        NSString *other3 = @"Mark as Read";
-        NSString *other4 = @"Email Review";
-        NSString *other5 = @"Share";
-        NSString *cancelTitle = @"Cancel";
-        UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:cancelTitle destructiveButtonTitle:nil otherButtonTitles:other1,other2,other3,other4,other5, nil];
-        [actionSheet showInView:self.view];
+    actionSheetReview = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Reply",@"Full View",@"Mark as Read",@"Email Review",@"Share", nil];
+        [actionSheetReview showInView:self.view];
     }
     
 }
@@ -185,20 +221,28 @@
  */
 
 //[self performSegueWithIdentifier:@"filterVC" sender:self];
-
+#pragma mark Button Method
 - (IBAction)btn_arrow:(id)sender {
     NSIndexPath *indexPath = [tbl_View indexPathForCell:(reviewsTableViewCell *)
                               [[[sender superview] superview] superview]];
     NSLog(@"The row id is %d",  indexPath.row);
-    NSString *other1 = @"Reply";
-    NSString *other2 = @"Full View";
-    NSString *other3 = @"Mark as Read";
-    NSString *other4 = @"Email Review";
-    NSString *other5 = @"Share";
-    NSString *cancelTitle = @"Cancel";
-    UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:cancelTitle destructiveButtonTitle:nil otherButtonTitles:other1,other2,other3,other4,other5, nil];
-    [actionSheet showInView:self.view];
+    
+    actionSheetReview = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Reply",@"Full View",@"Mark as Read",@"Email Review",@"Share", nil];
+    [actionSheetReview showInView:self.view];
     
 }
+#pragma mark ActionSheet Delegates Method
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSString *title = [actionSheet buttonTitleAtIndex:buttonIndex];
+    
+    if([title isEqualToString:@"Full View"])
+    {
+       
+        [self.navigationController pushViewController:objFullViewController animated:YES];
+    }
+    
+}
+
 
 @end

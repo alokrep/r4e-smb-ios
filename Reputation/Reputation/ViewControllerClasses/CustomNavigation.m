@@ -16,6 +16,7 @@
 
 @implementation CustomNavigation
 @synthesize lbl_title;
+@synthesize reviewsBtn;
 @synthesize dashBtn;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -43,6 +44,12 @@
     self.lbl_title.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:self.lbl_title];
     
+    [self addBackButton];
+    [self addReviewsButton];
+    self.backBtn.hidden = YES;
+    self.reviewsBtn.hidden = YES;
+    
+    
     self.dashBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     
     [self.dashBtn setImage:[UIImage imageNamed:@"list.png"] forState:UIControlStateNormal];
@@ -52,6 +59,29 @@
     [self.view addSubview:self.dashBtn];
     
 }
+
+-(void) addBackButton
+{
+    self.backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    [self.backBtn setImage:[UIImage imageNamed:@"back_btn.png"] forState:UIControlStateNormal];
+    [self.backBtn setFrame:CGRectMake(10,25, 60, 30)];
+    self.backBtn.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:self.backBtn];
+    
+}
+
+-(void) addReviewsButton
+{
+    self.reviewsBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    [self.reviewsBtn setImage:[UIImage imageNamed:@"get_reviews.png"] forState:UIControlStateNormal];
+    [self.reviewsBtn setFrame:CGRectMake(230,30, 80, 25)];
+    self.reviewsBtn.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:self.reviewsBtn];
+    
+}
+
 
 -(void)dashBtnClicked:(id) sender
 {

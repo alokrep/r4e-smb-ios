@@ -16,7 +16,6 @@
 		0D061AFB18A0AA7800A7F020 /* filterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D061AF418A0AA7800A7F020 /* filterTableViewController.m */; };
 		0D061AFC18A0AA7800A7F020 /* filterTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D061AF618A0AA7800A7F020 /* filterTimeViewController.m */; };
 		0D061AFD18A0AA7800A7F020 /* reviewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D061AF818A0AA7800A7F020 /* reviewsTableViewCell.m */; };
-		0D061AFE18A0AA7800A7F020 /* reviewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D061AFA18A0AA7800A7F020 /* reviewsViewController.m */; };
 		0D061B0018A0AF9700A7F020 /* arrow_reviews@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D061AFF18A0AF9700A7F020 /* arrow_reviews@2x.png */; };
 		0D061B0218A0B5BF00A7F020 /* scoreDownArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D061B0118A0B5BF00A7F020 /* scoreDownArrow@2x.png */; };
 		0D37E8CD18A0048E0052346C /* ReviewCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D37E8CC18A0048E0052346C /* ReviewCustomCell.m */; };
@@ -70,6 +69,15 @@
 		0D37E93818A0912D0052346C /* help2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D37E93418A0912D0052346C /* help2@2x.png */; };
 		0D37E93918A0912D0052346C /* help3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D37E93518A0912D0052346C /* help3@2x.png */; };
 		0D37E93A18A0912D0052346C /* help4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D37E93618A0912D0052346C /* help4@2x.png */; };
+		0D87CD4A18A2E21000005BB1 /* libthrift09Hmac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D87CD4918A2E21000005BB1 /* libthrift09Hmac.a */; };
+		0D87CD4D18A2F2FB00005BB1 /* FullReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D87CD4C18A2F2FB00005BB1 /* FullReviewViewController.m */; };
+		0D87CD5418A2F3D800005BB1 /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D87CD4F18A2F3D800005BB1 /* back@2x.png */; };
+		0D87CD5518A2F3D800005BB1 /* btn_get_reviews@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D87CD5018A2F3D800005BB1 /* btn_get_reviews@2x.png */; };
+		0D87CD5618A2F3D800005BB1 /* btn_reply@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D87CD5118A2F3D800005BB1 /* btn_reply@2x.png */; };
+		0D87CD5718A2F3D800005BB1 /* btn_submitSurvey@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D87CD5218A2F3D800005BB1 /* btn_submitSurvey@2x.png */; };
+		0D87CD5D18A2F94300005BB1 /* 5starsgray.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D87CD5A18A2F94300005BB1 /* 5starsgray.png */; };
+		0D87CD5E18A2F94300005BB1 /* StarRatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D87CD5C18A2F94300005BB1 /* StarRatingView.m */; };
+		0D87CD6018A30D8E00005BB1 /* back_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D87CD5F18A30D8E00005BB1 /* back_btn@2x.png */; };
 		0DA1DBC4189C2DE60074A5F0 /* SlideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA1DBC3189C2DE60074A5F0 /* SlideViewController.m */; };
 		0DA1DBC6189C3B9D0074A5F0 /* SlideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DA1DBC5189C3B9D0074A5F0 /* SlideViewController.xib */; };
 		0DA1DBC9189C49AA0074A5F0 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA1DBC8189C49AA0074A5F0 /* SettingsViewController.m */; };
@@ -106,7 +114,6 @@
 		74C72626189B0C58008CD4AF /* SocialController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C72625189B0C58008CD4AF /* SocialController.m */; };
 		74C72629189B0C6A008CD4AF /* ScoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C72628189B0C6A008CD4AF /* ScoreController.m */; };
 		74C7262C189B11EE008CD4AF /* CustomNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C7262B189B11EE008CD4AF /* CustomNavigation.m */; };
-		DD30CAA618A2C8FB0015028F /* libthrift09Hmac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD30CAA518A2C8FB0015028F /* libthrift09Hmac.a */; };
 		DD7DB15C18A1BD4E00BED62D /* Mobile.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7DB15718A1BD4E00BED62D /* Mobile.m */; };
 		DD7DB15D18A1BD4E00BED62D /* MobileAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7DB15918A1BD4E00BED62D /* MobileAuth.m */; };
 		DD7DB15E18A1BD4E00BED62D /* MobileCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7DB15B18A1BD4E00BED62D /* MobileCommon.m */; };
@@ -136,8 +143,6 @@
 		0D061AF618A0AA7800A7F020 /* filterTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = filterTimeViewController.m; sourceTree = "<group>"; };
 		0D061AF718A0AA7800A7F020 /* reviewsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reviewsTableViewCell.h; sourceTree = "<group>"; };
 		0D061AF818A0AA7800A7F020 /* reviewsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = reviewsTableViewCell.m; sourceTree = "<group>"; };
-		0D061AF918A0AA7800A7F020 /* reviewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reviewsViewController.h; sourceTree = "<group>"; };
-		0D061AFA18A0AA7800A7F020 /* reviewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = reviewsViewController.m; sourceTree = "<group>"; };
 		0D061AFF18A0AF9700A7F020 /* arrow_reviews@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow_reviews@2x.png"; sourceTree = "<group>"; };
 		0D061B0118A0B5BF00A7F020 /* scoreDownArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scoreDownArrow@2x.png"; sourceTree = "<group>"; };
 		0D37E8CB18A0048E0052346C /* ReviewCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewCustomCell.h; sourceTree = "<group>"; };
@@ -195,6 +200,17 @@
 		0D37E93418A0912D0052346C /* help2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "help2@2x.png"; sourceTree = "<group>"; };
 		0D37E93518A0912D0052346C /* help3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "help3@2x.png"; sourceTree = "<group>"; };
 		0D37E93618A0912D0052346C /* help4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "help4@2x.png"; sourceTree = "<group>"; };
+		0D87CD4918A2E21000005BB1 /* libthrift09Hmac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libthrift09Hmac.a; sourceTree = "<group>"; };
+		0D87CD4B18A2F2FB00005BB1 /* FullReviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullReviewViewController.h; sourceTree = "<group>"; };
+		0D87CD4C18A2F2FB00005BB1 /* FullReviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullReviewViewController.m; sourceTree = "<group>"; };
+		0D87CD4F18A2F3D800005BB1 /* back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back@2x.png"; sourceTree = "<group>"; };
+		0D87CD5018A2F3D800005BB1 /* btn_get_reviews@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_get_reviews@2x.png"; sourceTree = "<group>"; };
+		0D87CD5118A2F3D800005BB1 /* btn_reply@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_reply@2x.png"; sourceTree = "<group>"; };
+		0D87CD5218A2F3D800005BB1 /* btn_submitSurvey@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_submitSurvey@2x.png"; sourceTree = "<group>"; };
+		0D87CD5A18A2F94300005BB1 /* 5starsgray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 5starsgray.png; sourceTree = "<group>"; };
+		0D87CD5B18A2F94300005BB1 /* StarRatingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StarRatingView.h; sourceTree = "<group>"; };
+		0D87CD5C18A2F94300005BB1 /* StarRatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarRatingView.m; sourceTree = "<group>"; };
+		0D87CD5F18A30D8E00005BB1 /* back_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_btn@2x.png"; sourceTree = "<group>"; };
 		0DA1DBC2189C2DE60074A5F0 /* SlideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideViewController.h; sourceTree = "<group>"; };
 		0DA1DBC3189C2DE60074A5F0 /* SlideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideViewController.m; sourceTree = "<group>"; };
 		0DA1DBC5189C3B9D0074A5F0 /* SlideViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SlideViewController.xib; sourceTree = "<group>"; };
@@ -249,8 +265,6 @@
 		74C7262B189B11EE008CD4AF /* CustomNavigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNavigation.m; sourceTree = "<group>"; };
 		DD30CA9F18A20CE40015028F /* thrift09HMACiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = thrift09HMACiOS.framework; path = "../../../Library/Developer/Xcode/DerivedData/thrift09HMACiOS-dcmxonlzsjtnrbevjqkfbtseoxfb/Build/Products/Debug-iphoneos/thrift09HMACiOS.framework"; sourceTree = "<group>"; };
 		DD30CAA218A20E8F0015028F /* thrift09HMACiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = thrift09HMACiOS.framework; path = "../../../Library/Developer/Xcode/DerivedData/thrift09HMACiOS-dcmxonlzsjtnrbevjqkfbtseoxfb/Build/Intermediates/ArchiveIntermediates/thrift09HMACiOS/IntermediateBuildFilesPath/UninstalledProducts/thrift09HMACiOS.framework"; sourceTree = "<group>"; };
-		DD30CAA518A2C8FB0015028F /* libthrift09Hmac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libthrift09Hmac.a; path = "../../../Library/Developer/Xcode/DerivedData/thrift09Hmac-ehhvmolrjqunbgasrnnitnzuioge/Build/Products/Debug-iphoneos/libthrift09Hmac.a"; sourceTree = "<group>"; };
-		DD7DB11818A18C0600BED62D /* libthrift09Hmac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libthrift09Hmac.a; path = "../../../Library/Developer/Xcode/DerivedData/thrift09Hmac-etcftrhdwnwnfmbpgqjaqtyfffbr/Build/Products/Debug-iphoneos/libthrift09Hmac.a"; sourceTree = "<group>"; };
 		DD7DB15618A1BD4E00BED62D /* Mobile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mobile.h; sourceTree = "<group>"; };
 		DD7DB15718A1BD4E00BED62D /* Mobile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mobile.m; sourceTree = "<group>"; };
 		DD7DB15818A1BD4E00BED62D /* MobileAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileAuth.h; sourceTree = "<group>"; };
@@ -266,8 +280,8 @@
 			files = (
 				DD7DB16018A1D51900BED62D /* Foundation.framework in Frameworks */,
 				0D37E8ED18A034D80052346C /* QuartzCore.framework in Frameworks */,
+				0D87CD4A18A2E21000005BB1 /* libthrift09Hmac.a in Frameworks */,
 				74C725DE189AE8E4008CD4AF /* CoreGraphics.framework in Frameworks */,
-				DD30CAA618A2C8FB0015028F /* libthrift09Hmac.a in Frameworks */,
 				74C725E0189AE8E4008CD4AF /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -385,6 +399,27 @@
 			path = Intro;
 			sourceTree = "<group>";
 		};
+		0D87CD4E18A2F3D800005BB1 /* ImagesReviewFullView */ = {
+			isa = PBXGroup;
+			children = (
+				0D87CD4F18A2F3D800005BB1 /* back@2x.png */,
+				0D87CD5018A2F3D800005BB1 /* btn_get_reviews@2x.png */,
+				0D87CD5118A2F3D800005BB1 /* btn_reply@2x.png */,
+				0D87CD5218A2F3D800005BB1 /* btn_submitSurvey@2x.png */,
+			);
+			path = ImagesReviewFullView;
+			sourceTree = "<group>";
+		};
+		0D87CD5918A2F94300005BB1 /* StarRating */ = {
+			isa = PBXGroup;
+			children = (
+				0D87CD5A18A2F94300005BB1 /* 5starsgray.png */,
+				0D87CD5B18A2F94300005BB1 /* StarRatingView.h */,
+				0D87CD5C18A2F94300005BB1 /* StarRatingView.m */,
+			);
+			path = StarRating;
+			sourceTree = "<group>";
+		};
 		0DA1DBD1189C66150074A5F0 /* Slider */ = {
 			isa = PBXGroup;
 			children = (
@@ -411,6 +446,8 @@
 				0DA1DBE4189C7A090074A5F0 /* icn_tab_social@2x.png */,
 				0DA1DBED189C7EC90074A5F0 /* logo_reputation_iPhone@2x.png */,
 				0D061AFF18A0AF9700A7F020 /* arrow_reviews@2x.png */,
+				0D87CD5F18A30D8E00005BB1 /* back_btn@2x.png */,
+				0D87CD4E18A2F3D800005BB1 /* ImagesReviewFullView */,
 				0D37E91C18A07F4F0052346C /* Bottom Bar */,
 				0D37E8D518A0325A0052346C /* IconImages */,
 			);
@@ -439,10 +476,9 @@
 		74C725DA189AE8E4008CD4AF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DD30CAA518A2C8FB0015028F /* libthrift09Hmac.a */,
+				0D87CD4918A2E21000005BB1 /* libthrift09Hmac.a */,
 				DD30CAA218A20E8F0015028F /* thrift09HMACiOS.framework */,
 				DD30CA9F18A20CE40015028F /* thrift09HMACiOS.framework */,
-				DD7DB11818A18C0600BED62D /* libthrift09Hmac.a */,
 				0D37E8EC18A034D80052346C /* QuartzCore.framework */,
 				74C725DB189AE8E4008CD4AF /* Foundation.framework */,
 				74C725DD189AE8E4008CD4AF /* CoreGraphics.framework */,
@@ -459,6 +495,7 @@
 				0D37E8CA18A003DB0052346C /* CustomCell */,
 				74C725EA189AE8E4008CD4AF /* AppDelegate.h */,
 				74C725EB189AE8E4008CD4AF /* AppDelegate.m */,
+				0D87CD5918A2F94300005BB1 /* StarRating */,
 				74C725ED189AE8E4008CD4AF /* Main_iPhone.storyboard */,
 				74C725F0189AE8E4008CD4AF /* Main_iPad.storyboard */,
 				0DA1DBD8189C77880074A5F0 /* Images_iPhone */,
@@ -533,8 +570,8 @@
 				0D061AF618A0AA7800A7F020 /* filterTimeViewController.m */,
 				0D061AF718A0AA7800A7F020 /* reviewsTableViewCell.h */,
 				0D061AF818A0AA7800A7F020 /* reviewsTableViewCell.m */,
-				0D061AF918A0AA7800A7F020 /* reviewsViewController.h */,
-				0D061AFA18A0AA7800A7F020 /* reviewsViewController.m */,
+				0D87CD4B18A2F2FB00005BB1 /* FullReviewViewController.h */,
+				0D87CD4C18A2F2FB00005BB1 /* FullReviewViewController.m */,
 			);
 			path = ViewControllerClasses;
 			sourceTree = "<group>";
@@ -632,7 +669,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D37E90D18A05AAB0052346C /* scoreUpArrow@2x.png in Resources */,
+				0D87CD5618A2F3D800005BB1 /* btn_reply@2x.png in Resources */,
 				0D37E90418A058AD0052346C /* length@2x.png in Resources */,
+				0D87CD5518A2F3D800005BB1 /* btn_get_reviews@2x.png in Resources */,
 				0D37E8FC18A054090052346C /* left_arrow@2x.png in Resources */,
 				0DA1DBE7189C7A090074A5F0 /* icn_tab_reviews.png in Resources */,
 				0D061AEE18A0A9E800A7F020 /* dot_blue@2x.png in Resources */,
@@ -653,6 +692,7 @@
 				0D37E8F818A051060052346C /* arrow_big@2x.png in Resources */,
 				0D37E8E218A0325A0052346C /* divider@2x.png in Resources */,
 				0D061AED18A0A9E800A7F020 /* arrow@2x.png in Resources */,
+				0D87CD6018A30D8E00005BB1 /* back_btn@2x.png in Resources */,
 				0D37E8EA18A0325A0052346C /* yello_pages_icon@2x.png in Resources */,
 				0D37E8FA18A051060052346C /* slider_score@2x.png in Resources */,
 				74C725F7189AE8E4008CD4AF /* Images.xcassets in Resources */,
@@ -662,6 +702,7 @@
 				0D37E8E618A0325A0052346C /* slider_bg@2x.png in Resources */,
 				0D37E91718A0647C0052346C /* Slide_viewBg@2x.png in Resources */,
 				0D37E90F18A0625F0052346C /* NavBar@2x.png in Resources */,
+				0D87CD5D18A2F94300005BB1 /* 5starsgray.png in Resources */,
 				0D37E90818A058AD0052346C /* volume@2x.png in Resources */,
 				0D37E92718A07F500052346C /* reviews@2x.png in Resources */,
 				0D37E91418A0647C0052346C /* help@x.png in Resources */,
@@ -670,6 +711,7 @@
 				0D37E90518A058AD0052346C /* recent@2x.png in Resources */,
 				0D37E93118A090940052346C /* TourViewController.xib in Resources */,
 				0D37E8D418A0050A0052346C /* SocialCustomCell.xib in Resources */,
+				0D87CD5718A2F3D800005BB1 /* btn_submitSurvey@2x.png in Resources */,
 				0D061B0218A0B5BF00A7F020 /* scoreDownArrow@2x.png in Resources */,
 				0D061AF218A0A9E800A7F020 /* Yahoo-logo@2x.jpg in Resources */,
 				0DA1DBEE189C7EC90074A5F0 /* logo_reputation_iPhone@2x.png in Resources */,
@@ -696,6 +738,7 @@
 				0DA1DBE5189C7A090074A5F0 /* icn_tab_dashboard.png in Resources */,
 				0D061AF018A0A9E800A7F020 /* list@2x.png in Resources */,
 				0D37E92B18A07F500052346C /* social@2x.png in Resources */,
+				0D87CD5418A2F3D800005BB1 /* back@2x.png in Resources */,
 				0D37E90618A058AD0052346C /* speed@2x.png in Resources */,
 				0DA1DBE8189C7A090074A5F0 /* icn_tab_reviews@2x.png in Resources */,
 				0D061B0018A0AF9700A7F020 /* arrow_reviews@2x.png in Resources */,
@@ -728,11 +771,12 @@
 				74C72626189B0C58008CD4AF /* SocialController.m in Sources */,
 				0DA1DBD7189C66340074A5F0 /* InitialSlidingViewController.m in Sources */,
 				74C725F5189AE8E4008CD4AF /* ViewController.m in Sources */,
+				0D87CD4D18A2F2FB00005BB1 /* FullReviewViewController.m in Sources */,
+				0D87CD5E18A2F94300005BB1 /* StarRatingView.m in Sources */,
 				0D37E8D218A004D50052346C /* SocialCustomCell.m in Sources */,
 				DD7DB15E18A1BD4E00BED62D /* MobileCommon.m in Sources */,
 				0DA1DBD6189C66340074A5F0 /* ECSlidingViewController.m in Sources */,
 				74C72629189B0C6A008CD4AF /* ScoreController.m in Sources */,
-				0D061AFE18A0AA7800A7F020 /* reviewsViewController.m in Sources */,
 				74C7262C189B11EE008CD4AF /* CustomNavigation.m in Sources */,
 				0D061AFB18A0AA7800A7F020 /* filterTableViewController.m in Sources */,
 				74C72623189B0968008CD4AF /* ReviewsController.m in Sources */,
@@ -817,7 +861,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: A-1 Technology Inc";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: A-1 Technology Inc";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -861,7 +906,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: A-1 Technology Inc";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: A-1 Technology Inc";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -883,8 +929,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: A-1 Technology Inc";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: A-1 Technology Inc";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/thrift09HMACiOS-dcmxonlzsjtnrbevjqkfbtseoxfb/Build/Products/Debug-iphoneos",
@@ -892,19 +938,25 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Reputation/Reputation-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/thrift09Hmac-ebkkjsfcxpizfzcrwnsrcvdccgfj/Build/Products/Debug-iphoneos/include\"",
+				);
 				"HEADER_SEARCH_PATHS[arch=*]" = (
 					"$(inherited)",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/thrift09Hmac-etcftrhdwnwnfmbpgqjaqtyfffbr/Build/Products/Debug-iphoneos/include/",
+					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/thrift09Hmac-ebkkjsfcxpizfzcrwnsrcvdccgfj/Build/Products/Debug-iphoneos/include\"",
 				);
 				INFOPLIST_FILE = "Reputation/Reputation-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/thrift09Hmac-etcftrhdwnwnfmbpgqjaqtyfffbr/Build/Products/Debug-iphoneos",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/thrift09Hmac-ehhvmolrjqunbgasrnnitnzuioge/Build/Products/Debug-iphoneos",
+					/Users/jai.sharma/Desktop/ReputationAppLatest/Reputation,
 				);
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -914,8 +966,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: A-1 Technology Inc";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: A-1 Technology Inc";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/thrift09HMACiOS-dcmxonlzsjtnrbevjqkfbtseoxfb/Build/Products/Debug-iphoneos",
@@ -923,15 +975,21 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Reputation/Reputation-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/thrift09Hmac-ebkkjsfcxpizfzcrwnsrcvdccgfj/Build/Products/Debug-iphoneos/include\"",
+				);
 				INFOPLIST_FILE = "Reputation/Reputation-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/thrift09Hmac-etcftrhdwnwnfmbpgqjaqtyfffbr/Build/Products/Debug-iphoneos",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/thrift09Hmac-ehhvmolrjqunbgasrnnitnzuioge/Build/Products/Debug-iphoneos",
+					/Users/jai.sharma/Desktop/ReputationAppLatest/Reputation,
 				);
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

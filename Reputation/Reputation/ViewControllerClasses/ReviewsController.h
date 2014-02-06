@@ -7,11 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FullReviewViewController.h"
 
 @interface ReviewsController : UIViewController
 
 {
     IBOutlet UITableView *tbl_View;
+    FullReviewViewController *objFullViewController;
+    
+    
+     UIActionSheet *actionSheetReview;
+    UIButton *btn_getReviews;
+    UIBarButtonItem *barBtn;
 }
 -(IBAction)btn_arrow:(id)sender;
 @end

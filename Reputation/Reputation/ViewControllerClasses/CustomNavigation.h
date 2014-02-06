@@ -12,7 +12,12 @@
 
 {
     UIButton * dashBtn;
+    
 }
 @property (nonatomic,strong) UIButton * dashBtn;
+@property (nonatomic,strong) UIButton * backBtn;
+@property (nonatomic,strong) UIButton * reviewsBtn;
+
 @property (nonatomic,strong)UILabel * lbl_title;
+
 @end
