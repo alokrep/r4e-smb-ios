@@ -10,9 +10,16 @@
 #warning "This project uses features only available in iOS SDK 5.0 and later."
 #endif
 
+#define kServiceURL @"http://localhost:45003/"
+
+
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 #import "ECSlidingViewController.h"
 #import "SlideViewController.h"
+
+
+
+
 #endif

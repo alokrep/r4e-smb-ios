@@ -940,7 +940,8 @@
 				GCC_PREFIX_HEADER = "Reputation/Reputation-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/thrift09Hmac-ebkkjsfcxpizfzcrwnsrcvdccgfj/Build/Products/Debug-iphoneos/include\"",
+					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/thrift09Hmac-ebkkjsfcxpizfzcrwnsrcvdccgfj/Build/Products/Debug-iphoneos/include\"/**",
+					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/thrift09Hmac-gvrjzbkfkzuinvflpnyoweprnmaw/Build/Products/Debug-iphonesimulator/include/thrift09Hmac\"/**",
 				);
 				"HEADER_SEARCH_PATHS[arch=*]" = (
 					"$(inherited)",
@@ -977,7 +978,8 @@
 				GCC_PREFIX_HEADER = "Reputation/Reputation-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/thrift09Hmac-ebkkjsfcxpizfzcrwnsrcvdccgfj/Build/Products/Debug-iphoneos/include\"",
+					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/thrift09Hmac-ebkkjsfcxpizfzcrwnsrcvdccgfj/Build/Products/Debug-iphoneos/include\"/**",
+					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/thrift09Hmac-gvrjzbkfkzuinvflpnyoweprnmaw/Build/Products/Debug-iphonesimulator/include/thrift09Hmac\"/**",
 				);
 				INFOPLIST_FILE = "Reputation/Reputation-Info.plist";
 				LIBRARY_SEARCH_PATHS = (

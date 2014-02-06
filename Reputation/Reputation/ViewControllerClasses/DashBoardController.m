@@ -8,6 +8,7 @@
 
 #import "DashBoardController.h"
 #import "CustomNavigation.h"
+#import "Mobile.h"
 
 @interface DashBoardController ()
 
@@ -54,7 +55,29 @@
     [self.arr_SocialData addObjectsFromArray:[NSArray arrayWithObjects:dictsocial,dictsocial1,dictsocial2, nil]];
     
 }
+-(void)tempMethod
+{
+    
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
+    dispatch_async(queue, ^{
+        
+        
+        NSURL *loginEndpointURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@login",kServiceURL]];
+        THMACHttpClient *httpClient = [[THMACHttpClient alloc] initWithURL:loginEndpointURL userId:@"user.email" secret:@"reputation"];
+        TBinaryProtocol *protocol = [[TBinaryProtocol alloc] initWithTransport:httpClient strictRead:YES strictWrite:YES];
+        MobileAuthClient *service = [[MobileAuthClient alloc] initWithProtocol:protocol];
+        Response *resp = [service login:@"temp" password:@"test"].response;
+        NSLog(@"resp%@",resp);
+        
+        
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+         
+        });
 
+    });
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

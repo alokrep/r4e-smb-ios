@@ -12,7 +12,8 @@
 #import "thrift09Hmac/TProtocolUtil.h"
 #import "thrift09Hmac/TProcessor.h"
 #import "thrift09Hmac/TObjective-C.h"
-
+#import "MobileAuth.h"
+#import "MobileCommon.h"
 #import "MobileCommon.h"
 
 @interface LoginResponse : NSObject <NSCoding> {
