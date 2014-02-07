@@ -128,11 +128,17 @@
     
         //NSLog(@"resp%@",resp);
         
-        
+       
         
         dispatch_async(dispatch_get_main_queue(), ^{
             
-         
+            NSDate *now = [NSDate date];
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"YYYY-MM-dd"];
+            [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"GMT-12"]];
+            NSString *temp = [dateFormatter stringFromDate:now];
+            
+           [NSURL URLWithString:kServiceURL]
         });
 
     });
