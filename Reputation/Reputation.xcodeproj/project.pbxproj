@@ -69,7 +69,6 @@
 		0D37E93818A0912D0052346C /* help2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D37E93418A0912D0052346C /* help2@2x.png */; };
 		0D37E93918A0912D0052346C /* help3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D37E93518A0912D0052346C /* help3@2x.png */; };
 		0D37E93A18A0912D0052346C /* help4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D37E93618A0912D0052346C /* help4@2x.png */; };
-		0D87CD4A18A2E21000005BB1 /* libthrift09Hmac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D87CD4918A2E21000005BB1 /* libthrift09Hmac.a */; };
 		0D87CD4D18A2F2FB00005BB1 /* FullReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D87CD4C18A2F2FB00005BB1 /* FullReviewViewController.m */; };
 		0D87CD5418A2F3D800005BB1 /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D87CD4F18A2F3D800005BB1 /* back@2x.png */; };
 		0D87CD5518A2F3D800005BB1 /* btn_get_reviews@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D87CD5018A2F3D800005BB1 /* btn_get_reviews@2x.png */; };
@@ -114,6 +113,22 @@
 		74C72626189B0C58008CD4AF /* SocialController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C72625189B0C58008CD4AF /* SocialController.m */; };
 		74C72629189B0C6A008CD4AF /* ScoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C72628189B0C6A008CD4AF /* ScoreController.m */; };
 		74C7262C189B11EE008CD4AF /* CustomNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C7262B189B11EE008CD4AF /* CustomNavigation.m */; };
+		DD30E19C18A479610007B15B /* TBinaryProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = DD30E17518A479610007B15B /* TBinaryProtocol.m */; };
+		DD30E19D18A479610007B15B /* TProtocolException.m in Sources */ = {isa = PBXBuildFile; fileRef = DD30E17818A479610007B15B /* TProtocolException.m */; };
+		DD30E19E18A479610007B15B /* TProtocolUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = DD30E17B18A479610007B15B /* TProtocolUtil.m */; };
+		DD30E19F18A479610007B15B /* TSocketServer.m in Sources */ = {isa = PBXBuildFile; fileRef = DD30E17E18A479610007B15B /* TSocketServer.m */; };
+		DD30E1A018A479610007B15B /* TApplicationException.m in Sources */ = {isa = PBXBuildFile; fileRef = DD30E18018A479610007B15B /* TApplicationException.m */; };
+		DD30E1A118A479610007B15B /* TException.m in Sources */ = {isa = PBXBuildFile; fileRef = DD30E18218A479610007B15B /* TException.m */; };
+		DD30E1A218A479610007B15B /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = DD30E18818A479610007B15B /* Base64.m */; };
+		DD30E1A318A479610007B15B /* MyExtentions.m in Sources */ = {isa = PBXBuildFile; fileRef = DD30E18A18A479610007B15B /* MyExtentions.m */; };
+		DD30E1A418A479610007B15B /* THMACHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = DD30E18C18A479610007B15B /* THMACHttpClient.m */; };
+		DD30E1A518A479610007B15B /* THTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = DD30E18E18A479610007B15B /* THTTPClient.m */; };
+		DD30E1A618A479610007B15B /* TMemoryBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = DD30E19018A479610007B15B /* TMemoryBuffer.m */; };
+		DD30E1A718A479610007B15B /* TNSFileHandleTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = DD30E19218A479610007B15B /* TNSFileHandleTransport.m */; };
+		DD30E1A818A479610007B15B /* TNSStreamTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = DD30E19418A479610007B15B /* TNSStreamTransport.m */; };
+		DD30E1A918A479610007B15B /* TSocketClient.m in Sources */ = {isa = PBXBuildFile; fileRef = DD30E19618A479610007B15B /* TSocketClient.m */; };
+		DD30E1AA18A479610007B15B /* TTransportException.m in Sources */ = {isa = PBXBuildFile; fileRef = DD30E19918A479610007B15B /* TTransportException.m */; };
+		DD30E1AB18A479610007B15B /* TSharedProcessorFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = DD30E19B18A479610007B15B /* TSharedProcessorFactory.m */; };
 		DD7DB15C18A1BD4E00BED62D /* Mobile.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7DB15718A1BD4E00BED62D /* Mobile.m */; };
 		DD7DB15D18A1BD4E00BED62D /* MobileAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7DB15918A1BD4E00BED62D /* MobileAuth.m */; };
 		DD7DB15E18A1BD4E00BED62D /* MobileCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7DB15B18A1BD4E00BED62D /* MobileCommon.m */; };
@@ -265,6 +280,46 @@
 		74C7262B189B11EE008CD4AF /* CustomNavigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNavigation.m; sourceTree = "<group>"; };
 		DD30CA9F18A20CE40015028F /* thrift09HMACiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = thrift09HMACiOS.framework; path = "../../../Library/Developer/Xcode/DerivedData/thrift09HMACiOS-dcmxonlzsjtnrbevjqkfbtseoxfb/Build/Products/Debug-iphoneos/thrift09HMACiOS.framework"; sourceTree = "<group>"; };
 		DD30CAA218A20E8F0015028F /* thrift09HMACiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = thrift09HMACiOS.framework; path = "../../../Library/Developer/Xcode/DerivedData/thrift09HMACiOS-dcmxonlzsjtnrbevjqkfbtseoxfb/Build/Intermediates/ArchiveIntermediates/thrift09HMACiOS/IntermediateBuildFilesPath/UninstalledProducts/thrift09HMACiOS.framework"; sourceTree = "<group>"; };
+		DD30CAA718A3173D0015028F /* libthrift09Hmac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libthrift09Hmac.a; path = "../../../Library/Developer/Xcode/DerivedData/thrift09Hmac-ehhvmolrjqunbgasrnnitnzuioge/Build/Products/Debug-universal/libthrift09Hmac.a"; sourceTree = "<group>"; };
+		DD30CAEC18A459A10015028F /* libthrift09Hmac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libthrift09Hmac.a; path = "../../../Library/Developer/Xcode/DerivedData/thrift09Hmac-ehhvmolrjqunbgasrnnitnzuioge/Build/Products/Debug-iphoneos/libthrift09Hmac.a"; sourceTree = "<group>"; };
+		DD30E17418A479610007B15B /* TBinaryProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBinaryProtocol.h; sourceTree = "<group>"; };
+		DD30E17518A479610007B15B /* TBinaryProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBinaryProtocol.m; sourceTree = "<group>"; };
+		DD30E17618A479610007B15B /* TProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TProtocol.h; sourceTree = "<group>"; };
+		DD30E17718A479610007B15B /* TProtocolException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TProtocolException.h; sourceTree = "<group>"; };
+		DD30E17818A479610007B15B /* TProtocolException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TProtocolException.m; sourceTree = "<group>"; };
+		DD30E17918A479610007B15B /* TProtocolFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TProtocolFactory.h; sourceTree = "<group>"; };
+		DD30E17A18A479610007B15B /* TProtocolUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TProtocolUtil.h; sourceTree = "<group>"; };
+		DD30E17B18A479610007B15B /* TProtocolUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TProtocolUtil.m; sourceTree = "<group>"; };
+		DD30E17D18A479610007B15B /* TSocketServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSocketServer.h; sourceTree = "<group>"; };
+		DD30E17E18A479610007B15B /* TSocketServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSocketServer.m; sourceTree = "<group>"; };
+		DD30E17F18A479610007B15B /* TApplicationException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TApplicationException.h; sourceTree = "<group>"; };
+		DD30E18018A479610007B15B /* TApplicationException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TApplicationException.m; sourceTree = "<group>"; };
+		DD30E18118A479610007B15B /* TException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TException.h; sourceTree = "<group>"; };
+		DD30E18218A479610007B15B /* TException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TException.m; sourceTree = "<group>"; };
+		DD30E18318A479610007B15B /* TObjective-C.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TObjective-C.h"; sourceTree = "<group>"; };
+		DD30E18418A479610007B15B /* TProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TProcessor.h; sourceTree = "<group>"; };
+		DD30E18518A479610007B15B /* TProcessorFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TProcessorFactory.h; sourceTree = "<group>"; };
+		DD30E18718A479610007B15B /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64.h; sourceTree = "<group>"; };
+		DD30E18818A479610007B15B /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64.m; sourceTree = "<group>"; };
+		DD30E18918A479610007B15B /* MyExtentions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyExtentions.h; sourceTree = "<group>"; };
+		DD30E18A18A479610007B15B /* MyExtentions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyExtentions.m; sourceTree = "<group>"; };
+		DD30E18B18A479610007B15B /* THMACHttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THMACHttpClient.h; sourceTree = "<group>"; };
+		DD30E18C18A479610007B15B /* THMACHttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THMACHttpClient.m; sourceTree = "<group>"; };
+		DD30E18D18A479610007B15B /* THTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THTTPClient.h; sourceTree = "<group>"; };
+		DD30E18E18A479610007B15B /* THTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THTTPClient.m; sourceTree = "<group>"; };
+		DD30E18F18A479610007B15B /* TMemoryBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMemoryBuffer.h; sourceTree = "<group>"; };
+		DD30E19018A479610007B15B /* TMemoryBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMemoryBuffer.m; sourceTree = "<group>"; };
+		DD30E19118A479610007B15B /* TNSFileHandleTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNSFileHandleTransport.h; sourceTree = "<group>"; };
+		DD30E19218A479610007B15B /* TNSFileHandleTransport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNSFileHandleTransport.m; sourceTree = "<group>"; };
+		DD30E19318A479610007B15B /* TNSStreamTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNSStreamTransport.h; sourceTree = "<group>"; };
+		DD30E19418A479610007B15B /* TNSStreamTransport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNSStreamTransport.m; sourceTree = "<group>"; };
+		DD30E19518A479610007B15B /* TSocketClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSocketClient.h; sourceTree = "<group>"; };
+		DD30E19618A479610007B15B /* TSocketClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSocketClient.m; sourceTree = "<group>"; };
+		DD30E19718A479610007B15B /* TTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTransport.h; sourceTree = "<group>"; };
+		DD30E19818A479610007B15B /* TTransportException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTransportException.h; sourceTree = "<group>"; };
+		DD30E19918A479610007B15B /* TTransportException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTransportException.m; sourceTree = "<group>"; };
+		DD30E19A18A479610007B15B /* TSharedProcessorFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSharedProcessorFactory.h; sourceTree = "<group>"; };
+		DD30E19B18A479610007B15B /* TSharedProcessorFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSharedProcessorFactory.m; sourceTree = "<group>"; };
 		DD7DB15618A1BD4E00BED62D /* Mobile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mobile.h; sourceTree = "<group>"; };
 		DD7DB15718A1BD4E00BED62D /* Mobile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mobile.m; sourceTree = "<group>"; };
 		DD7DB15818A1BD4E00BED62D /* MobileAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileAuth.h; sourceTree = "<group>"; };
@@ -280,7 +335,6 @@
 			files = (
 				DD7DB16018A1D51900BED62D /* Foundation.framework in Frameworks */,
 				0D37E8ED18A034D80052346C /* QuartzCore.framework in Frameworks */,
-				0D87CD4A18A2E21000005BB1 /* libthrift09Hmac.a in Frameworks */,
 				74C725DE189AE8E4008CD4AF /* CoreGraphics.framework in Frameworks */,
 				74C725E0189AE8E4008CD4AF /* UIKit.framework in Frameworks */,
 			);
@@ -302,6 +356,7 @@
 		0D37E8C818A003950052346C /* New Group */ = {
 			isa = PBXGroup;
 			children = (
+				DD30E17218A479610007B15B /* thrift09Hmac */,
 				74C725E1189AE8E4008CD4AF /* Reputation */,
 			);
 			name = "New Group";
@@ -476,6 +531,8 @@
 		74C725DA189AE8E4008CD4AF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DD30CAEC18A459A10015028F /* libthrift09Hmac.a */,
+				DD30CAA718A3173D0015028F /* libthrift09Hmac.a */,
 				0D87CD4918A2E21000005BB1 /* libthrift09Hmac.a */,
 				DD30CAA218A20E8F0015028F /* thrift09HMACiOS.framework */,
 				DD30CA9F18A20CE40015028F /* thrift09HMACiOS.framework */,
@@ -574,6 +631,75 @@
 				0D87CD4C18A2F2FB00005BB1 /* FullReviewViewController.m */,
 			);
 			path = ViewControllerClasses;
+			sourceTree = "<group>";
+		};
+		DD30E17218A479610007B15B /* thrift09Hmac */ = {
+			isa = PBXGroup;
+			children = (
+				DD30E17318A479610007B15B /* protocol */,
+				DD30E17C18A479610007B15B /* server */,
+				DD30E17F18A479610007B15B /* TApplicationException.h */,
+				DD30E18018A479610007B15B /* TApplicationException.m */,
+				DD30E18118A479610007B15B /* TException.h */,
+				DD30E18218A479610007B15B /* TException.m */,
+				DD30E18318A479610007B15B /* TObjective-C.h */,
+				DD30E18418A479610007B15B /* TProcessor.h */,
+				DD30E18518A479610007B15B /* TProcessorFactory.h */,
+				DD30E18618A479610007B15B /* transport */,
+				DD30E19A18A479610007B15B /* TSharedProcessorFactory.h */,
+				DD30E19B18A479610007B15B /* TSharedProcessorFactory.m */,
+			);
+			path = thrift09Hmac;
+			sourceTree = "<group>";
+		};
+		DD30E17318A479610007B15B /* protocol */ = {
+			isa = PBXGroup;
+			children = (
+				DD30E17418A479610007B15B /* TBinaryProtocol.h */,
+				DD30E17518A479610007B15B /* TBinaryProtocol.m */,
+				DD30E17618A479610007B15B /* TProtocol.h */,
+				DD30E17718A479610007B15B /* TProtocolException.h */,
+				DD30E17818A479610007B15B /* TProtocolException.m */,
+				DD30E17918A479610007B15B /* TProtocolFactory.h */,
+				DD30E17A18A479610007B15B /* TProtocolUtil.h */,
+				DD30E17B18A479610007B15B /* TProtocolUtil.m */,
+			);
+			path = protocol;
+			sourceTree = "<group>";
+		};
+		DD30E17C18A479610007B15B /* server */ = {
+			isa = PBXGroup;
+			children = (
+				DD30E17D18A479610007B15B /* TSocketServer.h */,
+				DD30E17E18A479610007B15B /* TSocketServer.m */,
+			);
+			path = server;
+			sourceTree = "<group>";
+		};
+		DD30E18618A479610007B15B /* transport */ = {
+			isa = PBXGroup;
+			children = (
+				DD30E18718A479610007B15B /* Base64.h */,
+				DD30E18818A479610007B15B /* Base64.m */,
+				DD30E18918A479610007B15B /* MyExtentions.h */,
+				DD30E18A18A479610007B15B /* MyExtentions.m */,
+				DD30E18B18A479610007B15B /* THMACHttpClient.h */,
+				DD30E18C18A479610007B15B /* THMACHttpClient.m */,
+				DD30E18D18A479610007B15B /* THTTPClient.h */,
+				DD30E18E18A479610007B15B /* THTTPClient.m */,
+				DD30E18F18A479610007B15B /* TMemoryBuffer.h */,
+				DD30E19018A479610007B15B /* TMemoryBuffer.m */,
+				DD30E19118A479610007B15B /* TNSFileHandleTransport.h */,
+				DD30E19218A479610007B15B /* TNSFileHandleTransport.m */,
+				DD30E19318A479610007B15B /* TNSStreamTransport.h */,
+				DD30E19418A479610007B15B /* TNSStreamTransport.m */,
+				DD30E19518A479610007B15B /* TSocketClient.h */,
+				DD30E19618A479610007B15B /* TSocketClient.m */,
+				DD30E19718A479610007B15B /* TTransport.h */,
+				DD30E19818A479610007B15B /* TTransportException.h */,
+				DD30E19918A479610007B15B /* TTransportException.m */,
+			);
+			path = transport;
 			sourceTree = "<group>";
 		};
 		DD7DB15518A1BD4E00BED62D /* gen-cocoa */ = {
@@ -763,22 +889,38 @@
 			buildActionMask = 2147483647;
 			files = (
 				74C72620189B0936008CD4AF /* DashBoardController.m in Sources */,
+				DD30E1A118A479610007B15B /* TException.m in Sources */,
+				DD30E19C18A479610007B15B /* TBinaryProtocol.m in Sources */,
+				DD30E19F18A479610007B15B /* TSocketServer.m in Sources */,
+				DD30E1A018A479610007B15B /* TApplicationException.m in Sources */,
 				0D061AFD18A0AA7800A7F020 /* reviewsTableViewCell.m in Sources */,
 				74C7261D189B083F008CD4AF /* TabBarControllerClass.m in Sources */,
+				DD30E1A918A479610007B15B /* TSocketClient.m in Sources */,
 				0D37E93018A090940052346C /* TourViewController.m in Sources */,
+				DD30E1A218A479610007B15B /* Base64.m in Sources */,
 				0DA1DBC4189C2DE60074A5F0 /* SlideViewController.m in Sources */,
 				0D061AFC18A0AA7800A7F020 /* filterTimeViewController.m in Sources */,
 				74C72626189B0C58008CD4AF /* SocialController.m in Sources */,
 				0DA1DBD7189C66340074A5F0 /* InitialSlidingViewController.m in Sources */,
+				DD30E1A818A479610007B15B /* TNSStreamTransport.m in Sources */,
 				74C725F5189AE8E4008CD4AF /* ViewController.m in Sources */,
 				0D87CD4D18A2F2FB00005BB1 /* FullReviewViewController.m in Sources */,
 				0D87CD5E18A2F94300005BB1 /* StarRatingView.m in Sources */,
 				0D37E8D218A004D50052346C /* SocialCustomCell.m in Sources */,
 				DD7DB15E18A1BD4E00BED62D /* MobileCommon.m in Sources */,
+				DD30E1A718A479610007B15B /* TNSFileHandleTransport.m in Sources */,
+				DD30E19E18A479610007B15B /* TProtocolUtil.m in Sources */,
 				0DA1DBD6189C66340074A5F0 /* ECSlidingViewController.m in Sources */,
+				DD30E1AB18A479610007B15B /* TSharedProcessorFactory.m in Sources */,
 				74C72629189B0C6A008CD4AF /* ScoreController.m in Sources */,
+				DD30E1AA18A479610007B15B /* TTransportException.m in Sources */,
+				DD30E1A618A479610007B15B /* TMemoryBuffer.m in Sources */,
+				DD30E1A318A479610007B15B /* MyExtentions.m in Sources */,
 				74C7262C189B11EE008CD4AF /* CustomNavigation.m in Sources */,
+				DD30E19D18A479610007B15B /* TProtocolException.m in Sources */,
+				DD30E1A418A479610007B15B /* THMACHttpClient.m in Sources */,
 				0D061AFB18A0AA7800A7F020 /* filterTableViewController.m in Sources */,
+				DD30E1A518A479610007B15B /* THTTPClient.m in Sources */,
 				74C72623189B0968008CD4AF /* ReviewsController.m in Sources */,
 				0DA1DBC9189C49AA0074A5F0 /* SettingsViewController.m in Sources */,
 				DD7DB15C18A1BD4E00BED62D /* Mobile.m in Sources */,
@@ -861,8 +1003,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: A-1 Technology Inc";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: A-1 Technology Inc";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Alok Damireddy (672JN3UVND)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Alok Damireddy (672JN3UVND)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -878,12 +1020,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				"HEADER_SEARCH_PATHS[arch=*]" = (
-					"$(inherited)",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/thrift09Hmac-etcftrhdwnwnfmbpgqjaqtyfffbr/Build/Products/Debug-iphoneos/include/",
-				);
+				"HEADER_SEARCH_PATHS[arch=*]" = "$(inherited)";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -906,8 +1045,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: A-1 Technology Inc";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: A-1 Technology Inc";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Alok Damireddy (672JN3UVND)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Alok Damireddy (672JN3UVND)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -929,8 +1068,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: A-1 Technology Inc";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: A-1 Technology Inc";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/thrift09HMACiOS-dcmxonlzsjtnrbevjqkfbtseoxfb/Build/Products/Debug-iphoneos",
@@ -938,21 +1077,14 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Reputation/Reputation-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/thrift09Hmac-ebkkjsfcxpizfzcrwnsrcvdccgfj/Build/Products/Debug-iphoneos/include\"/**",
-					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/thrift09Hmac-gvrjzbkfkzuinvflpnyoweprnmaw/Build/Products/Debug-iphonesimulator/include/thrift09Hmac\"/**",
-				);
-				"HEADER_SEARCH_PATHS[arch=*]" = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/thrift09Hmac-ebkkjsfcxpizfzcrwnsrcvdccgfj/Build/Products/Debug-iphoneos/include\"",
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Reputation/Reputation-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/thrift09Hmac-etcftrhdwnwnfmbpgqjaqtyfffbr/Build/Products/Debug-iphoneos",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/thrift09Hmac-ehhvmolrjqunbgasrnnitnzuioge/Build/Products/Debug-iphoneos",
 					/Users/jai.sharma/Desktop/ReputationAppLatest/Reputation,
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/thrift09Hmac-ehhvmolrjqunbgasrnnitnzuioge/Build/Products/Debug-universal",
 				);
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -967,8 +1099,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: A-1 Technology Inc";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: A-1 Technology Inc";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/thrift09HMACiOS-dcmxonlzsjtnrbevjqkfbtseoxfb/Build/Products/Debug-iphoneos",
@@ -976,17 +1108,14 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Reputation/Reputation-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/thrift09Hmac-ebkkjsfcxpizfzcrwnsrcvdccgfj/Build/Products/Debug-iphoneos/include\"/**",
-					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/thrift09Hmac-gvrjzbkfkzuinvflpnyoweprnmaw/Build/Products/Debug-iphonesimulator/include/thrift09Hmac\"/**",
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Reputation/Reputation-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/thrift09Hmac-etcftrhdwnwnfmbpgqjaqtyfffbr/Build/Products/Debug-iphoneos",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/thrift09Hmac-ehhvmolrjqunbgasrnnitnzuioge/Build/Products/Debug-iphoneos",
 					/Users/jai.sharma/Desktop/ReputationAppLatest/Reputation,
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/thrift09Hmac-ehhvmolrjqunbgasrnnitnzuioge/Build/Products/Debug-universal",
 				);
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";

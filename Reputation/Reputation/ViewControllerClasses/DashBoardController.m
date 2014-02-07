@@ -53,21 +53,80 @@
    NSDictionary * dictsocial1 = [NSDictionary dictionaryWithObjectsAndKeys:@"FaceBook",@"Title",@"114",@"Posts",@"114",@"Likes",@"114",@"Shares", nil];
     NSDictionary * dictsocial2 = [NSDictionary dictionaryWithObjectsAndKeys:@"Twitter",@"Title",@"47",@"Posts",@"47",@"Likes",@"47",@"Shares", nil];
     [self.arr_SocialData addObjectsFromArray:[NSArray arrayWithObjects:dictsocial,dictsocial1,dictsocial2, nil]];
+    [self tempMethod];
     
+}
+
+-(void)alokMethod
+{
+    THMACHttpClient *httpTwoClient = [[THMACHttpClient alloc] initWithURL:[NSURL URLWithString:@"http://10.20.23.104:45003/"] userId:@"alok.damireddy+1@reputation.com" secret:@"-364253313"];
+    
+    TBinaryProtocol *protocol2 = [[TBinaryProtocol alloc] initWithTransport:httpTwoClient strictRead:YES strictWrite:YES];
+    MobileClient *serviceTwo = [[MobileClient alloc] initWithProtocol:protocol2];
+    @try {
+        /*
+         FeedResponse *revFeedResp = [serviceTwo getReviewsFeed:0 start:0 pageCount:40 searchCriteria:nil];
+         if(revFeedResp.response.responseCode == ResponseCode_Success) {
+         NSLog(@"reviewFeedItens%@",revFeedResp.items);
+         }
+         */
+        SummaryResponse *summResp = [serviceTwo getSummary];
+        if(summResp.response.responseCode == ResponseCode_Success) {
+            NSLog(@"reviewFeedItens%@",summResp.aggregates);
+        }
+    }
+    @catch (NSException * e) {
+        NSLog(@"Exception: %@", e);
+    }
+    @finally {
+        // Added to show finally works as well
+    }
 }
 -(void)tempMethod
 {
     
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
-    dispatch_async(queue, ^{
-        
-        
+    //dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
+    //dispatch_async(queue, ^{
+    
+    
         NSURL *loginEndpointURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@login",kServiceURL]];
-        THMACHttpClient *httpClient = [[THMACHttpClient alloc] initWithURL:loginEndpointURL userId:@"user.email" secret:@"reputation"];
+        THMACHttpClient *httpClient = [[THMACHttpClient alloc] initWithURL:loginEndpointURL userId:@"alok.damireddy+1@reputation.com" secret:@"reputation"];
         TBinaryProtocol *protocol = [[TBinaryProtocol alloc] initWithTransport:httpClient strictRead:YES strictWrite:YES];
         MobileAuthClient *service = [[MobileAuthClient alloc] initWithProtocol:protocol];
-        Response *resp = [service login:@"temp" password:@"test"].response;
+        LoginResponse *resp = [service login:@"alok.damireddy+1@reputation.com" password:@"51190bad0"];
+
         NSLog(@"resp%@",resp);
+        if(resp.response.responseCode == ResponseCode_Success) {
+            NSLog(@"userKey%@",resp.userDetails.userKey);
+            
+//            THMACHttpClient *httpTwoClient = [[THMACHttpClient alloc] initWithURL:[NSURL URLWithString:kServiceURL] userId:@"alok.damireddy+1@reputation.com" secret:@"-364253313"];
+            THMACHttpClient *httpTwoClient = [[THMACHttpClient alloc] initWithURL:[NSURL URLWithString:kServiceURL] userId:resp.userDetails.email secret:resp.userDetails.userKey];
+            
+            TBinaryProtocol *protocol2 = [[TBinaryProtocol alloc] initWithTransport:httpTwoClient strictRead:YES strictWrite:YES];
+            MobileClient *serviceTwo = [[MobileClient alloc] initWithProtocol:protocol2];
+            @try {
+                
+                FeedResponse *revFeedResp = [serviceTwo getReviewsFeed:0 start:0 pageCount:40 searchCriteria:nil];
+                if(revFeedResp.response.responseCode == ResponseCode_Success) {
+                    NSLog(@"revFeedResp.items %@",revFeedResp.items);
+                }
+                
+                SummaryResponse *summResp = [serviceTwo getSummary];
+                if(summResp.response.responseCode == ResponseCode_Success) {
+                    NSLog(@"summResp.aggregates %@",summResp.aggregates);
+                }
+            }
+            @catch (NSException * e) {
+                NSLog(@"Exception: %@", e);
+            }
+            @finally {
+                // Added to show finally works as well
+            }
+
+        }
+    
+    
+        //NSLog(@"resp%@",resp);
         
         
         
@@ -76,7 +135,7 @@
          
         });
 
-    });
+    //});
 }
 - (void)didReceiveMemoryWarning
 {

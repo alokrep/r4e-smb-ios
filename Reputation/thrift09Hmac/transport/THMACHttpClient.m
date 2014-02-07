@@ -56,6 +56,11 @@
 - (void) setHMACHeaders
 {
     NSString * md5 = [self calculateMD5Data:mRequestData];
+    NSDate *now = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MMM-dd HH:mm:ss"];
+    [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"GMT-0"]];
+    NSString *currTimeStr = [dateFormatter stringFromDate:now];
     //NSLog(@"MD5 %@", md5);
     NSMutableString *toSign = [NSMutableString stringWithString:@""];
     [ toSign appendString:[mRequest.HTTPMethod lowercaseString]];
@@ -64,7 +69,8 @@
     [ toSign appendString:@"\n"];
     [ toSign appendString:@"application/x-thrift"];
     [ toSign appendString:@"\n"];
-    [ toSign appendString:[@"currDate" lowercaseString]];
+    [ toSign appendString:[currTimeStr lowercaseString]];
+    //[ toSign appendString:[@"currDate" lowercaseString]];
     [ toSign appendString:@"\n"];
     [ toSign appendString:mURL.path];
     //NSLog(@"toSign %@", toSign);
@@ -75,7 +81,7 @@
     [toSign appendString:hmac];
     
     [mRequest setValue: toSign forHTTPHeaderField: @"hmac"];
-    [mRequest setValue: @"currDate" forHTTPHeaderField: @"Date"];
+    [mRequest setValue: currTimeStr forHTTPHeaderField: @"Date"];
     [mRequest setValue: md5 forHTTPHeaderField: @"Content-Md5"];
     
 }

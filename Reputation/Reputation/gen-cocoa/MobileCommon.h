@@ -7,11 +7,11 @@
 
 #import <Foundation/Foundation.h>
 
-#import "thrift09Hmac/TProtocol.h"
-#import "thrift09Hmac/TApplicationException.h"
-#import "thrift09Hmac/TProtocolUtil.h"
-#import "thrift09Hmac/TProcessor.h"
-#import "thrift09Hmac/TObjective-C.h"
+#import "TProtocol.h"
+#import "TApplicationException.h"
+#import "TProtocolUtil.h"
+#import "TProcessor.h"
+#import "TObjective-C.h"
 
 
 enum Status {
