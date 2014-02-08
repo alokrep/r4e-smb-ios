@@ -138,7 +138,7 @@
             [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"GMT-12"]];
             NSString *temp = [dateFormatter stringFromDate:now];
             
-           [NSURL URLWithString:kServiceURL]
+            [NSURL URLWithString:kServiceURL];
         });
 
     });
