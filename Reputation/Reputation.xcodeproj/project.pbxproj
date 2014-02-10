@@ -130,6 +130,7 @@
 		DD30E1A918A479610007B15B /* TSocketClient.m in Sources */ = {isa = PBXBuildFile; fileRef = DD30E19618A479610007B15B /* TSocketClient.m */; };
 		DD30E1AA18A479610007B15B /* TTransportException.m in Sources */ = {isa = PBXBuildFile; fileRef = DD30E19918A479610007B15B /* TTransportException.m */; };
 		DD30E1AB18A479610007B15B /* TSharedProcessorFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = DD30E19B18A479610007B15B /* TSharedProcessorFactory.m */; };
+		DD30E1AE18A984F40007B15B /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD30E1AD18A984F40007B15B /* Crashlytics.framework */; };
 		DD7DB15C18A1BD4E00BED62D /* Mobile.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7DB15718A1BD4E00BED62D /* Mobile.m */; };
 		DD7DB15D18A1BD4E00BED62D /* MobileAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7DB15918A1BD4E00BED62D /* MobileAuth.m */; };
 		DD7DB15E18A1BD4E00BED62D /* MobileCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7DB15B18A1BD4E00BED62D /* MobileCommon.m */; };
@@ -323,6 +324,7 @@
 		DD30E19918A479610007B15B /* TTransportException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTransportException.m; sourceTree = "<group>"; };
 		DD30E19A18A479610007B15B /* TSharedProcessorFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSharedProcessorFactory.h; sourceTree = "<group>"; };
 		DD30E19B18A479610007B15B /* TSharedProcessorFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSharedProcessorFactory.m; sourceTree = "<group>"; };
+		DD30E1AD18A984F40007B15B /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		DD7DB15618A1BD4E00BED62D /* Mobile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mobile.h; sourceTree = "<group>"; };
 		DD7DB15718A1BD4E00BED62D /* Mobile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mobile.m; sourceTree = "<group>"; };
 		DD7DB15818A1BD4E00BED62D /* MobileAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileAuth.h; sourceTree = "<group>"; };
@@ -337,6 +339,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD7DB16018A1D51900BED62D /* Foundation.framework in Frameworks */,
+				DD30E1AE18A984F40007B15B /* Crashlytics.framework in Frameworks */,
 				0D37E8ED18A034D80052346C /* QuartzCore.framework in Frameworks */,
 				74C725DE189AE8E4008CD4AF /* CoreGraphics.framework in Frameworks */,
 				74C725E0189AE8E4008CD4AF /* UIKit.framework in Frameworks */,
@@ -543,6 +546,7 @@
 		74C725DA189AE8E4008CD4AF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DD30E1AD18A984F40007B15B /* Crashlytics.framework */,
 				DD30CAEC18A459A10015028F /* libthrift09Hmac.a */,
 				DD30CAA718A3173D0015028F /* libthrift09Hmac.a */,
 				0D87CD4918A2E21000005BB1 /* libthrift09Hmac.a */,
@@ -738,6 +742,7 @@
 				74C725D4189AE8E4008CD4AF /* Sources */,
 				74C725D5189AE8E4008CD4AF /* Frameworks */,
 				74C725D6189AE8E4008CD4AF /* Resources */,
+				DD30E1AC18A984AF0007B15B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -895,6 +900,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		DD30E1AC18A984AF0007B15B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Crashlytics.framework/run df3e594a408c25737d475b00660679bfd7f3aeda 1bb3ad144ffca9da4fb52feb0015559afd12fd8f3782202645078cbbf810ba65";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		74C725D4189AE8E4008CD4AF /* Sources */ = {
@@ -1088,6 +1109,7 @@
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/thrift09HMACiOS-dcmxonlzsjtnrbevjqkfbtseoxfb/Build/Products/Debug-iphoneos",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/thrift09HMACiOS-dcmxonlzsjtnrbevjqkfbtseoxfb/Build/Intermediates/ArchiveIntermediates/thrift09HMACiOS/IntermediateBuildFilesPath/UninstalledProducts",
+					"/Users/adamireddy/source/r4e-smb-ios/Reputation",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Reputation/Reputation-Prefix.pch";
@@ -1119,6 +1141,7 @@
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/thrift09HMACiOS-dcmxonlzsjtnrbevjqkfbtseoxfb/Build/Products/Debug-iphoneos",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/thrift09HMACiOS-dcmxonlzsjtnrbevjqkfbtseoxfb/Build/Intermediates/ArchiveIntermediates/thrift09HMACiOS/IntermediateBuildFilesPath/UninstalledProducts",
+					"/Users/adamireddy/source/r4e-smb-ios/Reputation",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Reputation/Reputation-Prefix.pch";
