@@ -105,15 +105,76 @@
             TBinaryProtocol *protocol2 = [[TBinaryProtocol alloc] initWithTransport:httpTwoClient strictRead:YES strictWrite:YES];
             MobileClient *serviceTwo = [[MobileClient alloc] initWithProtocol:protocol2];
             @try {
-                
+                /*
                 FeedResponse *revFeedResp = [serviceTwo getReviewsFeed:0 start:0 pageCount:40 searchCriteria:nil];
                 if(revFeedResp.response.responseCode == ResponseCode_Success) {
                     NSLog(@"revFeedResp.items %@",revFeedResp.items);
                 }
-                
+                */
                 SummaryResponse *summResp = [serviceTwo getSummary];
                 if(summResp.response.responseCode == ResponseCode_Success) {
                     NSLog(@"summResp.aggregates %@",summResp.aggregates);
+                    NSMutableArray *rows = [NSMutableArray array];
+                    NSNumberFormatter *avgRatFmt = [[NSNumberFormatter alloc] init];
+                    [avgRatFmt setFormat:@"0.#"];
+                    for(SummaryCell *agg in summResp.aggregates) {
+//                        if ([aggG isKindOfClass:[SummaryCell class]]) {
+                            //SummaryCell *agg = (SummaryCell)aggG;
+                            if([agg.name isEqualToString:MobileConstants.SUMMARY_AVGRATING_SOURCE]) {
+                                //This for the Dashboard tab
+                                for(SummaryValue *summVal in agg.values) {
+                                    //Review Sites
+                                    
+                                    //Rating out of 5
+                                    //The vertical bar should be offset by a percent amount
+                                    // on the graphic
+                                    double avgRating = summVal.value;
+                                    
+                                    //Total no of Reviews
+                                    NSString * reviewCount = [summVal.addlProps objectForKey:MobileConstants.SUMMARY_NOREVIEWS_SOURCE];
+                                    
+                                    //Source URL
+                                    NSString * sourceLogoUrl = [summVal.addlProps objectForKey:MobileConstants.SUMMARY_NOREVIEWS_SOURCELOGO];
+                                    
+                                    //Source Name
+                                    NSString * sourceName = [summVal.addlProps objectForKey:MobileConstants.SUMMARY_NOREVIEWS_SOURCENAME];
+                                    
+                                    NSDictionary * row = [NSDictionary dictionaryWithObjectsAndKeys:[summVal name],@"Title",reviewCount,@"Reviews",[avgRatFmt stringFromNumber:avgRating],@"Points",@"90",@"RectX", nil];
+                                    
+                                    [rows addObject:row];
+                                }
+                            }
+                        if([agg.name isEqualToString:MobileConstants.SUMMARY_OVERALL_SCORE]) {
+                            //This for the score tab
+                            for(SummaryValue *summVal in agg.values) {
+                                //overall score
+                                double ovScore = summVal.value * 1000;
+                                
+                                //weighted average
+                                NSString * weightedAvg = [summVal.addlProps objectForKey:MobileConstants.SUMMARY_OVERALL_SCORE_WEIGHTEDRATING];
+                                
+                                //Volume
+                                NSString * volume = [summVal.addlProps objectForKey:MobileConstants.SUMMARY_OVERALL_SCORE_VOLUME];
+                                
+                                //Recentness
+                                NSString * recentness = [summVal.addlProps objectForKey:MobileConstants.SUMMARY_OVERALL_SCORE_TIME];
+                                
+                                //Length
+                                NSString * length = [summVal.addlProps objectForKey:MobileConstants.SUMMARY_OVERALL_SCORE_LENGTH];
+                                
+                                //Spread
+                                NSString * spread = [summVal.addlProps objectForKey:MobileConstants.SUMMARY_OVERALL_SCORE_SPREAD];
+                                
+                                //Visibility
+                                NSString * visibility = [summVal.addlProps objectForKey:MobileConstants.SUMMARY_OVERALL_SCORE_VISIBILITY];
+                                
+                                
+                            }
+                        }
+//                        }
+                    }
+                    
+                    [self.arr_reviewsData addObjectsFromArray:rows];
                 }
             }
             @catch (NSException * e) {
