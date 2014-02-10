@@ -120,7 +120,8 @@
                     NSLog(@"summResp.aggregates %@",summResp.aggregates);
                     NSMutableArray *rows = [NSMutableArray array];
                     NSNumberFormatter *avgRatFmt = [[NSNumberFormatter alloc] init];
-                    [avgRatFmt setFormat:@"0.#"];
+                    avgRatFmt.numberStyle = NSNumberFormatterDecimalStyle;
+                    //[avgRatFmt setFormat:@"0.#"];
                     for(SummaryCell *agg in summResp.aggregates) {
 //                        if ([aggG isKindOfClass:[SummaryCell class]]) {
                             //SummaryCell *agg = (SummaryCell)aggG;
@@ -133,6 +134,7 @@
                                     //The vertical bar should be offset by a percent amount
                                     // on the graphic
                                     double avgRating = summVal.value;
+                                    NSNumber *avgRatingNum = [NSNumber numberWithDouble:avgRating];
                                     
                                     //Total no of Reviews
                                     NSString * reviewCount = [summVal.addlProps objectForKey:MobileConstants.SUMMARY_NOREVIEWS_SOURCE];
@@ -143,7 +145,7 @@
                                     //Source Name
                                     NSString * sourceName = [summVal.addlProps objectForKey:MobileConstants.SUMMARY_NOREVIEWS_SOURCENAME];
                                     
-                                    NSDictionary * row = [NSDictionary dictionaryWithObjectsAndKeys:[summVal name],@"Title",reviewCount,@"Reviews",[avgRatFmt stringFromNumber:avgRating],@"Points",@"90",@"RectX", nil];
+                                    NSDictionary * row = [NSDictionary dictionaryWithObjectsAndKeys:[summVal name],@"Title",reviewCount,@"Reviews",[avgRatFmt stringFromNumber:avgRatingNum],@"Points",@"90",@"RectX", nil];
                                     
                                     [rows addObject:row];
                                 }
