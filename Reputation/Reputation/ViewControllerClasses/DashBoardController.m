@@ -53,10 +53,10 @@
    NSDictionary * dictsocial1 = [NSDictionary dictionaryWithObjectsAndKeys:@"FaceBook",@"Title",@"114",@"Posts",@"114",@"Likes",@"114",@"Shares", nil];
     NSDictionary * dictsocial2 = [NSDictionary dictionaryWithObjectsAndKeys:@"Twitter",@"Title",@"47",@"Posts",@"47",@"Likes",@"47",@"Shares", nil];
     [self.arr_SocialData addObjectsFromArray:[NSArray arrayWithObjects:dictsocial,dictsocial1,dictsocial2, nil]];
-    [self tempMethod];
+    //[self tempMethod];
     
 }
-
+/*
 -(void)alokMethod
 {
     THMACHttpClient *httpTwoClient = [[THMACHttpClient alloc] initWithURL:[NSURL URLWithString:@"http://10.20.23.104:45003/"] userId:@"alok.damireddy+1@reputation.com" secret:@"-364253313"];
@@ -64,12 +64,12 @@
     TBinaryProtocol *protocol2 = [[TBinaryProtocol alloc] initWithTransport:httpTwoClient strictRead:YES strictWrite:YES];
     MobileClient *serviceTwo = [[MobileClient alloc] initWithProtocol:protocol2];
     @try {
-        /*
-         FeedResponse *revFeedResp = [serviceTwo getReviewsFeed:0 start:0 pageCount:40 searchCriteria:nil];
-         if(revFeedResp.response.responseCode == ResponseCode_Success) {
-         NSLog(@"reviewFeedItens%@",revFeedResp.items);
-         }
-         */
+ 
+//         FeedResponse *revFeedResp = [serviceTwo getReviewsFeed:0 start:0 pageCount:40 searchCriteria:nil];
+//         if(revFeedResp.response.responseCode == ResponseCode_Success) {
+//         NSLog(@"reviewFeedItens%@",revFeedResp.items);
+//         }
+ 
         SummaryResponse *summResp = [serviceTwo getSummary];
         if(summResp.response.responseCode == ResponseCode_Success) {
             NSLog(@"reviewFeedItens%@",summResp.aggregates);
@@ -136,7 +136,7 @@
         });
 
     });
-}
+}*/
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

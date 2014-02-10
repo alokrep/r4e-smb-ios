@@ -210,7 +210,7 @@
     [mRequestData setLength: 0];
     
     if (responseData == nil) {
-        @throw [TTransportException exceptionWithName: @"TTransportException"
+       @throw [TTransportException exceptionWithName: @"TTransportException"
                                                reason: @"Could not make HTTP request"
                                                 error: error];
     }

@@ -7,10 +7,27 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Mobile.h"
+#import "TProtocol.h"
+#import "TApplicationException.h"
+#import "TProtocolUtil.h"
+#import "TProcessor.h"
+#import "TObjective-C.h"
+#import "TTransport.h"
+#import "THMACHttpClient.h"
+#import "TBinaryProtocol.h"
+#import "MobileAuth.h"
+#import "LoginServiceModal.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<WebDelegate>
+{
+    BOOL  emailValid;
+    
+}
 @property (weak, nonatomic) IBOutlet UIImageView *imgVw_BackGround;
 @property (weak, nonatomic) IBOutlet UIButton *signInBtn;
+@property (weak, nonatomic) IBOutlet UITextField *txtFld_userName;
+@property (weak, nonatomic) IBOutlet UITextField *txtFld_password;
 - (IBAction)signInBtnAction:(id)sender;
 
 @end

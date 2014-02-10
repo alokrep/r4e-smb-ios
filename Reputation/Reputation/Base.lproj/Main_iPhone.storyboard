@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="PkE-Lf-e4f">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="PkE-Lf-e4f">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -76,6 +76,8 @@
                     <connections>
                         <outlet property="imgVw_BackGround" destination="H9E-pT-kjv" id="bCV-Wc-vzS"/>
                         <outlet property="signInBtn" destination="pox-kZ-Jch" id="SBH-3a-U6F"/>
+                        <outlet property="txtFld_password" destination="Te6-Pw-no4" id="awk-tz-JPH"/>
+                        <outlet property="txtFld_userName" destination="QuF-8a-lpg" id="Gnx-62-G3u"/>
                         <segue destination="Dhe-ya-eoe" kind="push" identifier="GoToSlider" id="Zon-1b-ulX"/>
                     </connections>
                 </viewController>

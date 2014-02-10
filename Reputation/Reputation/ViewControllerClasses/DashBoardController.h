@@ -10,16 +10,6 @@
 #import "ReviewCustomCell.h"
 #import "SocialCustomCell.h"
 #import <QuartzCore/QuartzCore.h>
-#import "Mobile.h"
-#import "TProtocol.h"
-#import "TApplicationException.h"
-#import "TProtocolUtil.h"
-#import "TProcessor.h"
-#import "TObjective-C.h"
-#import "TTransport.h"
-#import "THMACHttpClient.h"
-#import "TBinaryProtocol.h"
-#import "MobileAuth.h"
 
 
 @interface DashBoardController : UIViewController

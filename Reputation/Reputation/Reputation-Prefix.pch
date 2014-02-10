@@ -10,7 +10,8 @@
 #warning "This project uses features only available in iOS SDK 5.0 and later."
 #endif
 
-#define kServiceURL @"http://10.20.23.104:45003/"
+#define kServiceURL @"https://qa-r4e-mobile.reputation.com:443/"
+#define kUserInfo @"UserDetails"
 
 
 #ifdef __OBJC__
