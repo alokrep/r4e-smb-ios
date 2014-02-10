@@ -8,7 +8,10 @@
 
 #import "DashBoardController.h"
 #import "CustomNavigation.h"
+#import "THMACHttpClient.h"
+#import "TBinaryProtocol.h"
 #import "Mobile.h"
+#import "MobileAuth.h"
 
 @interface DashBoardController ()
 
@@ -82,6 +85,7 @@
         // Added to show finally works as well
     }
 }
+ */
 -(void)tempMethod
 {
     
@@ -203,7 +207,7 @@
         });
 
     });
-}*/
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

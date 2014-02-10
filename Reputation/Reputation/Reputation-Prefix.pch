@@ -11,14 +11,8 @@
 #endif
 
 #define kServiceURL @"https://qa-r4e-mobile.reputation.com:443/"
-<<<<<<< HEAD
-<<<<<<< HEAD
-#define kUserInfo @"UserDetails"
-=======
->>>>>>> cffc3d0cb03cc75e90cac9223df99997a5c6d618
-=======
->>>>>>> cffc3d0cb03cc75e90cac9223df99997a5c6d618
 
+#define kUserInfo @"UserDetails"
 
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
