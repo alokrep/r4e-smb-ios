@@ -50,13 +50,13 @@
     NSDictionary * dict2 = [NSDictionary dictionaryWithObjectsAndKeys:@"Yahoo!",@"Title",@"11 Reviews",@"Reviews",@"3.9",@"Points",@"60",@"RectX", nil];
     NSDictionary * dict3 = [NSDictionary dictionaryWithObjectsAndKeys:@"Yellow Pages",@"Title",@"15 Reviews",@"Reviews",@"4.2",@"Points",@"80",@"RectX", nil];
     
-    [self.arr_reviewsData addObjectsFromArray:[NSArray arrayWithObjects:dict,dict1,dict2,dict3, nil]];
+  //  [self.arr_reviewsData addObjectsFromArray:[NSArray arrayWithObjects:dict,dict1,dict2,dict3, nil]];
     
     NSDictionary * dictsocial = [NSDictionary dictionaryWithObjectsAndKeys:@"Google+",@"Title",@"39",@"Posts",@"39",@"Likes",@"39",@"Shares", nil];
    NSDictionary * dictsocial1 = [NSDictionary dictionaryWithObjectsAndKeys:@"FaceBook",@"Title",@"114",@"Posts",@"114",@"Likes",@"114",@"Shares", nil];
     NSDictionary * dictsocial2 = [NSDictionary dictionaryWithObjectsAndKeys:@"Twitter",@"Title",@"47",@"Posts",@"47",@"Likes",@"47",@"Shares", nil];
     [self.arr_SocialData addObjectsFromArray:[NSArray arrayWithObjects:dictsocial,dictsocial1,dictsocial2, nil]];
-    //[self tempMethod];
+    [self callDashBoardAPI];
     
 }
 /*
@@ -108,6 +108,7 @@
             
             TBinaryProtocol *protocol2 = [[TBinaryProtocol alloc] initWithTransport:httpTwoClient strictRead:YES strictWrite:YES];
             MobileClient *serviceTwo = [[MobileClient alloc] initWithProtocol:protocol2];
+        
             @try {
                 /*
                 FeedResponse *revFeedResp = [serviceTwo getReviewsFeed:0 start:0 pageCount:40 searchCriteria:nil];
@@ -210,6 +211,83 @@
 
     });
 }
+-(void)callDashBoardAPI
+{
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
+    dispatch_async(queue, ^{
+        
+        THMACHttpClient *httpTwoClient = [[THMACHttpClient alloc] initWithURL:[NSURL URLWithString:kServiceURL] userId:[AppDelegate sharedDelegate].userObj.email secret:[AppDelegate sharedDelegate].userObj.userKey];
+        
+        TBinaryProtocol *protocol2 = [[TBinaryProtocol alloc] initWithTransport:httpTwoClient strictRead:YES strictWrite:YES];
+        
+        SummaryResponse *summResp;
+        @try {
+            MobileClient *serviceTwo = [[MobileClient alloc] initWithProtocol:protocol2];
+            summResp = [serviceTwo getSummary];
+        }
+        @catch (NSException *exception) {
+            
+            
+            NSLog(@"exception %@",exception);
+        }
+        @finally {
+            
+             if(summResp.response.responseCode == ResponseCode_Success) {
+                 
+                 
+             }
+            
+        }
+        
+        if(summResp.response.responseCode == ResponseCode_Success) {
+            
+            for(SummaryCell *agg in summResp.aggregates)
+            {
+                
+            NSLog(@" value array %@",agg.values);
+            
+                if([agg.name isEqualToString:MobileConstants.SUMMARY_AVGRATING_SOURCE]) {
+                    //This for the Dashboard tab
+                    for(SummaryValue *summVal in agg.values) {
+                        
+                        
+                        double avgRating = summVal.value;
+                        NSNumber *avgRatingNum = [NSNumber numberWithDouble:avgRating];
+                        
+                        NSString * sliderValue = [NSString stringWithFormat:@"%f",summVal.value];
+                        
+                        
+                        NSString * reviewCount = [summVal.addlProps objectForKey:MobileConstants.SUMMARY_NOREVIEWS_SOURCE];
+                        
+                        //Source URL
+                        NSString * sourceLogoUrl = [summVal.addlProps objectForKey:MobileConstants.SUMMARY_NOREVIEWS_SOURCELOGO];
+                        
+                        //Source Name
+                        NSString * sourceName = [summVal.addlProps objectForKey:MobileConstants.SUMMARY_NOREVIEWS_SOURCENAME];
+                        
+                         NSDictionary * dict = [NSDictionary dictionaryWithObjectsAndKeys:sourceName,@"Title",reviewCount,@"Reviews",sliderValue,@"Points",sourceLogoUrl,@"image_URL",nil];
+                        
+                        [self.arr_reviewsData addObject:dict];
+                        
+                
+                    }
+            }
+            
+        }
+        
+        NSLog(@"DashBoard %@",self.arr_reviewsData);
+        
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+           
+            [self.tblVw_review reloadData];
+           
+        });
+        
+    });
+    
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -253,15 +331,40 @@
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"ReviewCustomCell" owner:self options:nil];
         cell = [nib objectAtIndex:0];
         
-        
-        
-        
-        
-        
     }
         cell.lbl_titleName.text= [[self.arr_reviewsData objectAtIndex:indexPath.row] valueForKey:@"Title"];
-        cell.lbl_reviewsNumber.text= [[self.arr_reviewsData objectAtIndex:indexPath.row] valueForKey:@"Reviews"];
-        cell.lbl_points.text= [[self.arr_reviewsData objectAtIndex:indexPath.row] valueForKey:@"Points"];
+        
+        NSString * str_temp = [NSString stringWithFormat:@"%@",[[self.arr_reviewsData objectAtIndex:indexPath.row] valueForKey:@"Points"]];
+        NSString * str;
+        
+        if (str_temp.length>2) {
+            str = [str_temp substringToIndex:3];
+        }
+        else
+            str = str_temp ;
+        
+        cell.slider_point.value = [str floatValue];
+        [cell.slider_point setThumbImage:[UIImage imageNamed:@"slider_pt.png"] forState:UIControlStateNormal];
+        [cell.slider_point setThumbImage:[UIImage imageNamed:@"slider_pt.png"] forState:UIControlStateSelected];
+        cell.lbl_points.text= str ;
+
+        
+        
+        NSNumberFormatter* noFormObj = [[NSNumberFormatter alloc] init];
+        noFormObj.positiveFormat = @"0#";
+        noFormObj.roundingMode = NSNumberFormatterRoundFloor;
+        //NSString* trimmedValue =[NSString stringWithFormat:@"%@k",[nf stringFromNumber:[[self.arr_reviewsData objectAtIndex:indexPath.row] valueForKey:@"Reviews"]]]];
+        NSNumber  *reviwe_temp =[NSNumber numberWithInt:[[[self.arr_reviewsData objectAtIndex:indexPath.row] valueForKey:@"Reviews"] intValue]];
+        //[[[self.arr_reviewsData objectAtIndex:indexPath.row] valueForKey:@"Reviews"] intValue];
+        
+        NSString * trimmedValue = [NSString stringWithFormat:@"%@",[noFormObj stringFromNumber:reviwe_temp]];
+        
+        NSLog(@"trimmedValue: %1@", trimmedValue);
+        
+        cell.lbl_reviewsNumber.text= [NSString stringWithFormat:@"%@ Reviews",trimmedValue];
+        
+        noFormObj = nil;
+        
         
         
         switch (indexPath.row) {

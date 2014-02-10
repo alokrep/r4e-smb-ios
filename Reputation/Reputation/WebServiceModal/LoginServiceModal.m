@@ -30,32 +30,35 @@
            
             [self saveUserObject:resp.userDetails];
             
+            [AppDelegate sharedDelegate].userObj = [self loadUserObjectWithKey:kUserInfo];
+            
+            
             NSLog(@"userKey%@",resp.userDetails.userKey);
             
             //            THMACHttpClient *httpTwoClient = [[THMACHttpClient alloc] initWithURL:[NSURL URLWithString:kServiceURL] userId:@"alok.damireddy+1@reputation.com" secret:@"-364253313"];
-            THMACHttpClient *httpTwoClient = [[THMACHttpClient alloc] initWithURL:[NSURL URLWithString:kServiceURL] userId:resp.userDetails.email secret:resp.userDetails.userKey];
-            
-            TBinaryProtocol *protocol2 = [[TBinaryProtocol alloc] initWithTransport:httpTwoClient strictRead:YES strictWrite:YES];
-            MobileClient *serviceTwo = [[MobileClient alloc] initWithProtocol:protocol2];
-            @try {
-                
-                FeedResponse *revFeedResp = [serviceTwo getReviewsFeed:0 start:0 pageCount:40 searchCriteria:nil];
-                if(revFeedResp.response.responseCode == ResponseCode_Success) {
-                    NSLog(@"revFeedResp.items %@",revFeedResp.items);
-                }
-                
-                SummaryResponse *summResp = [serviceTwo getSummary];
-                if(summResp.response.responseCode == ResponseCode_Success) {
-                    NSLog(@"summResp.aggregates %@",summResp.aggregates);
-                }
-            }
-            @catch (NSException * e) {
-                NSLog(@"Exception: %@", e);
-            }
-            @finally {
-                // Added to show finally works as well
-            }
-            
+//            THMACHttpClient *httpTwoClient = [[THMACHttpClient alloc] initWithURL:[NSURL URLWithString:kServiceURL] userId:resp.userDetails.email secret:resp.userDetails.userKey];
+//            
+//            TBinaryProtocol *protocol2 = [[TBinaryProtocol alloc] initWithTransport:httpTwoClient strictRead:YES strictWrite:YES];
+//            MobileClient *serviceTwo = [[MobileClient alloc] initWithProtocol:protocol2];
+//            @try {
+//                
+//                FeedResponse *revFeedResp = [serviceTwo getReviewsFeed:0 start:0 pageCount:40 searchCriteria:nil];
+//                if(revFeedResp.response.responseCode == ResponseCode_Success) {
+//                    NSLog(@"revFeedResp.items %@",revFeedResp.items);
+//                }
+//                
+//                SummaryResponse *summResp = [serviceTwo getSummary];
+//                if(summResp.response.responseCode == ResponseCode_Success) {
+//                    NSLog(@"summResp.aggregates %@",summResp.aggregates);
+//                }
+//            }
+//            @catch (NSException * e) {
+//                NSLog(@"Exception: %@", e);
+//            }
+//            @finally {
+//                // Added to show finally works as well
+//            }
+//            
         }
         
         
@@ -69,6 +72,11 @@
             
                  [self.delegate webResponse:resp.userDetails];
              }
+            else
+            {
+                
+                
+            }
         });
         
     });

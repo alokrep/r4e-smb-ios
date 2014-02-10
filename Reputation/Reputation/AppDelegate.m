@@ -10,6 +10,7 @@
 #import "TabBarControllerClass.h"
 @implementation AppDelegate
 @synthesize tabBarControllerObj;
+@synthesize userObj;
 +(AppDelegate *)sharedDelegate
 {
     return (AppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -19,6 +20,13 @@
 {
     // Override point for customization after application launch.
     return YES;
+    
+    self.userObj = [self loadUserObjectWithKey:kUserInfo];
+    
+    if (self.userObj) {
+        
+        NSLog(@"%@",userObj);
+    }
 }
 							
 -(void)applicationWillResignActive:(UIApplication *)application
@@ -47,5 +55,11 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-
+-(User *)loadUserObjectWithKey:(NSString*)key
+{
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    NSData *myEncodedObject = [prefs objectForKey:kUserInfo ];
+    User *obj = (User *)[NSKeyedUnarchiver unarchiveObjectWithData:myEncodedObject];
+    return obj;
+}
 @end

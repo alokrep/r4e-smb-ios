@@ -7,13 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MobileAuth.h"
 @class TabBarControllerClass;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property(strong,nonatomic) TabBarControllerClass * tabBarControllerObj;
-
+@property(strong,nonatomic) User * userObj;
 
 +(AppDelegate *)sharedDelegate;
 @end

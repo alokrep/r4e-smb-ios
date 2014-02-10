@@ -17,6 +17,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.txtFld_userName.text = @"alok.damireddy+1@reputation.com";
+    self.txtFld_password.text = @"51190bad0";
 	
     
 }

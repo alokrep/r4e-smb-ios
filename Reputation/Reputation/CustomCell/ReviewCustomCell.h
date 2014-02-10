@@ -14,5 +14,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *lbl_points;
 @property (weak, nonatomic) IBOutlet UIImageView *imgVw_rating;
 @property (weak, nonatomic) IBOutlet UIImageView *imgVw_icon;
+@property (weak, nonatomic) IBOutlet UISlider *slider_point;
 
 @end
