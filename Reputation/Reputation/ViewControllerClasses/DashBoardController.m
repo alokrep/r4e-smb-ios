@@ -56,7 +56,7 @@
    NSDictionary * dictsocial1 = [NSDictionary dictionaryWithObjectsAndKeys:@"FaceBook",@"Title",@"114",@"Posts",@"114",@"Likes",@"114",@"Shares", nil];
     NSDictionary * dictsocial2 = [NSDictionary dictionaryWithObjectsAndKeys:@"Twitter",@"Title",@"47",@"Posts",@"47",@"Likes",@"47",@"Shares", nil];
     [self.arr_SocialData addObjectsFromArray:[NSArray arrayWithObjects:dictsocial,dictsocial1,dictsocial2, nil]];
-    //[self tempMethod];
+    [self tempMethod];
     
 }
 /*
@@ -179,7 +179,7 @@
                         }
 //                        }
                     }
-                    
+                    [self.arr_reviewsData removeAllObjects];
                     [self.arr_reviewsData addObjectsFromArray:rows];
                 }
             }
