@@ -10,8 +10,8 @@
 #import "ReviewCustomCell.h"
 #import "SocialCustomCell.h"
 #import <QuartzCore/QuartzCore.h>
-#import "AppRecord.h"
 #import "IconDownloader.h"
+#import "ReviewDashBoardModal.h"
 
 
 @interface DashBoardController : UIViewController

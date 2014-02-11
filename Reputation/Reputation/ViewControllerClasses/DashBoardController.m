@@ -47,12 +47,6 @@
     self.arr_SocialData = [[NSMutableArray alloc]init];
     self.arr_reviewsData = [[NSMutableArray alloc]init];
     
-    NSDictionary * dict = [NSDictionary dictionaryWithObjectsAndKeys:@"Google Places",@"Title",@"54 Reviews",@"Reviews",@"4.2",@"Points",@"90",@"RectX", nil];
-    NSDictionary * dict1 = [NSDictionary dictionaryWithObjectsAndKeys:@"Yelp",@"Title",@"47 Reviews",@"Reviews",@"4.0",@"Points",@"110",@"RectX", nil];
-    NSDictionary * dict2 = [NSDictionary dictionaryWithObjectsAndKeys:@"Yahoo!",@"Title",@"11 Reviews",@"Reviews",@"3.9",@"Points",@"60",@"RectX", nil];
-    NSDictionary * dict3 = [NSDictionary dictionaryWithObjectsAndKeys:@"Yellow Pages",@"Title",@"15 Reviews",@"Reviews",@"4.2",@"Points",@"80",@"RectX", nil];
-    
-  //  [self.arr_reviewsData addObjectsFromArray:[NSArray arrayWithObjects:dict,dict1,dict2,dict3, nil]];
     
     NSDictionary * dictsocial = [NSDictionary dictionaryWithObjectsAndKeys:@"Google+",@"Title",@"39",@"Posts",@"39",@"Likes",@"39",@"Shares", nil];
    NSDictionary * dictsocial1 = [NSDictionary dictionaryWithObjectsAndKeys:@"FaceBook",@"Title",@"114",@"Posts",@"114",@"Likes",@"114",@"Shares", nil];
@@ -260,7 +254,7 @@
                         
                         
                         double avgRating = summVal.value;
-                        NSNumber *avgRatingNum = [NSNumber numberWithDouble:avgRating];
+                        
                         
                         NSString * sliderValue = [NSString stringWithFormat:@"%f",summVal.value];
                         
@@ -273,18 +267,51 @@
                         //Source Name
                         NSString * sourceName = [summVal.addlProps objectForKey:MobileConstants.SUMMARY_NOREVIEWS_SOURCENAME];
                         
-                         NSDictionary * dict = [NSDictionary dictionaryWithObjectsAndKeys:sourceName,@"Title",reviewCount,@"Reviews",sliderValue,@"Points",sourceLogoUrl,@"image_URL",nil];
+//                         NSDictionary * dict = [NSDictionary dictionaryWithObjectsAndKeys:sourceName,@"Title",reviewCount,@"Reviews",sliderValue,@"Points",sourceLogoUrl,@"image_URL",nil];
                         
-                        AppRecord * appRecord = [[AppRecord alloc]init];
+                        ReviewDashBoardModal * reviewObj = [[ReviewDashBoardModal alloc]init];
+                        reviewObj.str_reviewCount =reviewCount;
+                        reviewObj.str_sliderValue =sliderValue;
+                        reviewObj.str_sourceName =sourceName;
                         
-                        appRecord.imageURLString =[NSString stringWithFormat:@"http://%@",sourceLogoUrl];
+                        reviewObj.str_imageURL =[NSString stringWithFormat:@"http://%@",sourceLogoUrl];
                         
-                        [self.entries addObject:appRecord];
-                        [self.arr_reviewsData addObject:dict];
+                        [self.arr_reviewsData addObject:reviewObj];
+                        //[self.arr_reviewsData addObject:dict];
                         
                 
                     }
             }
+                if([agg.name isEqualToString:MobileConstants.SUMMARY_OVERALL_SCORE]) {
+                    //This for the score tab
+                    for(SummaryValue *summVal in agg.values) {
+                        //overall score
+                        double ovScore = summVal.value * 1000;
+                        
+                        //weighted average
+                        NSString * weightedAvg = [summVal.addlProps objectForKey:MobileConstants.SUMMARY_OVERALL_SCORE_WEIGHTEDRATING];
+                        
+                        //Volume
+                        NSString * volume = [summVal.addlProps objectForKey:MobileConstants.SUMMARY_OVERALL_SCORE_VOLUME];
+                        
+                        //Recentness
+                        NSString * recentness = [summVal.addlProps objectForKey:MobileConstants.SUMMARY_OVERALL_SCORE_TIME];
+                        
+                        //Length
+                        NSString * length = [summVal.addlProps objectForKey:MobileConstants.SUMMARY_OVERALL_SCORE_LENGTH];
+                        
+                        //Spread
+                        NSString * spread = [summVal.addlProps objectForKey:MobileConstants.SUMMARY_OVERALL_SCORE_SPREAD];
+                        
+                        //Visibility
+                        NSString * visibility = [summVal.addlProps objectForKey:MobileConstants.SUMMARY_OVERALL_SCORE_VISIBILITY];
+                        
+                        
+                    }
+                }
+                
+                
+                
             
         }
         
@@ -351,9 +378,10 @@
         cell = [nib objectAtIndex:0];
         
     }
-        cell.lbl_titleName.text= [[self.arr_reviewsData objectAtIndex:indexPath.row] valueForKey:@"Title"];
+        ReviewDashBoardModal  * reviewObj = [self.arr_reviewsData objectAtIndex:indexPath.row];
+        cell.lbl_titleName.text= reviewObj.str_sourceName;
         
-        NSString * str_temp = [NSString stringWithFormat:@"%@",[[self.arr_reviewsData objectAtIndex:indexPath.row] valueForKey:@"Points"]];
+        NSString * str_temp = reviewObj.str_sliderValue;
         NSString * str;
         
         if (str_temp.length>2) {
@@ -373,7 +401,7 @@
         noFormObj.positiveFormat = @"0#";
         noFormObj.roundingMode = NSNumberFormatterRoundFloor;
         //NSString* trimmedValue =[NSString stringWithFormat:@"%@k",[nf stringFromNumber:[[self.arr_reviewsData objectAtIndex:indexPath.row] valueForKey:@"Reviews"]]]];
-        NSNumber  *reviwe_temp =[NSNumber numberWithInt:[[[self.arr_reviewsData objectAtIndex:indexPath.row] valueForKey:@"Reviews"] intValue]];
+        NSNumber  *reviwe_temp =[NSNumber numberWithInt:[reviewObj.str_reviewCount intValue]];
         //[[[self.arr_reviewsData objectAtIndex:indexPath.row] valueForKey:@"Reviews"] intValue];
         
         NSString * trimmedValue = [NSString stringWithFormat:@"%@",[noFormObj stringFromNumber:reviwe_temp]];
@@ -384,42 +412,25 @@
         
         noFormObj = nil;
         
-        AppRecord *appRecord = [self.entries objectAtIndex:indexPath.row];
+        
         
         cell.imgVw_icon.contentMode = UIViewContentModeScaleAspectFit;
         
-        if (!appRecord.appIcon)
+        if (!reviewObj.logoIcon)
         {
             if (self.tblVw_review.dragging == NO && self.tblVw_review.decelerating == NO)
             {
-                [self startIconDownload:appRecord forIndexPath:indexPath];
+                [self startIconDownload:reviewObj forIndexPath:indexPath];
             }
             // if a download is deferred or in progress, return a placeholder image
             cell.imgVw_icon.image = [UIImage imageNamed:@"Placeholder.png"];
         }
         else
         {
-            cell.imgVw_icon.image = appRecord.appIcon;
+            cell.imgVw_icon.image = reviewObj.logoIcon;
         }
 
         
-//        switch (indexPath.row) {
-//            case 0:
-//                cell.imgVw_icon.image = [UIImage imageNamed:@"facebook_icon.png"];
-//                break;
-//            case 1:
-//                 cell.imgVw_icon.image = [UIImage imageNamed:@"yelp_icon.png"];
-//                break;
-//            case 2:
-//                 cell.imgVw_icon.image = [UIImage imageNamed:@"yahoo_icon.png"];
-//                break;
-//            case 3:
-//                 cell.imgVw_icon.image = [UIImage imageNamed:@"yello_pages_icon.png"];
-//                break;
-//                
-//            default:
-//                break;
-//        }
     return cell;
         
     }
@@ -479,7 +490,7 @@
 // -------------------------------------------------------------------------------
 //	startIconDownload:forIndexPath:
 // -------------------------------------------------------------------------------
-- (void)startIconDownload:(AppRecord *)appRecord forIndexPath:(NSIndexPath *)indexPath
+- (void)startIconDownload:(ReviewDashBoardModal *)appRecord forIndexPath:(NSIndexPath *)indexPath
 {
     IconDownloader *iconDownloader = [self.imageDownloadsInProgress objectForKey:indexPath];
     if (iconDownloader == nil)
@@ -491,7 +502,7 @@
             ReviewCustomCell *cell = (ReviewCustomCell *)[self.tblVw_review cellForRowAtIndexPath:indexPath];
             
             // Display the newly loaded image
-            cell.imgVw_icon.image = appRecord.appIcon;
+            cell.imgVw_icon.image = appRecord.logoIcon;
             
             // Remove the IconDownloader from the in progress list.
             // This will result in it being deallocated.
@@ -515,9 +526,9 @@
         NSArray *visiblePaths = [self.tblVw_review indexPathsForVisibleRows];
         for (NSIndexPath *indexPath in visiblePaths)
         {
-            AppRecord *appRecord = [self.entries objectAtIndex:indexPath.row];
+            ReviewDashBoardModal *appRecord = [self.entries objectAtIndex:indexPath.row];
             
-            if (!appRecord.appIcon)
+            if (!appRecord.logoIcon)
                 // Avoid the app icon download if the app already has an icon
             {
                 [self startIconDownload:appRecord forIndexPath:indexPath];

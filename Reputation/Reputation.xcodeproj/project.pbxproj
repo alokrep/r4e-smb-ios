@@ -18,7 +18,6 @@
 		0D061AFD18A0AA7800A7F020 /* reviewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D061AF818A0AA7800A7F020 /* reviewsTableViewCell.m */; };
 		0D061B0018A0AF9700A7F020 /* arrow_reviews@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D061AFF18A0AF9700A7F020 /* arrow_reviews@2x.png */; };
 		0D061B0218A0B5BF00A7F020 /* scoreDownArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D061B0118A0B5BF00A7F020 /* scoreDownArrow@2x.png */; };
-		0D1CE96B18A9B17E00DECDC5 /* AppRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D1CE96818A9B17E00DECDC5 /* AppRecord.m */; };
 		0D1CE96C18A9B17E00DECDC5 /* IconDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D1CE96A18A9B17E00DECDC5 /* IconDownloader.m */; };
 		0D1CE97018A9B36700DECDC5 /* DEJOwareActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D1CE96F18A9B36700DECDC5 /* DEJOwareActivityIndicatorView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		0D37E8CD18A0048E0052346C /* ReviewCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D37E8CC18A0048E0052346C /* ReviewCustomCell.m */; };
@@ -72,6 +71,7 @@
 		0D37E93818A0912D0052346C /* help2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D37E93418A0912D0052346C /* help2@2x.png */; };
 		0D37E93918A0912D0052346C /* help3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D37E93518A0912D0052346C /* help3@2x.png */; };
 		0D37E93A18A0912D0052346C /* help4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D37E93618A0912D0052346C /* help4@2x.png */; };
+		0D602B9318AA94C200E05B42 /* ReviewDashBoardModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D602B9218AA94C200E05B42 /* ReviewDashBoardModal.m */; };
 		0D6C7D9B18A55C2D0046C282 /* LoginServiceModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6C7D9A18A55C2D0046C282 /* LoginServiceModal.m */; };
 		0D87CD4D18A2F2FB00005BB1 /* FullReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D87CD4C18A2F2FB00005BB1 /* FullReviewViewController.m */; };
 		0D87CD5418A2F3D800005BB1 /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D87CD4F18A2F3D800005BB1 /* back@2x.png */; };
@@ -164,8 +164,6 @@
 		0D061AF818A0AA7800A7F020 /* reviewsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = reviewsTableViewCell.m; sourceTree = "<group>"; };
 		0D061AFF18A0AF9700A7F020 /* arrow_reviews@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow_reviews@2x.png"; sourceTree = "<group>"; };
 		0D061B0118A0B5BF00A7F020 /* scoreDownArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scoreDownArrow@2x.png"; sourceTree = "<group>"; };
-		0D1CE96718A9B17E00DECDC5 /* AppRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppRecord.h; sourceTree = "<group>"; };
-		0D1CE96818A9B17E00DECDC5 /* AppRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppRecord.m; sourceTree = "<group>"; };
 		0D1CE96918A9B17E00DECDC5 /* IconDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IconDownloader.h; sourceTree = "<group>"; };
 		0D1CE96A18A9B17E00DECDC5 /* IconDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconDownloader.m; sourceTree = "<group>"; };
 		0D1CE96E18A9B36700DECDC5 /* DEJOwareActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEJOwareActivityIndicatorView.h; sourceTree = "<group>"; };
@@ -225,6 +223,8 @@
 		0D37E93418A0912D0052346C /* help2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "help2@2x.png"; sourceTree = "<group>"; };
 		0D37E93518A0912D0052346C /* help3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "help3@2x.png"; sourceTree = "<group>"; };
 		0D37E93618A0912D0052346C /* help4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "help4@2x.png"; sourceTree = "<group>"; };
+		0D602B9118AA94C200E05B42 /* ReviewDashBoardModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewDashBoardModal.h; sourceTree = "<group>"; };
+		0D602B9218AA94C200E05B42 /* ReviewDashBoardModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewDashBoardModal.m; sourceTree = "<group>"; };
 		0D6C7D9918A55C2D0046C282 /* LoginServiceModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginServiceModal.h; sourceTree = "<group>"; };
 		0D6C7D9A18A55C2D0046C282 /* LoginServiceModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginServiceModal.m; sourceTree = "<group>"; };
 		0D87CD4918A2E21000005BB1 /* libthrift09Hmac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libthrift09Hmac.a; sourceTree = "<group>"; };
@@ -369,8 +369,6 @@
 		0D1CE96618A9B17E00DECDC5 /* IconDownloader */ = {
 			isa = PBXGroup;
 			children = (
-				0D1CE96718A9B17E00DECDC5 /* AppRecord.h */,
-				0D1CE96818A9B17E00DECDC5 /* AppRecord.m */,
 				0D1CE96918A9B17E00DECDC5 /* IconDownloader.h */,
 				0D1CE96A18A9B17E00DECDC5 /* IconDownloader.m */,
 			);
@@ -487,6 +485,15 @@
 			path = Intro;
 			sourceTree = "<group>";
 		};
+		0D602B9018AA949900E05B42 /* DataModal */ = {
+			isa = PBXGroup;
+			children = (
+				0D602B9118AA94C200E05B42 /* ReviewDashBoardModal.h */,
+				0D602B9218AA94C200E05B42 /* ReviewDashBoardModal.m */,
+			);
+			path = DataModal;
+			sourceTree = "<group>";
+		};
 		0D6C7D9818A55C0B0046C282 /* WebServiceModal */ = {
 			isa = PBXGroup;
 			children = (
@@ -591,6 +598,7 @@
 		74C725E1189AE8E4008CD4AF /* Reputation */ = {
 			isa = PBXGroup;
 			children = (
+				0D602B9018AA949900E05B42 /* DataModal */,
 				0D1CE96D18A9B36700DECDC5 /* IndicatorCustomClass */,
 				0D1CE96618A9B17E00DECDC5 /* IconDownloader */,
 				DD7DB15518A1BD4E00BED62D /* gen-cocoa */,
@@ -955,6 +963,7 @@
 				DD30E1A118A479610007B15B /* TException.m in Sources */,
 				DD30E19C18A479610007B15B /* TBinaryProtocol.m in Sources */,
 				DD30E19F18A479610007B15B /* TSocketServer.m in Sources */,
+				0D602B9318AA94C200E05B42 /* ReviewDashBoardModal.m in Sources */,
 				DD30E1A018A479610007B15B /* TApplicationException.m in Sources */,
 				0D061AFD18A0AA7800A7F020 /* reviewsTableViewCell.m in Sources */,
 				74C7261D189B083F008CD4AF /* TabBarControllerClass.m in Sources */,
@@ -974,7 +983,6 @@
 				0D1CE96C18A9B17E00DECDC5 /* IconDownloader.m in Sources */,
 				DD7DB15E18A1BD4E00BED62D /* MobileCommon.m in Sources */,
 				DD30E1A718A479610007B15B /* TNSFileHandleTransport.m in Sources */,
-				0D1CE96B18A9B17E00DECDC5 /* AppRecord.m in Sources */,
 				DD30E19E18A479610007B15B /* TProtocolUtil.m in Sources */,
 				0DA1DBD6189C66340074A5F0 /* ECSlidingViewController.m in Sources */,
 				DD30E1AB18A479610007B15B /* TSharedProcessorFactory.m in Sources */,
