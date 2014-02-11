@@ -37,6 +37,8 @@
     CustomNavigation * navigationObj = (CustomNavigation *)self.navigationController;
     navigationObj.lbl_title.text = @"Dashboard";
     
+    self.entries = [[NSMutableArray alloc]init];
+    
     self.view.backgroundColor = [UIColor colorWithRed:234.0f/255.0f green:234.0f/255.0f blue:234.0f/255.0f alpha:1.0];
     self.tblVw_review.layer.borderColor = [[UIColor colorWithRed:220.0f/255.0f green:220.0f/255.0f blue:220.0f/255.0f alpha:1.0] CGColor];
     self.tblVwSocial.layer.borderColor = [[UIColor colorWithRed:220.0f/255.0f green:220.0f/255.0f blue:220.0f/255.0f alpha:1.0] CGColor];
@@ -56,11 +58,11 @@
    NSDictionary * dictsocial1 = [NSDictionary dictionaryWithObjectsAndKeys:@"FaceBook",@"Title",@"114",@"Posts",@"114",@"Likes",@"114",@"Shares", nil];
     NSDictionary * dictsocial2 = [NSDictionary dictionaryWithObjectsAndKeys:@"Twitter",@"Title",@"47",@"Posts",@"47",@"Likes",@"47",@"Shares", nil];
     [self.arr_SocialData addObjectsFromArray:[NSArray arrayWithObjects:dictsocial,dictsocial1,dictsocial2, nil]];
-<<<<<<< HEAD
+//<<<<<<< HEAD
     [self callDashBoardAPI];
-=======
-    [self tempMethod];
->>>>>>> 20a6015af56ccd3fba7b194b03275498db86f698
+//=======
+   // [self tempMethod];
+//>>>>>>> 20a6015af56ccd3fba7b194b03275498db86f698
     
 }
 /*
@@ -255,6 +257,8 @@
                     for(SummaryValue *summVal in agg.values) {
                         
                         
+                        
+                        
                         double avgRating = summVal.value;
                         NSNumber *avgRatingNum = [NSNumber numberWithDouble:avgRating];
                         
@@ -271,6 +275,11 @@
                         
                          NSDictionary * dict = [NSDictionary dictionaryWithObjectsAndKeys:sourceName,@"Title",reviewCount,@"Reviews",sliderValue,@"Points",sourceLogoUrl,@"image_URL",nil];
                         
+                        AppRecord * appRecord = [[AppRecord alloc]init];
+                        
+                        appRecord.imageURLString =[NSString stringWithFormat:@"http://%@",sourceLogoUrl];
+                        
+                        [self.entries addObject:appRecord];
                         [self.arr_reviewsData addObject:dict];
                         
                 
@@ -295,8 +304,14 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
+    // terminate all pending download connections
+    NSArray *allDownloads = [self.imageDownloadsInProgress allValues];
+    [allDownloads makeObjectsPerformSelector:@selector(cancelDownload)];
+    
+    [self.imageDownloadsInProgress removeAllObjects];
 }
+
 # pragma mark  TableView Delegates Method
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -369,25 +384,42 @@
         
         noFormObj = nil;
         
+        AppRecord *appRecord = [self.entries objectAtIndex:indexPath.row];
         
+        cell.imgVw_icon.contentMode = UIViewContentModeScaleAspectFit;
         
-        switch (indexPath.row) {
-            case 0:
-                cell.imgVw_icon.image = [UIImage imageNamed:@"facebook_icon.png"];
-                break;
-            case 1:
-                 cell.imgVw_icon.image = [UIImage imageNamed:@"yelp_icon.png"];
-                break;
-            case 2:
-                 cell.imgVw_icon.image = [UIImage imageNamed:@"yahoo_icon.png"];
-                break;
-            case 3:
-                 cell.imgVw_icon.image = [UIImage imageNamed:@"yello_pages_icon.png"];
-                break;
-                
-            default:
-                break;
+        if (!appRecord.appIcon)
+        {
+            if (self.tblVw_review.dragging == NO && self.tblVw_review.decelerating == NO)
+            {
+                [self startIconDownload:appRecord forIndexPath:indexPath];
+            }
+            // if a download is deferred or in progress, return a placeholder image
+            cell.imgVw_icon.image = [UIImage imageNamed:@"Placeholder.png"];
         }
+        else
+        {
+            cell.imgVw_icon.image = appRecord.appIcon;
+        }
+
+        
+//        switch (indexPath.row) {
+//            case 0:
+//                cell.imgVw_icon.image = [UIImage imageNamed:@"facebook_icon.png"];
+//                break;
+//            case 1:
+//                 cell.imgVw_icon.image = [UIImage imageNamed:@"yelp_icon.png"];
+//                break;
+//            case 2:
+//                 cell.imgVw_icon.image = [UIImage imageNamed:@"yahoo_icon.png"];
+//                break;
+//            case 3:
+//                 cell.imgVw_icon.image = [UIImage imageNamed:@"yello_pages_icon.png"];
+//                break;
+//                
+//            default:
+//                break;
+//        }
     return cell;
         
     }
@@ -440,6 +472,81 @@
     }
     
     return nil;
+}
+
+#pragma mark - Table cell image support
+
+// -------------------------------------------------------------------------------
+//	startIconDownload:forIndexPath:
+// -------------------------------------------------------------------------------
+- (void)startIconDownload:(AppRecord *)appRecord forIndexPath:(NSIndexPath *)indexPath
+{
+    IconDownloader *iconDownloader = [self.imageDownloadsInProgress objectForKey:indexPath];
+    if (iconDownloader == nil)
+    {
+        iconDownloader = [[IconDownloader alloc] init];
+        iconDownloader.appRecord = appRecord;
+        [iconDownloader setCompletionHandler:^{
+            
+            ReviewCustomCell *cell = (ReviewCustomCell *)[self.tblVw_review cellForRowAtIndexPath:indexPath];
+            
+            // Display the newly loaded image
+            cell.imgVw_icon.image = appRecord.appIcon;
+            
+            // Remove the IconDownloader from the in progress list.
+            // This will result in it being deallocated.
+            [self.imageDownloadsInProgress removeObjectForKey:indexPath];
+            
+        }];
+        [self.imageDownloadsInProgress setObject:iconDownloader forKey:indexPath];
+        [iconDownloader startDownload];
+    }
+}
+
+// -------------------------------------------------------------------------------
+//	loadImagesForOnscreenRows
+//  This method is used in case the user scrolled into a set of cells that don't
+//  have their app icons yet.
+// -------------------------------------------------------------------------------
+- (void)loadImagesForOnscreenRows
+{
+    if ([self.entries count] > 0)
+    {
+        NSArray *visiblePaths = [self.tblVw_review indexPathsForVisibleRows];
+        for (NSIndexPath *indexPath in visiblePaths)
+        {
+            AppRecord *appRecord = [self.entries objectAtIndex:indexPath.row];
+            
+            if (!appRecord.appIcon)
+                // Avoid the app icon download if the app already has an icon
+            {
+                [self startIconDownload:appRecord forIndexPath:indexPath];
+            }
+        }
+    }
+}
+
+
+#pragma mark - UIScrollViewDelegate
+
+// -------------------------------------------------------------------------------
+//	scrollViewDidEndDragging:willDecelerate:
+//  Load images for all onscreen rows when scrolling is finished.
+// -------------------------------------------------------------------------------
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    if (!decelerate)
+	{
+        [self loadImagesForOnscreenRows];
+    }
+}
+
+// -------------------------------------------------------------------------------
+//	scrollViewDidEndDecelerating:
+// -------------------------------------------------------------------------------
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    [self loadImagesForOnscreenRows];
 }
 
 @end

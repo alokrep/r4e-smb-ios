@@ -10,10 +10,13 @@
 #import "ReviewCustomCell.h"
 #import "SocialCustomCell.h"
 #import <QuartzCore/QuartzCore.h>
+#import "AppRecord.h"
+#import "IconDownloader.h"
 
 
 @interface DashBoardController : UIViewController
-
+@property (nonatomic, strong) NSMutableArray *entries;
+@property (nonatomic, strong) NSMutableDictionary *imageDownloadsInProgress;
 @property (strong,nonatomic) NSMutableArray * arr_reviewsData;
 @property (strong,nonatomic) NSMutableArray * arr_SocialData;
 @property (weak, nonatomic) IBOutlet UITableView *tblVw_review;

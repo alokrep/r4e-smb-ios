@@ -18,6 +18,9 @@
 		0D061AFD18A0AA7800A7F020 /* reviewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D061AF818A0AA7800A7F020 /* reviewsTableViewCell.m */; };
 		0D061B0018A0AF9700A7F020 /* arrow_reviews@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D061AFF18A0AF9700A7F020 /* arrow_reviews@2x.png */; };
 		0D061B0218A0B5BF00A7F020 /* scoreDownArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D061B0118A0B5BF00A7F020 /* scoreDownArrow@2x.png */; };
+		0D1CE96B18A9B17E00DECDC5 /* AppRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D1CE96818A9B17E00DECDC5 /* AppRecord.m */; };
+		0D1CE96C18A9B17E00DECDC5 /* IconDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D1CE96A18A9B17E00DECDC5 /* IconDownloader.m */; };
+		0D1CE97018A9B36700DECDC5 /* DEJOwareActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D1CE96F18A9B36700DECDC5 /* DEJOwareActivityIndicatorView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		0D37E8CD18A0048E0052346C /* ReviewCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D37E8CC18A0048E0052346C /* ReviewCustomCell.m */; };
 		0D37E8CF18A004A90052346C /* ReviewCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D37E8CE18A004A90052346C /* ReviewCustomCell.xib */; };
 		0D37E8D218A004D50052346C /* SocialCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D37E8D118A004D50052346C /* SocialCustomCell.m */; };
@@ -130,7 +133,6 @@
 		DD30E1A918A479610007B15B /* TSocketClient.m in Sources */ = {isa = PBXBuildFile; fileRef = DD30E19618A479610007B15B /* TSocketClient.m */; };
 		DD30E1AA18A479610007B15B /* TTransportException.m in Sources */ = {isa = PBXBuildFile; fileRef = DD30E19918A479610007B15B /* TTransportException.m */; };
 		DD30E1AB18A479610007B15B /* TSharedProcessorFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = DD30E19B18A479610007B15B /* TSharedProcessorFactory.m */; };
-		DD30E1AE18A984F40007B15B /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD30E1AD18A984F40007B15B /* Crashlytics.framework */; };
 		DD7DB15C18A1BD4E00BED62D /* Mobile.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7DB15718A1BD4E00BED62D /* Mobile.m */; };
 		DD7DB15D18A1BD4E00BED62D /* MobileAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7DB15918A1BD4E00BED62D /* MobileAuth.m */; };
 		DD7DB15E18A1BD4E00BED62D /* MobileCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7DB15B18A1BD4E00BED62D /* MobileCommon.m */; };
@@ -162,6 +164,12 @@
 		0D061AF818A0AA7800A7F020 /* reviewsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = reviewsTableViewCell.m; sourceTree = "<group>"; };
 		0D061AFF18A0AF9700A7F020 /* arrow_reviews@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow_reviews@2x.png"; sourceTree = "<group>"; };
 		0D061B0118A0B5BF00A7F020 /* scoreDownArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scoreDownArrow@2x.png"; sourceTree = "<group>"; };
+		0D1CE96718A9B17E00DECDC5 /* AppRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppRecord.h; sourceTree = "<group>"; };
+		0D1CE96818A9B17E00DECDC5 /* AppRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppRecord.m; sourceTree = "<group>"; };
+		0D1CE96918A9B17E00DECDC5 /* IconDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IconDownloader.h; sourceTree = "<group>"; };
+		0D1CE96A18A9B17E00DECDC5 /* IconDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconDownloader.m; sourceTree = "<group>"; };
+		0D1CE96E18A9B36700DECDC5 /* DEJOwareActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEJOwareActivityIndicatorView.h; sourceTree = "<group>"; };
+		0D1CE96F18A9B36700DECDC5 /* DEJOwareActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DEJOwareActivityIndicatorView.m; sourceTree = "<group>"; };
 		0D37E8CB18A0048E0052346C /* ReviewCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewCustomCell.h; sourceTree = "<group>"; };
 		0D37E8CC18A0048E0052346C /* ReviewCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewCustomCell.m; sourceTree = "<group>"; };
 		0D37E8CE18A004A90052346C /* ReviewCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewCustomCell.xib; sourceTree = "<group>"; };
@@ -339,7 +347,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD7DB16018A1D51900BED62D /* Foundation.framework in Frameworks */,
-				DD30E1AE18A984F40007B15B /* Crashlytics.framework in Frameworks */,
 				0D37E8ED18A034D80052346C /* QuartzCore.framework in Frameworks */,
 				74C725DE189AE8E4008CD4AF /* CoreGraphics.framework in Frameworks */,
 				74C725E0189AE8E4008CD4AF /* UIKit.framework in Frameworks */,
@@ -359,6 +366,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D1CE96618A9B17E00DECDC5 /* IconDownloader */ = {
+			isa = PBXGroup;
+			children = (
+				0D1CE96718A9B17E00DECDC5 /* AppRecord.h */,
+				0D1CE96818A9B17E00DECDC5 /* AppRecord.m */,
+				0D1CE96918A9B17E00DECDC5 /* IconDownloader.h */,
+				0D1CE96A18A9B17E00DECDC5 /* IconDownloader.m */,
+			);
+			path = IconDownloader;
+			sourceTree = "<group>";
+		};
+		0D1CE96D18A9B36700DECDC5 /* IndicatorCustomClass */ = {
+			isa = PBXGroup;
+			children = (
+				0D1CE96E18A9B36700DECDC5 /* DEJOwareActivityIndicatorView.h */,
+				0D1CE96F18A9B36700DECDC5 /* DEJOwareActivityIndicatorView.m */,
+			);
+			path = IndicatorCustomClass;
+			sourceTree = "<group>";
+		};
 		0D37E8C818A003950052346C /* New Group */ = {
 			isa = PBXGroup;
 			children = (
@@ -564,6 +591,8 @@
 		74C725E1189AE8E4008CD4AF /* Reputation */ = {
 			isa = PBXGroup;
 			children = (
+				0D1CE96D18A9B36700DECDC5 /* IndicatorCustomClass */,
+				0D1CE96618A9B17E00DECDC5 /* IconDownloader */,
 				DD7DB15518A1BD4E00BED62D /* gen-cocoa */,
 				0D37E8CA18A003DB0052346C /* CustomCell */,
 				74C725EA189AE8E4008CD4AF /* AppDelegate.h */,
@@ -941,8 +970,11 @@
 				0D87CD4D18A2F2FB00005BB1 /* FullReviewViewController.m in Sources */,
 				0D87CD5E18A2F94300005BB1 /* StarRatingView.m in Sources */,
 				0D37E8D218A004D50052346C /* SocialCustomCell.m in Sources */,
+				0D1CE97018A9B36700DECDC5 /* DEJOwareActivityIndicatorView.m in Sources */,
+				0D1CE96C18A9B17E00DECDC5 /* IconDownloader.m in Sources */,
 				DD7DB15E18A1BD4E00BED62D /* MobileCommon.m in Sources */,
 				DD30E1A718A479610007B15B /* TNSFileHandleTransport.m in Sources */,
+				0D1CE96B18A9B17E00DECDC5 /* AppRecord.m in Sources */,
 				DD30E19E18A479610007B15B /* TProtocolUtil.m in Sources */,
 				0DA1DBD6189C66340074A5F0 /* ECSlidingViewController.m in Sources */,
 				DD30E1AB18A479610007B15B /* TSharedProcessorFactory.m in Sources */,

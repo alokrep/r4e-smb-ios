@@ -70,11 +70,11 @@
             
              if(resp.response.responseCode == ResponseCode_Success) {
             
-                 [self.delegate webResponse:resp.userDetails];
+                 [self.delegate webResponse:@"success"];
              }
             else
             {
-                
+                [self.delegate webResponse:@"failed"];
                 
             }
         });

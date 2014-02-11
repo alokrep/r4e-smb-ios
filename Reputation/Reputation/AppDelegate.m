@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "TabBarControllerClass.h"
-#import <Crashlytics/Crashlytics.h>
+//#import <Crashlytics/Crashlytics.h>
 @implementation AppDelegate
 @synthesize tabBarControllerObj;
 @synthesize userObj;
@@ -22,15 +22,12 @@
     // Override point for customization after application launch.
     
     //Adding crashlytics
-    [Crashlytics startWithAPIKey:@"df3e594a408c25737d475b00660679bfd7f3aeda"];
-    return YES;
+    //[Crashlytics startWithAPIKey:@"df3e594a408c25737d475b00660679bfd7f3aeda"];
+    
     
     self.userObj = [self loadUserObjectWithKey:kUserInfo];
     
-    if (self.userObj) {
-        
-        NSLog(@"%@",userObj);
-    }
+    return YES;
 }
 							
 -(void)applicationWillResignActive:(UIApplication *)application

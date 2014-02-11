@@ -18,10 +18,13 @@
 #import "TBinaryProtocol.h"
 #import "MobileAuth.h"
 #import "LoginServiceModal.h"
+@class DEJOwareActivityIndicatorView;
+
 
 @interface ViewController : UIViewController<WebDelegate>
 {
     BOOL  emailValid;
+    DEJOwareActivityIndicatorView *activityIndicatorView;
     
 }
 @property (weak, nonatomic) IBOutlet UIImageView *imgVw_BackGround;
