@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "DEJOwareActivityIndicatorView.h"
 
 @interface ViewController ()
 
@@ -19,7 +18,7 @@
 {
     [super viewDidLoad];
     
-    [self loadIndicatorView];
+    
     if ([AppDelegate sharedDelegate].userObj) {
         [self performSegueWithIdentifier:@"GoToSlider" sender:nil];
     }
@@ -30,14 +29,7 @@
 	
     
 }
--(void)loadIndicatorView
-{
-    activityIndicatorView = [[DEJOwareActivityIndicatorView alloc]
-							 initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray
-							 text:@"Loading..."
-							 superview:self.view];
-    
-}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -60,8 +52,7 @@
         }
         
         
-        [activityIndicatorView startAnimating];
-        self.view.userInteractionEnabled = NO;
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         LoginServiceModal * loginObj = [[LoginServiceModal alloc]init];
         loginObj.delegate = self;
         
@@ -99,18 +90,18 @@
     
     NSString * str_response = (NSString *)details;
     
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
     if ([str_response isEqualToString:@"success"]) {
         [self performSegueWithIdentifier:@"GoToSlider" sender:nil];
     }
     else
         
     {
-        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Login Failed" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Login Failed" message:str_response delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
     
-    [activityIndicatorView stopAnimating];
-    self.view.userInteractionEnabled = YES;
+    
     
 
     

@@ -49,6 +49,13 @@
     self.backBtn.hidden = YES;
     self.reviewsBtn.hidden = YES;
     
+    self.refreshBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    [self.refreshBtn setImage:[UIImage imageNamed:@"refreshBtn.png"] forState:UIControlStateNormal];
+    [self.refreshBtn setFrame:CGRectMake(275,25, 30, 30)];
+    self.refreshBtn.backgroundColor = [UIColor clearColor];
+    self.refreshBtn.hidden = YES;
+    [self.view addSubview:self.refreshBtn];
     
     self.dashBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     

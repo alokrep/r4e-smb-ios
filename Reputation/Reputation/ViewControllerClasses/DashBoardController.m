@@ -12,6 +12,7 @@
 #import "TBinaryProtocol.h"
 #import "Mobile.h"
 #import "MobileAuth.h"
+#import "ScoreController.h"
 
 @interface DashBoardController ()
 
@@ -36,8 +37,11 @@
 	
     CustomNavigation * navigationObj = (CustomNavigation *)self.navigationController;
     navigationObj.lbl_title.text = @"Dashboard";
+    navigationObj.refreshBtn.hidden = NO;
+    [navigationObj.refreshBtn addTarget:self action:@selector(refreshBtnClicked) forControlEvents:UIControlEventTouchUpInside];
     
     self.entries = [[NSMutableArray alloc]init];
+    self.arr_scoreValues=[[NSMutableArray alloc]init];
     
     self.view.backgroundColor = [UIColor colorWithRed:234.0f/255.0f green:234.0f/255.0f blue:234.0f/255.0f alpha:1.0];
     self.tblVw_review.layer.borderColor = [[UIColor colorWithRed:220.0f/255.0f green:220.0f/255.0f blue:220.0f/255.0f alpha:1.0] CGColor];
@@ -57,6 +61,18 @@
 //=======
    // [self tempMethod];
 //>>>>>>> 20a6015af56ccd3fba7b194b03275498db86f698
+    
+}
+- (void)viewWillAppear:(BOOL)animated
+{
+     CustomNavigation * navigationObj = (CustomNavigation *)self.navigationController;
+    navigationObj.refreshBtn.hidden = NO;
+    
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
+     CustomNavigation * navigationObj = (CustomNavigation *)self.navigationController;
+    navigationObj.refreshBtn.hidden = YES;
     
 }
 /*
@@ -86,6 +102,11 @@
     }
 }
  */
+-(void)refreshBtnClicked
+{
+    
+    [self callDashBoardAPI];
+}
 -(void)tempMethod
 {
     
@@ -213,7 +234,15 @@
 }
 -(void)callDashBoardAPI
 {
+   
+    
+    [self.arr_reviewsData removeAllObjects];
+    [self.entries removeAllObjects];
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
+    
     dispatch_async(queue, ^{
         
         THMACHttpClient *httpTwoClient = [[THMACHttpClient alloc] initWithURL:[NSURL URLWithString:kServiceURL] userId:[AppDelegate sharedDelegate].userObj.email secret:[AppDelegate sharedDelegate].userObj.userKey];
@@ -287,6 +316,7 @@
                     for(SummaryValue *summVal in agg.values) {
                         //overall score
                         double ovScore = summVal.value * 1000;
+                        NSString * str_ovrScore = [NSString stringWithFormat:@"%f",ovScore];
                         
                         //weighted average
                         NSString * weightedAvg = [summVal.addlProps objectForKey:MobileConstants.SUMMARY_OVERALL_SCORE_WEIGHTEDRATING];
@@ -307,6 +337,14 @@
                         NSString * visibility = [summVal.addlProps objectForKey:MobileConstants.SUMMARY_OVERALL_SCORE_VISIBILITY];
                         
                         
+                        [self.arr_scoreValues addObject:weightedAvg];
+                        [self.arr_scoreValues addObject:volume];
+                        [self.arr_scoreValues addObject:recentness];
+                        [self.arr_scoreValues addObject:length];
+                        [self.arr_scoreValues addObject:spread];
+                        [self.arr_scoreValues addObject:visibility];
+                        [self.arr_scoreValues addObject:str_ovrScore];
+                        
                     }
                 }
                 
@@ -320,12 +358,61 @@
         }
         dispatch_async(dispatch_get_main_queue(), ^{
             
+            
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+             if(summResp.response.responseCode == ResponseCode_Success) {
+                 if (self.arr_reviewsData.count<=0) {
+                     
+                     self.tblVw_review.hidden = YES;
+                     self.lbl_noData.hidden = NO;
+                 }
+                 else
+                 {
+                     CustomNavigation * customObj = [self.tabBarController.viewControllers objectAtIndex:3];
+                     
+                     ScoreController * scoreObj = [customObj.viewControllers objectAtIndex:0];
+                     
+                     if (scoreObj) {
+                         
+                         [scoreObj sendInfo:self.arr_scoreValues];
+                     }
+                     if (self.arr_reviewsData.count<3) {
+                         CGRect frame = self.tblVw_review.frame;
+                         frame.size.height = 65*self.arr_reviewsData.count;
+                         self.tblVw_review.frame=frame;
+                         
+                         
+                     }
+                     self.lbl_noData.hidden = YES;
+                     self.tblVw_review.hidden = NO;
+                     [self.tblVw_review reloadData];
+                 }
+                 
+             }
+            else
+            {
+                if (self.arr_reviewsData.count<=0) {
+                    
+                    self.tblVw_review.hidden = YES;
+                    self.lbl_noData.hidden = NO;
+                }
+            }
            
-            [self.tblVw_review reloadData];
+           
+            
+            
+           
            
         });
         
     });
+    
+}
+-(NSMutableArray *)getScoreValue
+{
+    
+    return self.arr_scoreValues;
+    
     
 }
 - (void)didReceiveMemoryWarning

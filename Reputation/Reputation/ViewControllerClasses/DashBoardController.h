@@ -12,14 +12,18 @@
 #import <QuartzCore/QuartzCore.h>
 #import "IconDownloader.h"
 #import "ReviewDashBoardModal.h"
+#import "MBProgressHUD.h"
 
 
 @interface DashBoardController : UIViewController
 @property (nonatomic, strong) NSMutableArray *entries;
+@property (nonatomic, strong) NSMutableArray *arr_scoreValues;
 @property (nonatomic, strong) NSMutableDictionary *imageDownloadsInProgress;
 @property (strong,nonatomic) NSMutableArray * arr_reviewsData;
 @property (strong,nonatomic) NSMutableArray * arr_SocialData;
 @property (weak, nonatomic) IBOutlet UITableView *tblVw_review;
 @property (weak, nonatomic) IBOutlet UITableView *tblVwSocial;
+-(NSMutableArray *)getScoreValue;
+@property (weak, nonatomic) IBOutlet UILabel *lbl_noData;
 
 @end

@@ -74,7 +74,7 @@
              }
             else
             {
-                [self.delegate webResponse:@"failed"];
+                [self.delegate webResponse:resp.response.error.message];
                 
             }
         });

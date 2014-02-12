@@ -18,6 +18,7 @@
 #import "TBinaryProtocol.h"
 #import "MobileAuth.h"
 #import "LoginServiceModal.h"
+#import "MBProgressHUD.h"
 @class DEJOwareActivityIndicatorView;
 
 
