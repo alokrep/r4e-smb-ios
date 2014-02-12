@@ -168,40 +168,26 @@
                                                     <rect key="frame" x="13" y="10" width="35" height="35"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.png" id="jkk-OK-GW1">
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.png" id="jkk-OK-GW1">
                                                     <rect key="frame" x="57" y="11" width="93" height="17"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HtC-VT-614">
-                                                    <rect key="frame" x="158" y="11" width="56" height="21"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/5" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HtC-VT-614">
+                                                    <rect key="frame" x="174" y="8" width="31" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <attributedString key="attributedText">
-                                                        <fragment content="4.0">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.98823535442352295" green="0.51372551918029785" blue="0.16470588743686676" alpha="1" colorSpace="deviceRGB"/>
-                                                                <font key="NSFont" size="15" name="HelveticaNeue-Bold"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                        <fragment content="/5.0">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.46666669845581055" green="0.46666669845581055" blue="0.46666669845581055" alpha="1" colorSpace="deviceRGB"/>
-                                                                <font key="NSFont" size="15" name="HelveticaNeue-Bold"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                    </attributedString>
+                                                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                                                    <color key="textColor" red="0.46666669845581055" green="0.46666669845581055" blue="0.46666669845581055" alpha="1" colorSpace="deviceRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Judy W" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gaG-1e-hEK">
-                                                    <rect key="frame" x="57" y="33" width="58" height="21"/>
+                                                    <rect key="frame" x="57" y="33" width="132" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.80000007149999997" green="0.80000007149999997" blue="0.80000007149999997" alpha="1" colorSpace="deviceRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14 min ago" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="are-QC-5ZU">
-                                                    <rect key="frame" x="125" y="33" width="86" height="21"/>
+                                                    <rect key="frame" x="192" y="33" width="86" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.80000007149999997" green="0.80000007149999997" blue="0.80000007149999997" alpha="1" colorSpace="deviceRGB"/>
@@ -252,6 +238,14 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="1" green="0.91764712329999998" blue="0.93725496529999996" alpha="1" colorSpace="deviceRGB"/>
+                                        <connections>
+                                            <outlet property="btn_DropDown" destination="3qM-JV-67U" id="O7m-EQ-88r"/>
+                                            <outlet property="img_dot" destination="6aD-LL-NrS" id="DZu-Dq-1sg"/>
+                                            <outlet property="img_logoIcon" destination="huh-1x-f9h" id="1wd-Tb-irb"/>
+                                            <outlet property="lbl_comment" destination="JQ1-01-MSw" id="YDn-de-41Y"/>
+                                            <outlet property="lbl_date" destination="are-QC-5ZU" id="mC8-6O-D6j"/>
+                                            <outlet property="lbl_name" destination="gaG-1e-hEK" id="gdl-oL-OOr"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
@@ -265,7 +259,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="LAS-I7-i6x"/>
                     <connections>
-                        <outlet property="tbl_View" destination="pJD-B7-BKc" id="sVW-Ea-2Km"/>
+                        <outlet property="tblVw_review" destination="pJD-B7-BKc" id="1hH-w8-e9R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1bY-bF-6wh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1452,6 +1446,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="bmB-5N-JZU"/>
+        <segue reference="310-jB-LQz"/>
     </inferredMetricsTieBreakers>
 </document>

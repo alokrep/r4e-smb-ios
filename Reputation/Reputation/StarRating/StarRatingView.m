@@ -10,13 +10,11 @@
 #define kLeftPadding 5.0f
 
 @interface StarRatingView()
-@property (nonatomic) int userRating;
 @property (nonatomic) int maxrating;
-@property (nonatomic) int rating;
+
 @property (nonatomic) BOOL animated;
 @property (nonatomic) float kLabelAllowance;
 @property (nonatomic,strong) NSTimer* timer;
-@property (nonatomic,strong) UILabel* label;
 @property (nonatomic,strong) CALayer* tintLayer;
 
 @end
@@ -37,9 +35,9 @@
         
         if (label) {
             self.kLabelAllowance = 25.0f;
-            self.label = [[UILabel alloc]initWithFrame:CGRectMake(self.bounds.size.width-kLabelAllowance , 0,kLabelAllowance, frame.size.height)];
+            self.label = [[UILabel alloc]initWithFrame:CGRectMake(self.bounds.size.width-kLabelAllowance+5 , 0,kLabelAllowance, frame.size.height)];
             
-            self.label.font = [UIFont fontWithName:@"Helvetica" size:13 ];
+            self.label.font = [UIFont fontWithName:@"Helvetica Bold" size:17 ];
             self.label.text = [NSString stringWithFormat:@"0.0"];
             self.label.textAlignment = NSTextAlignmentRight;
             self.label.textColor = [UIColor colorWithRed:233.0/255.0f green:119.0/255.0f blue:0/255.0f alpha:1];
@@ -64,7 +62,7 @@
         if (self.userRating >=20.0f) {
             [tintLayer setBackgroundColor:[UIColor colorWithRed:233.0/255.0f green:119.0/255.0f blue:0/255.0f alpha:1].CGColor];
         }else{
-            [tintLayer setBackgroundColor:[UIColor yellowColor].CGColor];
+            //[tintLayer setBackgroundColor:[UIColor yellowColor].CGColor];
         }
         
         [self.layer addSublayer:tintLayer];
@@ -113,6 +111,7 @@
         float barWitdhPercentage = (_rating/100.0f) *  (self.bounds.size.width-kLabelAllowance);
         self.tintLayer.frame = CGRectMake(0, 0, barWitdhPercentage, self.frame.size.height);
     }
+    //self.label.text = [NSString stringWithFormat:@"%d.0",self.rating/20];
     
 }
 
@@ -164,6 +163,7 @@
         }else{
             self.userRating = (star+1)*20.0f;
             self.rating = self.userRating;
+            NSLog(@"%d",self.userRating);
         }
         [self ratingDidChange];
         

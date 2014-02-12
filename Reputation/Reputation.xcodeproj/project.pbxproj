@@ -74,6 +74,9 @@
 		0D602B9C18AAEC8600E05B42 /* refreshBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D602B9B18AAEC8600E05B42 /* refreshBtn@2x.png */; };
 		0D602B9F18AAECCF00E05B42 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D602B9E18AAECCF00E05B42 /* MBProgressHUD.m */; };
 		0D6C7D9B18A55C2D0046C282 /* LoginServiceModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6C7D9A18A55C2D0046C282 /* LoginServiceModal.m */; };
+		0D6D55BE18ABE96E00735FFB /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D6D55BD18ABE96E00735FFB /* Crashlytics.framework */; };
+		0D6D55C018ABEF1900735FFB /* libUAirship-iOS5-3.0.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D6D55BF18ABEF1900735FFB /* libUAirship-iOS5-3.0.2.a */; };
+		0D6D55C318ABFB1A00735FFB /* ReviewDataModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6D55C218ABFB1A00735FFB /* ReviewDataModal.m */; };
 		0D87CD4D18A2F2FB00005BB1 /* FullReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D87CD4C18A2F2FB00005BB1 /* FullReviewViewController.m */; };
 		0D87CD5418A2F3D800005BB1 /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D87CD4F18A2F3D800005BB1 /* back@2x.png */; };
 		0D87CD5518A2F3D800005BB1 /* btn_get_reviews@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D87CD5018A2F3D800005BB1 /* btn_get_reviews@2x.png */; };
@@ -138,7 +141,6 @@
 		DD7DB15D18A1BD4E00BED62D /* MobileAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7DB15918A1BD4E00BED62D /* MobileAuth.m */; };
 		DD7DB15E18A1BD4E00BED62D /* MobileCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7DB15B18A1BD4E00BED62D /* MobileCommon.m */; };
 		DD7DB16018A1D51900BED62D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74C725DB189AE8E4008CD4AF /* Foundation.framework */; };
-		DDD66A3818AAB36A0048071A /* libUAirship-iOS5-3.0.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DDD669D518AAB36A0048071A /* libUAirship-iOS5-3.0.2.a */; };
 		DDD66A3918AAB36A0048071A /* UABarButtonSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD669E118AAB36A0048071A /* UABarButtonSegmentedControl.m */; };
 		DDD66A3A18AAB36A0048071A /* UABeveledLoadingIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD669E318AAB36A0048071A /* UABeveledLoadingIndicator.m */; };
 		DDD66A3B18AAB36A0048071A /* UADateUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD669E518AAB36A0048071A /* UADateUtils.m */; };
@@ -202,7 +204,6 @@
 		DDD66A7D18AAB75F0048071A /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDD66A7C18AAB75F0048071A /* CoreTelephony.framework */; };
 		DDD66A7F18AAB76A0048071A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDD66A7E18AAB76A0048071A /* CoreLocation.framework */; };
 		DDD66A8218AAB8730048071A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DDD66A8118AAB8730048071A /* libz.dylib */; };
-		DDD66A8318AAB97C0048071A /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD30E1AD18A984F40007B15B /* Crashlytics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -296,6 +297,10 @@
 		0D602B9E18AAECCF00E05B42 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		0D6C7D9918A55C2D0046C282 /* LoginServiceModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginServiceModal.h; sourceTree = "<group>"; };
 		0D6C7D9A18A55C2D0046C282 /* LoginServiceModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginServiceModal.m; sourceTree = "<group>"; };
+		0D6D55BD18ABE96E00735FFB /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		0D6D55BF18ABEF1900735FFB /* libUAirship-iOS5-3.0.2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libUAirship-iOS5-3.0.2.a"; sourceTree = "<group>"; };
+		0D6D55C118ABFB1A00735FFB /* ReviewDataModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewDataModal.h; sourceTree = "<group>"; };
+		0D6D55C218ABFB1A00735FFB /* ReviewDataModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewDataModal.m; sourceTree = "<group>"; };
 		0D87CD4B18A2F2FB00005BB1 /* FullReviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullReviewViewController.h; sourceTree = "<group>"; };
 		0D87CD4C18A2F2FB00005BB1 /* FullReviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullReviewViewController.m; sourceTree = "<group>"; };
 		0D87CD4F18A2F3D800005BB1 /* back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back@2x.png"; sourceTree = "<group>"; };
@@ -398,7 +403,6 @@
 		DD30E19918A479610007B15B /* TTransportException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTransportException.m; sourceTree = "<group>"; };
 		DD30E19A18A479610007B15B /* TSharedProcessorFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSharedProcessorFactory.h; sourceTree = "<group>"; };
 		DD30E19B18A479610007B15B /* TSharedProcessorFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSharedProcessorFactory.m; sourceTree = "<group>"; };
-		DD30E1AD18A984F40007B15B /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		DD7DB15618A1BD4E00BED62D /* Mobile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mobile.h; sourceTree = "<group>"; };
 		DD7DB15718A1BD4E00BED62D /* Mobile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mobile.m; sourceTree = "<group>"; };
 		DD7DB15818A1BD4E00BED62D /* MobileAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileAuth.h; sourceTree = "<group>"; };
@@ -450,8 +454,6 @@
 		DDD669D118AAB36A0048071A /* UAInboxPushHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAInboxPushHandler.h; sourceTree = "<group>"; };
 		DDD669D218AAB36A0048071A /* UAInboxUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAInboxUtils.h; sourceTree = "<group>"; };
 		DDD669D318AAB36A0048071A /* UAJSONValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UAJSONValueTransformer.h; sourceTree = "<group>"; };
-		DDD669D418AAB36A0048071A /* libUAirship-3.0.2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libUAirship-3.0.2.a"; sourceTree = "<group>"; };
-		DDD669D518AAB36A0048071A /* libUAirship-iOS5-3.0.2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libUAirship-iOS5-3.0.2.a"; sourceTree = "<group>"; };
 		DDD669D718AAB36A0048071A /* UADeviceAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UADeviceAPIClient.h; sourceTree = "<group>"; };
 		DDD669D818AAB36A0048071A /* UADeviceRegistrationData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UADeviceRegistrationData.h; sourceTree = "<group>"; };
 		DDD669D918AAB36A0048071A /* UADeviceRegistrationPayload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UADeviceRegistrationPayload.h; sourceTree = "<group>"; };
@@ -551,19 +553,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D6D55BE18ABE96E00735FFB /* Crashlytics.framework in Frameworks */,
 				DDD66A8218AAB8730048071A /* libz.dylib in Frameworks */,
 				DDD66A7F18AAB76A0048071A /* CoreLocation.framework in Frameworks */,
 				DDD66A7D18AAB75F0048071A /* CoreTelephony.framework in Frameworks */,
+				0D6D55C018ABEF1900735FFB /* libUAirship-iOS5-3.0.2.a in Frameworks */,
 				DDD66A7B18AAB7560048071A /* libsqlite3.dylib in Frameworks */,
 				DDD66A7718AAB6F10048071A /* SystemConfiguration.framework in Frameworks */,
 				DDD66A7518AAB6E50048071A /* Security.framework in Frameworks */,
 				DDD66A7318AAB6D20048071A /* CFNetwork.framework in Frameworks */,
 				DD7DB16018A1D51900BED62D /* Foundation.framework in Frameworks */,
 				0D37E8ED18A034D80052346C /* QuartzCore.framework in Frameworks */,
-				DDD66A3818AAB36A0048071A /* libUAirship-iOS5-3.0.2.a in Frameworks */,
 				74C725DE189AE8E4008CD4AF /* CoreGraphics.framework in Frameworks */,
 				74C725E0189AE8E4008CD4AF /* UIKit.framework in Frameworks */,
-				DDD66A8318AAB97C0048071A /* Crashlytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -704,6 +706,8 @@
 			children = (
 				0D602B9118AA94C200E05B42 /* ReviewDashBoardModal.h */,
 				0D602B9218AA94C200E05B42 /* ReviewDashBoardModal.m */,
+				0D6D55C118ABFB1A00735FFB /* ReviewDataModal.h */,
+				0D6D55C218ABFB1A00735FFB /* ReviewDataModal.m */,
 			);
 			path = DataModal;
 			sourceTree = "<group>";
@@ -806,6 +810,7 @@
 		74C725DA189AE8E4008CD4AF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0D6D55BD18ABE96E00735FFB /* Crashlytics.framework */,
 				DDD66A8118AAB8730048071A /* libz.dylib */,
 				DDD66A7E18AAB76A0048071A /* CoreLocation.framework */,
 				DDD66A7C18AAB75F0048071A /* CoreTelephony.framework */,
@@ -814,7 +819,6 @@
 				DDD66A7618AAB6F10048071A /* SystemConfiguration.framework */,
 				DDD66A7418AAB6E50048071A /* Security.framework */,
 				DDD66A7218AAB6D20048071A /* CFNetwork.framework */,
-				DD30E1AD18A984F40007B15B /* Crashlytics.framework */,
 				DD30CAA218A20E8F0015028F /* thrift09HMACiOS.framework */,
 				DD30CA9F18A20CE40015028F /* thrift09HMACiOS.framework */,
 				0D37E8EC18A034D80052346C /* QuartzCore.framework */,
@@ -1004,11 +1008,10 @@
 		DDD669A318AAB3690048071A /* Airship */ = {
 			isa = PBXGroup;
 			children = (
+				0D6D55BF18ABEF1900735FFB /* libUAirship-iOS5-3.0.2.a */,
 				DDD669A418AAB36A0048071A /* Common */,
 				DDD669C518AAB36A0048071A /* External */,
 				DDD669C818AAB36A0048071A /* Inbox */,
-				DDD669D418AAB36A0048071A /* libUAirship-3.0.2.a */,
-				DDD669D518AAB36A0048071A /* libUAirship-iOS5-3.0.2.a */,
 				DDD669D618AAB36A0048071A /* Push */,
 				DDD669DB18AAB36A0048071A /* UI */,
 			);
@@ -1387,7 +1390,6 @@
 				0D37E8E218A0325A0052346C /* divider@2x.png in Resources */,
 				DDD66A6618AAB36A0048071A /* UAMapPresentationViewController.xib in Resources */,
 				DDD66A4518AAB36A0048071A /* check@2x.png in Resources */,
-				0D061AED18A0A9E800A7F020 /* arrow@2x.png in Resources */,
 				0D87CD6018A30D8E00005BB1 /* back_btn@2x.png in Resources */,
 				0D37E8EA18A0325A0052346C /* yello_pages_icon@2x.png in Resources */,
 				DDD66A4C18AAB36A0048071A /* UAInboxMessageListController.xib in Resources */,
@@ -1533,9 +1535,9 @@
 				0D37E8D218A004D50052346C /* SocialCustomCell.m in Sources */,
 				0D1CE96C18A9B17E00DECDC5 /* IconDownloader.m in Sources */,
 				DD7DB15E18A1BD4E00BED62D /* MobileCommon.m in Sources */,
+				0D6D55C318ABFB1A00735FFB /* ReviewDataModal.m in Sources */,
 				DD30E1A718A479610007B15B /* TNSFileHandleTransport.m in Sources */,
 				DDD66A5B18AAB36A0048071A /* UAPushSettingsTokenViewController.m in Sources */,
-				0D1CE96B18A9B17E00DECDC5 /* AppRecord.m in Sources */,
 				DD30E19E18A479610007B15B /* TProtocolUtil.m in Sources */,
 				0DA1DBD6189C66340074A5F0 /* ECSlidingViewController.m in Sources */,
 				DDD66A4318AAB36A0048071A /* UIWebView+UAAdditions.m in Sources */,
@@ -1715,10 +1717,18 @@
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/thrift09HMACiOS-dcmxonlzsjtnrbevjqkfbtseoxfb/Build/Products/Debug-iphoneos",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/thrift09HMACiOS-dcmxonlzsjtnrbevjqkfbtseoxfb/Build/Intermediates/ArchiveIntermediates/thrift09HMACiOS/IntermediateBuildFilesPath/UninstalledProducts",
 					"/Users/adamireddy/source/r4e-smb-ios/Reputation",
+					/Users/jai.sharma/Desktop/ReputationWCopy12/Reputation,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Reputation/Reputation-Prefix.pch";
-				HEADER_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Airship/libUAirship-iOS5-3.0.2.a\"",
+				);
+				"HEADER_SEARCH_PATHS[arch=*]" = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Airship/libUAirship-iOS5-3.0.2.a\"",
+				);
 				INFOPLIST_FILE = "Reputation/Reputation-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1727,6 +1737,7 @@
 					/Users/jai.sharma/Desktop/ReputationAppLatest/Reputation,
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/thrift09Hmac-ehhvmolrjqunbgasrnnitnzuioge/Build/Products/Debug-universal",
 					"/Users/adamireddy/source/r4e-smb-ios/Reputation/Airship",
+					/Users/jai.sharma/Desktop/ReputationWCopy12/Reputation/Airship,
 				);
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1747,10 +1758,14 @@
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/thrift09HMACiOS-dcmxonlzsjtnrbevjqkfbtseoxfb/Build/Products/Debug-iphoneos",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/thrift09HMACiOS-dcmxonlzsjtnrbevjqkfbtseoxfb/Build/Intermediates/ArchiveIntermediates/thrift09HMACiOS/IntermediateBuildFilesPath/UninstalledProducts",
 					"/Users/adamireddy/source/r4e-smb-ios/Reputation",
+					/Users/jai.sharma/Desktop/ReputationWCopy12/Reputation,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Reputation/Reputation-Prefix.pch";
-				HEADER_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Airship/libUAirship-iOS5-3.0.2.a\"",
+				);
 				INFOPLIST_FILE = "Reputation/Reputation-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1759,6 +1774,7 @@
 					/Users/jai.sharma/Desktop/ReputationAppLatest/Reputation,
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/thrift09Hmac-ehhvmolrjqunbgasrnnitnzuioge/Build/Products/Debug-universal",
 					"/Users/adamireddy/source/r4e-smb-ios/Reputation/Airship",
+					/Users/jai.sharma/Desktop/ReputationWCopy12/Reputation/Airship,
 				);
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";

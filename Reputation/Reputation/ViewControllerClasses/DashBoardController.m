@@ -131,12 +131,12 @@
             MobileClient *serviceTwo = [[MobileClient alloc] initWithProtocol:protocol2];
         
             @try {
-                /*
-                FeedResponse *revFeedResp = [serviceTwo getReviewsFeed:0 start:0 pageCount:40 searchCriteria:nil];
-                if(revFeedResp.response.responseCode == ResponseCode_Success) {
-                    NSLog(@"revFeedResp.items %@",revFeedResp.items);
-                }
-                */
+//                
+//                FeedResponse *revFeedResp = [serviceTwo getReviewsFeed:0 start:0 pageCount:40 searchCriteria:nil];
+//                if(revFeedResp.response.responseCode == ResponseCode_Success) {
+//                    NSLog(@"revFeedResp.items %@",revFeedResp.items);
+//                }
+                
                 SummaryResponse *summResp = [serviceTwo getSummary];
                 if(summResp.response.responseCode == ResponseCode_Success) {
                     NSLog(@"summResp.aggregates %@",summResp.aggregates);
