@@ -12,25 +12,27 @@
 #import "TProtocolUtil.h"
 #import "TProcessor.h"
 #import "TObjective-C.h"
-#import "MobileAuth.h"
-#import "MobileCommon.h"
+
 #import "MobileCommon.h"
 
 @interface LoginResponse : NSObject <NSCoding> {
   Response * __response;
   User * __userDetails;
+  UserConfig * __userConfig;
 
   BOOL __response_isset;
   BOOL __userDetails_isset;
+  BOOL __userConfig_isset;
 }
 
 #if TARGET_OS_IPHONE || (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_5)
 @property (nonatomic, retain, getter=response, setter=setResponse:) Response * response;
 @property (nonatomic, retain, getter=userDetails, setter=setUserDetails:) User * userDetails;
+@property (nonatomic, retain, getter=userConfig, setter=setUserConfig:) UserConfig * userConfig;
 #endif
 
 - (id) init;
-- (id) initWithResponse: (Response *) response userDetails: (User *) userDetails;
+- (id) initWithResponse: (Response *) response userDetails: (User *) userDetails userConfig: (UserConfig *) userConfig;
 
 - (void) read: (id <TProtocol>) inProtocol;
 - (void) write: (id <TProtocol>) outProtocol;
@@ -46,6 +48,12 @@
 - (void) setUserDetails: (User *) userDetails;
 #endif
 - (BOOL) userDetailsIsSet;
+
+#if !__has_feature(objc_arc)
+- (UserConfig *) userConfig;
+- (void) setUserConfig: (UserConfig *) userConfig;
+#endif
+- (BOOL) userConfigIsSet;
 
 @end
 

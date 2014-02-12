@@ -123,6 +123,14 @@ enum TagType {
   TagType_NOT_USEFUL = 4
 };
 
+enum ConfigTypeCategory {
+  ConfigTypeCategory_Reviews = 1,
+  ConfigTypeCategory_ReviewSites = 2,
+  ConfigTypeCategory_SocialSites = 3,
+  ConfigTypeCategory_Kiosk = 4,
+  ConfigTypeCategory_Locations = 5
+};
+
 typedef int64_t TenantID;
 
 typedef NSString * SourceCode;
@@ -1677,54 +1685,63 @@ typedef NSString * SourceGroup;
 
 @end
 
-@interface SearchRequest : NSObject <NSCoding> {
-  NSMutableArray * __filters;
-  int32_t __count;
-  int32_t __start;
-  NSMutableArray * __sorts;
+@interface SearchFilter : NSObject <NSCoding> {
+  NSString * __dateRangeFilterId;
+  NSMutableArray * __sentimentFilters;
+  NSMutableArray * __sourceSiteFilter;
+  NSString * __startDate;
+  NSString * __endDate;
 
-  BOOL __filters_isset;
-  BOOL __count_isset;
-  BOOL __start_isset;
-  BOOL __sorts_isset;
+  BOOL __dateRangeFilterId_isset;
+  BOOL __sentimentFilters_isset;
+  BOOL __sourceSiteFilter_isset;
+  BOOL __startDate_isset;
+  BOOL __endDate_isset;
 }
 
 #if TARGET_OS_IPHONE || (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_5)
-@property (nonatomic, retain, getter=filters, setter=setFilters:) NSMutableArray * filters;
-@property (nonatomic, getter=count, setter=setCount:) int32_t count;
-@property (nonatomic, getter=start, setter=setStart:) int32_t start;
-@property (nonatomic, retain, getter=sorts, setter=setSorts:) NSMutableArray * sorts;
+@property (nonatomic, retain, getter=dateRangeFilterId, setter=setDateRangeFilterId:) NSString * dateRangeFilterId;
+@property (nonatomic, retain, getter=sentimentFilters, setter=setSentimentFilters:) NSMutableArray * sentimentFilters;
+@property (nonatomic, retain, getter=sourceSiteFilter, setter=setSourceSiteFilter:) NSMutableArray * sourceSiteFilter;
+@property (nonatomic, retain, getter=startDate, setter=setStartDate:) NSString * startDate;
+@property (nonatomic, retain, getter=endDate, setter=setEndDate:) NSString * endDate;
 #endif
 
 - (id) init;
-- (id) initWithFilters: (NSMutableArray *) filters count: (int32_t) count start: (int32_t) start sorts: (NSMutableArray *) sorts;
+- (id) initWithDateRangeFilterId: (NSString *) dateRangeFilterId sentimentFilters: (NSMutableArray *) sentimentFilters sourceSiteFilter: (NSMutableArray *) sourceSiteFilter startDate: (NSString *) startDate endDate: (NSString *) endDate;
 
 - (void) read: (id <TProtocol>) inProtocol;
 - (void) write: (id <TProtocol>) outProtocol;
 
 #if !__has_feature(objc_arc)
-- (NSMutableArray *) filters;
-- (void) setFilters: (NSMutableArray *) filters;
+- (NSString *) dateRangeFilterId;
+- (void) setDateRangeFilterId: (NSString *) dateRangeFilterId;
 #endif
-- (BOOL) filtersIsSet;
+- (BOOL) dateRangeFilterIdIsSet;
 
 #if !__has_feature(objc_arc)
-- (int32_t) count;
-- (void) setCount: (int32_t) count;
+- (NSMutableArray *) sentimentFilters;
+- (void) setSentimentFilters: (NSMutableArray *) sentimentFilters;
 #endif
-- (BOOL) countIsSet;
+- (BOOL) sentimentFiltersIsSet;
 
 #if !__has_feature(objc_arc)
-- (int32_t) start;
-- (void) setStart: (int32_t) start;
+- (NSMutableArray *) sourceSiteFilter;
+- (void) setSourceSiteFilter: (NSMutableArray *) sourceSiteFilter;
 #endif
-- (BOOL) startIsSet;
+- (BOOL) sourceSiteFilterIsSet;
 
 #if !__has_feature(objc_arc)
-- (NSMutableArray *) sorts;
-- (void) setSorts: (NSMutableArray *) sorts;
+- (NSString *) startDate;
+- (void) setStartDate: (NSString *) startDate;
 #endif
-- (BOOL) sortsIsSet;
+- (BOOL) startDateIsSet;
+
+#if !__has_feature(objc_arc)
+- (NSString *) endDate;
+- (void) setEndDate: (NSString *) endDate;
+#endif
+- (BOOL) endDateIsSet;
 
 @end
 
@@ -2010,6 +2027,159 @@ typedef NSString * SourceGroup;
 
 @end
 
+@interface UserPreference : NSObject <NSCoding> {
+  NSString * __preferenceId;
+  int __category;
+  BOOL __enabled;
+
+  BOOL __preferenceId_isset;
+  BOOL __category_isset;
+  BOOL __enabled_isset;
+}
+
+#if TARGET_OS_IPHONE || (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_5)
+@property (nonatomic, retain, getter=preferenceId, setter=setPreferenceId:) NSString * preferenceId;
+@property (nonatomic, getter=category, setter=setCategory:) int category;
+@property (nonatomic, getter=enabled, setter=setEnabled:) BOOL enabled;
+#endif
+
+- (id) init;
+- (id) initWithPreferenceId: (NSString *) preferenceId category: (int) category enabled: (BOOL) enabled;
+
+- (void) read: (id <TProtocol>) inProtocol;
+- (void) write: (id <TProtocol>) outProtocol;
+
+#if !__has_feature(objc_arc)
+- (NSString *) preferenceId;
+- (void) setPreferenceId: (NSString *) preferenceId;
+#endif
+- (BOOL) preferenceIdIsSet;
+
+#if !__has_feature(objc_arc)
+- (int) category;
+- (void) setCategory: (int) category;
+#endif
+- (BOOL) categoryIsSet;
+
+#if !__has_feature(objc_arc)
+- (BOOL) enabled;
+- (void) setEnabled: (BOOL) enabled;
+#endif
+- (BOOL) enabledIsSet;
+
+@end
+
+@interface SourcesList : NSObject <NSCoding> {
+  NSMutableArray * __reviewSites;
+  NSMutableArray * __socialSites;
+  NSMutableArray * __kioskSites;
+  NSMutableArray * __surveySites;
+
+  BOOL __reviewSites_isset;
+  BOOL __socialSites_isset;
+  BOOL __kioskSites_isset;
+  BOOL __surveySites_isset;
+}
+
+#if TARGET_OS_IPHONE || (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_5)
+@property (nonatomic, retain, getter=reviewSites, setter=setReviewSites:) NSMutableArray * reviewSites;
+@property (nonatomic, retain, getter=socialSites, setter=setSocialSites:) NSMutableArray * socialSites;
+@property (nonatomic, retain, getter=kioskSites, setter=setKioskSites:) NSMutableArray * kioskSites;
+@property (nonatomic, retain, getter=surveySites, setter=setSurveySites:) NSMutableArray * surveySites;
+#endif
+
+- (id) init;
+- (id) initWithReviewSites: (NSMutableArray *) reviewSites socialSites: (NSMutableArray *) socialSites kioskSites: (NSMutableArray *) kioskSites surveySites: (NSMutableArray *) surveySites;
+
+- (void) read: (id <TProtocol>) inProtocol;
+- (void) write: (id <TProtocol>) outProtocol;
+
+#if !__has_feature(objc_arc)
+- (NSMutableArray *) reviewSites;
+- (void) setReviewSites: (NSMutableArray *) reviewSites;
+#endif
+- (BOOL) reviewSitesIsSet;
+
+#if !__has_feature(objc_arc)
+- (NSMutableArray *) socialSites;
+- (void) setSocialSites: (NSMutableArray *) socialSites;
+#endif
+- (BOOL) socialSitesIsSet;
+
+#if !__has_feature(objc_arc)
+- (NSMutableArray *) kioskSites;
+- (void) setKioskSites: (NSMutableArray *) kioskSites;
+#endif
+- (BOOL) kioskSitesIsSet;
+
+#if !__has_feature(objc_arc)
+- (NSMutableArray *) surveySites;
+- (void) setSurveySites: (NSMutableArray *) surveySites;
+#endif
+- (BOOL) surveySitesIsSet;
+
+@end
+
+@interface UserConfig : NSObject <NSCoding> {
+  NSMutableArray * __featuresEnabled;
+  SourcesList * __allSites;
+  NSMutableArray * __authLocations;
+  NSMutableArray * __userSettings;
+  BOOL __isDefaultSettings;
+
+  BOOL __featuresEnabled_isset;
+  BOOL __allSites_isset;
+  BOOL __authLocations_isset;
+  BOOL __userSettings_isset;
+  BOOL __isDefaultSettings_isset;
+}
+
+#if TARGET_OS_IPHONE || (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_5)
+@property (nonatomic, retain, getter=featuresEnabled, setter=setFeaturesEnabled:) NSMutableArray * featuresEnabled;
+@property (nonatomic, retain, getter=allSites, setter=setAllSites:) SourcesList * allSites;
+@property (nonatomic, retain, getter=authLocations, setter=setAuthLocations:) NSMutableArray * authLocations;
+@property (nonatomic, retain, getter=userSettings, setter=setUserSettings:) NSMutableArray * userSettings;
+@property (nonatomic, getter=isDefaultSettings, setter=setIsDefaultSettings:) BOOL isDefaultSettings;
+#endif
+
+- (id) init;
+- (id) initWithFeaturesEnabled: (NSMutableArray *) featuresEnabled allSites: (SourcesList *) allSites authLocations: (NSMutableArray *) authLocations userSettings: (NSMutableArray *) userSettings isDefaultSettings: (BOOL) isDefaultSettings;
+
+- (void) read: (id <TProtocol>) inProtocol;
+- (void) write: (id <TProtocol>) outProtocol;
+
+#if !__has_feature(objc_arc)
+- (NSMutableArray *) featuresEnabled;
+- (void) setFeaturesEnabled: (NSMutableArray *) featuresEnabled;
+#endif
+- (BOOL) featuresEnabledIsSet;
+
+#if !__has_feature(objc_arc)
+- (SourcesList *) allSites;
+- (void) setAllSites: (SourcesList *) allSites;
+#endif
+- (BOOL) allSitesIsSet;
+
+#if !__has_feature(objc_arc)
+- (NSMutableArray *) authLocations;
+- (void) setAuthLocations: (NSMutableArray *) authLocations;
+#endif
+- (BOOL) authLocationsIsSet;
+
+#if !__has_feature(objc_arc)
+- (NSMutableArray *) userSettings;
+- (void) setUserSettings: (NSMutableArray *) userSettings;
+#endif
+- (BOOL) userSettingsIsSet;
+
+#if !__has_feature(objc_arc)
+- (BOOL) isDefaultSettings;
+- (void) setIsDefaultSettings: (BOOL) isDefaultSettings;
+#endif
+- (BOOL) isDefaultSettingsIsSet;
+
+@end
+
 @interface User : NSObject <NSCoding> {
   int32_t __id;
   int32_t __tenantID;
@@ -2161,4 +2331,47 @@ typedef NSString * SourceGroup;
 + (NSString *) ACTION_UNPUBLISH;
 + (NSString *) ACTION_REQUEST_REVIEW;
 + (NSString *) ACTION_RESURVEY;
++ (NSString *) SCORE_ENABLED;
++ (NSString *) SOCIAL_ENABLED;
++ (NSString *) DASHBOARD_ENABLED;
++ (NSString *) RATINGS_ENABLED;
++ (NSString *) RATINGS_SENTIMENT_ENABLED;
++ (NSString *) RATINGS_KIOSK_ENABLED;
++ (NSString *) RATINGS_LOCATIONS_ENABLED;
++ (NSString *) POSITIVE_REVIEWS_FEED;
++ (NSString *) NEGATIVE_REVIEWS_FEED;
++ (NSString *) NEUTRAL_REVIEWS_FEED;
++ (NSString *) NO_RATINGS_FEED;
++ (NSString *) POSITIVE_REVIEWS_ALERT;
++ (NSString *) NEGATIVE_REVIEWS_ALERT;
++ (NSString *) NEUTRAL_REVIEWS_ALERT;
++ (NSString *) NO_RATINGS_ALERT;
++ (NSString *) REVIEW_SITES_ALL;
++ (NSString *) FACEBOOK_FEED;
++ (NSString *) TWITTER_FEED;
++ (NSString *) GOOGLEPLUS_FEED;
++ (NSString *) KIOSK_REVIEWS_FEED;
++ (NSString *) FACEBOOK_ALERT;
++ (NSString *) TWITTER_ALERT;
++ (NSString *) GOOGLEPLUS_ALERT;
++ (NSString *) KIOSK_REVIEWS_ALERT;
++ (NSString *) LOCATIONS_ALL;
++ (NSString *) FILTER_DT_LAST_7_DAYS;
++ (NSString *) FILTER_DT_LAST_30_DAYS;
++ (NSString *) FILTER_DT_LAST_60_DAYS;
++ (NSString *) FILTER_DT_LAST_90_DAYS;
++ (NSString *) FILTER_DT_LAST_120_DAYS;
++ (NSString *) FILTER_DT_THIS_MONTH;
++ (NSString *) FILTER_DT_LAST_1_MONTH;
++ (NSString *) FILTER_DT_LAST_2_MONTHS;
++ (NSString *) FILTER_DT_LAST_3_MONTHS;
++ (NSString *) FILTER_DT_LAST_6_MONTHS;
++ (NSString *) FILTER_DT_LAST_1_YEAR;
++ (NSString *) FILTER_DT_LAST_2_YEARS;
++ (NSString *) FILTER_DT_LAST_3_YEARS;
++ (NSString *) FILTER_DT_ALL_TIME;
++ (NSString *) FILTER_DT_CUSTOM_DATES;
++ (NSString *) FILTER_SENTIMENT_NEGATIVE;
++ (NSString *) FILTER_SENTIMENT_NEUTRAL;
++ (NSString *) FILTER_SENTIMENT_POSITIVE;
 @end

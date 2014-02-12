@@ -26,14 +26,6 @@ enum MediaType {
   MediaType_Video = 2
 };
 
-enum ConfigTypeCategory {
-  ConfigTypeCategory_Reviews = 1,
-  ConfigTypeCategory_ReviewSites = 2,
-  ConfigTypeCategory_SocialSites = 3,
-  ConfigTypeCategory_Kiosk = 4,
-  ConfigTypeCategory_Locations = 5
-};
-
 typedef NSString * SourceCode;
 
 @interface SummaryValue : NSObject <NSCoding> {
@@ -501,159 +493,6 @@ typedef NSString * SourceCode;
 - (void) setAllowedActions: (NSMutableArray *) allowedActions;
 #endif
 - (BOOL) allowedActionsIsSet;
-
-@end
-
-@interface UserPreference : NSObject <NSCoding> {
-  NSString * __preferenceId;
-  int __category;
-  BOOL __enabled;
-
-  BOOL __preferenceId_isset;
-  BOOL __category_isset;
-  BOOL __enabled_isset;
-}
-
-#if TARGET_OS_IPHONE || (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_5)
-@property (nonatomic, retain, getter=preferenceId, setter=setPreferenceId:) NSString * preferenceId;
-@property (nonatomic, getter=category, setter=setCategory:) int category;
-@property (nonatomic, getter=enabled, setter=setEnabled:) BOOL enabled;
-#endif
-
-- (id) init;
-- (id) initWithPreferenceId: (NSString *) preferenceId category: (int) category enabled: (BOOL) enabled;
-
-- (void) read: (id <TProtocol>) inProtocol;
-- (void) write: (id <TProtocol>) outProtocol;
-
-#if !__has_feature(objc_arc)
-- (NSString *) preferenceId;
-- (void) setPreferenceId: (NSString *) preferenceId;
-#endif
-- (BOOL) preferenceIdIsSet;
-
-#if !__has_feature(objc_arc)
-- (int) category;
-- (void) setCategory: (int) category;
-#endif
-- (BOOL) categoryIsSet;
-
-#if !__has_feature(objc_arc)
-- (BOOL) enabled;
-- (void) setEnabled: (BOOL) enabled;
-#endif
-- (BOOL) enabledIsSet;
-
-@end
-
-@interface SourcesList : NSObject <NSCoding> {
-  NSMutableArray * __reviewSites;
-  NSMutableArray * __socialSites;
-  NSMutableArray * __kioskSites;
-  NSMutableArray * __surveySites;
-
-  BOOL __reviewSites_isset;
-  BOOL __socialSites_isset;
-  BOOL __kioskSites_isset;
-  BOOL __surveySites_isset;
-}
-
-#if TARGET_OS_IPHONE || (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_5)
-@property (nonatomic, retain, getter=reviewSites, setter=setReviewSites:) NSMutableArray * reviewSites;
-@property (nonatomic, retain, getter=socialSites, setter=setSocialSites:) NSMutableArray * socialSites;
-@property (nonatomic, retain, getter=kioskSites, setter=setKioskSites:) NSMutableArray * kioskSites;
-@property (nonatomic, retain, getter=surveySites, setter=setSurveySites:) NSMutableArray * surveySites;
-#endif
-
-- (id) init;
-- (id) initWithReviewSites: (NSMutableArray *) reviewSites socialSites: (NSMutableArray *) socialSites kioskSites: (NSMutableArray *) kioskSites surveySites: (NSMutableArray *) surveySites;
-
-- (void) read: (id <TProtocol>) inProtocol;
-- (void) write: (id <TProtocol>) outProtocol;
-
-#if !__has_feature(objc_arc)
-- (NSMutableArray *) reviewSites;
-- (void) setReviewSites: (NSMutableArray *) reviewSites;
-#endif
-- (BOOL) reviewSitesIsSet;
-
-#if !__has_feature(objc_arc)
-- (NSMutableArray *) socialSites;
-- (void) setSocialSites: (NSMutableArray *) socialSites;
-#endif
-- (BOOL) socialSitesIsSet;
-
-#if !__has_feature(objc_arc)
-- (NSMutableArray *) kioskSites;
-- (void) setKioskSites: (NSMutableArray *) kioskSites;
-#endif
-- (BOOL) kioskSitesIsSet;
-
-#if !__has_feature(objc_arc)
-- (NSMutableArray *) surveySites;
-- (void) setSurveySites: (NSMutableArray *) surveySites;
-#endif
-- (BOOL) surveySitesIsSet;
-
-@end
-
-@interface UserConfig : NSObject <NSCoding> {
-  NSMutableArray * __featuresEnabled;
-  SourcesList * __allSites;
-  NSMutableArray * __authLocations;
-  NSMutableArray * __userSettings;
-  BOOL __isDefaultSettings;
-
-  BOOL __featuresEnabled_isset;
-  BOOL __allSites_isset;
-  BOOL __authLocations_isset;
-  BOOL __userSettings_isset;
-  BOOL __isDefaultSettings_isset;
-}
-
-#if TARGET_OS_IPHONE || (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_5)
-@property (nonatomic, retain, getter=featuresEnabled, setter=setFeaturesEnabled:) NSMutableArray * featuresEnabled;
-@property (nonatomic, retain, getter=allSites, setter=setAllSites:) SourcesList * allSites;
-@property (nonatomic, retain, getter=authLocations, setter=setAuthLocations:) NSMutableArray * authLocations;
-@property (nonatomic, retain, getter=userSettings, setter=setUserSettings:) NSMutableArray * userSettings;
-@property (nonatomic, getter=isDefaultSettings, setter=setIsDefaultSettings:) BOOL isDefaultSettings;
-#endif
-
-- (id) init;
-- (id) initWithFeaturesEnabled: (NSMutableArray *) featuresEnabled allSites: (SourcesList *) allSites authLocations: (NSMutableArray *) authLocations userSettings: (NSMutableArray *) userSettings isDefaultSettings: (BOOL) isDefaultSettings;
-
-- (void) read: (id <TProtocol>) inProtocol;
-- (void) write: (id <TProtocol>) outProtocol;
-
-#if !__has_feature(objc_arc)
-- (NSMutableArray *) featuresEnabled;
-- (void) setFeaturesEnabled: (NSMutableArray *) featuresEnabled;
-#endif
-- (BOOL) featuresEnabledIsSet;
-
-#if !__has_feature(objc_arc)
-- (SourcesList *) allSites;
-- (void) setAllSites: (SourcesList *) allSites;
-#endif
-- (BOOL) allSitesIsSet;
-
-#if !__has_feature(objc_arc)
-- (NSMutableArray *) authLocations;
-- (void) setAuthLocations: (NSMutableArray *) authLocations;
-#endif
-- (BOOL) authLocationsIsSet;
-
-#if !__has_feature(objc_arc)
-- (NSMutableArray *) userSettings;
-- (void) setUserSettings: (NSMutableArray *) userSettings;
-#endif
-- (BOOL) userSettingsIsSet;
-
-#if !__has_feature(objc_arc)
-- (BOOL) isDefaultSettings;
-- (void) setIsDefaultSettings: (BOOL) isDefaultSettings;
-#endif
-- (BOOL) isDefaultSettingsIsSet;
 
 @end
 
@@ -1522,8 +1361,8 @@ typedef NSString * SourceCode;
 @end
 
 @protocol Mobile <NSObject>
-- (FeedResponse *) getReviewsFeed: (int64_t) uptoTime start: (int32_t) start pageCount: (int32_t) pageCount searchCriteria: (SearchRequest *) searchCriteria;  // throws TException
-- (SocialFeedResponse *) getSocialFeed: (int64_t) uptoTime start: (int32_t) start pageCount: (int32_t) pageCount searchCriteria: (SearchRequest *) searchCriteria;  // throws TException
+- (FeedResponse *) getReviewsFeed: (int64_t) uptoTime start: (int32_t) start pageCount: (int32_t) pageCount searchCriteria: (SearchFilter *) searchCriteria;  // throws TException
+- (SocialFeedResponse *) getSocialFeed: (int64_t) uptoTime start: (int32_t) start pageCount: (int32_t) pageCount searchCriteria: (SearchFilter *) searchCriteria;  // throws TException
 - (ReferenceDataResponse *) getReferenceData;  // throws TException
 - (PermissionsResponse *) getUserConfig;  // throws TException
 - (SaveConfigResponse *) saveUserConfig: (NSMutableArray *) userSettings;  // throws TException
@@ -1563,29 +1402,4 @@ typedef NSString * SourceCode;
 + (NSString *) SUMMARY_OVERALL_SCORE_VOLUME;
 + (NSString *) SUMMARY_NOREVIEWS_SOURCELOGO;
 + (NSString *) SUMMARY_NOREVIEWS_SOURCENAME;
-+ (NSString *) SCORE_ENABLED;
-+ (NSString *) SOCIAL_ENABLED;
-+ (NSString *) DASHBOARD_ENABLED;
-+ (NSString *) RATINGS_ENABLED;
-+ (NSString *) RATINGS_SENTIMENT_ENABLED;
-+ (NSString *) RATINGS_KIOSK_ENABLED;
-+ (NSString *) RATINGS_LOCATIONS_ENABLED;
-+ (NSString *) POSITIVE_REVIEWS_FEED;
-+ (NSString *) NEGATIVE_REVIEWS_FEED;
-+ (NSString *) NEUTRAL_REVIEWS_FEED;
-+ (NSString *) NO_RATINGS_FEED;
-+ (NSString *) POSITIVE_REVIEWS_ALERT;
-+ (NSString *) NEGATIVE_REVIEWS_ALERT;
-+ (NSString *) NEUTRAL_REVIEWS_ALERT;
-+ (NSString *) NO_RATINGS_ALERT;
-+ (NSString *) REVIEW_SITES_ALL;
-+ (NSString *) FACEBOOK_FEED;
-+ (NSString *) TWITTER_FEED;
-+ (NSString *) GOOGLEPLUS_FEED;
-+ (NSString *) KIOSK_REVIEWS_FEED;
-+ (NSString *) FACEBOOK_ALERT;
-+ (NSString *) TWITTER_ALERT;
-+ (NSString *) GOOGLEPLUS_ALERT;
-+ (NSString *) KIOSK_REVIEWS_ALERT;
-+ (NSString *) LOCATIONS_ALL;
 @end

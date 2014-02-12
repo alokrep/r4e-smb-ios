@@ -27,13 +27,15 @@
   return self;
 }
 
-- (id) initWithResponse: (Response *) response userDetails: (User *) userDetails
+- (id) initWithResponse: (Response *) response userDetails: (User *) userDetails userConfig: (UserConfig *) userConfig
 {
   self = [super init];
   __response = [response retain_stub];
   __response_isset = YES;
   __userDetails = [userDetails retain_stub];
   __userDetails_isset = YES;
+  __userConfig = [userConfig retain_stub];
+  __userConfig_isset = YES;
   return self;
 }
 
@@ -50,6 +52,11 @@
     __userDetails = [[decoder decodeObjectForKey: @"userDetails"] retain_stub];
     __userDetails_isset = YES;
   }
+  if ([decoder containsValueForKey: @"userConfig"])
+  {
+    __userConfig = [[decoder decodeObjectForKey: @"userConfig"] retain_stub];
+    __userConfig_isset = YES;
+  }
   return self;
 }
 
@@ -63,12 +70,17 @@
   {
     [encoder encodeObject: __userDetails forKey: @"userDetails"];
   }
+  if (__userConfig_isset)
+  {
+    [encoder encodeObject: __userConfig forKey: @"userConfig"];
+  }
 }
 
 - (void) dealloc
 {
   [__response release_stub];
   [__userDetails release_stub];
+  [__userConfig release_stub];
   [super dealloc_stub];
 }
 
@@ -114,6 +126,27 @@
   __userDetails_isset = NO;
 }
 
+- (UserConfig *) userConfig {
+  return [[__userConfig retain_stub] autorelease_stub];
+}
+
+- (void) setUserConfig: (UserConfig *) userConfig {
+  [userConfig retain_stub];
+  [__userConfig release_stub];
+  __userConfig = userConfig;
+  __userConfig_isset = YES;
+}
+
+- (BOOL) userConfigIsSet {
+  return __userConfig_isset;
+}
+
+- (void) unsetUserConfig {
+  [__userConfig release_stub];
+  __userConfig = nil;
+  __userConfig_isset = NO;
+}
+
 - (void) read: (id <TProtocol>) inProtocol
 {
   NSString * fieldName;
@@ -149,6 +182,16 @@
           [TProtocolUtil skipType: fieldType onProtocol: inProtocol];
         }
         break;
+      case 3:
+        if (fieldType == TType_STRUCT) {
+          UserConfig *fieldValue = [[UserConfig alloc] init];
+          [fieldValue read: inProtocol];
+          [self setUserConfig: fieldValue];
+          [fieldValue release_stub];
+        } else { 
+          [TProtocolUtil skipType: fieldType onProtocol: inProtocol];
+        }
+        break;
       default:
         [TProtocolUtil skipType: fieldType onProtocol: inProtocol];
         break;
@@ -174,6 +217,13 @@
       [outProtocol writeFieldEnd];
     }
   }
+  if (__userConfig_isset) {
+    if (__userConfig != nil) {
+      [outProtocol writeFieldBeginWithName: @"userConfig" type: TType_STRUCT fieldID: 3];
+      [__userConfig write: outProtocol];
+      [outProtocol writeFieldEnd];
+    }
+  }
   [outProtocol writeFieldStop];
   [outProtocol writeStructEnd];
 }
@@ -184,6 +234,8 @@
   [ms appendFormat: @"%@", __response];
   [ms appendString: @",userDetails:"];
   [ms appendFormat: @"%@", __userDetails];
+  [ms appendString: @",userConfig:"];
+  [ms appendFormat: @"%@", __userConfig];
   [ms appendString: @")"];
   return [NSString stringWithString: ms];
 }
