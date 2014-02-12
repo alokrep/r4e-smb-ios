@@ -49,8 +49,7 @@
  */
 
 #import "IconDownloader.h"
-#import "AppRecord.h"
-
+#import "ReviewDashBoardModal.h"
 #define kAppIconSize 48
 
 @interface IconDownloader ()
@@ -67,7 +66,7 @@
 {
     self.activeDownload = [NSMutableData data];
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.appRecord.imageURLString]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.appRecord.str_imageURL]];
     
     // alloc+init and start an NSURLConnection; release on completion/failure
     NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
@@ -109,12 +108,12 @@
 		UIGraphicsBeginImageContextWithOptions(itemSize, NO, 0.0f);
 		CGRect imageRect = CGRectMake(0.0, 0.0, itemSize.width, itemSize.height);
 		[image drawInRect:imageRect];
-		self.appRecord.appIcon = UIGraphicsGetImageFromCurrentImageContext();
+		self.appRecord.logoIcon = UIGraphicsGetImageFromCurrentImageContext();
 		UIGraphicsEndImageContext();
     }
     else
     {
-        self.appRecord.appIcon = image;
+        self.appRecord.logoIcon = image;
     }
     
     self.activeDownload = nil;
