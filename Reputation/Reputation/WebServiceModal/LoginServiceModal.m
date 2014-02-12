@@ -7,6 +7,7 @@
 //
 
 #import "LoginServiceModal.h"
+#import "UAPush.h"
 
 @implementation LoginServiceModal
 -(void)callLoginWebservice:(NSString *)email :(NSString *)password
@@ -31,7 +32,12 @@
             [self saveUserObject:resp.userDetails];
             
             [AppDelegate sharedDelegate].userObj = [self loadUserObjectWithKey:kUserInfo];
+            //Set the alias for Urban Airship
+            NSString *alias = [NSString stringWithFormat:@"%d", resp.userDetails.id];
             
+            [UAPush shared].alias = alias;
+            
+            [[UAPush shared] updateRegistration];
             
             NSLog(@"userKey%@",resp.userDetails.userKey);
             

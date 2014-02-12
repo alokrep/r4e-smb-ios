@@ -8,7 +8,11 @@
 
 #import "AppDelegate.h"
 #import "TabBarControllerClass.h"
-//#import <Crashlytics/Crashlytics.h>
+#import <Crashlytics/Crashlytics.h>
+#import "UAirship.h"
+#import "UAConfig.h"
+#import "UAPush.h"
+
 @implementation AppDelegate
 @synthesize tabBarControllerObj;
 @synthesize userObj;
@@ -22,8 +26,42 @@
     // Override point for customization after application launch.
     
     //Adding crashlytics
-    //[Crashlytics startWithAPIKey:@"df3e594a408c25737d475b00660679bfd7f3aeda"];
+    [Crashlytics startWithAPIKey:@"df3e594a408c25737d475b00660679bfd7f3aeda"];
     
+    // This prevents the UA Library from registering with UIApplication by default. This will allow
+    // you to prompt your users at a later time. This gives your app the opportunity to explain the
+    // benefits of push or allows users to turn it on explicitly in a settings screen.
+    //
+    // If you just want everyone to immediately be prompted for push, you can
+    // leave this line out.
+    //[UAPush setDefaultPushEnabledValue:NO];
+    
+    // Set log level for debugging config loading (optional)
+    // It will be set to the value in the loaded config upon takeOff
+    [UAirship setLogLevel:UALogLevelTrace];
+    
+    // Populate AirshipConfig.plist with your app's info from https://go.urbanairship.com
+    // or set runtime properties here.
+    UAConfig *config = [UAConfig defaultConfig];
+    
+    // You can also programmatically override the plist values:
+    // config.developmentAppKey = @"YourKey";
+    // etc.
+    [[UAPush shared] setAutobadgeEnabled:YES];
+    
+    // Call takeOff (which creates the UAirship singleton)
+    [UAirship takeOff:config];
+    
+    // Set the icon badge to zero on startup (optional)
+    [[UAPush shared] resetBadge];
+    
+    // Sets the alias. It will be sent to the server on registration.
+    //NSString *yourAlias = @"alok.damireddy+1@reputation.com";
+    NSString *yourAlias = @"";
+    [UAPush shared].alias = nil;
+    
+    // Set the icon badge to zero on startup (optional)
+    //[[UAPush shared] resetBadge];
     
     self.userObj = [self loadUserObjectWithKey:kUserInfo];
     
@@ -50,6 +88,55 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    // Set the icon badge to zero on resume (optional)
+    [[UAPush shared] resetBadge];
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    
+    UA_LINFO(@"Received remote notification (in appDelegate): %@", userInfo);
+    
+    // Optionally provide a delegate that will be used to handle notifications received while the app is running
+    // [UAPush shared].pushNotificationDelegate = your custom push delegate class conforming to the UAPushNotificationDelegate protocol
+    
+    // Reset the badge after a push received (optional)
+    [[UAPush shared] resetBadge];
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler{
+    UA_LINFO(@"Received remote notification (in appDelegate): %@", userInfo);
+    
+    // Optionally provide a delegate that will be used to handle notifications received while the app is running
+    // [UAPush shared].pushNotificationDelegate = your custom push delegate class conforming to the UAPushNotificationDelegate protocol
+    
+    // Reset the badge after a push is received in a active or inactive state
+    if (application.applicationState != UIApplicationStateBackground) {
+        [[UAPush shared] resetBadge];
+    }
+    
+    completionHandler(UIBackgroundFetchResultNoData);
+}
+
+// Implement the iOS device token registration callback
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    UALOG(@"APN device token: %@", deviceToken);
+    
+    // Updates the device token and registers the token with UA. This won't occur until
+    // push is enabled if the outlined process is followed.
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    self.userObj = [self loadUserObjectWithKey:kUserInfo];
+    
+    if(self.userObj != Nil) {
+        NSString *alias = [NSString stringWithFormat:@"%d", self.userObj.id];
+        
+        //NSString *alias = [defaults objectForKey:@"alok.damireddy+1@reputation.com"];
+        [UAPush shared].alias = alias;
+        //[[UAPush shared] setAlias:@"alok.damireddy+1@reputation.com"];
+    }
+    [[UAPush shared] registerDeviceToken:deviceToken];
+    [[UAPush shared] updateRegistration];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
