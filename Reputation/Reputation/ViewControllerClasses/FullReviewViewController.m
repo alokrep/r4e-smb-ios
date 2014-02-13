@@ -33,8 +33,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	StarRatingView* starview = [[StarRatingView alloc]initWithFrame:CGRectMake(45,20, kStarViewWidth+kLabelAllowance+kLeftPadding+kRightPadding, kStarViewHeight) andRating:80 withLabel:YES animated:NO];
+	starview = [[StarRatingView alloc]initWithFrame:CGRectMake(45,20, kStarViewWidth+kLabelAllowance+kLeftPadding+kRightPadding, kStarViewHeight) andRating:20 withLabel:YES animated:NO];
     [self.view addSubview:starview];
+    
     
     _textView_fullReview.textAlignment = NSTextAlignmentJustified;
     self.view_Bottom.layer.borderWidth = .5f;
@@ -53,6 +54,59 @@
     navigationObj.dashBtn.hidden = YES;
     navigationObj.backBtn.hidden = NO;
     navigationObj.reviewsBtn.hidden = YES;
+    
+    
+    self.lbl_date.text = self.reviewObj.date;
+    self.lbl_name.text = [NSString stringWithFormat:@"%@ wrote:",self.reviewObj.reviewerName];
+    self.textView_fullReview.text = self.reviewObj.comment;
+    
+    
+    
+    
+    int rating = self.reviewObj.rating;
+    
+    
+    
+    starview.userInteractionEnabled = NO;
+    switch (rating) {
+        case 0:
+            starview.userRating = 0;
+            starview.rating = starview.userRating;
+            starview.label.text = @"0.0";
+            break;
+        case 1:
+            starview.userRating = 20;
+            starview.rating = starview.userRating;
+            starview.label.text = @"1.0";
+            break;
+        case 2:
+            starview.userRating = 40;
+            starview.rating = starview.userRating;
+            starview.label.text = @"2.0";
+            break;
+        case 3:
+            starview.userRating = 60;
+            starview.rating = starview.userRating;
+            starview.label.text = @"3.0";
+            break;
+        case 4:
+            starview.userRating = 80;
+            starview.rating = starview.userRating;
+            starview.label.text = @"4.0";
+            break;
+        case 5:
+            starview.userRating = 100;
+            starview.rating = starview.userRating;
+            starview.label.text = @"5.0";
+            break;
+            
+        default:
+            break;
+    }
+    
+    
+    [starview ratingDidChange];
+
 }
 -(void) popTORateView
 {

@@ -173,7 +173,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/5" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HtC-VT-614">
-                                                    <rect key="frame" x="174" y="8" width="31" height="21"/>
+                                                    <rect key="frame" x="174" y="9" width="31" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                                     <color key="textColor" red="0.46666669845581055" green="0.46666669845581055" blue="0.46666669845581055" alpha="1" colorSpace="deviceRGB"/>
@@ -1338,14 +1338,14 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/5.0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="di4-WY-6IF">
-                                <rect key="frame" x="156" y="19" width="27" height="21"/>
+                                <rect key="frame" x="163" y="19" width="27" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="13"/>
                                 <color key="textColor" red="0.65098041299999998" green="0.65098041299999998" blue="0.65098041299999998" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1/13/14" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ShD-0m-djx">
-                                <rect key="frame" x="225" y="20" width="55" height="21"/>
+                                <rect key="frame" x="206" y="20" width="74" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="13"/>
                                 <color key="textColor" red="0.65098041299999998" green="0.65098041299999998" blue="0.65098041299999998" alpha="1" colorSpace="deviceRGB"/>
@@ -1360,13 +1360,13 @@
                                 </state>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Judy W. wrote:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tsS-sO-Ycv">
-                                <rect key="frame" x="15" y="43" width="94" height="21"/>
+                                <rect key="frame" x="15" y="43" width="205" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                 <color key="textColor" red="0.60392159219999997" green="0.60392159219999997" blue="0.60392159219999997" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" id="2bG-nP-0i6">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" id="2bG-nP-0i6">
                                 <rect key="frame" x="10" y="68" width="300" height="316"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                                 <color key="backgroundColor" red="0.93333339689999995" green="0.93333339689999995" blue="0.93333339689999995" alpha="1" colorSpace="deviceRGB"/>
@@ -1375,7 +1375,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="sdI-LF-ugA">
-                                <rect key="frame" x="17" y="20" width="20" height="20"/>
+                                <rect key="frame" x="15" y="12" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" image="google_plus_icon.png">
@@ -1404,6 +1404,9 @@
                     <navigationItem key="navigationItem" id="sHY-k7-IzQ"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="imgVw_logoIcon" destination="sdI-LF-ugA" id="FkK-7y-GYa"/>
+                        <outlet property="lbl_date" destination="ShD-0m-djx" id="7Xe-DU-r5h"/>
+                        <outlet property="lbl_name" destination="tsS-sO-Ycv" id="7tF-2a-tEk"/>
                         <outlet property="textView_fullReview" destination="2bG-nP-0i6" id="ZKe-Bw-Dwt"/>
                         <outlet property="view_Bottom" destination="2Ud-pa-MIs" id="yR7-ek-9o6"/>
                     </connections>

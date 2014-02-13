@@ -26,6 +26,7 @@
 
 @implementation ReviewsController
 @synthesize arr_ReviewData;
+@synthesize arr_logoImages;
 #pragma mark View LifeCycle
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -78,7 +79,10 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    NSArray *allDownloads = [self.imageDownloadsInProgress allValues];
+    [allDownloads makeObjectsPerformSelector:@selector(cancelDownload)];
+    
+    [self.imageDownloadsInProgress removeAllObjects];
 }
 
 
@@ -129,6 +133,7 @@
     Review * review = (Review *)[self.arr_ReviewData objectAtIndex:indexPath.row];
     
     
+    
     if(cell == nil)
     {
         cell = (reviewsTableViewCell *)[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
@@ -138,7 +143,12 @@
     cell.lbl_comment.text = review.comment;
     cell.lbl_date.text = review.date;
     int rating = review.rating;
-    cell.lbl_rating.text = [NSString stringWithFormat:@"%d.0/5.0",rating];
+    cell.btn_DropDown.tag = indexPath.row;
+    [cell.btn_DropDown addTarget:self action:@selector(btn_arrow:) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    //Setting DynamicFrame
+    
     cell.lbl_name.text = review.reviewerName;
     CGSize expectedLabelSize_city =  [review.reviewerName sizeWithFont:cell.lbl_name.font constrainedToSize:CGSizeMake(MAXFLOAT, cell.lbl_name.frame.size.height) lineBreakMode:NSLineBreakByWordWrapping];
     CGRect frameForName =cell.lbl_name.frame;
@@ -157,13 +167,25 @@
     cell.img_dot.frame=frameFordot;
 
     //5720
+    
+    for (id obj in cell.contentView.subviews) {
+        
+        if ([obj isKindOfClass:[StarRatingView class]]) {
+            
+            StarRatingView * star = (StarRatingView *)obj;
+            [star removeFromSuperview];
+        }
+    }
     StarRatingView* starview = [[StarRatingView alloc]initWithFrame:CGRectMake(57,10, kStarViewWidth+kLabelAllowance+kLeftPadding+kRightPadding, kStarViewHeight) andRating:20 withLabel:YES animated:NO];
     
+    starview.userInteractionEnabled = NO;
+    
+    NSLog(@"rate %d",rating);
     
     switch (rating) {
         case 0:
             starview.userRating = 0;
-            starview.rating = 0;
+            starview.rating = starview.userRating;
             starview.label.text = @"0.0";
             break;
         case 1:
@@ -179,14 +201,17 @@
         case 3:
             starview.userRating = 60;
              starview.rating = starview.userRating;
+            starview.label.text = @"3.0";
             break;
         case 4:
             starview.userRating = 80;
              starview.rating = starview.userRating;
+            starview.label.text = @"4.0";
             break;
         case 5:
             starview.userRating = 100;
              starview.rating = starview.userRating;
+            starview.label.text = @"5.0";
             break;
             
         default:
@@ -197,6 +222,7 @@
     [starview ratingDidChange];
     
     [cell.contentView addSubview:starview];
+    starview = nil;
     
     
     if (indexPath.row%2 == 0) {
@@ -206,6 +232,13 @@
     {
         cell.backgroundColor = [UIColor colorWithRed:251.0/255.0 green:235.0/255.0 blue:239.0/255.0 alpha:1];
     }
+    
+    
+    
+    
+    
+    
+    
     return cell;
     
 }
@@ -336,8 +369,12 @@
     NSIndexPath *indexPath = [tbl_View indexPathForCell:(reviewsTableViewCell *)
                               [[[sender superview] superview] superview]];
     NSLog(@"The row id is %d",  indexPath.row);
+    if (!actionSheetReview) {
+        actionSheetReview = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Reply",@"Full View",@"Mark as Read",@"Email Review",@"Share", nil];
+    }
     
-    actionSheetReview = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Reply",@"Full View",@"Mark as Read",@"Email Review",@"Share", nil];
+    actionSheetReview.tag = [sender tag];
+    
     [actionSheetReview showInView:self.view];
     
 }
@@ -348,11 +385,86 @@
     
     if([title isEqualToString:@"Full View"])
     {
-       
+        objFullViewController.reviewObj= [self.arr_ReviewData objectAtIndex: actionSheet.tag];
         [self.navigationController pushViewController:objFullViewController animated:YES];
     }
     
 }
+#pragma mark - Table cell image support
+
+// -------------------------------------------------------------------------------
+//	startIconDownload:forIndexPath:
+// -------------------------------------------------------------------------------
+- (void)startIconDownload:(ReviewDashBoardModal *)appRecord forIndexPath:(NSIndexPath *)indexPath
+{
+    IconDownloader *iconDownloader = [self.imageDownloadsInProgress objectForKey:indexPath];
+    if (iconDownloader == nil)
+    {
+        iconDownloader = [[IconDownloader alloc] init];
+        iconDownloader.appRecord = appRecord;
+        [iconDownloader setCompletionHandler:^{
+            
+            reviewsTableViewCell *cell = (reviewsTableViewCell *)[self.tblVw_review cellForRowAtIndexPath:indexPath];
+            
+            // Display the newly loaded image
+            cell.img_logoIcon.image = appRecord.logoIcon;
+            
+            // Remove the IconDownloader from the in progress list.
+            // This will result in it being deallocated.
+            [self.imageDownloadsInProgress removeObjectForKey:indexPath];
+            
+        }];
+        [self.imageDownloadsInProgress setObject:iconDownloader forKey:indexPath];
+        [iconDownloader startDownload];
+    }
+}
+
+// -------------------------------------------------------------------------------
+//	loadImagesForOnscreenRows
+//  This method is used in case the user scrolled into a set of cells that don't
+//  have their app icons yet.
+// -------------------------------------------------------------------------------
+- (void)loadImagesForOnscreenRows
+{
+    if ([self.arr_logoImages count] > 0)
+    {
+        NSArray *visiblePaths = [self.tblVw_review indexPathsForVisibleRows];
+        for (NSIndexPath *indexPath in visiblePaths)
+        {
+            ReviewDashBoardModal *appRecord = [self.arr_logoImages objectAtIndex:indexPath.row];
+            
+            if (!appRecord.logoIcon)
+                // Avoid the app icon download if the app already has an icon
+            {
+                [self startIconDownload:appRecord forIndexPath:indexPath];
+            }
+        }
+    }
+}
+
+
+#pragma mark - UIScrollViewDelegate
+
+// -------------------------------------------------------------------------------
+//	scrollViewDidEndDragging:willDecelerate:
+//  Load images for all onscreen rows when scrolling is finished.
+// -------------------------------------------------------------------------------
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    if (!decelerate)
+	{
+        [self loadImagesForOnscreenRows];
+    }
+}
+
+// -------------------------------------------------------------------------------
+//	scrollViewDidEndDecelerating:
+// -------------------------------------------------------------------------------
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    [self loadImagesForOnscreenRows];
+}
+
 
 
 @end

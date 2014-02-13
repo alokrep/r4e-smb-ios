@@ -62,7 +62,7 @@
         if (self.userRating >=20.0f) {
             [tintLayer setBackgroundColor:[UIColor colorWithRed:233.0/255.0f green:119.0/255.0f blue:0/255.0f alpha:1].CGColor];
         }else{
-            //[tintLayer setBackgroundColor:[UIColor yellowColor].CGColor];
+            [tintLayer setBackgroundColor:[UIColor grayColor].CGColor];
         }
         
         [self.layer addSublayer:tintLayer];
@@ -103,12 +103,13 @@
 -(void)ratingDidChange
 {
     if (self.userRating < 20.0f) {
-        [self.tintLayer setBackgroundColor:[UIColor yellowColor].CGColor];
-        float barWitdhPercentage = (_maxrating/100.0f) *  (self.bounds.size.width-kLabelAllowance);
-        self.tintLayer.frame = CGRectMake(0, 0, barWitdhPercentage, self.frame.size.height);
+       // [self.tintLayer setBackgroundColor:[UIColor grayColor].CGColor];
+       // float barWitdhPercentage = (_maxrating/100.0f) *  (self.bounds.size.width-kLabelAllowance);
+        //self.tintLayer.frame = CGRectMake(0, 0, barWitdhPercentage, self.frame.size.height);
     }else{
         [self.tintLayer setBackgroundColor:[UIColor colorWithRed:233.0/255.0f green:119.0/255.0f blue:0/255.0f alpha:1].CGColor];
         float barWitdhPercentage = (_rating/100.0f) *  (self.bounds.size.width-kLabelAllowance);
+        
         self.tintLayer.frame = CGRectMake(0, 0, barWitdhPercentage, self.frame.size.height);
     }
     //self.label.text = [NSString stringWithFormat:@"%d.0",self.rating/20];

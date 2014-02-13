@@ -13,6 +13,8 @@
 #import "Mobile.h"
 #import "MobileAuth.h"
 #import "StarRatingView.h"
+#import "IconDownloader.h"
+#import "ReviewDashBoardModal.h"
 
 
 @interface ReviewsController : UIViewController
@@ -26,7 +28,9 @@
     UIButton *btn_getReviews;
     UIBarButtonItem *barBtn;
 }
+@property (nonatomic, strong) NSMutableDictionary *imageDownloadsInProgress;
 @property (weak, nonatomic) IBOutlet UITableView *tblVw_review;
 @property(nonatomic,strong) NSMutableArray * arr_ReviewData;
+@property(nonatomic,strong) NSMutableArray * arr_logoImages;
 -(IBAction)btn_arrow:(id)sender;
 @end

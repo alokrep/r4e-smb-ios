@@ -113,6 +113,8 @@ typedef NSString * SourceCode;
 @end
 
 @interface Review : NSObject <NSCoding> {
+    
+    
   NSString * __id;
   NSString * __locationName;
   NSString * __reviewerId;

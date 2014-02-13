@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Mobile.h"
 
-@interface ReviewDataModal : NSObject
+@interface ReviewDataModal : Review
+@property(nonatomic,strong) UIImage * imgVw_logoIcon;
 
 @end
