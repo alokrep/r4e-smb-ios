@@ -15,6 +15,7 @@
 #import "StarRatingView.h"
 #import "IconDownloader.h"
 #import "ReviewDashBoardModal.h"
+#import "MBProgressHUD.h"
 
 
 @interface ReviewsController : UIViewController

@@ -28,6 +28,7 @@
     DEJOwareActivityIndicatorView *activityIndicatorView;
     
 }
+@property(weak,nonatomic) NSString * str_changedEmail;
 @property (weak, nonatomic) IBOutlet UIImageView *imgVw_BackGround;
 @property (weak, nonatomic) IBOutlet UIButton *signInBtn;
 @property (weak, nonatomic) IBOutlet UITextField *txtFld_userName;

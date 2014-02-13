@@ -13,7 +13,7 @@
 @end
 
 @implementation ViewController
-
+@synthesize str_changedEmail;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -29,7 +29,16 @@
 	
     
 }
-
+- (void)viewWillAppear:(BOOL)animated
+{
+    if (self.str_changedEmail.length>0) {
+        self.txtFld_userName.text= self.str_changedEmail;
+        self.txtFld_password.text=@"";
+    }
+    
+    self.navigationController.navigationBarHidden = YES;
+    
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -92,6 +101,7 @@
     
     [MBProgressHUD hideHUDForView:self.view animated:YES];
     if ([str_response isEqualToString:@"success"]) {
+        self.str_changedEmail = nil;
         [self performSegueWithIdentifier:@"GoToSlider" sender:nil];
     }
     else

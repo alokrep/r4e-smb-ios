@@ -15,6 +15,7 @@
 {
     TourViewController * tourObj;
 }
+@property (weak, nonatomic) IBOutlet UIButton *btnSettings;
 - (IBAction)settingBtnClicked:(id)sender;
 - (IBAction)HomeBtnClicked:(id)sender;
 

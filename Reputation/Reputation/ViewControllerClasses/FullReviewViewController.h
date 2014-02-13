@@ -15,7 +15,7 @@
     StarRatingView* starview;
     
 }
-@property (weak, nonatomic) IBOutlet UIButton *imgVw_logoIcon;
+@property (weak, nonatomic) IBOutlet UIImageView *imgVw_logoIcon;
 @property (weak, nonatomic) IBOutlet UILabel *lbl_date;
 @property (weak, nonatomic) IBOutlet UILabel *lbl_name;
 @property (strong, nonatomic) IBOutlet UITextView *textView_fullReview;

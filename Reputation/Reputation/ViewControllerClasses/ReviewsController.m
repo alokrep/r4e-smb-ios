@@ -2,7 +2,7 @@
 //  ReviewsController.m
 //  Reputation
 //
-//  Created by Jai.Sharma on 1/31/14.
+//  Created by Jai Sharma on 1/31/14.
 //  Copyright (c) 2014 www. All rights reserved.
 //
 
@@ -43,6 +43,8 @@
     CustomNavigation * navigationObj = (CustomNavigation *)self.navigationController;
     navigationObj.lbl_title.text = @"Reviews";
     objFullViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"FullReview"];
+    
+    self.arr_logoImages = [[NSMutableArray alloc]init];
     
     [self getReviewsData];
 }
@@ -130,7 +132,7 @@
         return cellFilter;
     }
     reviewsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    Review * review = (Review *)[self.arr_ReviewData objectAtIndex:indexPath.row];
+    Review * review = (Review *)[self.arr_ReviewData objectAtIndex:indexPath.row-1];
     
     
     
@@ -235,6 +237,23 @@
     
     
     
+    ReviewDashBoardModal  * reviewObj = [self.arr_logoImages objectAtIndex:indexPath.row];
+    
+    if (!reviewObj.logoIcon)
+    {
+        if (self.tblVw_review.dragging == NO && self.tblVw_review.decelerating == NO)
+        {
+            [self startIconDownload:reviewObj forIndexPath:indexPath];
+        }
+        // if a download is deferred or in progress, return a placeholder image
+        cell.img_logoIcon.image = [UIImage imageNamed:@"Placeholder.png"];
+    }
+    else
+    {
+        cell.img_logoIcon.image = reviewObj.logoIcon;
+    }
+    
+
     
     
     
@@ -247,7 +266,7 @@
 {
     
     // Return the number of rows in the section.
-    return self.arr_ReviewData.count;
+    return self.arr_ReviewData.count+1;
 }
 
 
@@ -329,6 +348,11 @@
 -(void)getReviewsData
 {
     
+    
+     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    
+    
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
     
     dispatch_async(queue, ^{
@@ -346,10 +370,22 @@
             NSLog(@"revFeedResp.items %@",revFeedResp.items);
         
            // Review * review = [revFeedResp.items objectAtIndex:0];
+            [self.arr_logoImages addObject:@""];
+            
+            for (Review * obj in revFeedResp.items) {
+                
+                ReviewDashBoardModal * reviewObj = [[ReviewDashBoardModal alloc]init];
+                
+              reviewObj.str_imageURL =[NSString stringWithFormat:@"http://%@",obj.sourceLargeIconPath];
+                [self.arr_logoImages addObject:reviewObj];
+                
+            }
             
             self.arr_ReviewData = revFeedResp.items;
         }
         dispatch_async(dispatch_get_main_queue(), ^{
+            
+             [MBProgressHUD hideHUDForView:self.view animated:YES];
             
             if (arr_ReviewData.count>0) {
                 
@@ -385,7 +421,11 @@
     
     if([title isEqualToString:@"Full View"])
     {
-        objFullViewController.reviewObj= [self.arr_ReviewData objectAtIndex: actionSheet.tag];
+        objFullViewController.reviewObj= [self.arr_ReviewData objectAtIndex: actionSheet.tag-1];
+        ReviewDashBoardModal * reviewModal = [self.arr_logoImages objectAtIndex:actionSheet.tag];
+        
+        objFullViewController.imgVw_logoIcon.image =reviewModal.logoIcon;
+      //  objFullViewController.imgVw_logoIcon
         [self.navigationController pushViewController:objFullViewController animated:YES];
     }
     
@@ -433,11 +473,14 @@
         {
             ReviewDashBoardModal *appRecord = [self.arr_logoImages objectAtIndex:indexPath.row];
             
-            if (!appRecord.logoIcon)
-                // Avoid the app icon download if the app already has an icon
-            {
-                [self startIconDownload:appRecord forIndexPath:indexPath];
+            if ([appRecord isKindOfClass:[ReviewDashBoardModal class]]) {
+                if (!appRecord.logoIcon)
+                    // Avoid the app icon download if the app already has an icon
+                {
+                    [self startIconDownload:appRecord forIndexPath:indexPath];
+                }
             }
+          
         }
     }
 }

@@ -107,6 +107,7 @@
     
     [self callDashBoardAPI];
 }
+/*
 -(void)tempMethod
 {
     
@@ -233,6 +234,7 @@
 
     });
 }
+ */
 -(void)callDashBoardAPI
 {
    

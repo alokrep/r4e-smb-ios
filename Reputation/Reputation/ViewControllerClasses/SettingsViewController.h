@@ -10,5 +10,8 @@
 #import"CustomNavigation.h"
 
 @interface SettingsViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *lbl_email;
+@property (weak, nonatomic) IBOutlet UITextField *txtFld_password;
+@property (weak, nonatomic) IBOutlet UITextField *txtFld_email;
 
 @end

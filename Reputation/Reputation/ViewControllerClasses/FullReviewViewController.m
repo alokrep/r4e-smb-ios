@@ -33,7 +33,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	starview = [[StarRatingView alloc]initWithFrame:CGRectMake(45,20, kStarViewWidth+kLabelAllowance+kLeftPadding+kRightPadding, kStarViewHeight) andRating:20 withLabel:YES animated:NO];
+	starview = [[StarRatingView alloc]initWithFrame:CGRectMake(48,20, kStarViewWidth+kLabelAllowance+kLeftPadding+kRightPadding, kStarViewHeight) andRating:20 withLabel:YES animated:NO];
     [self.view addSubview:starview];
     
     
