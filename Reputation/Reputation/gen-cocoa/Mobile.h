@@ -26,6 +26,13 @@ enum MediaType {
   MediaType_Video = 2
 };
 
+enum Sentiment {
+  Sentiment_Positive = 0,
+  Sentiment_Neutral = 1,
+  Sentiment_Negative = 2,
+  Sentiment_None = 3
+};
+
 typedef NSString * SourceCode;
 
 @interface SummaryValue : NSObject <NSCoding> {
@@ -113,8 +120,6 @@ typedef NSString * SourceCode;
 @end
 
 @interface Review : NSObject <NSCoding> {
-    
-    
   NSString * __id;
   NSString * __locationName;
   NSString * __reviewerId;
@@ -156,6 +161,7 @@ typedef NSString * SourceCode;
   BOOL __hasResponded;
   BOOL __isStarRatingEnabled;
   NSMutableArray * __allowedActions;
+  int __sentiment;
 
   BOOL __id_isset;
   BOOL __locationName_isset;
@@ -198,6 +204,7 @@ typedef NSString * SourceCode;
   BOOL __hasResponded_isset;
   BOOL __isStarRatingEnabled_isset;
   BOOL __allowedActions_isset;
+  BOOL __sentiment_isset;
 }
 
 #if TARGET_OS_IPHONE || (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_5)
@@ -242,10 +249,11 @@ typedef NSString * SourceCode;
 @property (nonatomic, getter=hasResponded, setter=setHasResponded:) BOOL hasResponded;
 @property (nonatomic, getter=isStarRatingEnabled, setter=setIsStarRatingEnabled:) BOOL isStarRatingEnabled;
 @property (nonatomic, retain, getter=allowedActions, setter=setAllowedActions:) NSMutableArray * allowedActions;
+@property (nonatomic, getter=sentiment, setter=setSentiment:) int sentiment;
 #endif
 
 - (id) init;
-- (id) initWithId: (NSString *) id locationName: (NSString *) locationName reviewerId: (NSString *) reviewerId reviewerName: (NSString *) reviewerName reviewerPhotoUrl: (NSString *) reviewerPhotoUrl reviewerProfileUrl: (NSString *) reviewerProfileUrl reviewerEmail: (NSString *) reviewerEmail reviewerPhone: (NSString *) reviewerPhone rating: (double) rating normalizedRating: (double) normalizedRating date: (NSString *) date ratedTimestamp: (int64_t) ratedTimestamp addedTimestamp: (int64_t) addedTimestamp updatedTimestamp: (int64_t) updatedTimestamp comment: (NSString *) comment tags: (NSMutableArray *) tags sourceId: (SourceCode) sourceId sourceName: (NSString *) sourceName sourceSmallIconPath: (NSString *) sourceSmallIconPath sourceLargeIconPath: (NSString *) sourceLargeIconPath sourceOverallRS: (RatingScale *) sourceOverallRS sourceSubRatingRS: (NSMutableDictionary *) sourceSubRatingRS sourceGroup: (SourceGroup) sourceGroup isSourceRequestReviewable: (BOOL) isSourceRequestReviewable sourceURL: (NSString *) sourceURL originSourceId: (SourceCode) originSourceId originSourceName: (SourceCode) originSourceName originSourceURL: (NSString *) originSourceURL properties: (NSMutableArray *) properties commentTitle: (NSString *) commentTitle publishDate: (int64_t) publishDate published: (BOOL) published requested: (BOOL) requested numReplies: (int32_t) numReplies lastReplyDate: (int64_t) lastReplyDate nps: (int32_t) nps rresponses: (NSMutableArray *) rresponses npsBgColor: (NSString *) npsBgColor hasResponded: (BOOL) hasResponded isStarRatingEnabled: (BOOL) isStarRatingEnabled allowedActions: (NSMutableArray *) allowedActions;
+- (id) initWithId: (NSString *) id locationName: (NSString *) locationName reviewerId: (NSString *) reviewerId reviewerName: (NSString *) reviewerName reviewerPhotoUrl: (NSString *) reviewerPhotoUrl reviewerProfileUrl: (NSString *) reviewerProfileUrl reviewerEmail: (NSString *) reviewerEmail reviewerPhone: (NSString *) reviewerPhone rating: (double) rating normalizedRating: (double) normalizedRating date: (NSString *) date ratedTimestamp: (int64_t) ratedTimestamp addedTimestamp: (int64_t) addedTimestamp updatedTimestamp: (int64_t) updatedTimestamp comment: (NSString *) comment tags: (NSMutableArray *) tags sourceId: (SourceCode) sourceId sourceName: (NSString *) sourceName sourceSmallIconPath: (NSString *) sourceSmallIconPath sourceLargeIconPath: (NSString *) sourceLargeIconPath sourceOverallRS: (RatingScale *) sourceOverallRS sourceSubRatingRS: (NSMutableDictionary *) sourceSubRatingRS sourceGroup: (SourceGroup) sourceGroup isSourceRequestReviewable: (BOOL) isSourceRequestReviewable sourceURL: (NSString *) sourceURL originSourceId: (SourceCode) originSourceId originSourceName: (SourceCode) originSourceName originSourceURL: (NSString *) originSourceURL properties: (NSMutableArray *) properties commentTitle: (NSString *) commentTitle publishDate: (int64_t) publishDate published: (BOOL) published requested: (BOOL) requested numReplies: (int32_t) numReplies lastReplyDate: (int64_t) lastReplyDate nps: (int32_t) nps rresponses: (NSMutableArray *) rresponses npsBgColor: (NSString *) npsBgColor hasResponded: (BOOL) hasResponded isStarRatingEnabled: (BOOL) isStarRatingEnabled allowedActions: (NSMutableArray *) allowedActions sentiment: (int) sentiment;
 
 - (void) read: (id <TProtocol>) inProtocol;
 - (void) write: (id <TProtocol>) outProtocol;
@@ -495,6 +503,12 @@ typedef NSString * SourceCode;
 - (void) setAllowedActions: (NSMutableArray *) allowedActions;
 #endif
 - (BOOL) allowedActionsIsSet;
+
+#if !__has_feature(objc_arc)
+- (int) sentiment;
+- (void) setSentiment: (int) sentiment;
+#endif
+- (BOOL) sentimentIsSet;
 
 @end
 
@@ -1372,6 +1386,7 @@ typedef NSString * SourceCode;
 - (RatingResponse *) deleteRating: (NSString *) ratingID;  // throws TException
 - (RatingResponse *) replyToRating: (NSString *) ratingID recepientEmail: (NSString *) recepientEmail message: (NSString *) message isForward: (BOOL) isForward;  // throws TException
 - (SummaryResponse *) getSummary;  // throws TException
+- (Response *) logout;  // throws TException
 @end
 
 @interface MobileClient : NSObject <Mobile> {
@@ -1395,6 +1410,7 @@ typedef NSString * SourceCode;
 + (NSString *) SUMMARY_OVERALL_SCORE;
 + (NSString *) SUMMARY_AVGRATING_SOURCE;
 + (NSString *) SUMMARY_NOREVIEWS_SOURCE;
++ (NSString *) SUMMARY_SOCIALCOUNTS_SOURCE;
 + (NSString *) SUMMARY_OVERALL_SCORE_VALUE;
 + (NSString *) SUMMARY_OVERALL_SCORE_WEIGHTEDRATING;
 + (NSString *) SUMMARY_OVERALL_SCORE_VISIBILITY;
@@ -1404,4 +1420,6 @@ typedef NSString * SourceCode;
 + (NSString *) SUMMARY_OVERALL_SCORE_VOLUME;
 + (NSString *) SUMMARY_NOREVIEWS_SOURCELOGO;
 + (NSString *) SUMMARY_NOREVIEWS_SOURCENAME;
++ (NSString *) SUMMARY_SOURCE_LOGO_URL;
++ (NSString *) SUMMARY_SOURCE_NAME;
 @end

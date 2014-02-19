@@ -11977,9 +11977,9 @@ static NSString * FILTER_DT_LAST_2_YEARS = @"month_last_2_years";
 static NSString * FILTER_DT_LAST_3_YEARS = @"month_last_3_years";
 static NSString * FILTER_DT_ALL_TIME = @"";
 static NSString * FILTER_DT_CUSTOM_DATES = @"custom_dates";
-static NSString * FILTER_SENTIMENT_NEGATIVE = @"day_last_7_days";
-static NSString * FILTER_SENTIMENT_NEUTRAL = @"day_last_7_days";
-static NSString * FILTER_SENTIMENT_POSITIVE = @"day_last_7_days";
+static NSString * FILTER_SENTIMENT_NEGATIVE = @"sentiment_negtive";
+static NSString * FILTER_SENTIMENT_NEUTRAL = @"sentiment_neutral";
+static NSString * FILTER_SENTIMENT_POSITIVE = @"sentiment_positive";
 
 @implementation MobileCommonConstants
 + (void) initialize {

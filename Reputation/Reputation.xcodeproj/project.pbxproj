@@ -74,7 +74,6 @@
 		0D602B9C18AAEC8600E05B42 /* refreshBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D602B9B18AAEC8600E05B42 /* refreshBtn@2x.png */; };
 		0D602B9F18AAECCF00E05B42 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D602B9E18AAECCF00E05B42 /* MBProgressHUD.m */; };
 		0D6C7D9B18A55C2D0046C282 /* LoginServiceModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6C7D9A18A55C2D0046C282 /* LoginServiceModal.m */; };
-		0D6D55C018ABEF1900735FFB /* libUAirship-iOS5-3.0.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D6D55BF18ABEF1900735FFB /* libUAirship-iOS5-3.0.2.a */; };
 		0D6D55C318ABFB1A00735FFB /* ReviewDataModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6D55C218ABFB1A00735FFB /* ReviewDataModal.m */; };
 		0D87CD4D18A2F2FB00005BB1 /* FullReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D87CD4C18A2F2FB00005BB1 /* FullReviewViewController.m */; };
 		0D87CD5418A2F3D800005BB1 /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D87CD4F18A2F3D800005BB1 /* back@2x.png */; };
@@ -141,6 +140,7 @@
 		DD7DB15D18A1BD4E00BED62D /* MobileAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7DB15918A1BD4E00BED62D /* MobileAuth.m */; };
 		DD7DB15E18A1BD4E00BED62D /* MobileCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7DB15B18A1BD4E00BED62D /* MobileCommon.m */; };
 		DD7DB16018A1D51900BED62D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74C725DB189AE8E4008CD4AF /* Foundation.framework */; };
+		DDBA9F6418AEA4FE000BEA68 /* libUAirship-iOS5-3.0.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D6D55BF18ABEF1900735FFB /* libUAirship-iOS5-3.0.2.a */; };
 		DDD66A3918AAB36A0048071A /* UABarButtonSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD669E118AAB36A0048071A /* UABarButtonSegmentedControl.m */; };
 		DDD66A3A18AAB36A0048071A /* UABeveledLoadingIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD669E318AAB36A0048071A /* UABeveledLoadingIndicator.m */; };
 		DDD66A3B18AAB36A0048071A /* UADateUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD669E518AAB36A0048071A /* UADateUtils.m */; };
@@ -556,8 +556,8 @@
 				0D92978218AD411A00159846 /* Crashlytics.framework in Frameworks */,
 				DDD66A8218AAB8730048071A /* libz.dylib in Frameworks */,
 				DDD66A7F18AAB76A0048071A /* CoreLocation.framework in Frameworks */,
+				DDBA9F6418AEA4FE000BEA68 /* libUAirship-iOS5-3.0.2.a in Frameworks */,
 				DDD66A7D18AAB75F0048071A /* CoreTelephony.framework in Frameworks */,
-				0D6D55C018ABEF1900735FFB /* libUAirship-iOS5-3.0.2.a in Frameworks */,
 				DDD66A7B18AAB7560048071A /* libsqlite3.dylib in Frameworks */,
 				DDD66A7718AAB6F10048071A /* SystemConfiguration.framework in Frameworks */,
 				DDD66A7518AAB6E50048071A /* Security.framework in Frameworks */,
@@ -1699,7 +1699,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				PROVISIONING_PROFILE = "3D7B1C27-E2C1-43EF-A474-E2FC7198D8C2";
+				PROVISIONING_PROFILE = "3E34B3F8-4725-46FC-8604-F92185E5AD8B";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1739,6 +1739,7 @@
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/thrift09Hmac-ehhvmolrjqunbgasrnnitnzuioge/Build/Products/Debug-universal",
 					/Users/jai.sharma/Desktop/Reputation12Latest/Reputation/Airship,
 					/Users/jai.sharma/Desktop/ReputationWCopy12/Reputation/Airship,
+					"/Users/adamireddy/source/r4e-smb-ios/Reputation/Airship",
 				);
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1777,10 +1778,11 @@
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/thrift09Hmac-ehhvmolrjqunbgasrnnitnzuioge/Build/Products/Debug-universal",
 					/Users/jai.sharma/Desktop/Reputation12Latest/Reputation/Airship,
 					/Users/jai.sharma/Desktop/ReputationWCopy12/Reputation/Airship,
+					"/Users/adamireddy/source/r4e-smb-ios/Reputation/Airship",
 				);
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3D7B1C27-E2C1-43EF-A474-E2FC7198D8C2";
+				PROVISIONING_PROFILE = "3E34B3F8-4725-46FC-8604-F92185E5AD8B";
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
