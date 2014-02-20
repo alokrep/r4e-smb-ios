@@ -10454,7 +10454,7 @@
 
 @end
 
-@implementation SourcesList
+@implementation FacetOption
 
 - (id) init
 {
@@ -10464,157 +10464,91 @@
   return self;
 }
 
-- (id) initWithReviewSites: (NSMutableArray *) reviewSites socialSites: (NSMutableArray *) socialSites kioskSites: (NSMutableArray *) kioskSites surveySites: (NSMutableArray *) surveySites
+- (id) initWithLabel: (NSString *) label value: (NSString *) value
 {
   self = [super init];
-  __reviewSites = [reviewSites retain_stub];
-  __reviewSites_isset = YES;
-  __socialSites = [socialSites retain_stub];
-  __socialSites_isset = YES;
-  __kioskSites = [kioskSites retain_stub];
-  __kioskSites_isset = YES;
-  __surveySites = [surveySites retain_stub];
-  __surveySites_isset = YES;
+  __label = [label retain_stub];
+  __label_isset = YES;
+  __value = [value retain_stub];
+  __value_isset = YES;
   return self;
 }
 
 - (id) initWithCoder: (NSCoder *) decoder
 {
   self = [super init];
-  if ([decoder containsValueForKey: @"reviewSites"])
+  if ([decoder containsValueForKey: @"label"])
   {
-    __reviewSites = [[decoder decodeObjectForKey: @"reviewSites"] retain_stub];
-    __reviewSites_isset = YES;
+    __label = [[decoder decodeObjectForKey: @"label"] retain_stub];
+    __label_isset = YES;
   }
-  if ([decoder containsValueForKey: @"socialSites"])
+  if ([decoder containsValueForKey: @"value"])
   {
-    __socialSites = [[decoder decodeObjectForKey: @"socialSites"] retain_stub];
-    __socialSites_isset = YES;
-  }
-  if ([decoder containsValueForKey: @"kioskSites"])
-  {
-    __kioskSites = [[decoder decodeObjectForKey: @"kioskSites"] retain_stub];
-    __kioskSites_isset = YES;
-  }
-  if ([decoder containsValueForKey: @"surveySites"])
-  {
-    __surveySites = [[decoder decodeObjectForKey: @"surveySites"] retain_stub];
-    __surveySites_isset = YES;
+    __value = [[decoder decodeObjectForKey: @"value"] retain_stub];
+    __value_isset = YES;
   }
   return self;
 }
 
 - (void) encodeWithCoder: (NSCoder *) encoder
 {
-  if (__reviewSites_isset)
+  if (__label_isset)
   {
-    [encoder encodeObject: __reviewSites forKey: @"reviewSites"];
+    [encoder encodeObject: __label forKey: @"label"];
   }
-  if (__socialSites_isset)
+  if (__value_isset)
   {
-    [encoder encodeObject: __socialSites forKey: @"socialSites"];
-  }
-  if (__kioskSites_isset)
-  {
-    [encoder encodeObject: __kioskSites forKey: @"kioskSites"];
-  }
-  if (__surveySites_isset)
-  {
-    [encoder encodeObject: __surveySites forKey: @"surveySites"];
+    [encoder encodeObject: __value forKey: @"value"];
   }
 }
 
 - (void) dealloc
 {
-  [__reviewSites release_stub];
-  [__socialSites release_stub];
-  [__kioskSites release_stub];
-  [__surveySites release_stub];
+  [__label release_stub];
+  [__value release_stub];
   [super dealloc_stub];
 }
 
-- (NSMutableArray *) reviewSites {
-  return [[__reviewSites retain_stub] autorelease_stub];
+- (NSString *) label {
+  return [[__label retain_stub] autorelease_stub];
 }
 
-- (void) setReviewSites: (NSMutableArray *) reviewSites {
-  [reviewSites retain_stub];
-  [__reviewSites release_stub];
-  __reviewSites = reviewSites;
-  __reviewSites_isset = YES;
+- (void) setLabel: (NSString *) label {
+  [label retain_stub];
+  [__label release_stub];
+  __label = label;
+  __label_isset = YES;
 }
 
-- (BOOL) reviewSitesIsSet {
-  return __reviewSites_isset;
+- (BOOL) labelIsSet {
+  return __label_isset;
 }
 
-- (void) unsetReviewSites {
-  [__reviewSites release_stub];
-  __reviewSites = nil;
-  __reviewSites_isset = NO;
+- (void) unsetLabel {
+  [__label release_stub];
+  __label = nil;
+  __label_isset = NO;
 }
 
-- (NSMutableArray *) socialSites {
-  return [[__socialSites retain_stub] autorelease_stub];
+- (NSString *) value {
+  return [[__value retain_stub] autorelease_stub];
 }
 
-- (void) setSocialSites: (NSMutableArray *) socialSites {
-  [socialSites retain_stub];
-  [__socialSites release_stub];
-  __socialSites = socialSites;
-  __socialSites_isset = YES;
+- (void) setValue: (NSString *) value {
+  [value retain_stub];
+  [__value release_stub];
+  __value = value;
+  __value_isset = YES;
 }
 
-- (BOOL) socialSitesIsSet {
-  return __socialSites_isset;
+- (BOOL) valueIsSet {
+  return __value_isset;
 }
 
-- (void) unsetSocialSites {
-  [__socialSites release_stub];
-  __socialSites = nil;
-  __socialSites_isset = NO;
-}
-
-- (NSMutableArray *) kioskSites {
-  return [[__kioskSites retain_stub] autorelease_stub];
-}
-
-- (void) setKioskSites: (NSMutableArray *) kioskSites {
-  [kioskSites retain_stub];
-  [__kioskSites release_stub];
-  __kioskSites = kioskSites;
-  __kioskSites_isset = YES;
-}
-
-- (BOOL) kioskSitesIsSet {
-  return __kioskSites_isset;
-}
-
-- (void) unsetKioskSites {
-  [__kioskSites release_stub];
-  __kioskSites = nil;
-  __kioskSites_isset = NO;
-}
-
-- (NSMutableArray *) surveySites {
-  return [[__surveySites retain_stub] autorelease_stub];
-}
-
-- (void) setSurveySites: (NSMutableArray *) surveySites {
-  [surveySites retain_stub];
-  [__surveySites release_stub];
-  __surveySites = surveySites;
-  __surveySites_isset = YES;
-}
-
-- (BOOL) surveySitesIsSet {
-  return __surveySites_isset;
-}
-
-- (void) unsetSurveySites {
-  [__surveySites release_stub];
-  __surveySites = nil;
-  __surveySites_isset = NO;
+- (void) unsetValue {
+  [__value release_stub];
+  __value = nil;
+  __value_isset = NO;
 }
 
 - (void) read: (id <TProtocol>) inProtocol
@@ -10633,6 +10567,296 @@
     switch (fieldID)
     {
       case 1:
+        if (fieldType == TType_STRING) {
+          NSString * fieldValue = [inProtocol readString];
+          [self setLabel: fieldValue];
+        } else { 
+          [TProtocolUtil skipType: fieldType onProtocol: inProtocol];
+        }
+        break;
+      case 2:
+        if (fieldType == TType_STRING) {
+          NSString * fieldValue = [inProtocol readString];
+          [self setValue: fieldValue];
+        } else { 
+          [TProtocolUtil skipType: fieldType onProtocol: inProtocol];
+        }
+        break;
+      default:
+        [TProtocolUtil skipType: fieldType onProtocol: inProtocol];
+        break;
+    }
+    [inProtocol readFieldEnd];
+  }
+  [inProtocol readStructEnd];
+}
+
+- (void) write: (id <TProtocol>) outProtocol {
+  [outProtocol writeStructBeginWithName: @"FacetOption"];
+  if (__label_isset) {
+    if (__label != nil) {
+      [outProtocol writeFieldBeginWithName: @"label" type: TType_STRING fieldID: 1];
+      [outProtocol writeString: __label];
+      [outProtocol writeFieldEnd];
+    }
+  }
+  if (__value_isset) {
+    if (__value != nil) {
+      [outProtocol writeFieldBeginWithName: @"value" type: TType_STRING fieldID: 2];
+      [outProtocol writeString: __value];
+      [outProtocol writeFieldEnd];
+    }
+  }
+  [outProtocol writeFieldStop];
+  [outProtocol writeStructEnd];
+}
+
+- (NSString *) description {
+  NSMutableString * ms = [NSMutableString stringWithString: @"FacetOption("];
+  [ms appendString: @"label:"];
+  [ms appendFormat: @"\"%@\"", __label];
+  [ms appendString: @",value:"];
+  [ms appendFormat: @"\"%@\"", __value];
+  [ms appendString: @")"];
+  return [NSString stringWithString: ms];
+}
+
+@end
+
+@implementation Facet
+
+- (id) init
+{
+  self = [super init];
+#if TARGET_OS_IPHONE || (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_5)
+#endif
+  return self;
+}
+
+- (id) initWithName: (NSString *) name label: (NSString *) label isMultiselect: (BOOL) isMultiselect isCustom: (BOOL) isCustom facetOptions: (NSMutableArray *) facetOptions
+{
+  self = [super init];
+  __name = [name retain_stub];
+  __name_isset = YES;
+  __label = [label retain_stub];
+  __label_isset = YES;
+  __isMultiselect = isMultiselect;
+  __isMultiselect_isset = YES;
+  __isCustom = isCustom;
+  __isCustom_isset = YES;
+  __facetOptions = [facetOptions retain_stub];
+  __facetOptions_isset = YES;
+  return self;
+}
+
+- (id) initWithCoder: (NSCoder *) decoder
+{
+  self = [super init];
+  if ([decoder containsValueForKey: @"name"])
+  {
+    __name = [[decoder decodeObjectForKey: @"name"] retain_stub];
+    __name_isset = YES;
+  }
+  if ([decoder containsValueForKey: @"label"])
+  {
+    __label = [[decoder decodeObjectForKey: @"label"] retain_stub];
+    __label_isset = YES;
+  }
+  if ([decoder containsValueForKey: @"isMultiselect"])
+  {
+    __isMultiselect = [decoder decodeBoolForKey: @"isMultiselect"];
+    __isMultiselect_isset = YES;
+  }
+  if ([decoder containsValueForKey: @"isCustom"])
+  {
+    __isCustom = [decoder decodeBoolForKey: @"isCustom"];
+    __isCustom_isset = YES;
+  }
+  if ([decoder containsValueForKey: @"facetOptions"])
+  {
+    __facetOptions = [[decoder decodeObjectForKey: @"facetOptions"] retain_stub];
+    __facetOptions_isset = YES;
+  }
+  return self;
+}
+
+- (void) encodeWithCoder: (NSCoder *) encoder
+{
+  if (__name_isset)
+  {
+    [encoder encodeObject: __name forKey: @"name"];
+  }
+  if (__label_isset)
+  {
+    [encoder encodeObject: __label forKey: @"label"];
+  }
+  if (__isMultiselect_isset)
+  {
+    [encoder encodeBool: __isMultiselect forKey: @"isMultiselect"];
+  }
+  if (__isCustom_isset)
+  {
+    [encoder encodeBool: __isCustom forKey: @"isCustom"];
+  }
+  if (__facetOptions_isset)
+  {
+    [encoder encodeObject: __facetOptions forKey: @"facetOptions"];
+  }
+}
+
+- (void) dealloc
+{
+  [__name release_stub];
+  [__label release_stub];
+  [__facetOptions release_stub];
+  [super dealloc_stub];
+}
+
+- (NSString *) name {
+  return [[__name retain_stub] autorelease_stub];
+}
+
+- (void) setName: (NSString *) name {
+  [name retain_stub];
+  [__name release_stub];
+  __name = name;
+  __name_isset = YES;
+}
+
+- (BOOL) nameIsSet {
+  return __name_isset;
+}
+
+- (void) unsetName {
+  [__name release_stub];
+  __name = nil;
+  __name_isset = NO;
+}
+
+- (NSString *) label {
+  return [[__label retain_stub] autorelease_stub];
+}
+
+- (void) setLabel: (NSString *) label {
+  [label retain_stub];
+  [__label release_stub];
+  __label = label;
+  __label_isset = YES;
+}
+
+- (BOOL) labelIsSet {
+  return __label_isset;
+}
+
+- (void) unsetLabel {
+  [__label release_stub];
+  __label = nil;
+  __label_isset = NO;
+}
+
+- (BOOL) isMultiselect {
+  return __isMultiselect;
+}
+
+- (void) setIsMultiselect: (BOOL) isMultiselect {
+  __isMultiselect = isMultiselect;
+  __isMultiselect_isset = YES;
+}
+
+- (BOOL) isMultiselectIsSet {
+  return __isMultiselect_isset;
+}
+
+- (void) unsetIsMultiselect {
+  __isMultiselect_isset = NO;
+}
+
+- (BOOL) isCustom {
+  return __isCustom;
+}
+
+- (void) setIsCustom: (BOOL) isCustom {
+  __isCustom = isCustom;
+  __isCustom_isset = YES;
+}
+
+- (BOOL) isCustomIsSet {
+  return __isCustom_isset;
+}
+
+- (void) unsetIsCustom {
+  __isCustom_isset = NO;
+}
+
+- (NSMutableArray *) facetOptions {
+  return [[__facetOptions retain_stub] autorelease_stub];
+}
+
+- (void) setFacetOptions: (NSMutableArray *) facetOptions {
+  [facetOptions retain_stub];
+  [__facetOptions release_stub];
+  __facetOptions = facetOptions;
+  __facetOptions_isset = YES;
+}
+
+- (BOOL) facetOptionsIsSet {
+  return __facetOptions_isset;
+}
+
+- (void) unsetFacetOptions {
+  [__facetOptions release_stub];
+  __facetOptions = nil;
+  __facetOptions_isset = NO;
+}
+
+- (void) read: (id <TProtocol>) inProtocol
+{
+  NSString * fieldName;
+  int fieldType;
+  int fieldID;
+
+  [inProtocol readStructBeginReturningName: NULL];
+  while (true)
+  {
+    [inProtocol readFieldBeginReturningName: &fieldName type: &fieldType fieldID: &fieldID];
+    if (fieldType == TType_STOP) { 
+      break;
+    }
+    switch (fieldID)
+    {
+      case 1:
+        if (fieldType == TType_STRING) {
+          NSString * fieldValue = [inProtocol readString];
+          [self setName: fieldValue];
+        } else { 
+          [TProtocolUtil skipType: fieldType onProtocol: inProtocol];
+        }
+        break;
+      case 2:
+        if (fieldType == TType_STRING) {
+          NSString * fieldValue = [inProtocol readString];
+          [self setLabel: fieldValue];
+        } else { 
+          [TProtocolUtil skipType: fieldType onProtocol: inProtocol];
+        }
+        break;
+      case 3:
+        if (fieldType == TType_BOOL) {
+          BOOL fieldValue = [inProtocol readBool];
+          [self setIsMultiselect: fieldValue];
+        } else { 
+          [TProtocolUtil skipType: fieldType onProtocol: inProtocol];
+        }
+        break;
+      case 4:
+        if (fieldType == TType_BOOL) {
+          BOOL fieldValue = [inProtocol readBool];
+          [self setIsCustom: fieldValue];
+        } else { 
+          [TProtocolUtil skipType: fieldType onProtocol: inProtocol];
+        }
+        break;
+      case 5:
         if (fieldType == TType_LIST) {
           int _size129;
           [inProtocol readListBeginReturningElementType: NULL size: &_size129];
@@ -10640,73 +10864,13 @@
           int _i130;
           for (_i130 = 0; _i130 < _size129; ++_i130)
           {
-            Source *_elem131 = [[Source alloc] init];
+            FacetOption *_elem131 = [[FacetOption alloc] init];
             [_elem131 read: inProtocol];
             [fieldValue addObject: _elem131];
             [_elem131 release_stub];
           }
           [inProtocol readListEnd];
-          [self setReviewSites: fieldValue];
-          [fieldValue release_stub];
-        } else { 
-          [TProtocolUtil skipType: fieldType onProtocol: inProtocol];
-        }
-        break;
-      case 2:
-        if (fieldType == TType_LIST) {
-          int _size132;
-          [inProtocol readListBeginReturningElementType: NULL size: &_size132];
-          NSMutableArray * fieldValue = [[NSMutableArray alloc] initWithCapacity: _size132];
-          int _i133;
-          for (_i133 = 0; _i133 < _size132; ++_i133)
-          {
-            Source *_elem134 = [[Source alloc] init];
-            [_elem134 read: inProtocol];
-            [fieldValue addObject: _elem134];
-            [_elem134 release_stub];
-          }
-          [inProtocol readListEnd];
-          [self setSocialSites: fieldValue];
-          [fieldValue release_stub];
-        } else { 
-          [TProtocolUtil skipType: fieldType onProtocol: inProtocol];
-        }
-        break;
-      case 3:
-        if (fieldType == TType_LIST) {
-          int _size135;
-          [inProtocol readListBeginReturningElementType: NULL size: &_size135];
-          NSMutableArray * fieldValue = [[NSMutableArray alloc] initWithCapacity: _size135];
-          int _i136;
-          for (_i136 = 0; _i136 < _size135; ++_i136)
-          {
-            Source *_elem137 = [[Source alloc] init];
-            [_elem137 read: inProtocol];
-            [fieldValue addObject: _elem137];
-            [_elem137 release_stub];
-          }
-          [inProtocol readListEnd];
-          [self setKioskSites: fieldValue];
-          [fieldValue release_stub];
-        } else { 
-          [TProtocolUtil skipType: fieldType onProtocol: inProtocol];
-        }
-        break;
-      case 4:
-        if (fieldType == TType_LIST) {
-          int _size138;
-          [inProtocol readListBeginReturningElementType: NULL size: &_size138];
-          NSMutableArray * fieldValue = [[NSMutableArray alloc] initWithCapacity: _size138];
-          int _i139;
-          for (_i139 = 0; _i139 < _size138; ++_i139)
-          {
-            Source *_elem140 = [[Source alloc] init];
-            [_elem140 read: inProtocol];
-            [fieldValue addObject: _elem140];
-            [_elem140 release_stub];
-          }
-          [inProtocol readListEnd];
-          [self setSurveySites: fieldValue];
+          [self setFacetOptions: fieldValue];
           [fieldValue release_stub];
         } else { 
           [TProtocolUtil skipType: fieldType onProtocol: inProtocol];
@@ -10722,61 +10886,40 @@
 }
 
 - (void) write: (id <TProtocol>) outProtocol {
-  [outProtocol writeStructBeginWithName: @"SourcesList"];
-  if (__reviewSites_isset) {
-    if (__reviewSites != nil) {
-      [outProtocol writeFieldBeginWithName: @"reviewSites" type: TType_LIST fieldID: 1];
-      {
-        [outProtocol writeListBeginWithElementType: TType_STRUCT size: [__reviewSites count]];
-        int i142;
-        for (i142 = 0; i142 < [__reviewSites count]; i142++)
-        {
-          [[__reviewSites objectAtIndex: i142] write: outProtocol];
-        }
-        [outProtocol writeListEnd];
-      }
+  [outProtocol writeStructBeginWithName: @"Facet"];
+  if (__name_isset) {
+    if (__name != nil) {
+      [outProtocol writeFieldBeginWithName: @"name" type: TType_STRING fieldID: 1];
+      [outProtocol writeString: __name];
       [outProtocol writeFieldEnd];
     }
   }
-  if (__socialSites_isset) {
-    if (__socialSites != nil) {
-      [outProtocol writeFieldBeginWithName: @"socialSites" type: TType_LIST fieldID: 2];
-      {
-        [outProtocol writeListBeginWithElementType: TType_STRUCT size: [__socialSites count]];
-        int i144;
-        for (i144 = 0; i144 < [__socialSites count]; i144++)
-        {
-          [[__socialSites objectAtIndex: i144] write: outProtocol];
-        }
-        [outProtocol writeListEnd];
-      }
+  if (__label_isset) {
+    if (__label != nil) {
+      [outProtocol writeFieldBeginWithName: @"label" type: TType_STRING fieldID: 2];
+      [outProtocol writeString: __label];
       [outProtocol writeFieldEnd];
     }
   }
-  if (__kioskSites_isset) {
-    if (__kioskSites != nil) {
-      [outProtocol writeFieldBeginWithName: @"kioskSites" type: TType_LIST fieldID: 3];
-      {
-        [outProtocol writeListBeginWithElementType: TType_STRUCT size: [__kioskSites count]];
-        int i146;
-        for (i146 = 0; i146 < [__kioskSites count]; i146++)
-        {
-          [[__kioskSites objectAtIndex: i146] write: outProtocol];
-        }
-        [outProtocol writeListEnd];
-      }
-      [outProtocol writeFieldEnd];
-    }
+  if (__isMultiselect_isset) {
+    [outProtocol writeFieldBeginWithName: @"isMultiselect" type: TType_BOOL fieldID: 3];
+    [outProtocol writeBool: __isMultiselect];
+    [outProtocol writeFieldEnd];
   }
-  if (__surveySites_isset) {
-    if (__surveySites != nil) {
-      [outProtocol writeFieldBeginWithName: @"surveySites" type: TType_LIST fieldID: 4];
+  if (__isCustom_isset) {
+    [outProtocol writeFieldBeginWithName: @"isCustom" type: TType_BOOL fieldID: 4];
+    [outProtocol writeBool: __isCustom];
+    [outProtocol writeFieldEnd];
+  }
+  if (__facetOptions_isset) {
+    if (__facetOptions != nil) {
+      [outProtocol writeFieldBeginWithName: @"facetOptions" type: TType_LIST fieldID: 5];
       {
-        [outProtocol writeListBeginWithElementType: TType_STRUCT size: [__surveySites count]];
-        int i148;
-        for (i148 = 0; i148 < [__surveySites count]; i148++)
+        [outProtocol writeListBeginWithElementType: TType_STRUCT size: [__facetOptions count]];
+        int i133;
+        for (i133 = 0; i133 < [__facetOptions count]; i133++)
         {
-          [[__surveySites objectAtIndex: i148] write: outProtocol];
+          [[__facetOptions objectAtIndex: i133] write: outProtocol];
         }
         [outProtocol writeListEnd];
       }
@@ -10788,15 +10931,17 @@
 }
 
 - (NSString *) description {
-  NSMutableString * ms = [NSMutableString stringWithString: @"SourcesList("];
-  [ms appendString: @"reviewSites:"];
-  [ms appendFormat: @"%@", __reviewSites];
-  [ms appendString: @",socialSites:"];
-  [ms appendFormat: @"%@", __socialSites];
-  [ms appendString: @",kioskSites:"];
-  [ms appendFormat: @"%@", __kioskSites];
-  [ms appendString: @",surveySites:"];
-  [ms appendFormat: @"%@", __surveySites];
+  NSMutableString * ms = [NSMutableString stringWithString: @"Facet("];
+  [ms appendString: @"name:"];
+  [ms appendFormat: @"\"%@\"", __name];
+  [ms appendString: @",label:"];
+  [ms appendFormat: @"\"%@\"", __label];
+  [ms appendString: @",isMultiselect:"];
+  [ms appendFormat: @"%i", __isMultiselect];
+  [ms appendString: @",isCustom:"];
+  [ms appendFormat: @"%i", __isCustom];
+  [ms appendString: @",facetOptions:"];
+  [ms appendFormat: @"%@", __facetOptions];
   [ms appendString: @")"];
   return [NSString stringWithString: ms];
 }
@@ -10813,15 +10958,23 @@
   return self;
 }
 
-- (id) initWithFeaturesEnabled: (NSMutableArray *) featuresEnabled allSites: (SourcesList *) allSites authLocations: (NSMutableArray *) authLocations userSettings: (NSMutableArray *) userSettings isDefaultSettings: (BOOL) isDefaultSettings
+- (id) initWithFeaturesEnabled: (NSMutableArray *) featuresEnabled reviewSources: (Facet *) reviewSources kioskSources: (Facet *) kioskSources surveySources: (Facet *) surveySources socialSources: (Facet *) socialSources authLocations: (NSMutableArray *) authLocations dateRanges: (Facet *) dateRanges userSettings: (NSMutableArray *) userSettings isDefaultSettings: (BOOL) isDefaultSettings
 {
   self = [super init];
   __featuresEnabled = [featuresEnabled retain_stub];
   __featuresEnabled_isset = YES;
-  __allSites = [allSites retain_stub];
-  __allSites_isset = YES;
+  __reviewSources = [reviewSources retain_stub];
+  __reviewSources_isset = YES;
+  __kioskSources = [kioskSources retain_stub];
+  __kioskSources_isset = YES;
+  __surveySources = [surveySources retain_stub];
+  __surveySources_isset = YES;
+  __socialSources = [socialSources retain_stub];
+  __socialSources_isset = YES;
   __authLocations = [authLocations retain_stub];
   __authLocations_isset = YES;
+  __dateRanges = [dateRanges retain_stub];
+  __dateRanges_isset = YES;
   __userSettings = [userSettings retain_stub];
   __userSettings_isset = YES;
   __isDefaultSettings = isDefaultSettings;
@@ -10837,15 +10990,35 @@
     __featuresEnabled = [[decoder decodeObjectForKey: @"featuresEnabled"] retain_stub];
     __featuresEnabled_isset = YES;
   }
-  if ([decoder containsValueForKey: @"allSites"])
+  if ([decoder containsValueForKey: @"reviewSources"])
   {
-    __allSites = [[decoder decodeObjectForKey: @"allSites"] retain_stub];
-    __allSites_isset = YES;
+    __reviewSources = [[decoder decodeObjectForKey: @"reviewSources"] retain_stub];
+    __reviewSources_isset = YES;
+  }
+  if ([decoder containsValueForKey: @"kioskSources"])
+  {
+    __kioskSources = [[decoder decodeObjectForKey: @"kioskSources"] retain_stub];
+    __kioskSources_isset = YES;
+  }
+  if ([decoder containsValueForKey: @"surveySources"])
+  {
+    __surveySources = [[decoder decodeObjectForKey: @"surveySources"] retain_stub];
+    __surveySources_isset = YES;
+  }
+  if ([decoder containsValueForKey: @"socialSources"])
+  {
+    __socialSources = [[decoder decodeObjectForKey: @"socialSources"] retain_stub];
+    __socialSources_isset = YES;
   }
   if ([decoder containsValueForKey: @"authLocations"])
   {
     __authLocations = [[decoder decodeObjectForKey: @"authLocations"] retain_stub];
     __authLocations_isset = YES;
+  }
+  if ([decoder containsValueForKey: @"dateRanges"])
+  {
+    __dateRanges = [[decoder decodeObjectForKey: @"dateRanges"] retain_stub];
+    __dateRanges_isset = YES;
   }
   if ([decoder containsValueForKey: @"userSettings"])
   {
@@ -10866,13 +11039,29 @@
   {
     [encoder encodeObject: __featuresEnabled forKey: @"featuresEnabled"];
   }
-  if (__allSites_isset)
+  if (__reviewSources_isset)
   {
-    [encoder encodeObject: __allSites forKey: @"allSites"];
+    [encoder encodeObject: __reviewSources forKey: @"reviewSources"];
+  }
+  if (__kioskSources_isset)
+  {
+    [encoder encodeObject: __kioskSources forKey: @"kioskSources"];
+  }
+  if (__surveySources_isset)
+  {
+    [encoder encodeObject: __surveySources forKey: @"surveySources"];
+  }
+  if (__socialSources_isset)
+  {
+    [encoder encodeObject: __socialSources forKey: @"socialSources"];
   }
   if (__authLocations_isset)
   {
     [encoder encodeObject: __authLocations forKey: @"authLocations"];
+  }
+  if (__dateRanges_isset)
+  {
+    [encoder encodeObject: __dateRanges forKey: @"dateRanges"];
   }
   if (__userSettings_isset)
   {
@@ -10887,8 +11076,12 @@
 - (void) dealloc
 {
   [__featuresEnabled release_stub];
-  [__allSites release_stub];
+  [__reviewSources release_stub];
+  [__kioskSources release_stub];
+  [__surveySources release_stub];
+  [__socialSources release_stub];
   [__authLocations release_stub];
+  [__dateRanges release_stub];
   [__userSettings release_stub];
   [super dealloc_stub];
 }
@@ -10914,25 +11107,88 @@
   __featuresEnabled_isset = NO;
 }
 
-- (SourcesList *) allSites {
-  return [[__allSites retain_stub] autorelease_stub];
+- (Facet *) reviewSources {
+  return [[__reviewSources retain_stub] autorelease_stub];
 }
 
-- (void) setAllSites: (SourcesList *) allSites {
-  [allSites retain_stub];
-  [__allSites release_stub];
-  __allSites = allSites;
-  __allSites_isset = YES;
+- (void) setReviewSources: (Facet *) reviewSources {
+  [reviewSources retain_stub];
+  [__reviewSources release_stub];
+  __reviewSources = reviewSources;
+  __reviewSources_isset = YES;
 }
 
-- (BOOL) allSitesIsSet {
-  return __allSites_isset;
+- (BOOL) reviewSourcesIsSet {
+  return __reviewSources_isset;
 }
 
-- (void) unsetAllSites {
-  [__allSites release_stub];
-  __allSites = nil;
-  __allSites_isset = NO;
+- (void) unsetReviewSources {
+  [__reviewSources release_stub];
+  __reviewSources = nil;
+  __reviewSources_isset = NO;
+}
+
+- (Facet *) kioskSources {
+  return [[__kioskSources retain_stub] autorelease_stub];
+}
+
+- (void) setKioskSources: (Facet *) kioskSources {
+  [kioskSources retain_stub];
+  [__kioskSources release_stub];
+  __kioskSources = kioskSources;
+  __kioskSources_isset = YES;
+}
+
+- (BOOL) kioskSourcesIsSet {
+  return __kioskSources_isset;
+}
+
+- (void) unsetKioskSources {
+  [__kioskSources release_stub];
+  __kioskSources = nil;
+  __kioskSources_isset = NO;
+}
+
+- (Facet *) surveySources {
+  return [[__surveySources retain_stub] autorelease_stub];
+}
+
+- (void) setSurveySources: (Facet *) surveySources {
+  [surveySources retain_stub];
+  [__surveySources release_stub];
+  __surveySources = surveySources;
+  __surveySources_isset = YES;
+}
+
+- (BOOL) surveySourcesIsSet {
+  return __surveySources_isset;
+}
+
+- (void) unsetSurveySources {
+  [__surveySources release_stub];
+  __surveySources = nil;
+  __surveySources_isset = NO;
+}
+
+- (Facet *) socialSources {
+  return [[__socialSources retain_stub] autorelease_stub];
+}
+
+- (void) setSocialSources: (Facet *) socialSources {
+  [socialSources retain_stub];
+  [__socialSources release_stub];
+  __socialSources = socialSources;
+  __socialSources_isset = YES;
+}
+
+- (BOOL) socialSourcesIsSet {
+  return __socialSources_isset;
+}
+
+- (void) unsetSocialSources {
+  [__socialSources release_stub];
+  __socialSources = nil;
+  __socialSources_isset = NO;
 }
 
 - (NSMutableArray *) authLocations {
@@ -10954,6 +11210,27 @@
   [__authLocations release_stub];
   __authLocations = nil;
   __authLocations_isset = NO;
+}
+
+- (Facet *) dateRanges {
+  return [[__dateRanges retain_stub] autorelease_stub];
+}
+
+- (void) setDateRanges: (Facet *) dateRanges {
+  [dateRanges retain_stub];
+  [__dateRanges release_stub];
+  __dateRanges = dateRanges;
+  __dateRanges_isset = YES;
+}
+
+- (BOOL) dateRangesIsSet {
+  return __dateRanges_isset;
+}
+
+- (void) unsetDateRanges {
+  [__dateRanges release_stub];
+  __dateRanges = nil;
+  __dateRanges_isset = NO;
 }
 
 - (NSMutableArray *) userSettings {
@@ -11011,14 +11288,14 @@
     {
       case 1:
         if (fieldType == TType_LIST) {
-          int _size149;
-          [inProtocol readListBeginReturningElementType: NULL size: &_size149];
-          NSMutableArray * fieldValue = [[NSMutableArray alloc] initWithCapacity: _size149];
-          int _i150;
-          for (_i150 = 0; _i150 < _size149; ++_i150)
+          int _size134;
+          [inProtocol readListBeginReturningElementType: NULL size: &_size134];
+          NSMutableArray * fieldValue = [[NSMutableArray alloc] initWithCapacity: _size134];
+          int _i135;
+          for (_i135 = 0; _i135 < _size134; ++_i135)
           {
-            NSString * _elem151 = [inProtocol readString];
-            [fieldValue addObject: _elem151];
+            NSString * _elem136 = [inProtocol readString];
+            [fieldValue addObject: _elem136];
           }
           [inProtocol readListEnd];
           [self setFeaturesEnabled: fieldValue];
@@ -11029,26 +11306,56 @@
         break;
       case 2:
         if (fieldType == TType_STRUCT) {
-          SourcesList *fieldValue = [[SourcesList alloc] init];
+          Facet *fieldValue = [[Facet alloc] init];
           [fieldValue read: inProtocol];
-          [self setAllSites: fieldValue];
+          [self setReviewSources: fieldValue];
           [fieldValue release_stub];
         } else { 
           [TProtocolUtil skipType: fieldType onProtocol: inProtocol];
         }
         break;
       case 3:
+        if (fieldType == TType_STRUCT) {
+          Facet *fieldValue = [[Facet alloc] init];
+          [fieldValue read: inProtocol];
+          [self setKioskSources: fieldValue];
+          [fieldValue release_stub];
+        } else { 
+          [TProtocolUtil skipType: fieldType onProtocol: inProtocol];
+        }
+        break;
+      case 4:
+        if (fieldType == TType_STRUCT) {
+          Facet *fieldValue = [[Facet alloc] init];
+          [fieldValue read: inProtocol];
+          [self setSurveySources: fieldValue];
+          [fieldValue release_stub];
+        } else { 
+          [TProtocolUtil skipType: fieldType onProtocol: inProtocol];
+        }
+        break;
+      case 5:
+        if (fieldType == TType_STRUCT) {
+          Facet *fieldValue = [[Facet alloc] init];
+          [fieldValue read: inProtocol];
+          [self setSocialSources: fieldValue];
+          [fieldValue release_stub];
+        } else { 
+          [TProtocolUtil skipType: fieldType onProtocol: inProtocol];
+        }
+        break;
+      case 6:
         if (fieldType == TType_LIST) {
-          int _size152;
-          [inProtocol readListBeginReturningElementType: NULL size: &_size152];
-          NSMutableArray * fieldValue = [[NSMutableArray alloc] initWithCapacity: _size152];
-          int _i153;
-          for (_i153 = 0; _i153 < _size152; ++_i153)
+          int _size137;
+          [inProtocol readListBeginReturningElementType: NULL size: &_size137];
+          NSMutableArray * fieldValue = [[NSMutableArray alloc] initWithCapacity: _size137];
+          int _i138;
+          for (_i138 = 0; _i138 < _size137; ++_i138)
           {
-            Location *_elem154 = [[Location alloc] init];
-            [_elem154 read: inProtocol];
-            [fieldValue addObject: _elem154];
-            [_elem154 release_stub];
+            Location *_elem139 = [[Location alloc] init];
+            [_elem139 read: inProtocol];
+            [fieldValue addObject: _elem139];
+            [_elem139 release_stub];
           }
           [inProtocol readListEnd];
           [self setAuthLocations: fieldValue];
@@ -11057,18 +11364,28 @@
           [TProtocolUtil skipType: fieldType onProtocol: inProtocol];
         }
         break;
-      case 4:
+      case 7:
+        if (fieldType == TType_STRUCT) {
+          Facet *fieldValue = [[Facet alloc] init];
+          [fieldValue read: inProtocol];
+          [self setDateRanges: fieldValue];
+          [fieldValue release_stub];
+        } else { 
+          [TProtocolUtil skipType: fieldType onProtocol: inProtocol];
+        }
+        break;
+      case 8:
         if (fieldType == TType_LIST) {
-          int _size155;
-          [inProtocol readListBeginReturningElementType: NULL size: &_size155];
-          NSMutableArray * fieldValue = [[NSMutableArray alloc] initWithCapacity: _size155];
-          int _i156;
-          for (_i156 = 0; _i156 < _size155; ++_i156)
+          int _size140;
+          [inProtocol readListBeginReturningElementType: NULL size: &_size140];
+          NSMutableArray * fieldValue = [[NSMutableArray alloc] initWithCapacity: _size140];
+          int _i141;
+          for (_i141 = 0; _i141 < _size140; ++_i141)
           {
-            UserPreference *_elem157 = [[UserPreference alloc] init];
-            [_elem157 read: inProtocol];
-            [fieldValue addObject: _elem157];
-            [_elem157 release_stub];
+            UserPreference *_elem142 = [[UserPreference alloc] init];
+            [_elem142 read: inProtocol];
+            [fieldValue addObject: _elem142];
+            [_elem142 release_stub];
           }
           [inProtocol readListEnd];
           [self setUserSettings: fieldValue];
@@ -11077,7 +11394,7 @@
           [TProtocolUtil skipType: fieldType onProtocol: inProtocol];
         }
         break;
-      case 5:
+      case 9:
         if (fieldType == TType_BOOL) {
           BOOL fieldValue = [inProtocol readBool];
           [self setIsDefaultSettings: fieldValue];
@@ -11101,47 +11418,75 @@
       [outProtocol writeFieldBeginWithName: @"featuresEnabled" type: TType_LIST fieldID: 1];
       {
         [outProtocol writeListBeginWithElementType: TType_STRING size: [__featuresEnabled count]];
-        int i159;
-        for (i159 = 0; i159 < [__featuresEnabled count]; i159++)
+        int i144;
+        for (i144 = 0; i144 < [__featuresEnabled count]; i144++)
         {
-          [outProtocol writeString: [__featuresEnabled objectAtIndex: i159]];
+          [outProtocol writeString: [__featuresEnabled objectAtIndex: i144]];
         }
         [outProtocol writeListEnd];
       }
       [outProtocol writeFieldEnd];
     }
   }
-  if (__allSites_isset) {
-    if (__allSites != nil) {
-      [outProtocol writeFieldBeginWithName: @"allSites" type: TType_STRUCT fieldID: 2];
-      [__allSites write: outProtocol];
+  if (__reviewSources_isset) {
+    if (__reviewSources != nil) {
+      [outProtocol writeFieldBeginWithName: @"reviewSources" type: TType_STRUCT fieldID: 2];
+      [__reviewSources write: outProtocol];
+      [outProtocol writeFieldEnd];
+    }
+  }
+  if (__kioskSources_isset) {
+    if (__kioskSources != nil) {
+      [outProtocol writeFieldBeginWithName: @"kioskSources" type: TType_STRUCT fieldID: 3];
+      [__kioskSources write: outProtocol];
+      [outProtocol writeFieldEnd];
+    }
+  }
+  if (__surveySources_isset) {
+    if (__surveySources != nil) {
+      [outProtocol writeFieldBeginWithName: @"surveySources" type: TType_STRUCT fieldID: 4];
+      [__surveySources write: outProtocol];
+      [outProtocol writeFieldEnd];
+    }
+  }
+  if (__socialSources_isset) {
+    if (__socialSources != nil) {
+      [outProtocol writeFieldBeginWithName: @"socialSources" type: TType_STRUCT fieldID: 5];
+      [__socialSources write: outProtocol];
       [outProtocol writeFieldEnd];
     }
   }
   if (__authLocations_isset) {
     if (__authLocations != nil) {
-      [outProtocol writeFieldBeginWithName: @"authLocations" type: TType_LIST fieldID: 3];
+      [outProtocol writeFieldBeginWithName: @"authLocations" type: TType_LIST fieldID: 6];
       {
         [outProtocol writeListBeginWithElementType: TType_STRUCT size: [__authLocations count]];
-        int i161;
-        for (i161 = 0; i161 < [__authLocations count]; i161++)
+        int i146;
+        for (i146 = 0; i146 < [__authLocations count]; i146++)
         {
-          [[__authLocations objectAtIndex: i161] write: outProtocol];
+          [[__authLocations objectAtIndex: i146] write: outProtocol];
         }
         [outProtocol writeListEnd];
       }
       [outProtocol writeFieldEnd];
     }
   }
+  if (__dateRanges_isset) {
+    if (__dateRanges != nil) {
+      [outProtocol writeFieldBeginWithName: @"dateRanges" type: TType_STRUCT fieldID: 7];
+      [__dateRanges write: outProtocol];
+      [outProtocol writeFieldEnd];
+    }
+  }
   if (__userSettings_isset) {
     if (__userSettings != nil) {
-      [outProtocol writeFieldBeginWithName: @"userSettings" type: TType_LIST fieldID: 4];
+      [outProtocol writeFieldBeginWithName: @"userSettings" type: TType_LIST fieldID: 8];
       {
         [outProtocol writeListBeginWithElementType: TType_STRUCT size: [__userSettings count]];
-        int i163;
-        for (i163 = 0; i163 < [__userSettings count]; i163++)
+        int i148;
+        for (i148 = 0; i148 < [__userSettings count]; i148++)
         {
-          [[__userSettings objectAtIndex: i163] write: outProtocol];
+          [[__userSettings objectAtIndex: i148] write: outProtocol];
         }
         [outProtocol writeListEnd];
       }
@@ -11149,7 +11494,7 @@
     }
   }
   if (__isDefaultSettings_isset) {
-    [outProtocol writeFieldBeginWithName: @"isDefaultSettings" type: TType_BOOL fieldID: 5];
+    [outProtocol writeFieldBeginWithName: @"isDefaultSettings" type: TType_BOOL fieldID: 9];
     [outProtocol writeBool: __isDefaultSettings];
     [outProtocol writeFieldEnd];
   }
@@ -11161,10 +11506,18 @@
   NSMutableString * ms = [NSMutableString stringWithString: @"UserConfig("];
   [ms appendString: @"featuresEnabled:"];
   [ms appendFormat: @"%@", __featuresEnabled];
-  [ms appendString: @",allSites:"];
-  [ms appendFormat: @"%@", __allSites];
+  [ms appendString: @",reviewSources:"];
+  [ms appendFormat: @"%@", __reviewSources];
+  [ms appendString: @",kioskSources:"];
+  [ms appendFormat: @"%@", __kioskSources];
+  [ms appendString: @",surveySources:"];
+  [ms appendFormat: @"%@", __surveySources];
+  [ms appendString: @",socialSources:"];
+  [ms appendFormat: @"%@", __socialSources];
   [ms appendString: @",authLocations:"];
   [ms appendFormat: @"%@", __authLocations];
+  [ms appendString: @",dateRanges:"];
+  [ms appendFormat: @"%@", __dateRanges];
   [ms appendString: @",userSettings:"];
   [ms appendFormat: @"%@", __userSettings];
   [ms appendString: @",isDefaultSettings:"];
@@ -11732,16 +12085,16 @@
         break;
       case 10:
         if (fieldType == TType_LIST) {
-          int _size164;
-          [inProtocol readListBeginReturningElementType: NULL size: &_size164];
-          NSMutableArray * fieldValue = [[NSMutableArray alloc] initWithCapacity: _size164];
-          int _i165;
-          for (_i165 = 0; _i165 < _size164; ++_i165)
+          int _size149;
+          [inProtocol readListBeginReturningElementType: NULL size: &_size149];
+          NSMutableArray * fieldValue = [[NSMutableArray alloc] initWithCapacity: _size149];
+          int _i150;
+          for (_i150 = 0; _i150 < _size149; ++_i150)
           {
-            Filter *_elem166 = [[Filter alloc] init];
-            [_elem166 read: inProtocol];
-            [fieldValue addObject: _elem166];
-            [_elem166 release_stub];
+            Filter *_elem151 = [[Filter alloc] init];
+            [_elem151 read: inProtocol];
+            [fieldValue addObject: _elem151];
+            [_elem151 release_stub];
           }
           [inProtocol readListEnd];
           [self setFilters: fieldValue];
@@ -11855,10 +12208,10 @@
       [outProtocol writeFieldBeginWithName: @"filters" type: TType_LIST fieldID: 10];
       {
         [outProtocol writeListBeginWithElementType: TType_STRUCT size: [__filters count]];
-        int i168;
-        for (i168 = 0; i168 < [__filters count]; i168++)
+        int i153;
+        for (i153 = 0; i153 < [__filters count]; i153++)
         {
-          [[__filters objectAtIndex: i168] write: outProtocol];
+          [[__filters objectAtIndex: i153] write: outProtocol];
         }
         [outProtocol writeListEnd];
       }
@@ -11929,6 +12282,7 @@
 
 @end
 
+<<<<<<< HEAD
 
  static NSString * ACTION_MARK_READ = @"ratings.actions.read";
  static NSString * ACTION_DELETE = @"ratings.actions.delete";
@@ -11984,6 +12338,59 @@
 
 
 
+=======
+static NSString * ACTION_MARK_READ = @"ratings.actions.read";
+static NSString * ACTION_DELETE = @"ratings.actions.delete";
+static NSString * ACTION_REPLY = @"ratings.actions.reply";
+static NSString * ACTION_FORWARD = @"ratings.actions.forward";
+static NSString * ACTION_PUBLISH = @"ratings.actions.publish";
+static NSString * ACTION_UNPUBLISH = @"ratings.actions.unpublish";
+static NSString * ACTION_REQUEST_REVIEW = @"ratings.actions.requestreview";
+static NSString * ACTION_RESURVEY = @"ratings.actions.resurvey";
+static NSString * SCORE_ENABLED = @"score.enabled";
+static NSString * SOCIAL_ENABLED = @"social.enabled";
+static NSString * DASHBOARD_ENABLED = @"dashboard.enabled";
+static NSString * RATINGS_ENABLED = @"ratings.enabled";
+static NSString * RATINGS_SENTIMENT_ENABLED = @"ratings.sentiment.enabled";
+static NSString * RATINGS_KIOSK_ENABLED = @"ratings.kiosk.enabled";
+static NSString * RATINGS_LOCATIONS_ENABLED = @"ratings.locations.enabled";
+static NSString * POSITIVE_REVIEWS_FEED = @"reviews.positive.feed";
+static NSString * NEGATIVE_REVIEWS_FEED = @"reviews.negative.feed";
+static NSString * NEUTRAL_REVIEWS_FEED = @"reviews.neutral.feed";
+static NSString * NO_RATINGS_FEED = @"reviews.norating.feed";
+static NSString * POSITIVE_REVIEWS_ALERT = @"reviews.positive.alert";
+static NSString * NEGATIVE_REVIEWS_ALERT = @"reviews.negative.alert";
+static NSString * NEUTRAL_REVIEWS_ALERT = @"reviews.neutral.alert";
+static NSString * NO_RATINGS_ALERT = @"reviews.norating.alert";
+static NSString * REVIEW_SITES_ALL = @"reviewsites.all";
+static NSString * FACEBOOK_FEED = @"social.facebook.feed";
+static NSString * TWITTER_FEED = @"social.twitter.feed";
+static NSString * GOOGLEPLUS_FEED = @"social.google+.feed";
+static NSString * KIOSK_REVIEWS_FEED = @"kiosk.reviews.feed";
+static NSString * FACEBOOK_ALERT = @"social.facebook.alert";
+static NSString * TWITTER_ALERT = @"social.twitter.alert";
+static NSString * GOOGLEPLUS_ALERT = @"social.google+.alert";
+static NSString * KIOSK_REVIEWS_ALERT = @"kiosk.reviews.alert";
+static NSString * LOCATIONS_ALL = @"locations.all";
+static NSString * FILTER_DT_LAST_7_DAYS = @"day_last_7_days";
+static NSString * FILTER_DT_LAST_30_DAYS = @"day_last_30_days";
+static NSString * FILTER_DT_LAST_60_DAYS = @"day_last_60_days";
+static NSString * FILTER_DT_LAST_90_DAYS = @"day_last_90_days";
+static NSString * FILTER_DT_LAST_120_DAYS = @"day_last_120_days";
+static NSString * FILTER_DT_THIS_MONTH = @"month_this_month";
+static NSString * FILTER_DT_LAST_1_MONTH = @"month_last_1_month";
+static NSString * FILTER_DT_LAST_2_MONTHS = @"month_last_2_months";
+static NSString * FILTER_DT_LAST_3_MONTHS = @"month_last_3_months";
+static NSString * FILTER_DT_LAST_6_MONTHS = @"month_last_6_months";
+static NSString * FILTER_DT_LAST_1_YEAR = @"month_last_1_year";
+static NSString * FILTER_DT_LAST_2_YEARS = @"month_last_2_years";
+static NSString * FILTER_DT_LAST_3_YEARS = @"month_last_3_years";
+static NSString * FILTER_DT_ALL_TIME = @"";
+static NSString * FILTER_DT_CUSTOM_DATES = @"custom_dates";
+static NSString * FILTER_SENTIMENT_NEGATIVE = @"sentiment_negtive";
+static NSString * FILTER_SENTIMENT_NEUTRAL = @"sentiment_neutral";
+static NSString * FILTER_SENTIMENT_POSITIVE = @"sentiment_positive";
+>>>>>>> 9c3da23fb0bcfc44341c4c76d4372789910933eb
 
 @implementation MobileCommonConstants
 + (void) initialize {
