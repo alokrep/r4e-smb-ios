@@ -43,6 +43,7 @@ int startIndex;
 {
     [super viewDidLoad];
     CustomNavigation * navigationObj = (CustomNavigation *)self.navigationController;
+     respondObj  = [self.storyboard instantiateViewControllerWithIdentifier:@"respondVC"];
     navigationObj.lbl_title.text = @"Reviews";
     objFullViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"FullReview"];
     
@@ -513,7 +514,17 @@ int startIndex;
 {
     if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:@"Reply"])
     {
-        [self performSegueWithIdentifier:@"respondVC" sender:self];
+        
+       
+        
+       
+       
+      
+        
+        
+        //  objFullViewController.imgVw_logoIcon
+        [self.navigationController pushViewController:respondObj animated:YES];
+        
     }
 }
 

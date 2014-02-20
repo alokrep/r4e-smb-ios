@@ -70,9 +70,10 @@
     [self.cancelBtn setImage:[UIImage imageNamed:@"cancelReply.png"] forState:UIControlStateNormal];
     [self.cancelBtn setFrame:CGRectMake(10,30,65,25)];
     self.cancelBtn.backgroundColor = [UIColor clearColor];
-    //[self.dashBtn addTarget:self action:@selector(dashBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:self.cancelBtn];
+   
     self.cancelBtn.hidden = YES;
+    [self.view addSubview:self.cancelBtn];
+    
     
     
     self.sendBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -80,7 +81,7 @@
     [self.sendBtn setFrame:CGRectMake(250,30,53,25)];//92,176,63
    
     [self.sendBtn setImage:[UIImage imageNamed:@"applyReply.png"] forState:UIControlStateNormal];
-    //[self.dashBtn addTarget:self action:@selector(dashBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+   
     [self.view addSubview:self.sendBtn];
     self.sendBtn.hidden = YES;
     

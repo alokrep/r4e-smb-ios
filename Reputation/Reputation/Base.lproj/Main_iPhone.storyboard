@@ -260,7 +260,6 @@
                     <navigationItem key="navigationItem" id="LAS-I7-i6x"/>
                     <connections>
                         <outlet property="tblVw_review" destination="pJD-B7-BKc" id="1hH-w8-e9R"/>
-                        <segue destination="igM-KM-keY" kind="push" identifier="respondVC" id="Lyy-1R-KCz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1bY-bF-6wh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1231,7 +1230,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Hs7-zc-bMC">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Hs7-zc-bMC">
                                 <rect key="frame" x="145" y="297" width="132" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
@@ -1290,7 +1289,7 @@
                                     <action selector="sitesArrowBtnClicked:" destination="gnT-eI-zVq" eventType="touchUpInside" id="ldg-yb-fv8"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7tV-S3-58N">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7tV-S3-58N">
                                 <rect key="frame" x="84" y="41" width="195" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
@@ -1628,13 +1627,13 @@
         <!--Respond View Controller-->
         <scene sceneID="dt5-t4-0EK">
             <objects>
-                <viewController id="igM-KM-keY" customClass="RespondViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="respondVC" id="igM-KM-keY" customClass="RespondViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CTZ-cI-bpx">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" id="fAH-gV-c24">
-                                <rect key="frame" x="15" y="14" width="290" height="200"/>
+                                <rect key="frame" x="15" y="14" width="290" height="264"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                 <attributedString key="attributedText"/>

@@ -48,7 +48,6 @@
     
     
     
-  
 
     
     self.arr_selectedSites = [[NSMutableArray alloc] init];

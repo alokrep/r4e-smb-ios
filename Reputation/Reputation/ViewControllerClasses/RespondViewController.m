@@ -40,7 +40,8 @@
     
     CustomNavigation * navigationObj = (CustomNavigation *)self.navigationController;
     navigationObj.lbl_title.text = @"Respond";
-    
+    [navigationObj.cancelBtn addTarget:self action:@selector(cancelBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [navigationObj.sendBtn addTarget:self action:@selector(sendBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
    
     
     self.txtViewRespond.layer.borderColor =  [[UIColor colorWithRed:195.0/255.0f green:195.0/255.0f blue:195.0/255.0f alpha:1] CGColor];
@@ -62,8 +63,7 @@
     navigationObj.dashBtn.hidden =YES;
     navigationObj.cancelBtn.hidden = NO;
     navigationObj.sendBtn.hidden = NO;
-    [navigationObj.cancelBtn addTarget:self action:@selector(cancelBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [navigationObj.sendBtn addTarget:self action:@selector(sendBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+   
     
     
 }
@@ -76,7 +76,7 @@
 }
 //txtRespond delegates
 
--(void)cancelBtnClicked: (id )sender
+-(void)cancelBtnClicked: (id)sender
 {
     
     [self.navigationController popViewControllerAnimated:YES];
@@ -110,9 +110,9 @@
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
     
-    if ([text isEqualToString:@"\n"]) {
+    if ([text isEqualToString:@"\n"])
+    {
         [_txtViewRespond resignFirstResponder];
-        
         [self textViewDidChange:textView];
         return YES;
     }

@@ -16,6 +16,7 @@
 #import "IconDownloader.h"
 #import "ReviewDashBoardModal.h"
 #import "MBProgressHUD.h"
+#import "RespondViewController.h"
 
 
 @interface ReviewsController : UIViewController
@@ -24,6 +25,7 @@
     IBOutlet UITableView *tbl_View;
     FullReviewViewController *objFullViewController;
     
+    RespondViewController * respondObj;
     
      UIActionSheet *actionSheetReview;
     UIButton *btn_getReviews;
