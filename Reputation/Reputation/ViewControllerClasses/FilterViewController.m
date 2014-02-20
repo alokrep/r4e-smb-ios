@@ -9,20 +9,20 @@
 #import "FilterViewController.h"
 #import "CustomNavigation.h"
 
-extern  NSString * const  FILTER_DT_LAST_7_DAYS;
-extern  NSString * const  FILTER_DT_LAST_30_DAYS;
-extern  NSString * const  FILTER_DT_LAST_60_DAYS ;
-extern  NSString * const  FILTER_DT_LAST_90_DAYS ;
-extern  NSString * const  FILTER_DT_LAST_120_DAYS ;
-extern  NSString * const  FILTER_DT_THIS_MONTH ;
-extern  NSString * const  FILTER_DT_LAST_1_MONTH ;
-extern  NSString * const  FILTER_DT_LAST_2_MONTHS ;
-extern  NSString * const  FILTER_DT_LAST_3_MONTHS ;
-extern  NSString * const  FILTER_DT_LAST_6_MONTHS;
-extern  NSString * const  FILTER_DT_LAST_1_YEAR ;
-extern  NSString * const  FILTER_DT_LAST_2_YEARS ;
-extern  NSString * const  FILTER_DT_LAST_3_YEARS ;
-extern  NSString * const  FILTER_DT_ALL_TIME ;
+//extern  NSString * const  FILTER_DT_LAST_7_DAYS;
+//extern  NSString * const  FILTER_DT_LAST_30_DAYS;
+//extern  NSString * const  FILTER_DT_LAST_60_DAYS ;
+//extern  NSString * const  FILTER_DT_LAST_90_DAYS ;
+//extern  NSString * const  FILTER_DT_LAST_120_DAYS ;
+//extern  NSString * const  FILTER_DT_THIS_MONTH ;
+//extern  NSString * const  FILTER_DT_LAST_1_MONTH ;
+//extern  NSString * const  FILTER_DT_LAST_2_MONTHS ;
+//extern  NSString * const  FILTER_DT_LAST_3_MONTHS ;
+//extern  NSString * const  FILTER_DT_LAST_6_MONTHS;
+//extern  NSString * const  FILTER_DT_LAST_1_YEAR ;
+//extern  NSString * const  FILTER_DT_LAST_2_YEARS ;
+//extern  NSString * const  FILTER_DT_LAST_3_YEARS ;
+//extern  NSString * const  FILTER_DT_ALL_TIME ;
 @interface FilterViewController ()
 
 @end
@@ -48,47 +48,24 @@ extern  NSString * const  FILTER_DT_ALL_TIME ;
     
     
     
-    NSLog(@"%@",FILTER_DT_LAST_7_DAYS);
-
+  
 
     
-    timeArray = [[NSMutableArray alloc] init];
+    self.arr_selectedSites = [[NSMutableArray alloc] init];
+    dict_check = [[NSMutableDictionary alloc]init];
+    
     arr_Sites = [[NSMutableArray alloc] init];
-    reviewsArray = [[NSMutableArray alloc] init];
     self.view.backgroundColor = [UIColor colorWithRed:235.0f/255.0f green:235.0f/255.0f blue:242.0f/255.0f alpha:1.0];
     CustomNavigation * navigationObj = (CustomNavigation *)self.navigationController;
     navigationObj.lbl_title.text = @"Filter";
     navigationObj.backBtn.hidden = NO;
     [navigationObj.backBtn addTarget:self action:@selector(popTOView) forControlEvents:UIControlEventTouchUpInside];
     
-    // Add some data for demo purposes.
-    pickerArray_component0 = [[NSMutableArray alloc]initWithObjects:                           FILTER_DT_LAST_7_DAYS,FILTER_DT_LAST_30_DAYS,
-                              FILTER_DT_LAST_60_DAYS,
-                              FILTER_DT_LAST_90_DAYS,
-                              FILTER_DT_LAST_120_DAYS,
-                              FILTER_DT_THIS_MONTH,
-                              FILTER_DT_LAST_1_MONTH,
-                              FILTER_DT_LAST_2_MONTHS,
-                              FILTER_DT_LAST_3_MONTHS,
-                              FILTER_DT_LAST_6_MONTHS,
-                              FILTER_DT_LAST_1_YEAR,
-                              FILTER_DT_LAST_2_YEARS,
-                              FILTER_DT_LAST_3_YEARS,
-                              FILTER_DT_ALL_TIME, nil];
+    pickerArray_component0 = userConfigObj.dateRanges.facetOptions;
     
     
-    SourcesList * sourceObj = userConfigObj.allSites;
     
-    
-    for (Source * obj in sourceObj.reviewSites) {
-        
-        [arr_Sites addObject:obj];
-    }
-    for (Source * obj in sourceObj.kioskSites) {
-        
-        [arr_Sites addObject:obj];
-    }
-    for (Source * obj in sourceObj.surveySites) {
+    for (FacetOption * obj in userConfigObj.reviewSources.facetOptions) {
         
         [arr_Sites addObject:obj];
     }
@@ -98,6 +75,8 @@ extern  NSString * const  FILTER_DT_ALL_TIME ;
 }
 -(void) popTOView
 {
+    
+    
     CustomNavigation * navigationObj = (CustomNavigation *)self.navigationController;
     [navigationObj popViewControllerAnimated:YES];
     
@@ -111,6 +90,7 @@ extern  NSString * const  FILTER_DT_ALL_TIME ;
     
     self.toolBarTime.hidden = YES;
     self.pickerViewTime.hidden = YES;
+    self.tblView_sites.hidden = YES;
 }
 -(UserConfig *)loadUserObjectWithKey:(NSString*)key
 {
@@ -126,7 +106,9 @@ extern  NSString * const  FILTER_DT_ALL_TIME ;
     
         UILabel *lblTitle = [[UILabel alloc] init];
         lblTitle.frame = CGRectMake(20, 100,180, 70);
-        lblTitle.text = [pickerArray_component0 objectAtIndex:row];
+    lblTitle.textAlignment = NSTextAlignmentCenter;
+    FacetOption * face=[pickerArray_component0 objectAtIndex:row];
+        lblTitle.text = face.label;
         return lblTitle;
    
 
@@ -224,17 +206,73 @@ extern  NSString * const  FILTER_DT_ALL_TIME ;
 //                       cellForRowAtIndexPath:indexPath];
     
   
-    Source * sourceObj = [arr_Sites objectAtIndex:indexPath.row];
+    FacetOption * faceObj = [arr_Sites objectAtIndex:indexPath.row];
+    [cell.btn_check addTarget:self action:@selector(checkBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    cell.btn_check.tag = indexPath.row;
     
-    cell.lbl_title.text = sourceObj.name;
-    [cell.btn_check setImage:[UIImage imageNamed:@"checkBtn.png"] forState:UIControlStateNormal];
+    cell.lbl_title.text = faceObj.label;
+    
+    NSString * strTemp =[NSString stringWithFormat:@"%d",indexPath.row];
+    if ([[dict_check objectForKey:strTemp] isEqualToString:@"Yes"]) {
+      [cell.btn_check setImage:[UIImage imageNamed:@"checkBtn.png"] forState:UIControlStateNormal];
+        
+    }
+    else
+    {
+       [cell.btn_check setImage:[UIImage imageNamed:@"uncheckBtn.png"] forState:UIControlStateNormal];
+        
+    }
+    
+    
     
     return cell;
 
 }
 
 
-
+-(void)checkBtnClicked:(id) sender
+{
+    
+    
+    NSString * strTemp =[NSString stringWithFormat:@"%d",[sender tag]];
+   
+        if ([[dict_check objectForKey:strTemp] isEqualToString:@"Yes"]) {
+            [dict_check setObject:@"No" forKey:[NSString stringWithFormat:@"%d",[sender tag]]];
+            UIButton * btn = (UIButton *)sender;
+            [btn setImage:[UIImage imageNamed:@"uncheckBtn.png"] forState:UIControlStateNormal];
+            
+            FacetOption * faceObj;
+            
+            
+            for (FacetOption * opt in self.arr_selectedSites) {
+                
+                if ([opt isEqual:[arr_Sites objectAtIndex:[sender tag]]]) {
+                    
+                    faceObj = opt;
+                }
+            }
+            if (faceObj) {
+                 [self.arr_selectedSites removeObject:faceObj];
+            }
+           
+            
+        }
+    else
+    {
+        [dict_check setObject:@"Yes" forKey:[NSString stringWithFormat:@"%d",[sender tag]]];
+        UIButton * btn = (UIButton *)sender;
+        [btn setImage:[UIImage imageNamed:@"checkBtn.png"] forState:UIControlStateNormal];
+        
+        [self.arr_selectedSites addObject:[arr_Sites objectAtIndex:[sender tag]]];
+    }
+        
+  
+    
+    [self.tblView_sites reloadData];
+    
+    
+    
+}
 
 
 /*
@@ -290,13 +328,18 @@ extern  NSString * const  FILTER_DT_ALL_TIME ;
 
 - (IBAction)segmentValueChanged:(id)sender {
     
+  
+    
+}
+
+- (IBAction)sitesArrowBtnClicked:(id)sender {
     self.tblView_sites.hidden = NO;
     self.toolBarTime.hidden = NO;
     
     CGRect frametemp = self.tblView_sites.frame;
     
     
-    frametemp.origin.y = self.view.frame.size.height-self.tblView_sites.frame.size.height;
+    frametemp.origin.y = self.view.frame.size.height-self.tblView_sites.frame.size.height-40;
     self.tblView_sites.frame= frametemp;
     
     CGRect frame = self.toolBarTime.frame;
@@ -304,10 +347,6 @@ extern  NSString * const  FILTER_DT_ALL_TIME ;
     frame.origin.y = self.tblView_sites.frame.origin.y-44;
     
     self.toolBarTime.frame=frame;
-    
-}
-
-- (IBAction)sitesArrowBtnClicked:(id)sender {
 }
 
 - (IBAction)timeArrowBtnClicked:(id)sender {
@@ -318,7 +357,7 @@ extern  NSString * const  FILTER_DT_ALL_TIME ;
     CGRect frametemp = self.pickerViewTime.frame;
     
     
-    frametemp.origin.y = self.view.frame.size.height-self.pickerViewTime.frame.size.height;
+    frametemp.origin.y = self.view.frame.size.height-self.pickerViewTime.frame.size.height-20;
     self.pickerViewTime.frame= frametemp;
     
     CGRect frame = self.toolBarTime.frame;
@@ -340,9 +379,17 @@ extern  NSString * const  FILTER_DT_ALL_TIME ;
 }
 - (IBAction)doneBtnClicked:(id)sender {
     
-   int selected= [self.pickerViewTime selectedRowInComponent:0];
+    if (self.tblView_sites.hidden) {
+        int selected= [self.pickerViewTime selectedRowInComponent:0];
+        FacetOption * face=[pickerArray_component0 objectAtIndex:selected];
+        lbl_TimeValue.text = face.label;
+    }
+    else
+    {
+        
+    }
     
-    lbl_TimeValue.text = [pickerArray_component0 objectAtIndex:selected];
+  
     self.toolBarTime.hidden = YES;
     self.pickerViewTime.hidden = YES;
     self.tblView_sites.hidden = YES;

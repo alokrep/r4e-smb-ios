@@ -165,7 +165,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Yahoo-logo.jpg" id="huh-1x-f9h">
-                                                    <rect key="frame" x="13" y="10" width="35" height="35"/>
+                                                    <rect key="frame" x="13" y="13" width="30" height="29"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </imageView>
                                                 <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.png" id="jkk-OK-GW1">
@@ -1687,6 +1687,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="E8w-mn-5mS"/>
+        <segue reference="ZeB-yX-v3x"/>
     </inferredMetricsTieBreakers>
 </document>

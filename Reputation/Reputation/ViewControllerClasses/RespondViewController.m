@@ -40,8 +40,8 @@
     
     CustomNavigation * navigationObj = (CustomNavigation *)self.navigationController;
     navigationObj.lbl_title.text = @"Respond";
-    navigationObj.dashBtn.hidden =YES;
     
+   
     
     self.txtViewRespond.layer.borderColor =  [[UIColor colorWithRed:195.0/255.0f green:195.0/255.0f blue:195.0/255.0f alpha:1] CGColor];
     [[self.txtViewRespond layer] setBorderWidth:1.5];
@@ -55,7 +55,36 @@
 	// Do any additional setup after loading the view.
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    CustomNavigation * navigationObj = (CustomNavigation *)self.navigationController;
+    navigationObj.lbl_title.text = @"Respond";
+    navigationObj.dashBtn.hidden =YES;
+    navigationObj.cancelBtn.hidden = NO;
+    navigationObj.sendBtn.hidden = NO;
+    [navigationObj.cancelBtn addTarget:self action:@selector(cancelBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [navigationObj.sendBtn addTarget:self action:@selector(sendBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
+    CustomNavigation * navigationObj = (CustomNavigation *)self.navigationController;
+    navigationObj.cancelBtn.hidden = YES;
+    navigationObj.sendBtn.hidden = YES;
+    
+}
 //txtRespond delegates
+
+-(void)cancelBtnClicked: (id )sender
+{
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
+-(void)sendBtnClicked: (id )sender
+{
+  
+}
 - (BOOL) textViewShouldBeginEditing:(UITextView *)textView
 {
     if ([textView.text isEqual:@"Type your comment here..."])

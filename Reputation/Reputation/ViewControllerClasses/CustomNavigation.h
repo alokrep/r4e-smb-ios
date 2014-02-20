@@ -15,6 +15,8 @@
     
 }
 @property (nonatomic,strong) UIButton * dashBtn;
+@property (nonatomic,strong) UIButton * cancelBtn;
+@property (nonatomic,strong) UIButton * sendBtn;
 @property (nonatomic,strong) UIButton * backBtn;
 @property (nonatomic,strong) UIButton * reviewsBtn;
 @property (nonatomic,strong) UIButton * refreshBtn;

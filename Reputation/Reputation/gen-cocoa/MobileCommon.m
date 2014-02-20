@@ -12282,63 +12282,6 @@
 
 @end
 
-<<<<<<< HEAD
-
- static NSString * ACTION_MARK_READ = @"ratings.actions.read";
- static NSString * ACTION_DELETE = @"ratings.actions.delete";
- static NSString * ACTION_REPLY = @"ratings.actions.reply";
- static NSString * ACTION_FORWARD = @"ratings.actions.forward";
- static NSString * ACTION_PUBLISH = @"ratings.actions.publish";
- static NSString * ACTION_UNPUBLISH = @"ratings.actions.unpublish";
- static NSString * ACTION_REQUEST_REVIEW = @"ratings.actions.requestreview";
- static NSString * ACTION_RESURVEY = @"ratings.actions.resurvey";
- static NSString * SCORE_ENABLED = @"score.enabled";
- static NSString * SOCIAL_ENABLED = @"social.enabled";
- static NSString * DASHBOARD_ENABLED = @"dashboard.enabled";
- static NSString * RATINGS_ENABLED = @"ratings.enabled";
- static NSString * RATINGS_SENTIMENT_ENABLED = @"ratings.sentiment.enabled";
- static NSString * RATINGS_KIOSK_ENABLED = @"ratings.kiosk.enabled";
- static NSString * RATINGS_LOCATIONS_ENABLED = @"ratings.locations.enabled";
- static NSString * POSITIVE_REVIEWS_FEED = @"reviews.positive.feed";
- static NSString * NEGATIVE_REVIEWS_FEED = @"reviews.negative.feed";
- static NSString * NEUTRAL_REVIEWS_FEED = @"reviews.neutral.feed";
- static NSString * NO_RATINGS_FEED = @"reviews.norating.feed";
- static NSString * POSITIVE_REVIEWS_ALERT = @"reviews.positive.alert";
- static NSString * NEGATIVE_REVIEWS_ALERT = @"reviews.negative.alert";
- static NSString * NEUTRAL_REVIEWS_ALERT = @"reviews.neutral.alert";
- static NSString * NO_RATINGS_ALERT = @"reviews.norating.alert";
- static NSString * REVIEW_SITES_ALL = @"reviewsites.all";
- static NSString * FACEBOOK_FEED = @"social.facebook.feed";
- static NSString * TWITTER_FEED = @"social.twitter.feed";
- static NSString * GOOGLEPLUS_FEED = @"social.google+.feed";
- static NSString * KIOSK_REVIEWS_FEED = @"kiosk.reviews.feed";
- static NSString * FACEBOOK_ALERT = @"social.facebook.alert";
- static NSString * TWITTER_ALERT = @"social.twitter.alert";
- static NSString * GOOGLEPLUS_ALERT = @"social.google+.alert";
- static NSString * KIOSK_REVIEWS_ALERT = @"kiosk.reviews.alert";
- static NSString * LOCATIONS_ALL = @"locations.all";
- static NSString * FILTER_DT_LAST_7_DAYS = @"day_last_7_days";
- static NSString * FILTER_DT_LAST_30_DAYS = @"day_last_30_days";
- static NSString * FILTER_DT_LAST_60_DAYS = @"day_last_60_days";
- static NSString * FILTER_DT_LAST_90_DAYS = @"day_last_90_days";
- static NSString * FILTER_DT_LAST_120_DAYS = @"day_last_120_days";
- static NSString * FILTER_DT_THIS_MONTH = @"month_this_month";
- static NSString * FILTER_DT_LAST_1_MONTH = @"month_last_1_month";
- static NSString * FILTER_DT_LAST_2_MONTHS = @"month_last_2_months";
- static NSString * FILTER_DT_LAST_3_MONTHS = @"month_last_3_months";
- static NSString * FILTER_DT_LAST_6_MONTHS = @"month_last_6_months";
- static NSString * FILTER_DT_LAST_1_YEAR = @"month_last_1_year";
- static NSString * FILTER_DT_LAST_2_YEARS = @"month_last_2_years";
- static NSString * FILTER_DT_LAST_3_YEARS = @"month_last_3_years";
- static NSString * FILTER_DT_ALL_TIME = @"";
- static NSString * FILTER_DT_CUSTOM_DATES = @"custom_dates";
- static NSString * FILTER_SENTIMENT_NEGATIVE = @"day_last_7_days";
- static NSString * FILTER_SENTIMENT_NEUTRAL = @"day_last_7_days";
- static NSString * FILTER_SENTIMENT_POSITIVE = @"day_last_7_days";
-
-
-
-=======
 static NSString * ACTION_MARK_READ = @"ratings.actions.read";
 static NSString * ACTION_DELETE = @"ratings.actions.delete";
 static NSString * ACTION_REPLY = @"ratings.actions.reply";
@@ -12390,7 +12333,6 @@ static NSString * FILTER_DT_CUSTOM_DATES = @"custom_dates";
 static NSString * FILTER_SENTIMENT_NEGATIVE = @"sentiment_negtive";
 static NSString * FILTER_SENTIMENT_NEUTRAL = @"sentiment_neutral";
 static NSString * FILTER_SENTIMENT_POSITIVE = @"sentiment_positive";
->>>>>>> 9c3da23fb0bcfc44341c4c76d4372789910933eb
 
 @implementation MobileCommonConstants
 + (void) initialize {

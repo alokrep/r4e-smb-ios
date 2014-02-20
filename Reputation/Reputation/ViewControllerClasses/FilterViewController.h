@@ -14,13 +14,12 @@
 
 {
     UserConfig * userConfigObj;
-    NSMutableArray *timeArray;
-    NSMutableArray *reviewsArray;
     
-    UIActionSheet *actionSheet;
-    UIPickerView *myPickerView;
+    
+   
     NSMutableArray * pickerArray_component0;
     NSMutableArray *arr_Sites;
+    NSMutableDictionary * dict_check;
     
     
     
@@ -28,6 +27,7 @@
     __weak IBOutlet UILabel *lbl_TimeValue;
 }
 - (IBAction)doneBtnClicked:(id)sender;
+@property (nonatomic,strong) NSMutableArray * arr_selectedSites;
 @property (weak, nonatomic) IBOutlet UITableView * tblView_sites;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolBarTime;
 @property (weak, nonatomic) IBOutlet UIPickerView *pickerViewTime;

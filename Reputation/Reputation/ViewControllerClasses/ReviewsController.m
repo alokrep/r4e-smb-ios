@@ -241,23 +241,38 @@ int startIndex;
         cell.backgroundColor = [UIColor colorWithRed:251.0/255.0 green:235.0/255.0 blue:239.0/255.0 alpha:1];
     }
     
+    NSLog(@"koisk %@",review.sourceId);
     
-    
-    ReviewDashBoardModal  * reviewObj = [self.arr_logoImages objectAtIndex:indexPath.row];
-    
-    if (!reviewObj.logoIcon)
-    {
-        if (self.tblVw_review.dragging == NO && self.tblVw_review.decelerating == NO)
-        {
-            [self startIconDownload:reviewObj forIndexPath:indexPath];
-        }
-        // if a download is deferred or in progress, return a placeholder image
-        cell.img_logoIcon.image = [UIImage imageNamed:@"Placeholder.png"];
+    if ([review.sourceId isEqualToString:@"KIOSK"]) {
+        
+        NSLog(@"%d",review.nps);
+        
+        NSString * str = [NSString stringWithFormat:@"nps_%d.png",review.nps];
+        cell.img_logoIcon.image = [UIImage imageNamed:str];
     }
     else
     {
-        cell.img_logoIcon.image = reviewObj.logoIcon;
+        
+        ReviewDashBoardModal  * reviewObj = [self.arr_logoImages objectAtIndex:indexPath.row];
+        
+        
+        
+        if (!reviewObj.logoIcon)
+        {
+            if (self.tblVw_review.dragging == NO && self.tblVw_review.decelerating == NO)
+            {
+                [self startIconDownload:reviewObj forIndexPath:indexPath];
+            }
+            // if a download is deferred or in progress, return a placeholder image
+            cell.img_logoIcon.image = [UIImage imageNamed:@"Placeholder.png"];
+        }
+        else
+        {
+            cell.img_logoIcon.image = reviewObj.logoIcon;
+        }
+  
     }
+    
     
 
     

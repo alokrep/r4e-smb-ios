@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface RespondViewController : UIViewController<UITextViewDelegate>
-@property (strong, nonatomic) IBOutlet UITextView *txtViewRespond;
+@property (weak, nonatomic) IBOutlet UITextView *txtViewRespond;
 
 @end
