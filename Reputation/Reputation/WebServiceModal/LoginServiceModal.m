@@ -29,7 +29,7 @@
         if(resp.response.responseCode == ResponseCode_Success) {
             
            
-            [self saveUserObject:resp.userDetails];
+            [self saveUserObject:resp.userDetails:resp.userConfig];
             
             [AppDelegate sharedDelegate].userObj = [self loadUserObjectWithKey:kUserInfo];
             //Set the alias for Urban Airship
@@ -90,11 +90,13 @@
     
     
 }
--(void)saveUserObject:(User *)userObj
+-(void)saveUserObject:(User *)userObj :(UserConfig *)userConfig
 {
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    NSData *configEncodedObject = [NSKeyedArchiver archivedDataWithRootObject:userConfig];
     NSData *myEncodedObject = [NSKeyedArchiver archivedDataWithRootObject:userObj];
     [prefs setObject:myEncodedObject forKey:kUserInfo];
+    [prefs setObject:configEncodedObject forKey:kUserConfig];
     [prefs synchronize];
 }
 -(User *)loadUserObjectWithKey:(NSString*)key

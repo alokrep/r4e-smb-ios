@@ -55,7 +55,13 @@
     navigationObj.backBtn.hidden = NO;
     navigationObj.reviewsBtn.hidden = YES;
     
-    
+    if ([self.reviewObj.sourceId isEqualToString:@"KIOSK"]) {
+        
+        NSLog(@"%d",self.reviewObj.nps);
+        
+        NSString * str = [NSString stringWithFormat:@"nps_%d.png",self.reviewObj.nps];
+        self.imgVw_logoIcon.image = [UIImage imageNamed:str];
+    }
     self.lbl_date.text = self.reviewObj.date;
     self.lbl_name.text = [NSString stringWithFormat:@"%@ wrote:",self.reviewObj.reviewerName];
     self.textView_fullReview.text = self.reviewObj.comment;

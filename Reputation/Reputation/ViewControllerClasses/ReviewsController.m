@@ -9,7 +9,7 @@
 #import "ReviewsController.h"
 #import "CustomNavigation.h"
 #import "reviewsTableViewCell.h"
-#import "filterTableViewController.h"
+
 
 #import "FullReviewViewController.h"
 
@@ -24,6 +24,8 @@
 
 @end
 
+
+int startIndex;
 @implementation ReviewsController
 @synthesize arr_ReviewData;
 @synthesize arr_logoImages;
@@ -44,9 +46,13 @@
     navigationObj.lbl_title.text = @"Reviews";
     objFullViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"FullReview"];
     
+    self.arr_ReviewData = [[NSMutableArray alloc]init];
     self.arr_logoImages = [[NSMutableArray alloc]init];
+    [self.arr_logoImages addObject:@""];
     
-    [self getReviewsData];
+    startIndex = 0;
+    
+    [self getReviewsData:startIndex];
 }
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -235,23 +241,38 @@
         cell.backgroundColor = [UIColor colorWithRed:251.0/255.0 green:235.0/255.0 blue:239.0/255.0 alpha:1];
     }
     
+    NSLog(@"koisk %@",review.sourceId);
     
-    
-    ReviewDashBoardModal  * reviewObj = [self.arr_logoImages objectAtIndex:indexPath.row];
-    
-    if (!reviewObj.logoIcon)
-    {
-        if (self.tblVw_review.dragging == NO && self.tblVw_review.decelerating == NO)
-        {
-            [self startIconDownload:reviewObj forIndexPath:indexPath];
-        }
-        // if a download is deferred or in progress, return a placeholder image
-        cell.img_logoIcon.image = [UIImage imageNamed:@"Placeholder.png"];
+    if ([review.sourceId isEqualToString:@"KIOSK"]) {
+        
+        NSLog(@"%d",review.nps);
+        
+        NSString * str = [NSString stringWithFormat:@"nps_%d.png",review.nps];
+        cell.img_logoIcon.image = [UIImage imageNamed:str];
     }
     else
     {
-        cell.img_logoIcon.image = reviewObj.logoIcon;
+        
+        ReviewDashBoardModal  * reviewObj = [self.arr_logoImages objectAtIndex:indexPath.row];
+        
+        
+        
+        if (!reviewObj.logoIcon)
+        {
+            if (self.tblVw_review.dragging == NO && self.tblVw_review.decelerating == NO)
+            {
+                [self startIconDownload:reviewObj forIndexPath:indexPath];
+            }
+            // if a download is deferred or in progress, return a placeholder image
+            cell.img_logoIcon.image = [UIImage imageNamed:@"Placeholder.png"];
+        }
+        else
+        {
+            cell.img_logoIcon.image = reviewObj.logoIcon;
+        }
+  
     }
+    
     
 
     
@@ -284,7 +305,34 @@
     }
     
 }
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
+    NSArray * arrTemp = [self.tblVw_review indexPathsForVisibleRows];
+    NSLog(@"%@",arrTemp);
 
+    if (arrTemp.count>0) {
+        
+        NSIndexPath * index= [arrTemp lastObject];
+        
+        if (index.row >self.arr_ReviewData.count-8) {
+            
+            if (startIndex<self.arr_ReviewData.count) {
+                startIndex = self.arr_ReviewData.count+1;
+                NSLog(@"count %d",startIndex);
+                
+                [self getReviewsData:startIndex];
+            }
+           
+        }
+    }
+
+}
+//- (NSArray *)indexPathsForVisibleRows
+//{
+//    
+//    
+//    
+//}
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -345,7 +393,7 @@
  }
  
  */
--(void)getReviewsData
+-(void)getReviewsData:(int )startPoint
 {
     
     
@@ -363,14 +411,15 @@
         TBinaryProtocol *protocol2 = [[TBinaryProtocol alloc] initWithTransport:httpTwoClient strictRead:YES strictWrite:YES];
            MobileClient *serviceTwo = [[MobileClient alloc] initWithProtocol:protocol2];
         
-        FeedResponse *revFeedResp = [serviceTwo getReviewsFeed:0 start:0 pageCount:40 searchCriteria:nil];
+        FeedResponse *revFeedResp = [serviceTwo getReviewsFeed:0 start:startPoint pageCount:40 searchCriteria:nil];
         
         
         if(revFeedResp.response.responseCode == ResponseCode_Success) {
             NSLog(@"revFeedResp.items %@",revFeedResp.items);
         
            // Review * review = [revFeedResp.items objectAtIndex:0];
-            [self.arr_logoImages addObject:@""];
+            
+            NSLog(@"aray Count %d",self.arr_ReviewData.count);
             
             for (Review * obj in revFeedResp.items) {
                 
@@ -378,10 +427,11 @@
                 
               reviewObj.str_imageURL =[NSString stringWithFormat:@"http://%@",obj.sourceLargeIconPath];
                 [self.arr_logoImages addObject:reviewObj];
+                [self.arr_ReviewData addObject:obj];
                 
             }
             
-            self.arr_ReviewData = revFeedResp.items;
+            //self.arr_ReviewData = revFeedResp.items;
         }
         dispatch_async(dispatch_get_main_queue(), ^{
             
@@ -405,15 +455,69 @@
     NSIndexPath *indexPath = [tbl_View indexPathForCell:(reviewsTableViewCell *)
                               [[[sender superview] superview] superview]];
     NSLog(@"The row id is %d",  indexPath.row);
+    
+    Review * reviewObj = [self.arr_ReviewData objectAtIndex:[sender tag]];
+    
+    NSMutableArray *arrResponse = [[NSMutableArray alloc] init];
+    
+    [arrResponse addObject:@"Full View"];
+    NSLog(@"array = %@",reviewObj.allowedActions);
+    
+    for (int respIndx = 0; respIndx < reviewObj.allowedActions.count; respIndx++)
+    {
+        
+        NSString *strResponse = [reviewObj.allowedActions objectAtIndex:respIndx];
+        NSString *strTitles = [strResponse substringWithRange:NSMakeRange(16, [strResponse length]-16)];
+        strTitles = [self sentenceCapitalizedString:strTitles];
+        [arrResponse addObject:strTitles];
+        
+    }
+    
+    NSLog(@"titles = %@",arrResponse);
+    
+    
+    
+    
+    
     if (!actionSheetReview) {
-        actionSheetReview = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Reply",@"Full View",@"Mark as Read",@"Email Review",@"Share", nil];
+        actionSheetReview = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil, nil];
+        
+        for (NSString *title in arrResponse) {
+            [actionSheetReview addButtonWithTitle:title];
+        }
+        [actionSheetReview addButtonWithTitle:@"Cancel"];
+        actionSheetReview.cancelButtonIndex = [arrResponse count];
     }
     
     actionSheetReview.tag = [sender tag];
     
     [actionSheetReview showInView:self.view];
     
+    actionSheetReview = nil;
+    
 }
+
+- (NSString *)sentenceCapitalizedString :(NSString *)str {
+    if (![str length]) {
+        return [NSString string];
+    }
+    NSString *uppercase = [[str substringToIndex:1] uppercaseString];
+    NSString *lowercase = [[str substringFromIndex:1] lowercaseString];
+    return [uppercase stringByAppendingString:lowercase];
+}
+
+
+#pragma mark actionsheet delegates
+
+-(void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:@"Reply"])
+    {
+        [self performSegueWithIdentifier:@"respondVC" sender:self];
+    }
+}
+
+
 #pragma mark ActionSheet Delegates Method
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
