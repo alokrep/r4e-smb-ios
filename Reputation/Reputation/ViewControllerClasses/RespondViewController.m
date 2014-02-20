@@ -13,6 +13,8 @@
 @end
 
 @implementation RespondViewController
+@synthesize str_reviewID;
+@synthesize isForwarded;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -64,8 +66,21 @@
     navigationObj.cancelBtn.hidden = NO;
     navigationObj.sendBtn.hidden = NO;
    
-    
-    
+    if (!self.isForwarded) {
+        self.txtFldEmail.hidden = YES;
+        CGRect frame =  self.txtViewRespond.frame;
+        
+        frame.origin.y = 50;
+        self.txtViewRespond.frame=frame;
+    }
+    else
+    {
+        self.txtFldEmail.hidden = NO;
+        CGRect frame =  self.txtViewRespond.frame;
+        
+        frame.origin.y = 224;
+        self.txtViewRespond.frame=frame;
+    }
 }
 - (void)viewWillDisappear:(BOOL)animated
 {
@@ -74,6 +89,16 @@
     navigationObj.sendBtn.hidden = YES;
     
 }
+
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    
+    self.str_reviewID = nil;
+    self.reviewObj = nil;
+    
+}
+
 //txtRespond delegates
 
 -(void)cancelBtnClicked: (id)sender
@@ -83,7 +108,86 @@
 }
 -(void)sendBtnClicked: (id )sender
 {
-  
+    
+    NSString * str_email;
+    if(!self.isForwarded)
+    {
+        str_email = self.reviewObj.reviewerEmail;
+        
+        if (self.txtViewRespond.text.length>0 && [self.txtViewRespond.text isEqualToString:@"Type your comment here..."]) {
+            UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Alert" message:@"Please eneter your message" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            alert = nil;
+            return;
+        }
+        
+    }
+    else
+    {
+        if (self.txtViewRespond.text.length>0 && [self.txtViewRespond.text isEqualToString:@"Type your comment here..."]) {
+            UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Alert" message:@"Please eneter your message" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            alert = nil;
+            return;
+        }
+        if (self.txtFldEmail.text.length<=0 ) {
+            UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Alert" message:@"Please enter Email Address" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            alert = nil;
+            return;
+        }
+        str_email= self.txtFldEmail.text;
+    }
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+   
+    
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
+    
+    dispatch_async(queue, ^{
+        
+        
+        THMACHttpClient *httpTwoClient = [[THMACHttpClient alloc] initWithURL:[NSURL URLWithString:kServiceURL] userId:[AppDelegate sharedDelegate].userObj.email secret:[AppDelegate sharedDelegate].userObj.userKey];
+        
+        TBinaryProtocol *protocol2 = [[TBinaryProtocol alloc] initWithTransport:httpTwoClient strictRead:YES strictWrite:YES];
+        MobileClient *serviceTwo = [[MobileClient alloc] initWithProtocol:protocol2];
+    //   KIOSK_dace50f92daa9861099a81cc99f8324f_36bc1d1f90cd6d57c4c73c6a71c0bd7b
+    //    RatingResponse * response =[serviceTwo replyToRating:self.str_reviewID recepientEmail:str_email message:self.txtViewRespond.text isForward:self.isForwarded];
+         RatingResponse * response =[serviceTwo replyToRating:@"KIOSK_dace50f92daa9861099a81cc99f8324f_36bc1d1f90cd6d57c4c73c6a71c0bd7b" recepientEmail:str_email message:self.txtViewRespond.text isForward:self.isForwarded];
+        
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            
+            if (response.response.responseCode== ResponseCode_Success) {
+                
+                UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Message" message:@"Your message has been sent successfully" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+                [self.txtViewRespond resignFirstResponder];
+                alert = nil;
+            }
+            else
+            {
+                UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Failed" message:response.response.error.message  delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+                alert = nil;
+
+            }
+        });
+        
+    });
+
+    
+    
+}
+- (void)dismissWithClickedButtonIndex:(NSInteger)buttonIndex animated:(BOOL)animated
+{
+    if (buttonIndex==0) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    
+    
 }
 - (BOOL) textViewShouldBeginEditing:(UITextView *)textView
 {
@@ -118,7 +222,11 @@
     }
     return YES;
 }
-
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
 
 
 - (void)didReceiveMemoryWarning

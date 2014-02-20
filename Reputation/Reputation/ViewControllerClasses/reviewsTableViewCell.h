@@ -16,4 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *  lbl_name;
 @property (weak, nonatomic) IBOutlet UIImageView *  img_logoIcon;
 @property (weak, nonatomic) IBOutlet UIImageView * img_dot;
+
+@property (strong, nonatomic) IBOutlet UIImageView *imgView_dotForward;
+@property (strong, nonatomic) IBOutlet UIButton *btn_forward;
 @end

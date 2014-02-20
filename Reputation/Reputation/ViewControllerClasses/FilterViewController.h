@@ -28,6 +28,10 @@
 }
 - (IBAction)doneBtnClicked:(id)sender;
 @property (nonatomic,strong) NSMutableArray * arr_selectedSites;
+
+@property (weak, nonatomic) IBOutlet UISwitch * switchPositive;
+@property (weak, nonatomic) IBOutlet UISwitch * switchNeutral;
+@property (weak, nonatomic) IBOutlet UISwitch * switchNegative;
 @property (weak, nonatomic) IBOutlet UITableView * tblView_sites;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolBarTime;
 @property (weak, nonatomic) IBOutlet UIPickerView *pickerViewTime;
