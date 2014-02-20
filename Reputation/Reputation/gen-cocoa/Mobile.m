@@ -472,7 +472,7 @@
   return self;
 }
 
-- (id) initWithId: (NSString *) id locationName: (NSString *) locationName reviewerId: (NSString *) reviewerId reviewerName: (NSString *) reviewerName reviewerPhotoUrl: (NSString *) reviewerPhotoUrl reviewerProfileUrl: (NSString *) reviewerProfileUrl reviewerEmail: (NSString *) reviewerEmail reviewerPhone: (NSString *) reviewerPhone rating: (double) rating normalizedRating: (double) normalizedRating date: (NSString *) date ratedTimestamp: (int64_t) ratedTimestamp addedTimestamp: (int64_t) addedTimestamp updatedTimestamp: (int64_t) updatedTimestamp comment: (NSString *) comment tags: (NSMutableArray *) tags sourceId: (SourceCode) sourceId sourceName: (NSString *) sourceName sourceSmallIconPath: (NSString *) sourceSmallIconPath sourceLargeIconPath: (NSString *) sourceLargeIconPath sourceOverallRS: (RatingScale *) sourceOverallRS sourceSubRatingRS: (NSMutableDictionary *) sourceSubRatingRS sourceGroup: (SourceGroup) sourceGroup isSourceRequestReviewable: (BOOL) isSourceRequestReviewable sourceURL: (NSString *) sourceURL originSourceId: (SourceCode) originSourceId originSourceName: (SourceCode) originSourceName originSourceURL: (NSString *) originSourceURL properties: (NSMutableArray *) properties commentTitle: (NSString *) commentTitle publishDate: (int64_t) publishDate published: (BOOL) published requested: (BOOL) requested numReplies: (int32_t) numReplies lastReplyDate: (int64_t) lastReplyDate nps: (int32_t) nps rresponses: (NSMutableArray *) rresponses npsBgColor: (NSString *) npsBgColor hasResponded: (BOOL) hasResponded isStarRatingEnabled: (BOOL) isStarRatingEnabled allowedActions: (NSMutableArray *) allowedActions
+- (id) initWithId: (NSString *) id locationName: (NSString *) locationName reviewerId: (NSString *) reviewerId reviewerName: (NSString *) reviewerName reviewerPhotoUrl: (NSString *) reviewerPhotoUrl reviewerProfileUrl: (NSString *) reviewerProfileUrl reviewerEmail: (NSString *) reviewerEmail reviewerPhone: (NSString *) reviewerPhone rating: (double) rating normalizedRating: (double) normalizedRating date: (NSString *) date ratedTimestamp: (int64_t) ratedTimestamp addedTimestamp: (int64_t) addedTimestamp updatedTimestamp: (int64_t) updatedTimestamp comment: (NSString *) comment tags: (NSMutableArray *) tags sourceId: (SourceCode) sourceId sourceName: (NSString *) sourceName sourceSmallIconPath: (NSString *) sourceSmallIconPath sourceLargeIconPath: (NSString *) sourceLargeIconPath sourceOverallRS: (RatingScale *) sourceOverallRS sourceSubRatingRS: (NSMutableDictionary *) sourceSubRatingRS sourceGroup: (SourceGroup) sourceGroup isSourceRequestReviewable: (BOOL) isSourceRequestReviewable sourceURL: (NSString *) sourceURL originSourceId: (SourceCode) originSourceId originSourceName: (SourceCode) originSourceName originSourceURL: (NSString *) originSourceURL properties: (NSMutableArray *) properties commentTitle: (NSString *) commentTitle publishDate: (int64_t) publishDate published: (BOOL) published requested: (BOOL) requested numReplies: (int32_t) numReplies lastReplyDate: (int64_t) lastReplyDate nps: (int32_t) nps rresponses: (NSMutableArray *) rresponses npsBgColor: (NSString *) npsBgColor hasResponded: (BOOL) hasResponded isStarRatingEnabled: (BOOL) isStarRatingEnabled allowedActions: (NSMutableArray *) allowedActions sentiment: (int) sentiment
 {
   self = [super init];
   __id = [id retain_stub];
@@ -557,6 +557,8 @@
   __isStarRatingEnabled_isset = YES;
   __allowedActions = [allowedActions retain_stub];
   __allowedActions_isset = YES;
+  __sentiment = sentiment;
+  __sentiment_isset = YES;
   return self;
 }
 
@@ -768,6 +770,11 @@
     __allowedActions = [[decoder decodeObjectForKey: @"allowedActions"] retain_stub];
     __allowedActions_isset = YES;
   }
+  if ([decoder containsValueForKey: @"sentiment"])
+  {
+    __sentiment = [decoder decodeIntForKey: @"sentiment"];
+    __sentiment_isset = YES;
+  }
   return self;
 }
 
@@ -936,6 +943,10 @@
   if (__allowedActions_isset)
   {
     [encoder encodeObject: __allowedActions forKey: @"allowedActions"];
+  }
+  if (__sentiment_isset)
+  {
+    [encoder encodeInt: __sentiment forKey: @"sentiment"];
   }
 }
 
@@ -1776,6 +1787,23 @@
   __allowedActions_isset = NO;
 }
 
+- (int) sentiment {
+  return __sentiment;
+}
+
+- (void) setSentiment: (int) sentiment {
+  __sentiment = sentiment;
+  __sentiment_isset = YES;
+}
+
+- (BOOL) sentimentIsSet {
+  return __sentiment_isset;
+}
+
+- (void) unsetSentiment {
+  __sentiment_isset = NO;
+}
+
 - (void) read: (id <TProtocol>) inProtocol
 {
   NSString * fieldName;
@@ -2180,6 +2208,14 @@
           [TProtocolUtil skipType: fieldType onProtocol: inProtocol];
         }
         break;
+      case 42:
+        if (fieldType == TType_I32) {
+          int fieldValue = [inProtocol readI32];
+          [self setSentiment: fieldValue];
+        } else { 
+          [TProtocolUtil skipType: fieldType onProtocol: inProtocol];
+        }
+        break;
       default:
         [TProtocolUtil skipType: fieldType onProtocol: inProtocol];
         break;
@@ -2492,6 +2528,11 @@
       [outProtocol writeFieldEnd];
     }
   }
+  if (__sentiment_isset) {
+    [outProtocol writeFieldBeginWithName: @"sentiment" type: TType_I32 fieldID: 42];
+    [outProtocol writeI32: __sentiment];
+    [outProtocol writeFieldEnd];
+  }
   [outProtocol writeFieldStop];
   [outProtocol writeStructEnd];
 }
@@ -2580,6 +2621,8 @@
   [ms appendFormat: @"%i", __isStarRatingEnabled];
   [ms appendString: @",allowedActions:"];
   [ms appendFormat: @"%@", __allowedActions];
+  [ms appendString: @",sentiment:"];
+  [ms appendFormat: @"%i", __sentiment];
   [ms appendString: @")"];
   return [NSString stringWithString: ms];
 }
@@ -7335,7 +7378,8 @@
 
 static NSString * SUMMARY_OVERALL_SCORE = @"summary.overallscore.score";
 static NSString * SUMMARY_AVGRATING_SOURCE = @"summary.avgrating.source";
-static NSString * SUMMARY_NOREVIEWS_SOURCE = @"summary.avgrating.source";
+static NSString * SUMMARY_NOREVIEWS_SOURCE = @"summary.numreviews.source";
+static NSString * SUMMARY_SOCIALCOUNTS_SOURCE = @"summary.socialcounts.source";
 static NSString * SUMMARY_OVERALL_SCORE_VALUE = @"summary.overallscore.value";
 static NSString * SUMMARY_OVERALL_SCORE_WEIGHTEDRATING = @"summary.overallscore.weightedrating";
 static NSString * SUMMARY_OVERALL_SCORE_VISIBILITY = @"summary.overallscore.visibility";
@@ -7345,6 +7389,8 @@ static NSString * SUMMARY_OVERALL_SCORE_TIME = @"summary.overallscore.time";
 static NSString * SUMMARY_OVERALL_SCORE_VOLUME = @"summary.overallscore.volume";
 static NSString * SUMMARY_NOREVIEWS_SOURCELOGO = @"summary.avgrating.sourcelogopath";
 static NSString * SUMMARY_NOREVIEWS_SOURCENAME = @"summary.avgrating.sourcename";
+static NSString * SUMMARY_SOURCE_LOGO_URL = @"summary.source.logourl";
+static NSString * SUMMARY_SOURCE_NAME = @"summary.source.name";
 
 @implementation MobileConstants
 + (void) initialize {
@@ -7357,6 +7403,9 @@ static NSString * SUMMARY_NOREVIEWS_SOURCENAME = @"summary.avgrating.sourcename"
 }
 + (NSString *) SUMMARY_NOREVIEWS_SOURCE{
   return SUMMARY_NOREVIEWS_SOURCE;
+}
++ (NSString *) SUMMARY_SOCIALCOUNTS_SOURCE{
+  return SUMMARY_SOCIALCOUNTS_SOURCE;
 }
 + (NSString *) SUMMARY_OVERALL_SCORE_VALUE{
   return SUMMARY_OVERALL_SCORE_VALUE;
@@ -7384,6 +7433,12 @@ static NSString * SUMMARY_NOREVIEWS_SOURCENAME = @"summary.avgrating.sourcename"
 }
 + (NSString *) SUMMARY_NOREVIEWS_SOURCENAME{
   return SUMMARY_NOREVIEWS_SOURCENAME;
+}
++ (NSString *) SUMMARY_SOURCE_LOGO_URL{
+  return SUMMARY_SOURCE_LOGO_URL;
+}
++ (NSString *) SUMMARY_SOURCE_NAME{
+  return SUMMARY_SOURCE_NAME;
 }
 @end
 
@@ -10315,6 +10370,218 @@ static NSString * SUMMARY_NOREVIEWS_SOURCENAME = @"summary.avgrating.sourcename"
 
 @end
 
+@interface logout_args : NSObject <NSCoding> {
+}
+
+- (id) init;
+
+- (void) read: (id <TProtocol>) inProtocol;
+- (void) write: (id <TProtocol>) outProtocol;
+
+@end
+
+@implementation logout_args
+
+- (id) init
+{
+  self = [super init];
+  return self;
+}
+
+- (id) initWithCoder: (NSCoder *) decoder
+{
+  self = [super init];
+  return self;
+}
+
+- (void) encodeWithCoder: (NSCoder *) encoder
+{
+}
+
+- (void) read: (id <TProtocol>) inProtocol
+{
+  NSString * fieldName;
+  int fieldType;
+  int fieldID;
+
+  [inProtocol readStructBeginReturningName: NULL];
+  while (true)
+  {
+    [inProtocol readFieldBeginReturningName: &fieldName type: &fieldType fieldID: &fieldID];
+    if (fieldType == TType_STOP) { 
+      break;
+    }
+    switch (fieldID)
+    {
+      default:
+        [TProtocolUtil skipType: fieldType onProtocol: inProtocol];
+        break;
+    }
+    [inProtocol readFieldEnd];
+  }
+  [inProtocol readStructEnd];
+}
+
+- (void) write: (id <TProtocol>) outProtocol {
+  [outProtocol writeStructBeginWithName: @"logout_args"];
+  [outProtocol writeFieldStop];
+  [outProtocol writeStructEnd];
+}
+
+- (NSString *) description {
+  NSMutableString * ms = [NSMutableString stringWithString: @"logout_args("];
+  [ms appendString: @")"];
+  return [NSString stringWithString: ms];
+}
+
+@end
+
+@interface Logout_result : NSObject <NSCoding> {
+  Response * __success;
+
+  BOOL __success_isset;
+}
+
+#if TARGET_OS_IPHONE || (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_5)
+@property (nonatomic, retain, getter=success, setter=setSuccess:) Response * success;
+#endif
+
+- (id) init;
+- (id) initWithSuccess: (Response *) success;
+
+- (void) read: (id <TProtocol>) inProtocol;
+- (void) write: (id <TProtocol>) outProtocol;
+
+#if !__has_feature(objc_arc)
+- (Response *) success;
+- (void) setSuccess: (Response *) success;
+#endif
+- (BOOL) successIsSet;
+
+@end
+
+@implementation Logout_result
+
+- (id) init
+{
+  self = [super init];
+#if TARGET_OS_IPHONE || (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_5)
+#endif
+  return self;
+}
+
+- (id) initWithSuccess: (Response *) success
+{
+  self = [super init];
+  __success = [success retain_stub];
+  __success_isset = YES;
+  return self;
+}
+
+- (id) initWithCoder: (NSCoder *) decoder
+{
+  self = [super init];
+  if ([decoder containsValueForKey: @"success"])
+  {
+    __success = [[decoder decodeObjectForKey: @"success"] retain_stub];
+    __success_isset = YES;
+  }
+  return self;
+}
+
+- (void) encodeWithCoder: (NSCoder *) encoder
+{
+  if (__success_isset)
+  {
+    [encoder encodeObject: __success forKey: @"success"];
+  }
+}
+
+- (void) dealloc
+{
+  [__success release_stub];
+  [super dealloc_stub];
+}
+
+- (Response *) success {
+  return [[__success retain_stub] autorelease_stub];
+}
+
+- (void) setSuccess: (Response *) success {
+  [success retain_stub];
+  [__success release_stub];
+  __success = success;
+  __success_isset = YES;
+}
+
+- (BOOL) successIsSet {
+  return __success_isset;
+}
+
+- (void) unsetSuccess {
+  [__success release_stub];
+  __success = nil;
+  __success_isset = NO;
+}
+
+- (void) read: (id <TProtocol>) inProtocol
+{
+  NSString * fieldName;
+  int fieldType;
+  int fieldID;
+
+  [inProtocol readStructBeginReturningName: NULL];
+  while (true)
+  {
+    [inProtocol readFieldBeginReturningName: &fieldName type: &fieldType fieldID: &fieldID];
+    if (fieldType == TType_STOP) { 
+      break;
+    }
+    switch (fieldID)
+    {
+      case 0:
+        if (fieldType == TType_STRUCT) {
+          Response *fieldValue = [[Response alloc] init];
+          [fieldValue read: inProtocol];
+          [self setSuccess: fieldValue];
+          [fieldValue release_stub];
+        } else { 
+          [TProtocolUtil skipType: fieldType onProtocol: inProtocol];
+        }
+        break;
+      default:
+        [TProtocolUtil skipType: fieldType onProtocol: inProtocol];
+        break;
+    }
+    [inProtocol readFieldEnd];
+  }
+  [inProtocol readStructEnd];
+}
+
+- (void) write: (id <TProtocol>) outProtocol {
+  [outProtocol writeStructBeginWithName: @"Logout_result"];
+
+  if (__success_isset) {
+    if (__success != nil) {
+      [outProtocol writeFieldBeginWithName: @"success" type: TType_STRUCT fieldID: 0];
+      [__success write: outProtocol];
+      [outProtocol writeFieldEnd];
+    }
+  }
+  [outProtocol writeFieldStop];
+  [outProtocol writeStructEnd];
+}
+
+- (NSString *) description {
+  NSMutableString * ms = [NSMutableString stringWithString: @"Logout_result("];
+  [ms appendString: @"success:"];
+  [ms appendFormat: @"%@", __success];
+  [ms appendString: @")"];
+  return [NSString stringWithString: ms];
+}
+
+@end
+
 @implementation MobileClient
 - (id) initWithProtocol: (id <TProtocol>) protocol
 {
@@ -10723,6 +10990,41 @@ static NSString * SUMMARY_NOREVIEWS_SOURCENAME = @"summary.avgrating.sourcename"
   return [self recv_getSummary];
 }
 
+- (void) send_logout
+{
+  [outProtocol writeMessageBeginWithName: @"logout" type: TMessageType_CALL sequenceID: 0];
+  [outProtocol writeStructBeginWithName: @"logout_args"];
+  [outProtocol writeFieldStop];
+  [outProtocol writeStructEnd];
+  [outProtocol writeMessageEnd];
+  [[outProtocol transport] flush];
+}
+
+- (Response *) recv_logout
+{
+  int msgType = 0;
+  [inProtocol readMessageBeginReturningName: nil type: &msgType sequenceID: NULL];
+  if (msgType == TMessageType_EXCEPTION) {
+    TApplicationException * x = [TApplicationException read: inProtocol];
+    [inProtocol readMessageEnd];
+    @throw x;
+  }
+  Logout_result * result = [[[Logout_result alloc] init] autorelease_stub];
+  [result read: inProtocol];
+  [inProtocol readMessageEnd];
+  if ([result successIsSet]) {
+    return [result success];
+  }
+  @throw [TApplicationException exceptionWithType: TApplicationException_MISSING_RESULT
+                                           reason: @"logout failed: unknown result"];
+}
+
+- (Response *) logout
+{
+  [self send_logout];
+  return [self recv_logout];
+}
+
 @end
 
 @implementation MobileProcessor
@@ -10806,6 +11108,14 @@ static NSString * SUMMARY_NOREVIEWS_SOURCENAME = @"summary.avgrating.sourcename"
     [invocation setSelector: s];
     [invocation retainArguments];
     [mMethodMap setValue: invocation forKey: @"getSummary"];
+  }
+  {
+    SEL s = @selector(process_logout_withSequenceID:inProtocol:outProtocol:);
+    NSMethodSignature * sig = [self methodSignatureForSelector: s];
+    NSInvocation * invocation = [NSInvocation invocationWithMethodSignature: sig];
+    [invocation setSelector: s];
+    [invocation retainArguments];
+    [mMethodMap setValue: invocation forKey: @"logout"];
   }
   return self;
 }
@@ -10992,6 +11302,23 @@ static NSString * SUMMARY_NOREVIEWS_SOURCENAME = @"summary.avgrating.sourcename"
   GetSummary_result * result = [[GetSummary_result alloc] init];
   [result setSuccess: [mService getSummary]];
   [outProtocol writeMessageBeginWithName: @"getSummary"
+                                    type: TMessageType_REPLY
+                              sequenceID: seqID];
+  [result write: outProtocol];
+  [outProtocol writeMessageEnd];
+  [[outProtocol transport] flush];
+  [result release_stub];
+  [args release_stub];
+}
+
+- (void) process_logout_withSequenceID: (int32_t) seqID inProtocol: (id<TProtocol>) inProtocol outProtocol: (id<TProtocol>) outProtocol
+{
+  logout_args * args = [[logout_args alloc] init];
+  [args read: inProtocol];
+  [inProtocol readMessageEnd];
+  Logout_result * result = [[Logout_result alloc] init];
+  [result setSuccess: [mService logout]];
+  [outProtocol writeMessageBeginWithName: @"logout"
                                     type: TMessageType_REPLY
                               sequenceID: seqID];
   [result write: outProtocol];

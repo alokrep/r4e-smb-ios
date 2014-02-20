@@ -2069,81 +2069,135 @@ typedef NSString * SourceGroup;
 
 @end
 
-@interface SourcesList : NSObject <NSCoding> {
-  NSMutableArray * __reviewSites;
-  NSMutableArray * __socialSites;
-  NSMutableArray * __kioskSites;
-  NSMutableArray * __surveySites;
+@interface FacetOption : NSObject <NSCoding> {
+  NSString * __label;
+  NSString * __value;
 
-  BOOL __reviewSites_isset;
-  BOOL __socialSites_isset;
-  BOOL __kioskSites_isset;
-  BOOL __surveySites_isset;
+  BOOL __label_isset;
+  BOOL __value_isset;
 }
 
 #if TARGET_OS_IPHONE || (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_5)
-@property (nonatomic, retain, getter=reviewSites, setter=setReviewSites:) NSMutableArray * reviewSites;
-@property (nonatomic, retain, getter=socialSites, setter=setSocialSites:) NSMutableArray * socialSites;
-@property (nonatomic, retain, getter=kioskSites, setter=setKioskSites:) NSMutableArray * kioskSites;
-@property (nonatomic, retain, getter=surveySites, setter=setSurveySites:) NSMutableArray * surveySites;
+@property (nonatomic, retain, getter=label, setter=setLabel:) NSString * label;
+@property (nonatomic, retain, getter=value, setter=setValue:) NSString * value;
 #endif
 
 - (id) init;
-- (id) initWithReviewSites: (NSMutableArray *) reviewSites socialSites: (NSMutableArray *) socialSites kioskSites: (NSMutableArray *) kioskSites surveySites: (NSMutableArray *) surveySites;
+- (id) initWithLabel: (NSString *) label value: (NSString *) value;
 
 - (void) read: (id <TProtocol>) inProtocol;
 - (void) write: (id <TProtocol>) outProtocol;
 
 #if !__has_feature(objc_arc)
-- (NSMutableArray *) reviewSites;
-- (void) setReviewSites: (NSMutableArray *) reviewSites;
+- (NSString *) label;
+- (void) setLabel: (NSString *) label;
 #endif
-- (BOOL) reviewSitesIsSet;
+- (BOOL) labelIsSet;
 
 #if !__has_feature(objc_arc)
-- (NSMutableArray *) socialSites;
-- (void) setSocialSites: (NSMutableArray *) socialSites;
+- (NSString *) value;
+- (void) setValue: (NSString *) value;
 #endif
-- (BOOL) socialSitesIsSet;
+- (BOOL) valueIsSet;
+
+@end
+
+@interface Facet : NSObject <NSCoding> {
+  NSString * __name;
+  NSString * __label;
+  BOOL __isMultiselect;
+  BOOL __isCustom;
+  NSMutableArray * __facetOptions;
+
+  BOOL __name_isset;
+  BOOL __label_isset;
+  BOOL __isMultiselect_isset;
+  BOOL __isCustom_isset;
+  BOOL __facetOptions_isset;
+}
+
+#if TARGET_OS_IPHONE || (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_5)
+@property (nonatomic, retain, getter=name, setter=setName:) NSString * name;
+@property (nonatomic, retain, getter=label, setter=setLabel:) NSString * label;
+@property (nonatomic, getter=isMultiselect, setter=setIsMultiselect:) BOOL isMultiselect;
+@property (nonatomic, getter=isCustom, setter=setIsCustom:) BOOL isCustom;
+@property (nonatomic, retain, getter=facetOptions, setter=setFacetOptions:) NSMutableArray * facetOptions;
+#endif
+
+- (id) init;
+- (id) initWithName: (NSString *) name label: (NSString *) label isMultiselect: (BOOL) isMultiselect isCustom: (BOOL) isCustom facetOptions: (NSMutableArray *) facetOptions;
+
+- (void) read: (id <TProtocol>) inProtocol;
+- (void) write: (id <TProtocol>) outProtocol;
 
 #if !__has_feature(objc_arc)
-- (NSMutableArray *) kioskSites;
-- (void) setKioskSites: (NSMutableArray *) kioskSites;
+- (NSString *) name;
+- (void) setName: (NSString *) name;
 #endif
-- (BOOL) kioskSitesIsSet;
+- (BOOL) nameIsSet;
 
 #if !__has_feature(objc_arc)
-- (NSMutableArray *) surveySites;
-- (void) setSurveySites: (NSMutableArray *) surveySites;
+- (NSString *) label;
+- (void) setLabel: (NSString *) label;
 #endif
-- (BOOL) surveySitesIsSet;
+- (BOOL) labelIsSet;
+
+#if !__has_feature(objc_arc)
+- (BOOL) isMultiselect;
+- (void) setIsMultiselect: (BOOL) isMultiselect;
+#endif
+- (BOOL) isMultiselectIsSet;
+
+#if !__has_feature(objc_arc)
+- (BOOL) isCustom;
+- (void) setIsCustom: (BOOL) isCustom;
+#endif
+- (BOOL) isCustomIsSet;
+
+#if !__has_feature(objc_arc)
+- (NSMutableArray *) facetOptions;
+- (void) setFacetOptions: (NSMutableArray *) facetOptions;
+#endif
+- (BOOL) facetOptionsIsSet;
 
 @end
 
 @interface UserConfig : NSObject <NSCoding> {
   NSMutableArray * __featuresEnabled;
-  SourcesList * __allSites;
+  Facet * __reviewSources;
+  Facet * __kioskSources;
+  Facet * __surveySources;
+  Facet * __socialSources;
   NSMutableArray * __authLocations;
+  Facet * __dateRanges;
   NSMutableArray * __userSettings;
   BOOL __isDefaultSettings;
 
   BOOL __featuresEnabled_isset;
-  BOOL __allSites_isset;
+  BOOL __reviewSources_isset;
+  BOOL __kioskSources_isset;
+  BOOL __surveySources_isset;
+  BOOL __socialSources_isset;
   BOOL __authLocations_isset;
+  BOOL __dateRanges_isset;
   BOOL __userSettings_isset;
   BOOL __isDefaultSettings_isset;
 }
 
 #if TARGET_OS_IPHONE || (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_5)
 @property (nonatomic, retain, getter=featuresEnabled, setter=setFeaturesEnabled:) NSMutableArray * featuresEnabled;
-@property (nonatomic, retain, getter=allSites, setter=setAllSites:) SourcesList * allSites;
+@property (nonatomic, retain, getter=reviewSources, setter=setReviewSources:) Facet * reviewSources;
+@property (nonatomic, retain, getter=kioskSources, setter=setKioskSources:) Facet * kioskSources;
+@property (nonatomic, retain, getter=surveySources, setter=setSurveySources:) Facet * surveySources;
+@property (nonatomic, retain, getter=socialSources, setter=setSocialSources:) Facet * socialSources;
 @property (nonatomic, retain, getter=authLocations, setter=setAuthLocations:) NSMutableArray * authLocations;
+@property (nonatomic, retain, getter=dateRanges, setter=setDateRanges:) Facet * dateRanges;
 @property (nonatomic, retain, getter=userSettings, setter=setUserSettings:) NSMutableArray * userSettings;
 @property (nonatomic, getter=isDefaultSettings, setter=setIsDefaultSettings:) BOOL isDefaultSettings;
 #endif
 
 - (id) init;
-- (id) initWithFeaturesEnabled: (NSMutableArray *) featuresEnabled allSites: (SourcesList *) allSites authLocations: (NSMutableArray *) authLocations userSettings: (NSMutableArray *) userSettings isDefaultSettings: (BOOL) isDefaultSettings;
+- (id) initWithFeaturesEnabled: (NSMutableArray *) featuresEnabled reviewSources: (Facet *) reviewSources kioskSources: (Facet *) kioskSources surveySources: (Facet *) surveySources socialSources: (Facet *) socialSources authLocations: (NSMutableArray *) authLocations dateRanges: (Facet *) dateRanges userSettings: (NSMutableArray *) userSettings isDefaultSettings: (BOOL) isDefaultSettings;
 
 - (void) read: (id <TProtocol>) inProtocol;
 - (void) write: (id <TProtocol>) outProtocol;
@@ -2155,16 +2209,40 @@ typedef NSString * SourceGroup;
 - (BOOL) featuresEnabledIsSet;
 
 #if !__has_feature(objc_arc)
-- (SourcesList *) allSites;
-- (void) setAllSites: (SourcesList *) allSites;
+- (Facet *) reviewSources;
+- (void) setReviewSources: (Facet *) reviewSources;
 #endif
-- (BOOL) allSitesIsSet;
+- (BOOL) reviewSourcesIsSet;
+
+#if !__has_feature(objc_arc)
+- (Facet *) kioskSources;
+- (void) setKioskSources: (Facet *) kioskSources;
+#endif
+- (BOOL) kioskSourcesIsSet;
+
+#if !__has_feature(objc_arc)
+- (Facet *) surveySources;
+- (void) setSurveySources: (Facet *) surveySources;
+#endif
+- (BOOL) surveySourcesIsSet;
+
+#if !__has_feature(objc_arc)
+- (Facet *) socialSources;
+- (void) setSocialSources: (Facet *) socialSources;
+#endif
+- (BOOL) socialSourcesIsSet;
 
 #if !__has_feature(objc_arc)
 - (NSMutableArray *) authLocations;
 - (void) setAuthLocations: (NSMutableArray *) authLocations;
 #endif
 - (BOOL) authLocationsIsSet;
+
+#if !__has_feature(objc_arc)
+- (Facet *) dateRanges;
+- (void) setDateRanges: (Facet *) dateRanges;
+#endif
+- (BOOL) dateRangesIsSet;
 
 #if !__has_feature(objc_arc)
 - (NSMutableArray *) userSettings;
