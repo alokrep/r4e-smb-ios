@@ -130,10 +130,7 @@
     
     if(self.userObj != Nil) {
         NSString *alias = [NSString stringWithFormat:@"%d", self.userObj.id];
-        
-        //NSString *alias = [defaults objectForKey:@"alok.damireddy+1@reputation.com"];
         [UAPush shared].alias = alias;
-        //[[UAPush shared] setAlias:@"alok.damireddy+1@reputation.com"];
     }
     [[UAPush shared] registerDeviceToken:deviceToken];
     [[UAPush shared] updateRegistration];

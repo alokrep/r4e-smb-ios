@@ -12315,7 +12315,7 @@ static NSString * TWITTER_ALERT = @"social.twitter.alert";
 static NSString * GOOGLEPLUS_ALERT = @"social.google+.alert";
 static NSString * KIOSK_REVIEWS_ALERT = @"kiosk.reviews.alert";
 static NSString * LOCATIONS_ALL = @"locations.all";
-static NSString * FILTER_SENTIMENT_NEGATIVE = @"sentiment_negtive";
+static NSString * FILTER_SENTIMENT_NEGATIVE = @"sentiment_negative";
 static NSString * FILTER_SENTIMENT_NEUTRAL = @"sentiment_neutral";
 static NSString * FILTER_SENTIMENT_POSITIVE = @"sentiment_positive";
 

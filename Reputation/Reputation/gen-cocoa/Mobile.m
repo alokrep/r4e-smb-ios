@@ -7387,7 +7387,12 @@ static NSString * SUMMARY_OVERALL_SCORE_SPREAD = @"summary.overallscore.spread";
 static NSString * SUMMARY_OVERALL_SCORE_LENGTH = @"summary.overallscore.length";
 static NSString * SUMMARY_OVERALL_SCORE_TIME = @"summary.overallscore.time";
 static NSString * SUMMARY_OVERALL_SCORE_VOLUME = @"summary.overallscore.volume";
-static NSString * SUMMARY_OVERALL_SCORE_FILLCOLOR = @"summary.overallscore.fillcolor";
+static NSString * SUMMARY_OVERALL_SCORE_WEIGHTEDRATING_FILLCOLOR = @"summary.overallscore.weightedrating.fillcolor";
+static NSString * SUMMARY_OVERALL_SCORE_VISIBILITY_FILLCOLOR = @"summary.overallscore.visibility.fillcolor";
+static NSString * SUMMARY_OVERALL_SCORE_SPREAD_FILLCOLOR = @"summary.overallscore.spread.fillcolor";
+static NSString * SUMMARY_OVERALL_SCORE_LENGTH_FILLCOLOR = @"summary.overallscore.length.fillcolor";
+static NSString * SUMMARY_OVERALL_SCORE_TIME_FILLCOLOR = @"summary.overallscore.time.fillcolor";
+static NSString * SUMMARY_OVERALL_SCORE_VOLUME_FILLCOLOR = @"summary.overallscore.volume.fillcolor";
 static NSString * SUMMARY_NOREVIEWS_SOURCELOGO = @"summary.avgrating.sourcelogopath";
 static NSString * SUMMARY_NOREVIEWS_SOURCENAME = @"summary.avgrating.sourcename";
 static NSString * SUMMARY_SOURCE_LOGO_URL = @"summary.source.logourl";
@@ -7429,8 +7434,23 @@ static NSString * SUMMARY_SOURCE_NAME = @"summary.source.name";
 + (NSString *) SUMMARY_OVERALL_SCORE_VOLUME{
   return SUMMARY_OVERALL_SCORE_VOLUME;
 }
-+ (NSString *) SUMMARY_OVERALL_SCORE_FILLCOLOR{
-  return SUMMARY_OVERALL_SCORE_FILLCOLOR;
++ (NSString *) SUMMARY_OVERALL_SCORE_WEIGHTEDRATING_FILLCOLOR{
+  return SUMMARY_OVERALL_SCORE_WEIGHTEDRATING_FILLCOLOR;
+}
++ (NSString *) SUMMARY_OVERALL_SCORE_VISIBILITY_FILLCOLOR{
+  return SUMMARY_OVERALL_SCORE_VISIBILITY_FILLCOLOR;
+}
++ (NSString *) SUMMARY_OVERALL_SCORE_SPREAD_FILLCOLOR{
+  return SUMMARY_OVERALL_SCORE_SPREAD_FILLCOLOR;
+}
++ (NSString *) SUMMARY_OVERALL_SCORE_LENGTH_FILLCOLOR{
+  return SUMMARY_OVERALL_SCORE_LENGTH_FILLCOLOR;
+}
++ (NSString *) SUMMARY_OVERALL_SCORE_TIME_FILLCOLOR{
+  return SUMMARY_OVERALL_SCORE_TIME_FILLCOLOR;
+}
++ (NSString *) SUMMARY_OVERALL_SCORE_VOLUME_FILLCOLOR{
+  return SUMMARY_OVERALL_SCORE_VOLUME_FILLCOLOR;
 }
 + (NSString *) SUMMARY_NOREVIEWS_SOURCELOGO{
   return SUMMARY_NOREVIEWS_SOURCELOGO;
