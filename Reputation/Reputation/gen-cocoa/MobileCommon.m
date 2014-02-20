@@ -12315,21 +12315,6 @@ static NSString * TWITTER_ALERT = @"social.twitter.alert";
 static NSString * GOOGLEPLUS_ALERT = @"social.google+.alert";
 static NSString * KIOSK_REVIEWS_ALERT = @"kiosk.reviews.alert";
 static NSString * LOCATIONS_ALL = @"locations.all";
-static NSString * FILTER_DT_LAST_7_DAYS = @"day_last_7_days";
-static NSString * FILTER_DT_LAST_30_DAYS = @"day_last_30_days";
-static NSString * FILTER_DT_LAST_60_DAYS = @"day_last_60_days";
-static NSString * FILTER_DT_LAST_90_DAYS = @"day_last_90_days";
-static NSString * FILTER_DT_LAST_120_DAYS = @"day_last_120_days";
-static NSString * FILTER_DT_THIS_MONTH = @"month_this_month";
-static NSString * FILTER_DT_LAST_1_MONTH = @"month_last_1_month";
-static NSString * FILTER_DT_LAST_2_MONTHS = @"month_last_2_months";
-static NSString * FILTER_DT_LAST_3_MONTHS = @"month_last_3_months";
-static NSString * FILTER_DT_LAST_6_MONTHS = @"month_last_6_months";
-static NSString * FILTER_DT_LAST_1_YEAR = @"month_last_1_year";
-static NSString * FILTER_DT_LAST_2_YEARS = @"month_last_2_years";
-static NSString * FILTER_DT_LAST_3_YEARS = @"month_last_3_years";
-static NSString * FILTER_DT_ALL_TIME = @"";
-static NSString * FILTER_DT_CUSTOM_DATES = @"custom_dates";
 static NSString * FILTER_SENTIMENT_NEGATIVE = @"sentiment_negtive";
 static NSString * FILTER_SENTIMENT_NEUTRAL = @"sentiment_neutral";
 static NSString * FILTER_SENTIMENT_POSITIVE = @"sentiment_positive";
@@ -12435,51 +12420,6 @@ static NSString * FILTER_SENTIMENT_POSITIVE = @"sentiment_positive";
 }
 + (NSString *) LOCATIONS_ALL{
   return LOCATIONS_ALL;
-}
-+ (NSString *) FILTER_DT_LAST_7_DAYS{
-  return FILTER_DT_LAST_7_DAYS;
-}
-+ (NSString *) FILTER_DT_LAST_30_DAYS{
-  return FILTER_DT_LAST_30_DAYS;
-}
-+ (NSString *) FILTER_DT_LAST_60_DAYS{
-  return FILTER_DT_LAST_60_DAYS;
-}
-+ (NSString *) FILTER_DT_LAST_90_DAYS{
-  return FILTER_DT_LAST_90_DAYS;
-}
-+ (NSString *) FILTER_DT_LAST_120_DAYS{
-  return FILTER_DT_LAST_120_DAYS;
-}
-+ (NSString *) FILTER_DT_THIS_MONTH{
-  return FILTER_DT_THIS_MONTH;
-}
-+ (NSString *) FILTER_DT_LAST_1_MONTH{
-  return FILTER_DT_LAST_1_MONTH;
-}
-+ (NSString *) FILTER_DT_LAST_2_MONTHS{
-  return FILTER_DT_LAST_2_MONTHS;
-}
-+ (NSString *) FILTER_DT_LAST_3_MONTHS{
-  return FILTER_DT_LAST_3_MONTHS;
-}
-+ (NSString *) FILTER_DT_LAST_6_MONTHS{
-  return FILTER_DT_LAST_6_MONTHS;
-}
-+ (NSString *) FILTER_DT_LAST_1_YEAR{
-  return FILTER_DT_LAST_1_YEAR;
-}
-+ (NSString *) FILTER_DT_LAST_2_YEARS{
-  return FILTER_DT_LAST_2_YEARS;
-}
-+ (NSString *) FILTER_DT_LAST_3_YEARS{
-  return FILTER_DT_LAST_3_YEARS;
-}
-+ (NSString *) FILTER_DT_ALL_TIME{
-  return FILTER_DT_ALL_TIME;
-}
-+ (NSString *) FILTER_DT_CUSTOM_DATES{
-  return FILTER_DT_CUSTOM_DATES;
 }
 + (NSString *) FILTER_SENTIMENT_NEGATIVE{
   return FILTER_SENTIMENT_NEGATIVE;

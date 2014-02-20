@@ -7387,6 +7387,7 @@ static NSString * SUMMARY_OVERALL_SCORE_SPREAD = @"summary.overallscore.spread";
 static NSString * SUMMARY_OVERALL_SCORE_LENGTH = @"summary.overallscore.length";
 static NSString * SUMMARY_OVERALL_SCORE_TIME = @"summary.overallscore.time";
 static NSString * SUMMARY_OVERALL_SCORE_VOLUME = @"summary.overallscore.volume";
+static NSString * SUMMARY_OVERALL_SCORE_FILLCOLOR = @"summary.overallscore.fillcolor";
 static NSString * SUMMARY_NOREVIEWS_SOURCELOGO = @"summary.avgrating.sourcelogopath";
 static NSString * SUMMARY_NOREVIEWS_SOURCENAME = @"summary.avgrating.sourcename";
 static NSString * SUMMARY_SOURCE_LOGO_URL = @"summary.source.logourl";
@@ -7427,6 +7428,9 @@ static NSString * SUMMARY_SOURCE_NAME = @"summary.source.name";
 }
 + (NSString *) SUMMARY_OVERALL_SCORE_VOLUME{
   return SUMMARY_OVERALL_SCORE_VOLUME;
+}
++ (NSString *) SUMMARY_OVERALL_SCORE_FILLCOLOR{
+  return SUMMARY_OVERALL_SCORE_FILLCOLOR;
 }
 + (NSString *) SUMMARY_NOREVIEWS_SOURCELOGO{
   return SUMMARY_NOREVIEWS_SOURCELOGO;
