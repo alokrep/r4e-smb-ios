@@ -252,6 +252,7 @@
                                         <connections>
                                             <outlet property="btn_DropDown" destination="3qM-JV-67U" id="O7m-EQ-88r"/>
                                             <outlet property="btn_forward" destination="M0w-XU-IyH" id="1zW-bt-4wJ"/>
+                                            <outlet property="btn_reply" destination="Egy-7d-hno" id="1gK-RZ-6uc"/>
                                             <outlet property="imgView_dotForward" destination="fko-1A-Tck" id="2tS-2z-eMk"/>
                                             <outlet property="img_dot" destination="6aD-LL-NrS" id="DZu-Dq-1sg"/>
                                             <outlet property="img_logoIcon" destination="huh-1x-f9h" id="1wd-Tb-irb"/>

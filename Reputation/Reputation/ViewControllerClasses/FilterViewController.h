@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "FilterSitesCell.h"
+#import "ReviewsController.h"
 
 @interface FilterViewController : UIViewController<UIPickerViewDataSource,UIPickerViewDelegate,UIActionSheetDelegate>
 

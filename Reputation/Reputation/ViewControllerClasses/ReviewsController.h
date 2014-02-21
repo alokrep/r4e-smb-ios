@@ -33,7 +33,9 @@
 }
 @property (nonatomic, strong) NSMutableDictionary *imageDownloadsInProgress;
 @property (weak, nonatomic) IBOutlet UITableView *tblVw_review;
+@property(nonatomic,strong) SearchFilter * searchFilterInst;
 @property(nonatomic,strong) NSMutableArray * arr_ReviewData;
 @property(nonatomic,strong) NSMutableArray * arr_logoImages;
 -(IBAction)btn_arrow:(id)sender;
+-(void)getReviewsFeedByFilter: (SearchFilter *) searchFilter;
 @end

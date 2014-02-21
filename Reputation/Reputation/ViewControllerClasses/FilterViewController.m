@@ -79,6 +79,24 @@ static NSString * FILTER_SENTIMENT_POSITIVE = @"sentiment_positive";
 }
 -(void) popTOView
 {
+       //[]
+    
+       //[navigationObj popViewControllerAnimated:YES];
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    CustomNavigation * navigationObj = (CustomNavigation *)self.navigationController;
+    navigationObj.dashBtn.hidden = YES;
+    navigationObj.backBtn.hidden = NO;
+    
+    self.toolBarTime.hidden = YES;
+    self.pickerViewTime.hidden = YES;
+    self.tblView_sites.hidden = YES;
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
     NSMutableArray * arrsentiment = [NSMutableArray array];
     
     if (self.switchNegative.state ==1) {
@@ -101,24 +119,16 @@ static NSString * FILTER_SENTIMENT_POSITIVE = @"sentiment_positive";
     FacetOption * face=[pickerArray_component0 objectAtIndex:selected];
     
     SearchFilter * search = [[SearchFilter alloc]initWithDateRangeFilterId:face.value sentimentFilters:arrsentiment sourceSiteFilter:arrsourceFilter startDate:nil endDate:nil];
-    
-    
-    
-    
     CustomNavigation * navigationObj = (CustomNavigation *)self.navigationController;
-    [navigationObj popViewControllerAnimated:YES];
     
-}
+    
+    ReviewsController * reviewVCObj =(ReviewsController *)[navigationObj.viewControllers objectAtIndex:0];
+    
+    reviewVCObj.searchFilterInst = search;
+    
+    
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    CustomNavigation * navigationObj = (CustomNavigation *)self.navigationController;
-    navigationObj.dashBtn.hidden = YES;
-    navigationObj.backBtn.hidden = NO;
     
-    self.toolBarTime.hidden = YES;
-    self.pickerViewTime.hidden = YES;
-    self.tblView_sites.hidden = YES;
 }
 -(UserConfig *)loadUserObjectWithKey:(NSString*)key
 {
