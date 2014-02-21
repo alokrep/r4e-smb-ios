@@ -69,6 +69,8 @@ int startIndex;
     
     
     
+    
+    
     navigationObj.lbl_title.text = @"Reviews";
     
     // navigationObj.dashBtn.hidden = NO;
@@ -134,8 +136,10 @@ int startIndex;
             
             cellFilter.textLabel.text = @"Filter";
             cellFilter.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            cellFilter.selectionStyle=UITableViewCellSelectionStyleNone;
+            //cellFilter.selectionStyle=UITableViewCellSelectionStyleNone;
         }
+        cellFilter.selectionStyle=UITableViewCellSelectionStyleNone;
+        
         return cellFilter;
     }
     reviewsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -515,14 +519,24 @@ int startIndex;
     if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:@"Reply"])
     {
         
-       
+        Review * reviewObj = [self.arr_ReviewData objectAtIndex:actionSheet.tag-1];
         
+        respondObj.str_reviewID = (NSString *)reviewObj.id;
+        NSLog(@"%@",reviewObj.reviewerId);
+        respondObj.isForwarded =NO;
+        respondObj.reviewObj = reviewObj;
        
-       
-      
+           [self.navigationController pushViewController:respondObj animated:YES];
         
+    }
+    if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:@"Forward"])
+    {
         
-        //  objFullViewController.imgVw_logoIcon
+        Review * reviewObj = [self.arr_ReviewData objectAtIndex:actionSheet.tag-1];
+         NSLog(@"%@",reviewObj.reviewerId);
+        respondObj.str_reviewID = (NSString *)reviewObj.id;
+        respondObj.isForwarded =TRUE;
+         respondObj.reviewObj = reviewObj;
         [self.navigationController pushViewController:respondObj animated:YES];
         
     }

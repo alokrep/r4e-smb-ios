@@ -9,6 +9,11 @@
 #import "FilterViewController.h"
 #import "CustomNavigation.h"
 
+static NSString * FILTER_SENTIMENT_NEGATIVE = @"sentiment_negtive";
+static NSString * FILTER_SENTIMENT_NEUTRAL = @"sentiment_neutral";
+static NSString * FILTER_SENTIMENT_POSITIVE = @"sentiment_positive";
+
+
 //extern  NSString * const  FILTER_DT_LAST_7_DAYS;
 //extern  NSString * const  FILTER_DT_LAST_30_DAYS;
 //extern  NSString * const  FILTER_DT_LAST_60_DAYS ;
@@ -58,7 +63,7 @@
     CustomNavigation * navigationObj = (CustomNavigation *)self.navigationController;
     navigationObj.lbl_title.text = @"Filter";
     navigationObj.backBtn.hidden = NO;
-    [navigationObj.backBtn addTarget:self action:@selector(popTOView) forControlEvents:UIControlEventTouchUpInside];
+    
     
     pickerArray_component0 = userConfigObj.dateRanges.facetOptions;
     
@@ -74,6 +79,30 @@
 }
 -(void) popTOView
 {
+    NSMutableArray * arrsentiment = [NSMutableArray array];
+    
+    if (self.switchNegative.state ==1) {
+        [arrsentiment addObject:FILTER_SENTIMENT_NEGATIVE];
+    }
+    if (self.switchNeutral.state ==1) {
+        [arrsentiment addObject:FILTER_SENTIMENT_NEUTRAL];
+    }
+    if (self.switchPositive.state ==1) {
+        [arrsentiment addObject:FILTER_SENTIMENT_POSITIVE];
+    }
+    NSMutableArray * arrsourceFilter =[NSMutableArray array];
+    
+    for (FacetOption * obj in self.arr_selectedSites) {
+        
+        [arrsourceFilter addObject:obj.value];
+    }
+    
+    int selected= [self.pickerViewTime selectedRowInComponent:0];
+    FacetOption * face=[pickerArray_component0 objectAtIndex:selected];
+    
+    SearchFilter * search = [[SearchFilter alloc]initWithDateRangeFilterId:face.value sentimentFilters:arrsentiment sourceSiteFilter:arrsourceFilter startDate:nil endDate:nil];
+    
+    
     
     
     CustomNavigation * navigationObj = (CustomNavigation *)self.navigationController;

@@ -235,11 +235,24 @@
                                                     <rect key="frame" x="114" y="42" width="5" height="4"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
+                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dot_blue.png" id="fko-1A-Tck">
+                                                    <rect key="frame" x="156" y="156" width="5" height="5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="M0w-XU-IyH">
+                                                    <rect key="frame" x="171" y="143" width="57" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Forward">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="1" green="0.91764712329999998" blue="0.93725496529999996" alpha="1" colorSpace="deviceRGB"/>
                                         <connections>
                                             <outlet property="btn_DropDown" destination="3qM-JV-67U" id="O7m-EQ-88r"/>
+                                            <outlet property="btn_forward" destination="M0w-XU-IyH" id="1zW-bt-4wJ"/>
+                                            <outlet property="imgView_dotForward" destination="fko-1A-Tck" id="2tS-2z-eMk"/>
                                             <outlet property="img_dot" destination="6aD-LL-NrS" id="DZu-Dq-1sg"/>
                                             <outlet property="img_logoIcon" destination="huh-1x-f9h" id="1wd-Tb-irb"/>
                                             <outlet property="lbl_comment" destination="JQ1-01-MSw" id="YDn-de-41Y"/>
@@ -1365,6 +1378,9 @@
                         <outlet property="lbl_Sites" destination="Hs7-zc-bMC" id="Yno-rI-WPu"/>
                         <outlet property="lbl_TimeValue" destination="7tV-S3-58N" id="BTh-bd-jTn"/>
                         <outlet property="pickerViewTime" destination="oaR-Op-aw7" id="Dne-W4-xH4"/>
+                        <outlet property="switchNegative" destination="HgJ-0i-LQ8" id="8yP-uK-8di"/>
+                        <outlet property="switchNeutral" destination="vd1-FT-1aC" id="xvk-Zq-rb4"/>
+                        <outlet property="switchPositive" destination="1lu-Vt-QvE" id="iKp-SE-4ra"/>
                         <outlet property="tblView_sites" destination="2AT-a6-JgH" id="v1V-ed-LXV"/>
                         <outlet property="toolBarTime" destination="6Dm-vX-CYr" id="Ped-GL-JW1"/>
                     </connections>
@@ -1633,18 +1649,29 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" id="fAH-gV-c24">
-                                <rect key="frame" x="15" y="14" width="290" height="264"/>
+                                <rect key="frame" x="15" y="92" width="290" height="264"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                 <attributedString key="attributedText"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Email" minimumFontSize="17" id="PF5-WH-XHG">
+                                <rect key="frame" x="15" y="38" width="290" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="igM-KM-keY" id="rvV-wB-ChV"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.96078437569999997" green="0.96078437569999997" blue="0.96078437569999997" alpha="1" colorSpace="deviceRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="DAk-sM-6n2"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="txtFldEmail" destination="PF5-WH-XHG" id="oes-C1-uec"/>
                         <outlet property="txtViewRespond" destination="fAH-gV-c24" id="w1e-lA-JNQ"/>
                     </connections>
                 </viewController>

@@ -94,10 +94,15 @@
     [self.backBtn setImage:[UIImage imageNamed:@"back_btn.png"] forState:UIControlStateNormal];
     [self.backBtn setFrame:CGRectMake(10,25, 60, 30)];
     self.backBtn.backgroundColor = [UIColor clearColor];
+    [self.backBtn addTarget:self action:@selector(backBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.backBtn];
     
 }
-
+-(void)backBtnClicked:(id) sender
+{
+    [self popViewControllerAnimated:YES];
+    
+}
 -(void) addReviewsButton
 {
     self.reviewsBtn = [UIButton buttonWithType:UIButtonTypeCustom];
