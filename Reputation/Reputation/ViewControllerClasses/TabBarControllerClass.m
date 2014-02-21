@@ -7,6 +7,7 @@
 //
 
 #import "TabBarControllerClass.h"
+#import "TourViewController.h"
 
 
 @interface TabBarControllerClass ()
@@ -28,7 +29,7 @@
 {
     [super viewDidLoad];
 	
-    self.slideObj = [[SlideViewController alloc]initWithNibName:@"SlideViewController" bundle:Nil];
+    //self.slideObj = [[SlideViewController alloc]initWithNibName:@"SlideViewController" bundle:Nil];
     
     customTabViewObj = [[CustomTabBarView alloc]initWithNibName:@"CustomTabBarView" bundle:Nil];
     [customTabViewObj.view setFrame:CGRectMake(0,0,320, 49)];
@@ -36,9 +37,22 @@
     [AppDelegate sharedDelegate].tabBarControllerObj = self;
     self.selectedIndex = 0;
     
-    [[AppDelegate sharedDelegate].window addSubview:slideObj.view];
-    [[AppDelegate sharedDelegate].window sendSubviewToBack:slideObj.view];
+   // [[AppDelegate sharedDelegate].window addSubview:slideObj.view];
+    //[[AppDelegate sharedDelegate].window sendSubviewToBack:slideObj.view];
+    NSUserDefaults * prefs = [NSUserDefaults standardUserDefaults];
     
+    if (![[prefs objectForKey:@"FirstLaunch"] isEqualToString:@"YES"]) {
+        
+           tourObj = [[TourViewController alloc]initWithNibName:@"TourViewController" bundle:Nil];
+        tourObj.view.frame = CGRectMake(0, 0, 320,self.view.frame.size.height);
+        [prefs setObject:@"YES" forKey:@"FirstLaunch"];
+        [prefs synchronize];
+        
+        [[AppDelegate sharedDelegate].window addSubview:tourObj.view];
+        [[AppDelegate sharedDelegate].window bringSubviewToFront:tourObj.view];
+        
+    }
+
     
     
     

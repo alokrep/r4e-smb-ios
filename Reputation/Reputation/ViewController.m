@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "TourViewController.h"
 
 @interface ViewController ()
 
@@ -26,7 +27,8 @@
     
     self.txtFld_userName.text = @"alok.damireddy+1@reputation.com";
     self.txtFld_password.text = @"51190bad0";
-	
+    
+   	
     
 }
 - (void)viewWillAppear:(BOOL)animated
