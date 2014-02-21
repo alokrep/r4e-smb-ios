@@ -21,7 +21,9 @@
 #define kRightPadding    -40.0f
 
 @interface ReviewsController ()<UIActionSheetDelegate>
-
+{
+    NSMutableDictionary *dictResponse ;
+}
 @end
 
 
@@ -42,6 +44,7 @@ int startIndex;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+     dictResponse = [NSMutableDictionary dictionary];
     CustomNavigation * navigationObj = (CustomNavigation *)self.navigationController;
      respondObj  = [self.storyboard instantiateViewControllerWithIdentifier:@"respondVC"];
     navigationObj.lbl_title.text = @"Reviews";
@@ -53,10 +56,12 @@ int startIndex;
     
     startIndex = 0;
     
-    [self getReviewsData:startIndex];
+   
 }
 - (void)viewWillAppear:(BOOL)animated
 {
+    
+    
     
     CustomNavigation * navigationObj = (CustomNavigation *)self.navigationController;
     navigationObj.navigationBarHidden = NO;
@@ -85,6 +90,11 @@ int startIndex;
     barBtn = [[UIBarButtonItem alloc] initWithCustomView:btn_getReviews];
     
     self.navigationItem.rightBarButtonItem = barBtn;
+    
+    
+    startIndex = 0;
+    
+    [self getReviewsData:startIndex];
     
 }
 - (void)didReceiveMemoryWarning
@@ -155,7 +165,7 @@ int startIndex;
     cell.btn_DropDown.tag = indexPath.row;
     cell.lbl_comment.text = review.comment;
     cell.lbl_date.text = review.date;
-    int rating = review.rating;
+    int rating = review.normalizedRating;
     cell.btn_DropDown.tag = indexPath.row;
     [cell.btn_DropDown addTarget:self action:@selector(btn_arrow:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -278,13 +288,71 @@ int startIndex;
   
     }
     
+    NSMutableArray *arrResponse = [[NSMutableArray alloc ]init];
+    Review * reviewObj = [self.arr_ReviewData objectAtIndex:indexPath.row];
+    for (int respIndx = 0; respIndx < reviewObj.allowedActions.count; respIndx++)
+    {
+        
+        NSString *strResponse = [reviewObj.allowedActions objectAtIndex:respIndx];
+        NSString *strTitles = [strResponse substringWithRange:NSMakeRange(16, [strResponse length]-16)];
+        strTitles = [self sentenceCapitalizedString:strTitles];
+        [arrResponse addObject:strTitles];
+        
+    }
+    
+    cell.btn_reply.hidden = YES;
+    cell.btn_forward.hidden = YES;
+    [dictResponse setObject:arrResponse forKey:[NSString stringWithFormat:@"%i",indexPath.row]];
+    
+    
+    NSString *strreply =@"reply";
+    
+    NSPredicate *predtemp =[NSPredicate predicateWithFormat:@"SELF beginsWith[cd] %@",strreply];
+    NSArray *arr_finalResponsetemp =[arrResponse filteredArrayUsingPredicate:predtemp];
+    
+    if (arr_finalResponsetemp.count>0) {
+        cell.btn_reply.hidden = NO;
+    }
     
 
     
+    NSString *str =@"forward";
+    NSLog(@"titles = %@",arrResponse);
+    
+    NSPredicate *pred =[NSPredicate predicateWithFormat:@"SELF beginsWith[cd] %@",str];
+    NSArray *arr_finalResponse =[arrResponse filteredArrayUsingPredicate:pred];
+    NSLog(@"%@",arr_finalResponse);
     
     
     
-    return cell;
+    
+    if (arr_finalResponse.count>0) {
+       
+    
+    
+             cell.btn_forward.hidden = NO;
+            if (cell.btn_reply.hidden) {
+               
+                cell.imgView_dotForward.hidden = YES;
+                
+                CGRect frame = cell.btn_forward.frame;
+                frame.origin.x = cell.btn_reply.frame.origin.x;
+                cell.btn_forward.frame = frame;
+            }
+            else
+            {
+                CGRect frame = cell.btn_forward.frame;
+                frame.origin.x = 170;
+                 cell.btn_forward.frame = frame;
+                cell.imgView_dotForward.hidden = NO;
+                
+                
+            }
+            
+    }
+    
+    
+       return cell;
     
 }
 
@@ -300,14 +368,7 @@ int startIndex;
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    if (indexPath.row == 0) {
-        
-    }
-    else
-    {
-    actionSheetReview = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Reply",@"Full View",@"Mark as Read",@"Email Review",@"Share", nil];
-        [actionSheetReview showInView:self.view];
-    }
+   
     
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -415,8 +476,15 @@ int startIndex;
         
         TBinaryProtocol *protocol2 = [[TBinaryProtocol alloc] initWithTransport:httpTwoClient strictRead:YES strictWrite:YES];
            MobileClient *serviceTwo = [[MobileClient alloc] initWithProtocol:protocol2];
+        FeedResponse *revFeedResp;
+        if (self.searchFilterInst) {
+           revFeedResp = [serviceTwo getReviewsFeed:0 start:startPoint pageCount:40 searchCriteria:self.searchFilterInst];
+        }
+        else
+        {
+            revFeedResp = [serviceTwo getReviewsFeed:0 start:startPoint pageCount:40 searchCriteria:nil];
+        }
         
-        FeedResponse *revFeedResp = [serviceTwo getReviewsFeed:0 start:startPoint pageCount:40 searchCriteria:nil];
         
         
         if(revFeedResp.response.responseCode == ResponseCode_Success) {
@@ -456,8 +524,20 @@ int startIndex;
 
 //[self performSegueWithIdentifier:@"filterVC" sender:self];
 #pragma mark Button Method
+-(void)readMoreBtnClicked: (id) sender
+{
+    
+}
+-(void)replyBtnClicked: (id) sender
+{
+    
+}
+-(void)forwardBtnClicked: (id) sender
+{
+    
+}
 - (IBAction)btn_arrow:(id)sender {
-    NSIndexPath *indexPath = [tbl_View indexPathForCell:(reviewsTableViewCell *)
+/*    NSIndexPath *indexPath = [tbl_View indexPathForCell:(reviewsTableViewCell *)
                               [[[sender superview] superview] superview]];
     NSLog(@"The row id is %d",  indexPath.row);
     
@@ -499,6 +579,44 @@ int startIndex;
     [actionSheetReview showInView:self.view];
     
     actionSheetReview = nil;
+    */
+    
+    
+        NSIndexPath *indexPath = [tbl_View indexPathForCell:(reviewsTableViewCell *)
+                                  [[[sender superview] superview] superview]];
+        NSLog(@"The row id is %d",  indexPath.row);
+        
+        Review * reviewObj = [self.arr_ReviewData objectAtIndex:[sender tag]];
+        
+    
+        
+        NSLog(@"array = %@",reviewObj.allowedActions);
+        NSString *str = @"forward";
+        NSMutableArray *arrResponse = [dictResponse valueForKey:[NSString stringWithFormat:@"%i",[sender tag]]];
+        NSPredicate *pred =[NSPredicate predicateWithFormat:@"SELF beginsWith[cd] %@",str];
+        NSArray *arr_finalResponse =[arrResponse filteredArrayUsingPredicate:pred];
+        NSLog(@"%@",arr_finalResponse);
+        
+    
+        
+        if (!actionSheetReview) {
+            actionSheetReview = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil, nil];
+            [actionSheetReview addButtonWithTitle:@"Full View"];
+            
+            for (NSString *title in arrResponse) {
+                [actionSheetReview addButtonWithTitle:title];
+            }
+            [actionSheetReview addButtonWithTitle:@"Cancel"];
+            actionSheetReview.cancelButtonIndex = [arrResponse count];
+        }
+        
+        actionSheetReview.tag = [sender tag];
+         actionSheetReview.actionSheetStyle = UIActionSheetStyleDefault;
+        [actionSheetReview showInView:self.view];
+        
+        actionSheetReview = nil;
+        
+   
     
 }
 

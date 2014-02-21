@@ -78,7 +78,7 @@
         self.txtFldEmail.hidden = NO;
         CGRect frame =  self.txtViewRespond.frame;
         
-        frame.origin.y = 224;
+        frame.origin.y = 100;
         self.txtViewRespond.frame=frame;
     }
 }
