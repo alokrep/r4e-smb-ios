@@ -102,5 +102,9 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+-(IBAction)skipBtnClicked:(id)sender
+{
+    
+    [self.view removeFromSuperview];
+}
 @end

@@ -61,7 +61,7 @@
 }
 -(IBAction)helpBtnClicked:(id)sender
 {
-    tourObj.view.frame = CGRectMake(0, 0, 320,568);
+     tourObj.view.frame = CGRectMake(0, 0, 320,568);
     
     
     [[AppDelegate sharedDelegate].window addSubview:tourObj.view];

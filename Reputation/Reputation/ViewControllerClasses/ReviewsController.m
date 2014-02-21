@@ -258,7 +258,7 @@ int startIndex;
     
     NSLog(@"koisk %@",review.sourceId);
     
-    if ([review.sourceId isEqualToString:@"KIOSK"]) {
+    if ([review.sourceId isEqualToString:@"SURVEY"]) {
         
         NSLog(@"%d",review.nps);
         

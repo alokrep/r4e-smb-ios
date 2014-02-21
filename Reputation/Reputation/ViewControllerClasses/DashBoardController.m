@@ -381,11 +381,14 @@
                      }
                      if (self.arr_reviewsData.count<3) {
                          CGRect frame = self.tblVw_review.frame;
-                         frame.size.height = 65*self.arr_reviewsData.count;
+                        // frame.size.height = 65*self.arr_reviewsData.count;
+                         frame.size.height = 193;
                          self.tblVw_review.frame=frame;
                          
                          
                      }
+                     self.tblVw_review.userInteractionEnabled = NO;
+                     self.tblVwSocial.userInteractionEnabled = NO;
                      self.lbl_noData.hidden = YES;
                      self.tblVw_review.hidden = NO;
                      [self.tblVw_review reloadData];
@@ -432,6 +435,9 @@
 # pragma mark  TableView Delegates Method
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if ([tableView isEqual:self.tblVwSocial]) {
+        return 60;
+    }
     return 65;
 }
 

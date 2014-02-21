@@ -14,7 +14,7 @@
 @interface TabBarControllerClass : UITabBarController
 {
     CustomTabBarView * customTabViewObj;
-    
+    TourViewController *    tourObj;
 }
 -(void)customTabDidSelect:(int )tag;
 @property(nonatomic,strong) SlideViewController * slideObj;
