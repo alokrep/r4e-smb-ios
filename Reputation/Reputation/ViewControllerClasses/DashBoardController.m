@@ -21,7 +21,7 @@
 @implementation DashBoardController
 @synthesize arr_reviewsData;
 @synthesize arr_SocialData;
-
+# pragma mark View Life Cyle Methods
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -63,6 +63,20 @@
 //>>>>>>> 20a6015af56ccd3fba7b194b03275498db86f698
     
 }
+- (void)viewDidUnload
+{
+    self.arr_reviewsData= nil;
+    self.imageDownloadsInProgress= nil;
+    self.arr_scoreValues= nil;
+    self.arr_SocialData= nil;
+    
+    
+}
+//entries;
+//@property (nonatomic, strong) NSMutableArray *arr_scoreValues;
+//@property (nonatomic, strong) NSMutableDictionary *imageDownloadsInProgress;
+//@property (strong,nonatomic) NSMutableArray * arr_reviewsData;
+//@property (strong,nonatomic) NSMutableArray * arr_SocialData;
 - (void)viewWillAppear:(BOOL)animated
 {
      CustomNavigation * navigationObj = (CustomNavigation *)self.navigationController;

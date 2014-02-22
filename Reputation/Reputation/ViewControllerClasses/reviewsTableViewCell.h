@@ -20,4 +20,5 @@
 @property (strong, nonatomic) IBOutlet UIImageView *imgView_dotForward;
 @property (strong, nonatomic) IBOutlet UIButton *btn_forward;
 @property (strong, nonatomic) IBOutlet UIButton *btn_reply;
+@property (strong, nonatomic) IBOutlet UIButton *btn_readMore;
 @end

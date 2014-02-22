@@ -188,7 +188,15 @@ int startIndex;
     
     frameFordot.origin.x =cell.lbl_name.frame.origin.x+expectedLabelSize_city.width+5;
     cell.img_dot.frame=frameFordot;
-
+    
+    cell.btn_forward.tag = indexPath.row;
+    cell.btn_readMore.tag = indexPath.row;
+    cell.btn_reply.tag = indexPath.row;
+    
+    [cell.btn_readMore addTarget:self action:@selector(readMoreBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [cell.btn_reply addTarget:self action:@selector(replyBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [cell.btn_forward addTarget:self action:@selector(forwardBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    
     //5720
     
     for (id obj in cell.contentView.subviews) {
@@ -342,7 +350,7 @@ int startIndex;
             else
             {
                 CGRect frame = cell.btn_forward.frame;
-                frame.origin.x = 170;
+                frame.origin.x = 163;
                  cell.btn_forward.frame = frame;
                 cell.imgView_dotForward.hidden = NO;
                 
@@ -459,6 +467,9 @@ int startIndex;
  }
  
  */
+
+#pragma mark Call Reviews API
+
 -(void)getReviewsData:(int )startPoint
 {
     
@@ -526,15 +537,34 @@ int startIndex;
 #pragma mark Button Method
 -(void)readMoreBtnClicked: (id) sender
 {
+    objFullViewController.reviewObj= [self.arr_ReviewData objectAtIndex: [sender tag]-1];
+    ReviewDashBoardModal * reviewModal = [self.arr_logoImages objectAtIndex:[sender tag]];
     
+    objFullViewController.imgVw_logoIcon.image =reviewModal.logoIcon;
+    //  objFullViewController.imgVw_logoIcon
+    [self.navigationController pushViewController:objFullViewController animated:YES];
 }
 -(void)replyBtnClicked: (id) sender
 {
+    Review * reviewObj = [self.arr_ReviewData objectAtIndex:[sender tag]-1];
     
+    respondObj.str_reviewID = (NSString *)reviewObj.id;
+    NSLog(@"%@",reviewObj.reviewerId);
+    respondObj.isForwarded =NO;
+    respondObj.reviewObj = reviewObj;
+    
+    [self.navigationController pushViewController:respondObj animated:YES];
 }
 -(void)forwardBtnClicked: (id) sender
 {
+    Review * reviewObj = [self.arr_ReviewData objectAtIndex:[sender tag]-1];
     
+    respondObj.str_reviewID = (NSString *)reviewObj.id;
+    NSLog(@"%@",reviewObj.reviewerId);
+    respondObj.isForwarded =YES;
+    respondObj.reviewObj = reviewObj;
+    
+    [self.navigationController pushViewController:respondObj animated:YES];
 }
 - (IBAction)btn_arrow:(id)sender {
 /*    NSIndexPath *indexPath = [tbl_View indexPathForCell:(reviewsTableViewCell *)
@@ -658,9 +688,26 @@ int startIndex;
         [self.navigationController pushViewController:respondObj animated:YES];
         
     }
+    if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:@"Publish"])
+    {
+        Review * reviewObj = [self.arr_ReviewData objectAtIndex:actionSheet.tag-1];
+        
+        [self publishReview:(NSString *)reviewObj.id];
+    }
+    if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:@"Unpublish"])
+    {
+        Review * reviewObj = [self.arr_ReviewData objectAtIndex:actionSheet.tag-1];
+        [self unPublishReview :reviewObj.id];
+    }
+    if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:@"Delete"])
+    {
+         Review * reviewObj = [self.arr_ReviewData objectAtIndex:actionSheet.tag-1];
+      [self deleteReview:reviewObj.id];
+    }
 }
 
-
+//- (RatingResponse *) publishRating: (NSString *) ratingID isUnpublish: (BOOL) isUnpublish;
+//- (RatingResponse *) deleteRating: (NSString *) ratingID;
 #pragma mark ActionSheet Delegates Method
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
@@ -677,6 +724,129 @@ int startIndex;
     }
     
 }
+-(void)deleteReview:(NSString *)reviewId
+{
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    
+    
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
+    
+    dispatch_async(queue, ^{
+        
+        
+        THMACHttpClient *httpTwoClient = [[THMACHttpClient alloc] initWithURL:[NSURL URLWithString:kServiceURL] userId:[AppDelegate sharedDelegate].userObj.email secret:[AppDelegate sharedDelegate].userObj.userKey];
+        
+        TBinaryProtocol *protocol2 = [[TBinaryProtocol alloc] initWithTransport:httpTwoClient strictRead:YES strictWrite:YES];
+        MobileClient *serviceTwo = [[MobileClient alloc] initWithProtocol:protocol2];
+        RatingResponse * response = [serviceTwo deleteRating:reviewId];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+             [MBProgressHUD hideHUDForView:self.view animated:YES];
+            if (response.response.responseCode==ResponseCode_Success) {
+                
+                UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Message" message:@"This Review has been deleted successfully" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+                alert = nil;
+            }
+            else
+            {
+                UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Failed" message:response.response.error.message  delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+                alert = nil;
+                
+            }
+        });
+        
+    });
+
+    
+}
+-(void)publishReview:(NSString *)reviewId
+{
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
+    
+    dispatch_async(queue, ^{
+        
+        
+        THMACHttpClient *httpTwoClient = [[THMACHttpClient alloc] initWithURL:[NSURL URLWithString:kServiceURL] userId:[AppDelegate sharedDelegate].userObj.email secret:[AppDelegate sharedDelegate].userObj.userKey];
+        
+        TBinaryProtocol *protocol2 = [[TBinaryProtocol alloc] initWithTransport:httpTwoClient strictRead:YES strictWrite:YES];
+        MobileClient *serviceTwo = [[MobileClient alloc] initWithProtocol:protocol2];
+        RatingResponse * response = [serviceTwo publishRating:reviewId isUnpublish:NO];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+             [MBProgressHUD hideHUDForView:self.view animated:YES];
+            if (response.response.responseCode==ResponseCode_Success) {
+                
+                UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Message" message:@"This Review has been published successfully" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+                alert = nil;
+            }
+            else
+            {
+                UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Failed" message:response.response.error.message  delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+                alert = nil;
+                
+            }
+        });
+        
+    });
+
+    
+}
+-(void)unPublishReview: (NSString *)reviewId
+{
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
+    
+    dispatch_async(queue, ^{
+        
+        
+        THMACHttpClient *httpTwoClient = [[THMACHttpClient alloc] initWithURL:[NSURL URLWithString:kServiceURL] userId:[AppDelegate sharedDelegate].userObj.email secret:[AppDelegate sharedDelegate].userObj.userKey];
+        
+        TBinaryProtocol *protocol2 = [[TBinaryProtocol alloc] initWithTransport:httpTwoClient strictRead:YES strictWrite:YES];
+        MobileClient *serviceTwo = [[MobileClient alloc] initWithProtocol:protocol2];
+        RatingResponse * response = [serviceTwo publishRating:reviewId isUnpublish:YES];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+             [MBProgressHUD hideHUDForView:self.view animated:YES];
+            if (response.response.responseCode==ResponseCode_Success) {
+                
+                UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Message" message:@"This Review has been unpublished successfully" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+                alert = nil;
+            }
+                else
+                {
+                    UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Failed" message:response.response.error.message  delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                    [alert show];
+                    alert = nil;
+                    
+                }
+        });
+        
+    });
+  
+    
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) {
+        [self getReviewsData:startIndex];
+    }
+    
+    
+}
+
 #pragma mark - Table cell image support
 
 // -------------------------------------------------------------------------------

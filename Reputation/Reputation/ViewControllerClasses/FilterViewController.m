@@ -33,7 +33,7 @@ static NSString * FILTER_SENTIMENT_POSITIVE = @"sentiment_positive";
 @end
 
 @implementation FilterViewController
-
+# pragma mark View Life Cyle Methods
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -137,7 +137,7 @@ static NSString * FILTER_SENTIMENT_POSITIVE = @"sentiment_positive";
     UserConfig *obj = (UserConfig *)[NSKeyedUnarchiver unarchiveObjectWithData:myEncodedObject];
     return obj;
 }
-
+# pragma mark PickerView Methods
 -(UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
 {
     
@@ -203,7 +203,7 @@ static NSString * FILTER_SENTIMENT_POSITIVE = @"sentiment_positive";
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+# pragma mark TableView Delegates Methods
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
 
@@ -266,7 +266,7 @@ static NSString * FILTER_SENTIMENT_POSITIVE = @"sentiment_positive";
     return cell;
 
 }
-
+# pragma mark Button Methods
 
 -(void)checkBtnClicked:(id) sender
 {
