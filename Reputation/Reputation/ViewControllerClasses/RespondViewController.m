@@ -24,7 +24,7 @@
     }
     return self;
 }
-
+# pragma mark View Life Cyle Methods
 - (void)viewDidLayoutSubviews
 {
     self.txtViewRespond.contentInset = UIEdgeInsetsMake(0,8,0,0);
@@ -100,7 +100,7 @@
 }
 
 //txtRespond delegates
-
+# pragma mark NavigationButton Method
 -(void)cancelBtnClicked: (id)sender
 {
     
@@ -189,6 +189,7 @@
     
     
 }
+# pragma mark Text Field Delegates Methods
 - (BOOL) textViewShouldBeginEditing:(UITextView *)textView
 {
     if ([textView.text isEqual:@"Type your comment here..."])

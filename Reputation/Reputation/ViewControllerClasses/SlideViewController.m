@@ -33,7 +33,7 @@
     tourObj = [[TourViewController alloc]initWithNibName:@"TourViewController" bundle:Nil];
     
 }
-
+# pragma mark IBAction Methods
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
