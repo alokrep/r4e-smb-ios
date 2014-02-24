@@ -17,16 +17,17 @@
 #import "ReviewDashBoardModal.h"
 #import "MBProgressHUD.h"
 #import "RespondViewController.h"
+#import "EGORefreshTableHeaderView.h"
 
 
-@interface ReviewsController : UIViewController
+@interface ReviewsController : UIViewController<EGORefreshTableHeaderDelegate>
 
 {
     IBOutlet UITableView *tbl_View;
     FullReviewViewController *objFullViewController;
-    
+    EGORefreshTableHeaderView *_refreshHeaderView;
     RespondViewController * respondObj;
-    
+    BOOL _reloading;
      UIActionSheet *actionSheetReview;
     UIButton *btn_getReviews;
     UIBarButtonItem *barBtn;
@@ -38,4 +39,8 @@
 @property(nonatomic,strong) NSMutableArray * arr_logoImages;
 -(IBAction)btn_arrow:(id)sender;
 -(void)getReviewsFeedByFilter: (SearchFilter *) searchFilter;
+
+- (void)reloadTableViewDataSource;
+- (void)doneLoadingTableViewData;
+
 @end

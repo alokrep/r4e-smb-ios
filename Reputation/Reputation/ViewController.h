@@ -34,5 +34,5 @@
 @property (weak, nonatomic) IBOutlet UITextField *txtFld_userName;
 @property (weak, nonatomic) IBOutlet UITextField *txtFld_password;
 - (IBAction)signInBtnAction:(id)sender;
-
+-(void)showEditedCredentials:(NSString *)email  :(NSString *)password;
 @end

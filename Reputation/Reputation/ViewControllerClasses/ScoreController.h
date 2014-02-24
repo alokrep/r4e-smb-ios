@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "YLProgressBar.h"
+#import "Constants.h"
 #import "DashBoardController.h"
 
 @interface ScoreController : UIViewController
@@ -46,6 +47,19 @@
 @property (weak, nonatomic) IBOutlet YLProgressBar *progressBar_recentness;
 
 @property (weak, nonatomic) IBOutlet UIImageView *imgVw_varientArrow;
+
+@property (weak, nonatomic) IBOutlet UIView *scoreView_background;
+@property (weak, nonatomic) IBOutlet UIImageView *imgView_textBackground;
+@property (strong, nonatomic) IBOutlet UILabel *lbl_description;
+
+@property (strong, nonatomic) IBOutlet UILabel *lbl_text_weightedAvg;
+@property (strong, nonatomic) IBOutlet UILabel *lbl_text_volume;
+@property (strong, nonatomic) IBOutlet UILabel *lbl_text_recentness;
+@property (strong, nonatomic) IBOutlet UILabel *lbl_text_length;
+@property (strong, nonatomic) IBOutlet UILabel *lbl_text_spread;
+@property (strong, nonatomic) IBOutlet UILabel *lbl_text_visiblity;
+
+
 
 -(void)sendInfo :(NSMutableArray *)array;
 - (IBAction)factorsBtnClicked:(id)sender;

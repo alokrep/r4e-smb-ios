@@ -90,6 +90,7 @@ static NSString * FILTER_SENTIMENT_POSITIVE = @"sentiment_positive";
     CustomNavigation * navigationObj = (CustomNavigation *)self.navigationController;
     navigationObj.dashBtn.hidden = YES;
     navigationObj.backBtn.hidden = NO;
+    self.navigationItem.hidesBackButton =YES;
     
     self.toolBarTime.hidden = YES;
     self.pickerViewTime.hidden = YES;

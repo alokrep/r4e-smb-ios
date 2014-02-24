@@ -81,6 +81,7 @@
 {
      CustomNavigation * navigationObj = (CustomNavigation *)self.navigationController;
     navigationObj.refreshBtn.hidden = NO;
+    [self callDashBoardAPI];
     
 }
 - (void)viewWillDisappear:(BOOL)animated

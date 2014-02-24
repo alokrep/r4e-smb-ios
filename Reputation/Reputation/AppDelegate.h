@@ -17,4 +17,10 @@
 @property(strong,nonatomic) User * userObj;
 
 +(AppDelegate *)sharedDelegate;
+- (void)removeFunctionalityOfAutoLayoutForView:(UIView*)view forController:(UIViewController*)viewController;
+- (void)removeFunctionalityOfAutoLayoutForLabel:(UILabel*)kindOfView forController:(UIViewController*)viewController;
+- (void)removeFunctionalityOfAutoLayoutForImageView:(UIImageView*)kindOfView forController:(UIViewController*)viewController;
+
+
+
 @end

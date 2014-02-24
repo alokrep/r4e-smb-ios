@@ -56,6 +56,21 @@ int startIndex;
     
     startIndex = 0;
     
+    
+    if (_refreshHeaderView == nil) {
+		
+		EGORefreshTableHeaderView *view = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(0.0f, 0.0f - self.tblVw_review.bounds.size.height, self.view.frame.size.width, self.tblVw_review.bounds.size.height)];
+		view.delegate = self;
+		[self.tblVw_review addSubview:view];
+		_refreshHeaderView = view;
+		
+		
+	}
+	
+	//  update the last update date
+	[_refreshHeaderView refreshLastUpdatedDate];
+
+    
    
 }
 - (void)viewWillAppear:(BOOL)animated
@@ -153,6 +168,8 @@ int startIndex;
         return cellFilter;
     }
     reviewsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    
     Review * review = (Review *)[self.arr_ReviewData objectAtIndex:indexPath.row-1];
     
     
@@ -161,6 +178,8 @@ int startIndex;
     {
         cell = (reviewsTableViewCell *)[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
+    cell.img_logoIcon.image = nil;
+    
     cell.selectionStyle=UITableViewCellSelectionStyleNone;
     cell.btn_DropDown.tag = indexPath.row;
     cell.lbl_comment.text = review.comment;
@@ -271,7 +290,8 @@ int startIndex;
         NSLog(@"%d",review.nps);
         
         NSString * str = [NSString stringWithFormat:@"nps_%d.png",review.nps];
-        cell.img_logoIcon.image = [UIImage imageNamed:str];
+        //cell.img_logoIcon.image = [UIImage imageNamed:str];
+        cell.img_logoIcon.image = nil;
     }
     else
     {
@@ -297,6 +317,7 @@ int startIndex;
     }
     
     NSMutableArray *arrResponse = [[NSMutableArray alloc ]init];
+    [arrResponse addObject:@"Full View"];
     Review * reviewObj = [self.arr_ReviewData objectAtIndex:indexPath.row];
     for (int respIndx = 0; respIndx < reviewObj.allowedActions.count; respIndx++)
     {
@@ -399,6 +420,9 @@ int startIndex;
            
         }
     }
+    
+    
+    [_refreshHeaderView egoRefreshScrollViewDidScroll:scrollView];
 
 }
 //- (NSArray *)indexPathsForVisibleRows
@@ -520,7 +544,7 @@ int startIndex;
         dispatch_async(dispatch_get_main_queue(), ^{
             
              [MBProgressHUD hideHUDForView:self.view animated:YES];
-            
+            [self performSelector:@selector(doneLoadingTableViewData) withObject:nil afterDelay:1.0];
             if (arr_ReviewData.count>0) {
                 
                 [self.tblVw_review reloadData];
@@ -631,7 +655,9 @@ int startIndex;
         
         if (!actionSheetReview) {
             actionSheetReview = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil, nil];
-            [actionSheetReview addButtonWithTitle:@"Full View"];
+            
+            
+            //[actionSheetReview addButtonWithTitle:@"Full View"];
             
             for (NSString *title in arrResponse) {
                 [actionSheetReview addButtonWithTitle:title];
@@ -901,9 +927,9 @@ int startIndex;
         }
     }
 }
+#pragma mark -
+#pragma mark UIScrollViewDelegate Methods
 
-
-#pragma mark - UIScrollViewDelegate
 
 // -------------------------------------------------------------------------------
 //	scrollViewDidEndDragging:willDecelerate:
@@ -911,6 +937,7 @@ int startIndex;
 // -------------------------------------------------------------------------------
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
+     [_refreshHeaderView egoRefreshScrollViewDidEndDragging:scrollView];
     if (!decelerate)
 	{
         [self loadImagesForOnscreenRows];
@@ -922,7 +949,49 @@ int startIndex;
 // -------------------------------------------------------------------------------
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
+   
     [self loadImagesForOnscreenRows];
+}
+
+- (void)reloadTableViewDataSource{
+	
+	//  should be calling your tableviews data source model to reload
+	//  put here just for demo
+    
+    startIndex = 0;
+    [self getReviewsData:startIndex];
+	_reloading = YES;
+	
+}
+
+- (void)doneLoadingTableViewData{
+	
+	//  model should call this when its done loading
+	_reloading = NO;
+	[_refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:self.tblVw_review];
+	
+}
+
+#pragma mark -
+#pragma mark EGORefreshTableHeaderDelegate Methods
+
+- (void)egoRefreshTableHeaderDidTriggerRefresh:(EGORefreshTableHeaderView*)view{
+	
+	[self reloadTableViewDataSource];
+	
+	
+}
+
+- (BOOL)egoRefreshTableHeaderDataSourceIsLoading:(EGORefreshTableHeaderView*)view{
+	
+	return _reloading; // should return if data source model is reloading
+	
+}
+
+- (NSDate*)egoRefreshTableHeaderDataSourceLastUpdated:(EGORefreshTableHeaderView*)view{
+	
+	return [NSDate date]; // should return date data source was last changed
+	
 }
 
 

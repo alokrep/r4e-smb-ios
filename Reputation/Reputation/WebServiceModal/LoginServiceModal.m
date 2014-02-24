@@ -22,8 +22,20 @@
         NSURL *loginEndpointURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@login",kServiceURL]];
         THMACHttpClient *httpClient = [[THMACHttpClient alloc] initWithURL:loginEndpointURL userId:email secret:@"reputation"];
         TBinaryProtocol *protocol = [[TBinaryProtocol alloc] initWithTransport:httpClient strictRead:YES strictWrite:YES];
+       
         MobileAuthClient *service = [[MobileAuthClient alloc] initWithProtocol:protocol];
-        LoginResponse *resp = [service login:email password:password];
+        LoginResponse *resp;
+        @try {
+        resp = [service login:email password:password];
+            
+        }
+        
+                    @catch (NSException * e) {
+                        NSLog(@"Exception: %@", e);
+                    }
+                    @finally {
+                        // Added to show finally works as well
+                    }
         
         NSLog(@"resp%@",resp);
         if(resp.response.responseCode == ResponseCode_Success) {

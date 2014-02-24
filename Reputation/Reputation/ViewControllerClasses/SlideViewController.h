@@ -13,6 +13,7 @@
 
 @interface SlideViewController : UIViewController
 {
+
     TourViewController * tourObj;
 }
 @property (weak, nonatomic) IBOutlet UIButton *btnSettings;

@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lbl_name;
 @property (strong, nonatomic) IBOutlet UITextView *textView_fullReview;
 @property (strong, nonatomic) IBOutlet UIView *view_Bottom;
+@property (weak, nonatomic) IBOutlet UILabel *lblTitle;
 @property (strong, nonatomic) Review * reviewObj;
 
 @end

@@ -15,6 +15,7 @@
 @end
 
 @implementation ScoreController
+@synthesize imgView_textBackground;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,7 +31,19 @@
     [super viewDidLoad];
     
     
-    self.view.backgroundColor = [UIColor colorWithRed:234.0f/255.0f green:234.0f/255.0f blue:234.0f/255.0f alpha:1.0];
+    //self.view.backgroundColor = [UIColor colorWithRed:234.0f/255.0f green:234.0f/255.0f blue:234.0f/255.0f alpha:1.0];
+    
+    
+    //setting score_background image
+    
+    self.scoreView_background.layer.cornerRadius = 2.5;
+    self.scoreView_background.layer.borderWidth = 0.6;
+    self.scoreView_background.layer.borderColor = [[UIColor colorWithRed:204.0f/255.0f green:204.0f/255.0f blue:204.0f/255.0f alpha:1.0]CGColor ];
+    self.scoreView_background.layer.masksToBounds = NO;// if you like rounded corners
+    self.scoreView_background.layer.shadowOffset = CGSizeMake(0,+1);
+    self.scoreView_background.layer.shadowRadius = 1;
+    self.scoreView_background.layer.shadowOpacity = 0.5;
+    
     
     CustomNavigation * navigationObj = (CustomNavigation *)self.navigationController;
     navigationObj.lbl_title.text = @"Score";
@@ -44,6 +57,100 @@
     }
     
 }
+
+//frames for 3.5 and 4
+-(void)viewDidLayoutSubviews
+{
+    CGRect screenBounds = [[UIScreen mainScreen] bounds];
+    if (screenBounds.size.height == 568)
+    {
+        
+        self.imgVw_varientArrow.frame = CGRectMake(self.imgVw_varientArrow.frame.origin.x, self.imgVw_varientArrow.frame.origin.y+40, self.imgVw_varientArrow.frame.size.width,self.imgVw_varientArrow.frame.size.height);
+        
+        self.lbl_text_length.frame = CGRectMake(self.lbl_text_length.frame.origin.x, self.lbl_text_length.frame.origin.y+80, self.lbl_text_length.frame.size.width,self.lbl_text_length.frame.size.height);
+        self.lbl_text_spread.frame = CGRectMake(self.lbl_text_spread.frame.origin.x, self.lbl_text_spread.frame.origin.y+80, self.lbl_text_spread.frame.size.width,self.lbl_text_spread.frame.size.height);
+        self.lbl_text_visiblity.frame = CGRectMake(self.lbl_text_visiblity.frame.origin.x, self.lbl_text_visiblity.frame.origin.y+80, self.lbl_text_visiblity.frame.size.width,self.lbl_text_visiblity.frame.size.height);
+        
+        self.lbl_text_weightedAvg.frame = CGRectMake(self.lbl_text_weightedAvg.frame.origin.x, self.lbl_text_weightedAvg.frame.origin.y+38, self.lbl_text_weightedAvg.frame.size.width,self.lbl_text_weightedAvg.frame.size.height);
+        self.lbl_text_volume.frame = CGRectMake(self.lbl_text_volume.frame.origin.x, self.lbl_text_volume.frame.origin.y+38, self.lbl_text_volume.frame.size.width,self.lbl_text_volume.frame.size.height);
+        self.lbl_text_recentness.frame = CGRectMake(self.lbl_text_recentness.frame.origin.x, self.lbl_text_recentness.frame.origin.y+38, self.lbl_text_recentness.frame.size.width,self.lbl_text_recentness.frame.size.height);
+        
+        
+        self.imgView_textBackground.frame = CGRectMake(self.imgView_textBackground.frame.origin.x, self.imgView_textBackground.frame.origin.y + 40, self.imgView_textBackground.frame.size.width,self.imgView_textBackground.frame.size.height);
+        self.lbl_description.frame = CGRectMake(self.lbl_description.frame.origin.x, self.lbl_description.frame.origin.y + 40, self.lbl_description.frame.size.width,self.lbl_description.frame.size.height);
+        
+        
+        // setting Values frame
+        self.lbl_weightedavgValue.frame = CGRectMake(self.lbl_weightedavgValue.frame.origin.x,self.lbl_weightedavgValue.frame.origin.y-((self.progressBar_weightedAvg.progress*120)/2)+40 , 34, 23);
+        
+        self.lbl_lenghtValue.frame = CGRectMake(self.lbl_lenghtValue.frame.origin.x,self.lbl_lenghtValue.frame.origin.y-((self.progressBar_length.progress*120)/2)+80 , 34, 23);
+        
+        self.lbl_recentnessValue.frame = CGRectMake(self.lbl_recentnessValue.frame.origin.x,self.lbl_recentnessValue.frame.origin.y-((self.progressBar_recentness.progress*120)/2)+40 , 34, 23);
+        
+        self.lbl_spreadValue.frame = CGRectMake(self.lbl_spreadValue.frame.origin.x,self.lbl_spreadValue.frame.origin.y-((self.progressBar_spread.progress*120)/2)+80 , 34, 23);
+        
+        self.lbl_visiblityValue.frame = CGRectMake(self.lbl_visiblityValue.frame.origin.x,self.lbl_visiblityValue.frame.origin.y-((self.progressBar_visibility.progress*120)/2)+80 , 34, 23);
+        
+        self.lbl_volumeValue.frame = CGRectMake(self.lbl_volumeValue.frame.origin.x,self.lbl_volumeValue.frame.origin.y-((self.progressBar_volume.progress*120)/2)+40, 34, 23);
+        
+        //setting arrows frame
+        self.arrowImg_weightedAvg.frame = CGRectMake(self.arrowImg_weightedAvg.frame.origin.x,self.arrowImg_weightedAvg.frame.origin.y-((self.progressBar_weightedAvg.progress*120)/2)+40 , 6, 8);
+        
+        self.arrowImg_volume.frame = CGRectMake(self.arrowImg_volume.frame.origin.x,self.arrowImg_volume.frame.origin.y-((self.progressBar_volume.progress*120)/2)+40 , 6, 8);
+        
+        self.arrowImg_recentness.frame = CGRectMake(self.arrowImg_recentness.frame.origin.x,self.arrowImg_recentness.frame.origin.y-((self.progressBar_recentness.progress*120)/2)+40 , 6, 8);
+        
+        self.arrowImg_length.frame = CGRectMake(self.arrowImg_length.frame.origin.x,self.arrowImg_length.frame.origin.y-((self.progressBar_length.progress*120)/2)+80 , 6, 8);
+        
+        self.arrowImg_spread.frame = CGRectMake(self.arrowImg_spread.frame.origin.x,self.arrowImg_spread.frame.origin.y-((self.progressBar_spread.progress*120)/2)+80 , 6, 8);
+        
+        self.arrowImg_visibility.frame = CGRectMake(self.arrowImg_visibility.frame.origin.x,self.arrowImg_visibility.frame.origin.y-((self.progressBar_visibility.progress*120)/2)+80 , 6, 8);
+        
+        // progress bar frames
+        self.progressBar_length.frame = CGRectMake(self.progressBar_length.frame.origin.x, self.progressBar_length.frame.origin.y+80, self.progressBar_length.frame.size.width, self.progressBar_length.frame.size.height);
+        self.progressBar_spread.frame = CGRectMake(self.progressBar_spread.frame.origin.x, self.progressBar_spread.frame.origin.y+80, self.progressBar_spread.frame.size.width, self.progressBar_spread.frame.size.height);
+        self.progressBar_visibility.frame = CGRectMake(self.progressBar_visibility.frame.origin.x, self.progressBar_visibility.frame.origin.y+80, self.progressBar_visibility.frame.size.width, self.progressBar_visibility.frame.size.height);
+        
+        self.progressBar_weightedAvg.frame = CGRectMake(self.progressBar_weightedAvg.frame.origin.x, self.progressBar_weightedAvg.frame.origin.y+40, self.progressBar_weightedAvg.frame.size.width, self.progressBar_weightedAvg.frame.size.height);
+        self.progressBar_volume.frame = CGRectMake(self.progressBar_volume.frame.origin.x, self.progressBar_volume.frame.origin.y+40, self.progressBar_volume.frame.size.width, self.progressBar_volume.frame.size.height);
+        self.progressBar_recentness.frame = CGRectMake(self.progressBar_recentness.frame.origin.x, self.progressBar_recentness.frame.origin.y+40, self.progressBar_recentness.frame.size.width, self.progressBar_recentness.frame.size.height);
+    }else
+    {
+        
+        self.imgView_textBackground.frame = CGRectMake(self.imgView_textBackground.frame.origin.x, self.imgView_textBackground.frame.origin.y, self.imgView_textBackground.frame.size.width,self.imgView_textBackground.frame.size.height-5);
+        
+        // setting Values frame
+        self.lbl_weightedavgValue.frame = CGRectMake(self.lbl_weightedavgValue.frame.origin.x,self.lbl_weightedavgValue.frame.origin.y-((self.progressBar_weightedAvg.progress*120)/2) , 34, 23);
+        
+        self.lbl_lenghtValue.frame = CGRectMake(self.lbl_lenghtValue.frame.origin.x,self.lbl_lenghtValue.frame.origin.y-((self.progressBar_length.progress*120)/2) , 34, 23);
+        
+        self.lbl_recentnessValue.frame = CGRectMake(self.lbl_recentnessValue.frame.origin.x,self.lbl_recentnessValue.frame.origin.y-((self.progressBar_recentness.progress*120)/2) , 34, 23);
+        
+        self.lbl_spreadValue.frame = CGRectMake(self.lbl_spreadValue.frame.origin.x,self.lbl_spreadValue.frame.origin.y-((self.progressBar_spread.progress*120)/2) , 34, 23);
+        
+        self.lbl_visiblityValue.frame = CGRectMake(self.lbl_visiblityValue.frame.origin.x,self.lbl_visiblityValue.frame.origin.y-((self.progressBar_visibility.progress*120)/2) , 34, 23);
+        
+        self.lbl_volumeValue.frame = CGRectMake(self.lbl_volumeValue.frame.origin.x,self.lbl_volumeValue.frame.origin.y-((self.progressBar_volume.progress*120)/2) , 34, 23);
+        
+        //setting arrows frame
+        self.arrowImg_weightedAvg.frame = CGRectMake(self.arrowImg_weightedAvg.frame.origin.x,self.arrowImg_weightedAvg.frame.origin.y-((self.progressBar_weightedAvg.progress*120)/2) , 6, 8);
+        
+        self.arrowImg_volume.frame = CGRectMake(self.arrowImg_volume.frame.origin.x,self.arrowImg_volume.frame.origin.y-((self.progressBar_volume.progress*120)/2) , 6, 8);
+        
+        self.arrowImg_recentness.frame = CGRectMake(self.arrowImg_recentness.frame.origin.x,self.arrowImg_recentness.frame.origin.y-((self.progressBar_recentness.progress*120)/2) , 6, 8);
+        
+        self.arrowImg_length.frame = CGRectMake(self.arrowImg_length.frame.origin.x,self.arrowImg_length.frame.origin.y-((self.progressBar_length.progress*120)/2) , 6, 8);
+        
+        self.arrowImg_spread.frame = CGRectMake(self.arrowImg_spread.frame.origin.x,self.arrowImg_spread.frame.origin.y-((self.progressBar_spread.progress*120)/2) , 6, 8);
+        
+        self.arrowImg_visibility.frame = CGRectMake(self.arrowImg_visibility.frame.origin.x,self.arrowImg_visibility.frame.origin.y-((self.progressBar_visibility.progress*120)/2) , 6, 8);
+    }
+}
+
+
+
+
+
 -(void)sendInfo :(NSMutableArray *)array
 {
     if (array.count>4) {
@@ -57,6 +164,7 @@
 #pragma mark SettingData in ProgressBar
 -(void)setProgressValues
 {
+    
     self.progressBar_length.progress = [[arrayValues objectAtIndex:3] floatValue];
     self.progressBar_recentness.progress = [[arrayValues objectAtIndex:2] floatValue];
     self.progressBar_spread.progress=[[arrayValues objectAtIndex:4] floatValue];
@@ -84,33 +192,27 @@
     self.lbl_weightedavgValue.text =[NSString stringWithFormat:@"%.0f%%", (self.progressBar_weightedAvg.progress * 100)];
     
     
-    // setting Values frame
-    self.lbl_weightedavgValue.frame = CGRectMake(self.lbl_weightedavgValue.frame.origin.x,self.lbl_weightedavgValue.frame.origin.y-((self.progressBar_weightedAvg.progress*120)/2) , 34, 23);
+    [[AppDelegate sharedDelegate] removeFunctionalityOfAutoLayoutForView:self.progressBar_length forController:self];
+    [[AppDelegate sharedDelegate] removeFunctionalityOfAutoLayoutForView:self.progressBar_recentness forController:self];
+    [[AppDelegate sharedDelegate] removeFunctionalityOfAutoLayoutForView:self.progressBar_spread forController:self];
+    [[AppDelegate sharedDelegate] removeFunctionalityOfAutoLayoutForView:self.progressBar_visibility forController:self];
+    [[AppDelegate sharedDelegate] removeFunctionalityOfAutoLayoutForView:self.progressBar_volume forController:self];
+    [[AppDelegate sharedDelegate] removeFunctionalityOfAutoLayoutForView:self.progressBar_weightedAvg forController:self];
     
-    self.lbl_lenghtValue.frame = CGRectMake(self.lbl_lenghtValue.frame.origin.x,self.lbl_lenghtValue.frame.origin.y-((self.progressBar_length.progress*120)/2) , 34, 23);
+    [[AppDelegate sharedDelegate] removeFunctionalityOfAutoLayoutForLabel:self.lbl_weightedavgValue forController:self];
+    [[AppDelegate sharedDelegate] removeFunctionalityOfAutoLayoutForLabel:self.lbl_volumeValue forController:self];
+    [[AppDelegate sharedDelegate] removeFunctionalityOfAutoLayoutForLabel:self.lbl_visiblityValue forController:self];
+    [[AppDelegate sharedDelegate] removeFunctionalityOfAutoLayoutForLabel:self.lbl_spreadValue forController:self];
+    [[AppDelegate sharedDelegate] removeFunctionalityOfAutoLayoutForLabel:self.lbl_recentnessValue forController:self];
+    [[AppDelegate sharedDelegate] removeFunctionalityOfAutoLayoutForLabel:self.lbl_lenghtValue forController:self];
     
-    self.lbl_recentnessValue.frame = CGRectMake(self.lbl_recentnessValue.frame.origin.x,self.lbl_recentnessValue.frame.origin.y-((self.progressBar_recentness.progress*120)/2) , 34, 23);
-    
-    self.lbl_spreadValue.frame = CGRectMake(self.lbl_spreadValue.frame.origin.x,self.lbl_spreadValue.frame.origin.y-((self.progressBar_spread.progress*120)/2) , 34, 23);
-    
-    self.lbl_visiblityValue.frame = CGRectMake(self.lbl_visiblityValue.frame.origin.x,self.lbl_visiblityValue.frame.origin.y-((self.progressBar_visibility.progress*120)/2) , 34, 23);
-    
-    self.lbl_volumeValue.frame = CGRectMake(self.lbl_volumeValue.frame.origin.x,self.lbl_volumeValue.frame.origin.y-((self.progressBar_volume.progress*120)/2) , 34, 23);
-    
-    //setting arrows frame
-    self.arrowImg_weightedAvg.frame = CGRectMake(self.arrowImg_weightedAvg.frame.origin.x,self.arrowImg_weightedAvg.frame.origin.y-((self.progressBar_weightedAvg.progress*120)/2) , 6, 8);
-    
-    self.arrowImg_volume.frame = CGRectMake(self.arrowImg_volume.frame.origin.x,self.arrowImg_volume.frame.origin.y-((self.progressBar_volume.progress*120)/2) , 6, 8);
-    
-    self.arrowImg_recentness.frame = CGRectMake(self.arrowImg_recentness.frame.origin.x,self.arrowImg_recentness.frame.origin.y-((self.progressBar_recentness.progress*120)/2) , 6, 8);
-    
-    self.arrowImg_length.frame = CGRectMake(self.arrowImg_length.frame.origin.x,self.arrowImg_length.frame.origin.y-((self.progressBar_length.progress*120)/2) , 6, 8);
-    
-    self.arrowImg_spread.frame = CGRectMake(self.arrowImg_spread.frame.origin.x,self.arrowImg_spread.frame.origin.y-((self.progressBar_spread.progress*120)/2) , 6, 8);
-    
-    self.arrowImg_visibility.frame = CGRectMake(self.arrowImg_visibility.frame.origin.x,self.arrowImg_visibility.frame.origin.y-((self.progressBar_visibility.progress*120)/2) , 6, 8);
-    
-    
+    [[AppDelegate sharedDelegate] removeFunctionalityOfAutoLayoutForImageView:self.arrowImg_length forController:self];
+    [[AppDelegate sharedDelegate] removeFunctionalityOfAutoLayoutForImageView:self.arrowImg_recentness forController:self];
+    [[AppDelegate sharedDelegate] removeFunctionalityOfAutoLayoutForImageView:self.arrowImg_spread forController:self];
+    [[AppDelegate sharedDelegate] removeFunctionalityOfAutoLayoutForImageView:self.arrowImg_visibility forController:self];
+    [[AppDelegate sharedDelegate] removeFunctionalityOfAutoLayoutForImageView:self.arrowImg_volume forController:self];
+    [[AppDelegate sharedDelegate] removeFunctionalityOfAutoLayoutForImageView:self.arrowImg_weightedAvg forController:self];
+
 }
 #pragma mark SettingUI of ProgressBar
 -(void)setProgressBarUI
@@ -261,36 +363,82 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)factorsBtnClicked:(id)sender {
-    
+- (IBAction)factorsBtnClicked:(id)sender
+{
+    CGRect screenBounds = [[UIScreen mainScreen] bounds];
     switch ([sender tag]) {
         case 0:
             [self.imgVw_varientArrow setImage:[UIImage imageNamed:@"scoreUpArrow.png"]];
-            [self.imgVw_varientArrow setFrame:CGRectMake(35, 238, self.imgVw_varientArrow.frame.size.width,  self.imgVw_varientArrow.frame.size.height)];
+            
+            
+            if (screenBounds.size.height == 480)
+            {
+                [self.imgVw_varientArrow setFrame:CGRectMake(35, 204, self.imgVw_varientArrow.frame.size.width,  self.imgVw_varientArrow.frame.size.height)];
+                self.lbl_description.text = StarAverageText;
+            }
+            else
+                [self.imgVw_varientArrow setFrame:CGRectMake(35, 244, self.imgVw_varientArrow.frame.size.width,  self.imgVw_varientArrow.frame.size.height)];
+            self.lbl_description.text = StarAverageText;
             break;
         case 1:
             [self.imgVw_varientArrow setImage:[UIImage imageNamed:@"scoreUpArrow.png"]];
-            [self.imgVw_varientArrow setFrame:CGRectMake(140, 238, self.imgVw_varientArrow.frame.size.width,  self.imgVw_varientArrow.frame.size.height)];
+            if (screenBounds.size.height == 480)
+            {
+                [self.imgVw_varientArrow setFrame:CGRectMake(140, 204, self.imgVw_varientArrow.frame.size.width,  self.imgVw_varientArrow.frame.size.height)];
+                self.lbl_description.text = VolumeText;
+            }
+            else
+                [self.imgVw_varientArrow setFrame:CGRectMake(140, 244, self.imgVw_varientArrow.frame.size.width,  self.imgVw_varientArrow.frame.size.height)];
+            self.lbl_description.text = VolumeText;
             break;
         case 2:
             [self.imgVw_varientArrow setImage:[UIImage imageNamed:@"scoreUpArrow.png"]];
-            [self.imgVw_varientArrow setFrame:CGRectMake(250, 238, self.imgVw_varientArrow.frame.size.width,  self.imgVw_varientArrow.frame.size.height)];
+            if (screenBounds.size.height == 480)
+            {
+                [self.imgVw_varientArrow setFrame:CGRectMake(250, 204, self.imgVw_varientArrow.frame.size.width,  self.imgVw_varientArrow.frame.size.height)];
+                self.lbl_description.text = RecentnessText;
+            }
+            else
+                [self.imgVw_varientArrow setFrame:CGRectMake(250, 244, self.imgVw_varientArrow.frame.size.width,  self.imgVw_varientArrow.frame.size.height)];
+            self.lbl_description.text = RecentnessText;
             break;
         case 3:
             [self.imgVw_varientArrow setImage:[UIImage imageNamed:@"scoreDownArrow.png"]];
-            [self.imgVw_varientArrow setFrame:CGRectMake(35, 328, self.imgVw_varientArrow.frame.size.width,  self.imgVw_varientArrow.frame.size.height)];
+            if (screenBounds.size.height == 480)
+            {
+                [self.imgVw_varientArrow setFrame:CGRectMake(35, 276, self.imgVw_varientArrow.frame.size.width,  self.imgVw_varientArrow.frame.size.height)];
+                self.lbl_description.text = LengthText;
+            }
+            else
+                [self.imgVw_varientArrow setFrame:CGRectMake(35, 321, self.imgVw_varientArrow.frame.size.width,  self.imgVw_varientArrow.frame.size.height)];
+            self.lbl_description.text = LengthText;
             break;
         case 4:
             [self.imgVw_varientArrow setImage:[UIImage imageNamed:@"scoreDownArrow.png"]];
-            [self.imgVw_varientArrow setFrame:CGRectMake(140,328, self.imgVw_varientArrow.frame.size.width,  self.imgVw_varientArrow.frame.size.height)];
+            if (screenBounds.size.height == 480)
+            {
+                [self.imgVw_varientArrow setFrame:CGRectMake(140, 276, self.imgVw_varientArrow.frame.size.width,  self.imgVw_varientArrow.frame.size.height)];
+                self.lbl_description.text = SpreadText;
+            }
+            else
+                [self.imgVw_varientArrow setFrame:CGRectMake(140, 321, self.imgVw_varientArrow.frame.size.width,  self.imgVw_varientArrow.frame.size.height)];
+            self.lbl_description.text = SpreadText;
             break;
         case 5:
             [self.imgVw_varientArrow setImage:[UIImage imageNamed:@"scoreDownArrow.png"]];
-            [self.imgVw_varientArrow setFrame:CGRectMake(250, 328, self.imgVw_varientArrow.frame.size.width,  self.imgVw_varientArrow.frame.size.height)];
+            if (screenBounds.size.height == 480)
+            {
+                [self.imgVw_varientArrow setFrame:CGRectMake(250, 276, self.imgVw_varientArrow.frame.size.width,  self.imgVw_varientArrow.frame.size.height)];
+                self.lbl_description.text = VisibilityText;
+            }
+            else
+                [self.imgVw_varientArrow setFrame:CGRectMake(250, 321, self.imgVw_varientArrow.frame.size.width,  self.imgVw_varientArrow.frame.size.height)];
+            self.lbl_description.text = VisibilityText;
             break;
             
         default:
             break;
     }
+    
 }
 @end

@@ -41,6 +41,12 @@
     self.navigationController.navigationBarHidden = YES;
     
 }
+-(void)showEditedCredentials:(NSString *)email  :(NSString *)password
+{
+    self.txtFld_userName.text= email;
+    self.txtFld_password.text=password;
+    
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

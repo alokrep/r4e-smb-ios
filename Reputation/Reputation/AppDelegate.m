@@ -147,4 +147,35 @@
     User *obj = (User *)[NSKeyedUnarchiver unarchiveObjectWithData:myEncodedObject];
     return obj;
 }
+- (void) removeFunctionalityOfAutoLayoutForView:(UIView*)kindOfView forController:(UIViewController*)viewController
+{
+    
+    UIView* view = (UIView*)kindOfView;
+    [view removeFromSuperview];
+    [view setTranslatesAutoresizingMaskIntoConstraints:YES];
+    [view setFrame:CGRectMake(view.frame.origin.x, view.frame.origin.y,view.frame.size.width, view.frame.size.height)];
+    [viewController.view addSubview:view];
+}
+
+
+- (void) removeFunctionalityOfAutoLayoutForLabel:(UILabel*)kindOfView forController:(UIViewController*)viewController
+{
+    UILabel* view = (UILabel*)kindOfView;
+    [view removeFromSuperview];
+    [view setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [view setFrame:CGRectMake(view.frame.origin.x, view.frame.origin.y,view.frame.size.width, view.frame.size.height)];
+    [viewController.view addSubview:view];
+    
+}
+
+- (void) removeFunctionalityOfAutoLayoutForImageView:(UIImageView*)kindOfView forController:(UIViewController*)viewController
+{
+    UIImageView* view = (UIImageView*)kindOfView;
+    [view removeFromSuperview];
+    [view setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [view setFrame:CGRectMake(view.frame.origin.x, view.frame.origin.y,view.frame.size.width, view.frame.size.height)];
+    [viewController.view addSubview:view];
+    
+}
+
 @end

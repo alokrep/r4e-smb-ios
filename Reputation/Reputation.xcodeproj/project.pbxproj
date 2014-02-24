@@ -68,6 +68,15 @@
 		0D37E93818A0912D0052346C /* help2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D37E93418A0912D0052346C /* help2@2x.png */; };
 		0D37E93918A0912D0052346C /* help3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D37E93518A0912D0052346C /* help3@2x.png */; };
 		0D37E93A18A0912D0052346C /* help4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D37E93618A0912D0052346C /* help4@2x.png */; };
+		0D517F2118BBC5C100A3C225 /* blackArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D517F1718BBC5C100A3C225 /* blackArrow.png */; };
+		0D517F2218BBC5C100A3C225 /* blackArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D517F1818BBC5C100A3C225 /* blackArrow@2x.png */; };
+		0D517F2318BBC5C100A3C225 /* blueArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D517F1918BBC5C100A3C225 /* blueArrow.png */; };
+		0D517F2418BBC5C100A3C225 /* blueArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D517F1A18BBC5C100A3C225 /* blueArrow@2x.png */; };
+		0D517F2518BBC5C100A3C225 /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D517F1C18BBC5C100A3C225 /* EGORefreshTableHeaderView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		0D517F2618BBC5C100A3C225 /* grayArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D517F1D18BBC5C100A3C225 /* grayArrow.png */; };
+		0D517F2718BBC5C100A3C225 /* grayArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D517F1E18BBC5C100A3C225 /* grayArrow@2x.png */; };
+		0D517F2818BBC5C100A3C225 /* whiteArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D517F1F18BBC5C100A3C225 /* whiteArrow.png */; };
+		0D517F2918BBC5C100A3C225 /* whiteArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D517F2018BBC5C100A3C225 /* whiteArrow@2x.png */; };
 		0D602B9318AA94C200E05B42 /* ReviewDashBoardModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D602B9218AA94C200E05B42 /* ReviewDashBoardModal.m */; };
 		0D602B9618AAA85800E05B42 /* YLProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D602B9518AAA85800E05B42 /* YLProgressBar.m */; };
 		0D602B9918AAD7FD00E05B42 /* arrow_review@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D602B9818AAD7FD00E05B42 /* arrow_review@2x.png */; };
@@ -303,6 +312,17 @@
 		0D37E93418A0912D0052346C /* help2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "help2@2x.png"; sourceTree = "<group>"; };
 		0D37E93518A0912D0052346C /* help3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "help3@2x.png"; sourceTree = "<group>"; };
 		0D37E93618A0912D0052346C /* help4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "help4@2x.png"; sourceTree = "<group>"; };
+		0D517F1718BBC5C100A3C225 /* blackArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackArrow.png; sourceTree = "<group>"; };
+		0D517F1818BBC5C100A3C225 /* blackArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blackArrow@2x.png"; sourceTree = "<group>"; };
+		0D517F1918BBC5C100A3C225 /* blueArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueArrow.png; sourceTree = "<group>"; };
+		0D517F1A18BBC5C100A3C225 /* blueArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blueArrow@2x.png"; sourceTree = "<group>"; };
+		0D517F1B18BBC5C100A3C225 /* EGORefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGORefreshTableHeaderView.h; sourceTree = "<group>"; };
+		0D517F1C18BBC5C100A3C225 /* EGORefreshTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGORefreshTableHeaderView.m; sourceTree = "<group>"; };
+		0D517F1D18BBC5C100A3C225 /* grayArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grayArrow.png; sourceTree = "<group>"; };
+		0D517F1E18BBC5C100A3C225 /* grayArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grayArrow@2x.png"; sourceTree = "<group>"; };
+		0D517F1F18BBC5C100A3C225 /* whiteArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteArrow.png; sourceTree = "<group>"; };
+		0D517F2018BBC5C100A3C225 /* whiteArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "whiteArrow@2x.png"; sourceTree = "<group>"; };
+		0D517F2A18BC074900A3C225 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		0D602B9118AA94C200E05B42 /* ReviewDashBoardModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewDashBoardModal.h; sourceTree = "<group>"; };
 		0D602B9218AA94C200E05B42 /* ReviewDashBoardModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewDashBoardModal.m; sourceTree = "<group>"; };
 		0D602B9418AAA85800E05B42 /* YLProgressBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YLProgressBar.h; path = Reputation/CustomProgressBar/YLProgressBar.h; sourceTree = "<group>"; };
@@ -741,6 +761,23 @@
 			path = Intro;
 			sourceTree = "<group>";
 		};
+		0D517F1618BBC5C100A3C225 /* RefreshView */ = {
+			isa = PBXGroup;
+			children = (
+				0D517F1718BBC5C100A3C225 /* blackArrow.png */,
+				0D517F1818BBC5C100A3C225 /* blackArrow@2x.png */,
+				0D517F1918BBC5C100A3C225 /* blueArrow.png */,
+				0D517F1A18BBC5C100A3C225 /* blueArrow@2x.png */,
+				0D517F1B18BBC5C100A3C225 /* EGORefreshTableHeaderView.h */,
+				0D517F1C18BBC5C100A3C225 /* EGORefreshTableHeaderView.m */,
+				0D517F1D18BBC5C100A3C225 /* grayArrow.png */,
+				0D517F1E18BBC5C100A3C225 /* grayArrow@2x.png */,
+				0D517F1F18BBC5C100A3C225 /* whiteArrow.png */,
+				0D517F2018BBC5C100A3C225 /* whiteArrow@2x.png */,
+			);
+			path = RefreshView;
+			sourceTree = "<group>";
+		};
 		0D602B9018AA949900E05B42 /* DataModal */ = {
 			isa = PBXGroup;
 			children = (
@@ -849,6 +886,7 @@
 		74C725CF189AE8E4008CD4AF = {
 			isa = PBXGroup;
 			children = (
+				0D517F2A18BC074900A3C225 /* Constants.h */,
 				0D602B9A18AAEBA700E05B42 /* icon@2x.png */,
 				0D602B9718AAA86800E05B42 /* CustomProgressBar */,
 				0D37E8C818A003950052346C /* New Group */,
@@ -893,6 +931,7 @@
 		74C725E1189AE8E4008CD4AF /* Reputation */ = {
 			isa = PBXGroup;
 			children = (
+				0D517F1618BBC5C100A3C225 /* RefreshView */,
 				0DC06FED18B5A733007E7E9B /* npsImages */,
 				0D602B9018AA949900E05B42 /* DataModal */,
 				0D1CE96D18A9B36700DECDC5 /* IndicatorCustomClass */,
@@ -1437,6 +1476,7 @@
 				DDD66A6918AAB36A0048071A /* UAPushSettingsAddTagViewController.xib in Resources */,
 				0D37E90918A058AD0052346C /* weight@2x.png in Resources */,
 				0DA1DBDC189C77880074A5F0 /* list@2x.png in Resources */,
+				0D517F2118BBC5C100A3C225 /* blackArrow.png in Resources */,
 				DDD66A4F18AAB36A0048071A /* uncheck@2x.png in Resources */,
 				0D37E90718A058AD0052346C /* visibility@2x.png in Resources */,
 				DDD66A6718AAB36A0048071A /* UAPushLocalization.bundle in Resources */,
@@ -1458,6 +1498,7 @@
 				0DA1DBE9189C7A090074A5F0 /* icn_tab_score.png in Resources */,
 				0D37E8F818A051060052346C /* arrow_big@2x.png in Resources */,
 				0D37E8E218A0325A0052346C /* divider@2x.png in Resources */,
+				0D517F2318BBC5C100A3C225 /* blueArrow.png in Resources */,
 				DDD66A6618AAB36A0048071A /* UAMapPresentationViewController.xib in Resources */,
 				DDD66A4518AAB36A0048071A /* check@2x.png in Resources */,
 				0D87CD6018A30D8E00005BB1 /* back_btn@2x.png in Resources */,
@@ -1477,8 +1518,10 @@
 				0DC06FEC18B586B4007E7E9B /* uncheckBtn@2x.png in Resources */,
 				0D37E8E618A0325A0052346C /* slider_bg@2x.png in Resources */,
 				0D37E91718A0647C0052346C /* Slide_viewBg@2x.png in Resources */,
+				0D517F2418BBC5C100A3C225 /* blueArrow@2x.png in Resources */,
 				0D37E90F18A0625F0052346C /* NavBar@2x.png in Resources */,
 				0DC0700218B5A733007E7E9B /* nps_8@2x.png in Resources */,
+				0D517F2618BBC5C100A3C225 /* grayArrow.png in Resources */,
 				0D87CD5D18A2F94300005BB1 /* 5starsgray.png in Resources */,
 				DDD66A7118AAB4280048071A /* AirshipConfig.plist in Resources */,
 				0D37E90818A058AD0052346C /* volume@2x.png in Resources */,
@@ -1503,6 +1546,7 @@
 				DDD66A6118AAB36A0048071A /* middle-detail.png in Resources */,
 				0D37E93718A0912D0052346C /* help1@2x.png in Resources */,
 				0D37E8E518A0325A0052346C /* heading_bg@2x.png in Resources */,
+				0D517F2718BBC5C100A3C225 /* grayArrow@2x.png in Resources */,
 				0DA1DBE6189C7A090074A5F0 /* icn_tab_dashboard@2x.png in Resources */,
 				DDD66A6418AAB36A0048071A /* top-detail@2x.png in Resources */,
 				DDD66A6818AAB36A0048071A /* UAPushMoreSettingsView.xib in Resources */,
@@ -1522,6 +1566,7 @@
 				74C725E6189AE8E4008CD4AF /* InfoPlist.strings in Resources */,
 				0D37E8E118A0325A0052346C /* arrow@2x.png in Resources */,
 				DDD66A4E18AAB36A0048071A /* uncheck.png in Resources */,
+				0D517F2818BBC5C100A3C225 /* whiteArrow.png in Resources */,
 				0DA1DBDB189C77880074A5F0 /* home@2x.png in Resources */,
 				0DA1DBEC189C7A090074A5F0 /* icn_tab_social@2x.png in Resources */,
 				0D37E8F918A051060052346C /* slider_bg_score@2x.png in Resources */,
@@ -1531,12 +1576,14 @@
 				0D37E8E818A0325A0052346C /* twitter_icon@2x.png in Resources */,
 				DDD66A6D18AAB36A0048071A /* UAPushSettingsTokenView.xib in Resources */,
 				0DC06FFD18B5A733007E7E9B /* nps_3@2x.png in Resources */,
+				0D517F2918BBC5C100A3C225 /* whiteArrow@2x.png in Resources */,
 				0D37E91518A0647C0052346C /* rate@2x.png in Resources */,
 				0D37E93918A0912D0052346C /* help3@2x.png in Resources */,
 				0DA1DBE5189C7A090074A5F0 /* icn_tab_dashboard.png in Resources */,
 				0D37E92B18A07F500052346C /* social@2x.png in Resources */,
 				0DC0700718B5AEC5007E7E9B /* applyReply@2x.png in Resources */,
 				0D602B9C18AAEC8600E05B42 /* refreshBtn@2x.png in Resources */,
+				0D517F2218BBC5C100A3C225 /* blackArrow@2x.png in Resources */,
 				0D87CD5418A2F3D800005BB1 /* back@2x.png in Resources */,
 				0D37E90618A058AD0052346C /* speed@2x.png in Resources */,
 				0DA1DBE8189C7A090074A5F0 /* icn_tab_reviews@2x.png in Resources */,
@@ -1597,6 +1644,7 @@
 				0D061AFC18A0AA7800A7F020 /* filterTimeViewController.m in Sources */,
 				DDD66A3D18AAB36A0048071A /* UAInboxMessageListCell.m in Sources */,
 				74C72626189B0C58008CD4AF /* SocialController.m in Sources */,
+				0D517F2518BBC5C100A3C225 /* EGORefreshTableHeaderView.m in Sources */,
 				DDD66A5218AAB36A0048071A /* UALocationDemoAnnotation.m in Sources */,
 				DDD66A5918AAB36A0048071A /* UAPushSettingsSoundsViewController.m in Sources */,
 				DDD66A3E18AAB36A0048071A /* UAInboxMessageListController.m in Sources */,
@@ -1744,7 +1792,7 @@
 				"HEADER_SEARCH_PATHS[arch=*]" = "$(inherited)";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = NO;
-				PROVISIONING_PROFILE = "E8A55305-D46A-4828-94A6-9751251C3011";
+				PROVISIONING_PROFILE = "08D387C0-4F73-49D2-B0A4-3CE2E20DEA96";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1779,7 +1827,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				PROVISIONING_PROFILE = "E8A55305-D46A-4828-94A6-9751251C3011";
+				PROVISIONING_PROFILE = "08D387C0-4F73-49D2-B0A4-3CE2E20DEA96";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1824,7 +1872,7 @@
 				);
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "E8A55305-D46A-4828-94A6-9751251C3011";
+				PROVISIONING_PROFILE = "08D387C0-4F73-49D2-B0A4-3CE2E20DEA96";
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1864,7 +1912,7 @@
 				);
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "E8A55305-D46A-4828-94A6-9751251C3011";
+				PROVISIONING_PROFILE = "08D387C0-4F73-49D2-B0A4-3CE2E20DEA96";
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
